@@ -3,7 +3,7 @@
 
 void run_reference_trigger_3x3_iso5(const tower_et_t towers[NETA][NPHI],
                             tower_et_t seed_threshold,
-                            tower_et_t cluster_threshold,
+                            cluster_et_t cluster_threshold,
                             Cluster clusters[MAX_CLUSTERS],
                             int &num_clusters,
                             Cluster top_clusters[TOP_N],
@@ -15,28 +15,104 @@ void run_reference_trigger_3x3_iso5(const tower_et_t towers[NETA][NPHI],
     ht = compute_ht(towers);
 }
 
-void find_clusters_3x3_iso5(const tower_et_t towers[NETA][NPHI],
-                           tower_et_t seed_threshold,
-                           tower_et_t cluster_threshold,
-                           Cluster clusters[MAX_CLUSTERS],
-                           int &num_clusters) {
-    find_clusters<3, 5>(towers, seed_threshold, cluster_threshold, clusters, num_clusters);
-}
-
 void find_clusters_3x3(const tower_et_t towers[NETA][NPHI],
                     tower_et_t seed_threshold,
-                    tower_et_t cluster_threshold,
+                    cluster_et_t cluster_threshold,
                     Cluster clusters[MAX_CLUSTERS],
                     int &num_clusters) {
     find_clusters<3, 3>(towers, seed_threshold, cluster_threshold, clusters, num_clusters);
 }
 
+void find_clusters_3x3_iso5(const tower_et_t towers[NETA][NPHI],
+                           tower_et_t seed_threshold,
+                           cluster_et_t cluster_threshold,
+                           Cluster clusters[MAX_CLUSTERS],
+                           int &num_clusters) {
+    find_clusters<3, 5>(towers, seed_threshold, cluster_threshold, clusters, num_clusters);
+}
+
+
+void find_clusters_3x3_iso7(const tower_et_t towers[NETA][NPHI],
+                           tower_et_t seed_threshold,
+                           cluster_et_t cluster_threshold,
+                           Cluster clusters[MAX_CLUSTERS],
+                           int &num_clusters) {
+    find_clusters<3, 7>(towers, seed_threshold, cluster_threshold, clusters, num_clusters);
+}
+
+void find_clusters_5x5(const tower_et_t towers[NETA][NPHI],
+                    tower_et_t seed_threshold,
+                    cluster_et_t cluster_threshold,
+                    Cluster clusters[MAX_CLUSTERS],
+                    int &num_clusters) {
+    find_clusters<5, 5>(towers, seed_threshold, cluster_threshold, clusters, num_clusters);
+}
+
+void find_clusters_5x5_iso7(const tower_et_t towers[NETA][NPHI],
+                           tower_et_t seed_threshold,
+                           cluster_et_t cluster_threshold,
+                           Cluster clusters[MAX_CLUSTERS],
+                           int &num_clusters) {
+    find_clusters<5, 7>(towers, seed_threshold, cluster_threshold, clusters, num_clusters);
+}
+
+void find_clusters_7x7(const tower_et_t towers[NETA][NPHI],
+                    tower_et_t seed_threshold,
+                    cluster_et_t cluster_threshold,
+                    Cluster clusters[MAX_CLUSTERS],
+                    int &num_clusters) {
+    find_clusters<7, 7>(towers, seed_threshold, cluster_threshold, clusters, num_clusters);
+}
+
+
+bool cluster_is_better(const Cluster &a, const Cluster &b)
+{
+    if (!a.valid) {
+        return false;
+    }
+
+    if (!b.valid) {
+        return true;
+    }
+
+    if (a.et > b.et) {
+        return true;
+    }
+
+    if (a.et < b.et) {
+        return false;
+    }
+
+    if (a.eta < b.eta) {
+        return true;
+    }
+
+    if (a.eta > b.eta) {
+        return false;
+    }
+
+    if (a.phi < b.phi) {
+        return true;
+    }
+
+    return false;
+}
+
+// Sort by ET and select top N clusters.
+// If ET is equal, smaller eta first
+// IF eta is equal, smaller phi first
 void select_top_n(const Cluster clusters[MAX_CLUSTERS], 
                   int num_clusters, 
                   Cluster top_clusters[TOP_N]) {
     // Simple selection sort for top N clusters
-    for (int i = 0; i < TOP_N; ++i) {
-        top_clusters[i].valid = false; // Initialize as invalid
+    for (int i = 0; i < TOP_N; i++) {
+        top_clusters[i].et = 0;
+        top_clusters[i].isolation_et = 0;
+        top_clusters[i].eta = 0;
+        top_clusters[i].phi = 0;
+        top_clusters[i].window_size = 0;
+        top_clusters[i].iso_outer_size = 0;
+        top_clusters[i].valid = false;
     }
 
     for (int i = 0; i < num_clusters; ++i) {
@@ -45,7 +121,7 @@ void select_top_n(const Cluster clusters[MAX_CLUSTERS],
         Cluster candidate = clusters[i];
 
         for (int j = 0; j < TOP_N; j++) {
-            if (!top_clusters[j].valid || candidate.et > top_clusters[j].et) {
+            if (!top_clusters[j].valid || cluster_is_better(candidate, top_clusters[j])) {
                 // Shift down lower-ranked clusters
                 for (int k = TOP_N - 1; k > j; k--) {
                     top_clusters[k] = top_clusters[k - 1];
@@ -73,14 +149,14 @@ ht_t compute_ht(const tower_et_t towers[NETA][NPHI]) {
 void build_trigger_objects(const Cluster top_clusters[TOP_N], 
                           TriggerObject trigger_objects[TOP_N]) {
     for (int i = 0; i < TOP_N; ++i) {
-        if (!top_clusters[i].valid) {
-            trigger_objects[i].valid = false;
-            continue;
-        }
-        trigger_objects[i].valid = true;
-        trigger_objects[i].type = TRIG_NONE; // Default type
-    }
-    for (int i  = 0; i < TOP_N; i++) {
+        trigger_objects[i].et = 0;
+        trigger_objects[i].isolation_et = 0;
+        trigger_objects[i].eta = 0;
+        trigger_objects[i].phi = 0;
+        trigger_objects[i].window_size = 0;
+        trigger_objects[i].type = TRIG_NONE;
+        trigger_objects[i].valid = false;
+
         if (!top_clusters[i].valid) {
             continue;
         }
@@ -92,7 +168,7 @@ void build_trigger_objects(const Cluster top_clusters[TOP_N],
         trigger_objects[i].window_size = top_clusters[i].window_size;
 
 
-        // Classification logic based on isolation energy
+        // Classification logic based on window size.
         if (top_clusters[i].window_size == 3) {
             trigger_objects[i].type = TRIG_EM;
         } else {

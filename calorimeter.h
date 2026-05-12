@@ -60,18 +60,49 @@ struct TriggerObject {
     bool valid;
 };
 
+//Top function
+void calo_trigger_ref(const tower_et_t grid[NETA][NPHI],
+                      tower_et_t seed_threshold,
+                      cluster_et_t cluster_threshold,
+                      TriggerObject objects[TOP_N],
+                      ht_t *ht,
+                      int *num_clusters);
 
 // Function prototypes
 
+void find_clusters_3x3(const tower_et_t towers[NETA][NPHI],
+                    tower_et_t seed_threshold,
+                    cluster_et_t cluster_threshold,
+                    Cluster clusters[MAX_CLUSTERS],
+                    int &num_clusters);
+
 void find_clusters_3x3_iso5(const tower_et_t towers[NETA][NPHI],
                            tower_et_t seed_threshold,
-                           tower_et_t cluster_threshold,
+                           cluster_et_t cluster_threshold,
                            Cluster clusters[MAX_CLUSTERS],
                            int &num_clusters);
 
-void find_clusters_3x3(const tower_et_t towers[NETA][NPHI],
+void find_clusters_3x3_iso7(const tower_et_t towers[NETA][NPHI],
+                           tower_et_t seed_threshold,
+                           cluster_et_t cluster_threshold,
+                           Cluster clusters[MAX_CLUSTERS],
+                           int &num_clusters);
+
+void find_clusters_5x5(const tower_et_t towers[NETA][NPHI],
                     tower_et_t seed_threshold,
-                    tower_et_t cluster_threshold,
+                    cluster_et_t cluster_threshold,
+                    Cluster clusters[MAX_CLUSTERS],
+                    int &num_clusters);
+
+void find_clusters_5x5_iso7(const tower_et_t towers[NETA][NPHI],
+                           tower_et_t seed_threshold,
+                           cluster_et_t cluster_threshold,
+                           Cluster clusters[MAX_CLUSTERS],
+                           int &num_clusters);
+
+void find_clusters_7x7(const tower_et_t towers[NETA][NPHI],
+                    tower_et_t seed_threshold,
+                    cluster_et_t cluster_threshold,
                     Cluster clusters[MAX_CLUSTERS],
                     int &num_clusters);
 
@@ -87,30 +118,33 @@ void build_trigger_objects(const Cluster top_clusters[TOP_N],
 
 void run_reference_trigger_3x3_iso5(const tower_et_t towers[NETA][NPHI],
                             tower_et_t seed_threshold,
-                            tower_et_t cluster_threshold,
+                            cluster_et_t cluster_threshold,
                             Cluster clusters[MAX_CLUSTERS],
                             int &num_clusters,
                             Cluster top_clusters[TOP_N],
                             TriggerObject trigger_objects[TOP_N],
                             ht_t &ht);
 
-void calo_trigger_ref(const tower_et_t grid[NETA][NPHI],
-                      tower_et_t seed_threshold,
-                      cluster_et_t cluster_threshold,
-                      TriggerObject objects[TOP_N],
-                      ht_t *ht,
-                      int *num_clusters);
+
+
+inline int wrap_phi(int phi) {
+    if (phi < 0) {
+        return phi + NPHI;
+    } else if (phi >= NPHI) {
+        return phi - NPHI;
+    }
+    return phi;
+}
 
 
 /// Build a template to allow for easy switching between different cluster finding algorithms
-
 template<int W>
 cluster_et_t window_sum(const tower_et_t towers[NETA][NPHI], int eta, int phi) {
     cluster_et_t sum = 0;
     int half_W = W / 2;
     for (int d_eta = -half_W; d_eta <= half_W; ++d_eta) {
         for (int d_phi = -half_W; d_phi <= half_W; ++d_phi) {
-            int phi_idx = (phi + d_phi + NPHI) % NPHI; // Wrap around in phi
+            int phi_idx = wrap_phi(phi + d_phi); // Wrap around in phi
             // eta does not wrap around, so treat out of bounds as zero ET
             int eta_idx = eta + d_eta;
             if (eta_idx >= 0 && eta_idx < NETA) {
@@ -127,14 +161,29 @@ template<int W>
 bool is_local_maximum(const tower_et_t towers[NETA][NPHI], int eta, int phi) {
     tower_et_t center_et = towers[eta][phi];
     int half_W = W / 2;
+
     for (int d_eta = -half_W; d_eta <= half_W; ++d_eta) {
         for (int d_phi = -half_W; d_phi <= half_W; ++d_phi) {
-            tower_et_t neighbor = towers[(eta + d_eta)][phi + d_phi];
+
+            if (d_eta == 0 && d_phi == 0) {
+                continue;
+            }
+
+            int eta_idx = eta + d_eta;
+            int phi_idx = wrap_phi(phi + d_phi);
+
+            tower_et_t neighbor = towers[eta_idx][phi_idx];
+
             if (neighbor > center_et) {
                 return false;
+            } else if (neighbor == center_et) {
+                if (d_eta < 0 || (d_eta == 0 && d_phi < 0)) {
+                    return false;
+                }
             }
         }
     }
+
     return true;
 }
 

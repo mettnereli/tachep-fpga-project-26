@@ -50,7 +50,7 @@ int main()
     towers[25][30] = 10;
 
 
-    //DEPOSIT 5 (above seed threshold but not a local maximum)
+    //DEPOSIT 5 (test local maximum behavior and phi wrapping).
     towers[12][30] = 50;
     towers[12][31] = 70;
 
@@ -67,8 +67,6 @@ int main()
     cluster_et_t cluster_threshold = 50;
 
     //Output cluster array
-    Cluster clusters[MAX_CLUSTERS];
-    Cluster top_clusters[TOP_N];
     TriggerObject objects[TOP_N];
     int num_clusters = 0;
     ht_t ht = 0;
@@ -100,5 +98,47 @@ for (int i = 0; i < TOP_N; i++) {
               << " | type = " << objects[i].type
               << std::endl;
 }
-    return 0;
+
+    int errors = 0;
+
+    if (ht != 692) {
+        std::cout << "ERROR: Expected HT = 692, got " << ht << std::endl;
+        errors++;
+    }
+
+    if (num_clusters != 4) {
+        std::cout << "ERROR: Expected 4 clusters, got " << num_clusters << std::endl;
+        errors++;
+    }
+
+    if (!objects[1].valid || objects[1].et != 139 || objects[1].eta != 10 || objects[1].phi != 20) {
+    std::cout << "ERROR: Object 1 mismatch" << std::endl;
+    errors++;
+    }
+
+    if (!objects[2].valid || objects[2].et != 133 || objects[2].eta != 18 || objects[2].phi != 40) {
+        std::cout << "ERROR: Object 2 mismatch" << std::endl;
+        errors++;
+    }
+
+    if (!objects[3].valid || objects[3].et != 120 || objects[3].eta != 12 || objects[3].phi != 31) {
+        std::cout << "ERROR: Object 3 mismatch" << std::endl;
+        errors++;
+    }
+
+    for (int i = 4; i < TOP_N; i++) {
+        if (objects[i].valid) {
+            std::cout << "ERROR: Object " << i << " should be invalid" << std::endl;
+            errors++;
+        }
+    }
+
+    if (errors == 0) {
+    std::cout << "Test PASSED" << std::endl;
+    } else {
+    std::cout << "Test FAILED with " << errors << " errors" << std::endl;
+    }
+
+
+    return errors;
 }
