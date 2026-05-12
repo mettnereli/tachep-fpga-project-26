@@ -1,0 +1,31 @@
+
+
+set RtlHierarchyInfo {[
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST"},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.top_clusters_valid_U"},
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.clusters_et_U"},
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.clusters_isolation_et_U"},
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.clusters_eta_U"},
+	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.clusters_phi_U"},
+	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.clusters_window_size_U"},
+	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.clusters_iso_outer_size_U"},
+	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.clusters_valid_U"},
+	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.top_clusters_et_U"},
+	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.top_clusters_isolation_et_U"},
+	{"ID" : "11", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.top_clusters_eta_U"},
+	{"ID" : "12", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.top_clusters_phi_U"},
+	{"ID" : "13", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.top_clusters_window_size_U"},
+	{"ID" : "14", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.top_clusters_iso_outer_size_U"},
+	{"ID" : "15", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_find_clusters_3_5_s_fu_134"},
+	{"ID" : "16", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_find_clusters_3_5_s_fu_134.flow_control_loop_pipe_sequential_init_U"},
+	{"ID" : "17", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_select_top_n_fu_159"},
+	{"ID" : "18", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_select_top_n_fu_159.grp_select_top_n_Pipeline_VITIS_LOOP_108_1_fu_267"},
+	{"ID" : "19", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_select_top_n_fu_159.grp_select_top_n_Pipeline_VITIS_LOOP_108_1_fu_267.flow_control_loop_pipe_sequential_init_U"},
+	{"ID" : "20", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_select_top_n_fu_159.grp_select_top_n_Pipeline_VITIS_LOOP_128_3_fu_285"},
+	{"ID" : "21", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_select_top_n_fu_159.grp_select_top_n_Pipeline_VITIS_LOOP_131_4_fu_305"},
+	{"ID" : "22", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_select_top_n_fu_159.grp_select_top_n_Pipeline_VITIS_LOOP_131_4_fu_305.flow_control_loop_pipe_sequential_init_U"},
+	{"ID" : "23", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_calo_trigger_ref_Pipeline_VITIS_LOOP_145_1_VITIS_LOOP_146_2_fu_178"},
+	{"ID" : "24", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_calo_trigger_ref_Pipeline_VITIS_LOOP_145_1_VITIS_LOOP_146_2_fu_178.flow_control_loop_pipe_sequential_init_U"},
+	{"ID" : "25", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_calo_trigger_ref_Pipeline_VITIS_LOOP_156_1_fu_185"},
+	{"ID" : "26", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_calo_trigger_ref_Pipeline_VITIS_LOOP_156_1_fu_185.flow_control_loop_pipe_sequential_init_U"}]}
+set DependenceCheckSize 0

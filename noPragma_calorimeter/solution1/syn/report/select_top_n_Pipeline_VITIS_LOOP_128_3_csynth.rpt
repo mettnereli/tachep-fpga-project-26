@@ -1,0 +1,175 @@
+
+
+================================================================
+== Vitis HLS Report for 'select_top_n_Pipeline_VITIS_LOOP_128_3'
+================================================================
+* Date:           Tue May 12 15:59:08 2026
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        calorimeter
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu13p-fsga2577-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  25.00 ns|  1.760 ns|     6.75 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        6|       47|  0.150 us|  1.175 us|    6|   47|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count | Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |- VITIS_LOOP_128_3  |        4|       44|         5|          5|          1|  0 ~ 8|       yes|
+        +--------------------+---------+---------+----------+-----------+-----------+-------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+------+
+|         Name        | BRAM_18K|  DSP  |    FF   |   LUT   | URAM |
++---------------------+---------+-------+---------+---------+------+
+|DSP                  |        -|      -|        -|        -|     -|
+|Expression           |        -|      -|        0|      107|     -|
+|FIFO                 |        -|      -|        -|        -|     -|
+|Instance             |        -|      -|        -|        -|     -|
+|Memory               |        -|      -|        -|        -|     -|
+|Multiplexer          |        -|      -|        0|      118|     -|
+|Register             |        -|      -|       44|        -|     -|
++---------------------+---------+-------+---------+---------+------+
+|Total                |        0|      0|       44|      225|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available SLR        |     1344|   3072|   864000|   432000|   320|
++---------------------+---------+-------+---------+---------+------+
+|Utilization SLR (%)  |        0|      0|       ~0|       ~0|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available            |     5376|  12288|  3456000|  1728000|  1280|
++---------------------+---------+-------+---------+---------+------+
+|Utilization (%)      |        0|      0|       ~0|       ~0|     0|
++---------------------+---------+-------+---------+---------+------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------+----------+----+---+----+------------+------------+
+    |     Variable Name    | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+----+---+----+------------+------------+
+    |add_ln128_fu_192_p2   |         +|   0|  0|  12|           4|           1|
+    |icmp_ln128_fu_186_p2  |      icmp|   0|  0|  12|           4|           5|
+    |icmp_ln78_fu_203_p2   |      icmp|   0|  0|  23|          16|          16|
+    |icmp_ln82_fu_208_p2   |      icmp|   0|  0|  23|          16|          16|
+    |icmp_ln86_fu_213_p2   |      icmp|   0|  0|  12|           5|           5|
+    |icmp_ln90_fu_218_p2   |      icmp|   0|  0|  12|           5|           5|
+    |icmp_ln94_fu_223_p2   |      icmp|   0|  0|  13|           6|           6|
+    +----------------------+----------+----+---+----+------------+------------+
+    |Total                 |          |   0|  0| 107|          56|          54|
+    +----------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------------------------+----+-----------+-----+-----------+
+    |                   Name                  | LUT| Input Size| Bits| Total Bits|
+    +-----------------------------------------+----+-----------+-----+-----------+
+    |UnifiedRetVal_reg_150                    |  26|          5|    3|         15|
+    |ap_NS_fsm                                |  65|         12|    1|         12|
+    |ap_phi_mux_UnifiedRetVal_phi_fu_157_p10  |   9|          2|    3|          6|
+    |ap_return                                |   9|          2|    3|          6|
+    |b_valid_fu_64                            |   9|          2|    4|          8|
+    +-----------------------------------------+----+-----------+-----+-----------+
+    |Total                                    | 118|         23|   14|         47|
+    +-----------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------------------+----+----+-----+-----------+
+    |               Name              | FF | LUT| Bits| Const Bits|
+    +---------------------------------+----+----+-----+-----------+
+    |UnifiedRetVal_reg_150            |   3|   0|    3|          0|
+    |add_ln128_reg_266                |   4|   0|    4|          0|
+    |ap_CS_fsm                        |  11|   0|   11|          0|
+    |ap_return_preg                   |   3|   0|    3|          0|
+    |b_eta_reg_292                    |   3|   0|    3|          0|
+    |b_phi_reg_297                    |   3|   0|    3|          0|
+    |b_valid_fu_64                    |   4|   0|    4|          0|
+    |icmp_ln128_reg_262               |   1|   0|    1|          0|
+    |icmp_ln78_reg_302                |   1|   0|    1|          0|
+    |icmp_ln82_reg_306                |   1|   0|    1|          0|
+    |icmp_ln86_reg_310                |   1|   0|    1|          0|
+    |icmp_ln90_reg_314                |   1|   0|    1|          0|
+    |top_clusters_valid_load_reg_283  |   1|   0|    1|          0|
+    |trunc_ln128_reg_256              |   3|   0|    3|          0|
+    |zext_ln128_reg_271               |   4|   0|   64|         60|
+    +---------------------------------+----+----+-----+-----------+
+    |Total                            |  44|   0|  104|         60|
+    +---------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------------+-----+-----+------------+----------------------------------------+--------------+
+|          RTL Ports          | Dir | Bits|  Protocol  |              Source Object             |    C Type    |
++-----------------------------+-----+-----+------------+----------------------------------------+--------------+
+|ap_clk                       |   in|    1|  ap_ctrl_hs|  select_top_n_Pipeline_VITIS_LOOP_128_3|  return value|
+|ap_rst                       |   in|    1|  ap_ctrl_hs|  select_top_n_Pipeline_VITIS_LOOP_128_3|  return value|
+|ap_start                     |   in|    1|  ap_ctrl_hs|  select_top_n_Pipeline_VITIS_LOOP_128_3|  return value|
+|ap_done                      |  out|    1|  ap_ctrl_hs|  select_top_n_Pipeline_VITIS_LOOP_128_3|  return value|
+|ap_idle                      |  out|    1|  ap_ctrl_hs|  select_top_n_Pipeline_VITIS_LOOP_128_3|  return value|
+|ap_ready                     |  out|    1|  ap_ctrl_hs|  select_top_n_Pipeline_VITIS_LOOP_128_3|  return value|
+|ap_return                    |  out|    3|  ap_ctrl_hs|  select_top_n_Pipeline_VITIS_LOOP_128_3|  return value|
+|candidate_et                 |   in|   16|     ap_none|                            candidate_et|        scalar|
+|top_clusters_et_address0     |  out|    3|   ap_memory|                         top_clusters_et|         array|
+|top_clusters_et_ce0          |  out|    1|   ap_memory|                         top_clusters_et|         array|
+|top_clusters_et_q0           |   in|   16|   ap_memory|                         top_clusters_et|         array|
+|top_clusters_eta_address0    |  out|    3|   ap_memory|                        top_clusters_eta|         array|
+|top_clusters_eta_ce0         |  out|    1|   ap_memory|                        top_clusters_eta|         array|
+|top_clusters_eta_q0          |   in|    5|   ap_memory|                        top_clusters_eta|         array|
+|top_clusters_phi_address0    |  out|    3|   ap_memory|                        top_clusters_phi|         array|
+|top_clusters_phi_ce0         |  out|    1|   ap_memory|                        top_clusters_phi|         array|
+|top_clusters_phi_q0          |   in|    6|   ap_memory|                        top_clusters_phi|         array|
+|top_clusters_valid_address0  |  out|    3|   ap_memory|                      top_clusters_valid|         array|
+|top_clusters_valid_ce0       |  out|    1|   ap_memory|                      top_clusters_valid|         array|
+|top_clusters_valid_q0        |   in|    1|   ap_memory|                      top_clusters_valid|         array|
+|candidate_eta                |   in|    5|     ap_none|                           candidate_eta|        scalar|
+|candidate_phi                |   in|    6|     ap_none|                           candidate_phi|        scalar|
+|j_out                        |  out|    3|      ap_vld|                                   j_out|       pointer|
+|j_out_ap_vld                 |  out|    1|      ap_vld|                                   j_out|       pointer|
+|zext_ln128_out               |  out|    3|      ap_vld|                          zext_ln128_out|       pointer|
+|zext_ln128_out_ap_vld        |  out|    1|      ap_vld|                          zext_ln128_out|       pointer|
++-----------------------------+-----+-----+------------+----------------------------------------+--------------+
+

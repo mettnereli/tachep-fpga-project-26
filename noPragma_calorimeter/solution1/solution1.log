@@ -1,0 +1,278 @@
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2024.1 (64-bit)
+Tool Version Limit: 2024.05
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+==============================================================
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xcvu13p-fsga2577-2-e 
+INFO: [HLS 200-1611] Setting target device to 'xcvu13p-fsga2577-2-e'
+INFO: [HLS 200-1510] Running: create_clock -period 25 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 25ns.
+INFO: [HLS 200-1510] Running: csim_design 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-2161] Finished Command csim_design Elapsed time: 00:00:09; Allocated memory: 0.172 MB.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.16 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.19 seconds; current allocated memory: 325.219 MB.
+INFO: [HLS 200-10] Analyzing design file 'calorimeter.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 7.63 seconds. CPU system time: 1.3 seconds. Elapsed time: 9.07 seconds; current allocated memory: 327.352 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 1,473 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 694 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 557 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 555 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 454 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 397 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 397 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 493 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 477 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 488 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 423 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,035 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,025 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,025 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,039 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,076 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 214-178] Inlining function 'wrap_phi(int)' into 'bool is_local_maximum<3>(ap_uint<12> const (*) [60], int, int)' (./calorimeter.h:161:0)
+INFO: [HLS 214-178] Inlining function 'wrap_phi(int)' into 'ap_uint<20> window_sum<3>(ap_uint<12> const (*) [60], int, int)' (./calorimeter.h:142:0)
+INFO: [HLS 214-178] Inlining function 'wrap_phi(int)' into 'ap_uint<20> window_sum<5>(ap_uint<12> const (*) [60], int, int)' (./calorimeter.h:142:0)
+INFO: [HLS 214-178] Inlining function 'ap_uint<20> window_sum<5>(ap_uint<12> const (*) [60], int, int)' into 'ap_uint<20> isolation_sum<3, 5>(ap_uint<12> const (*) [60], int, int)' (./calorimeter.h:196:0)
+INFO: [HLS 214-178] Inlining function 'ap_uint<20> window_sum<3>(ap_uint<12> const (*) [60], int, int)' into 'ap_uint<20> isolation_sum<3, 5>(ap_uint<12> const (*) [60], int, int)' (./calorimeter.h:196:0)
+INFO: [HLS 214-178] Inlining function 'bool is_local_maximum<3>(ap_uint<12> const (*) [60], int, int)' into 'void find_clusters<3, 5>(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, Cluster*, int&)' (./calorimeter.h:210:0)
+INFO: [HLS 214-178] Inlining function 'ap_uint<20> window_sum<3>(ap_uint<12> const (*) [60], int, int)' into 'void find_clusters<3, 5>(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, Cluster*, int&)' (./calorimeter.h:210:0)
+INFO: [HLS 214-178] Inlining function 'ap_uint<20> isolation_sum<3, 5>(ap_uint<12> const (*) [60], int, int)' into 'void find_clusters<3, 5>(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, Cluster*, int&)' (./calorimeter.h:210:0)
+INFO: [HLS 214-178] Inlining function 'cluster_is_better(Cluster const&, Cluster const&)' into 'select_top_n(Cluster const*, int, Cluster*)' (calorimeter.cpp:106:0)
+INFO: [HLS 214-178] Inlining function 'find_clusters_3x3_iso5(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, Cluster*, int&)' into 'run_reference_trigger_3x3_iso5(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, Cluster*, int&, Cluster*, TriggerObject*, ap_uint<24>&)' (calorimeter.cpp:11:0)
+INFO: [HLS 214-178] Inlining function 'build_trigger_objects(Cluster const*, TriggerObject*)' into 'run_reference_trigger_3x3_iso5(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, Cluster*, int&, Cluster*, TriggerObject*, ap_uint<24>&)' (calorimeter.cpp:11:0)
+INFO: [HLS 214-178] Inlining function 'compute_ht(ap_uint<12> const (*) [60])' into 'run_reference_trigger_3x3_iso5(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, Cluster*, int&, Cluster*, TriggerObject*, ap_uint<24>&)' (calorimeter.cpp:11:0)
+INFO: [HLS 214-178] Inlining function 'run_reference_trigger_3x3_iso5(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, Cluster*, int&, Cluster*, TriggerObject*, ap_uint<24>&)' into 'calo_trigger_ref(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, TriggerObject*, ap_uint<24>*, int*)' (calorimeter.cpp:194:0)
+INFO: [HLS 214-241] Aggregating bram variable 'objects' with compact=bit mode in 89-bits (calorimeter.cpp:194:0)
+INFO: [HLS 214-241] Aggregating bram variable 'grid' with compact=bit mode in 12-bits (calorimeter.cpp:194:0)
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_108_1> at calorimeter.cpp:108:23 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_131_4> at calorimeter.cpp:131:35 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_128_3> at calorimeter.cpp:128:27 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_219_2> at ./calorimeter.h:219:27 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_156_1> at calorimeter.cpp:156:23 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_146_2> at calorimeter.cpp:146:27 
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_165_1' is marked as complete unroll implied by the pipeline pragma (./calorimeter.h:165:23)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_166_2' is marked as complete unroll implied by the pipeline pragma (./calorimeter.h:166:27)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_145_1' is marked as complete unroll implied by the pipeline pragma (./calorimeter.h:145:23)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_146_2' is marked as complete unroll implied by the pipeline pragma (./calorimeter.h:146:27)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_165_1' (./calorimeter.h:165:23) in function 'find_clusters<3, 5>' completely with a factor of 3 (./calorimeter.h:210:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_166_2' (./calorimeter.h:166:27) in function 'find_clusters<3, 5>' completely with a factor of 3 (./calorimeter.h:210:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_145_1' (./calorimeter.h:145:23) in function 'find_clusters<3, 5>' completely with a factor of 3 (./calorimeter.h:210:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_146_2' (./calorimeter.h:146:27) in function 'find_clusters<3, 5>' completely with a factor of 3 (./calorimeter.h:210:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_145_1' (./calorimeter.h:145:23) in function 'find_clusters<3, 5>' completely with a factor of 5 (./calorimeter.h:210:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_146_2' (./calorimeter.h:146:27) in function 'find_clusters<3, 5>' completely with a factor of 5 (./calorimeter.h:210:0)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 5.32 seconds. CPU system time: 1.05 seconds. Elapsed time: 9.73 seconds; current allocated memory: 337.184 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 337.184 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.1 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.11 seconds; current allocated memory: 338.047 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.09 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.1 seconds; current allocated memory: 339.824 MB.
+WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 56 for loop 'VITIS_LOOP_219_2' (./calorimeter.h:219:36) in function 'find_clusters<3, 5>'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 26 for loop 'VITIS_LOOP_218_1' (./calorimeter.h:218:32) in function 'find_clusters<3, 5>'.
+INFO: [XFORM 203-11] Balancing expressions in function 'find_clusters<3, 5>' (./calorimeter.h:147:13)...39 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.32 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.35 seconds; current allocated memory: 363.160 MB.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_218_1'(./calorimeter.h:218:23) and 'VITIS_LOOP_219_2'(./calorimeter.h:219:27) in function 'find_clusters<3, 5>' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_145_1'(calorimeter.cpp:145:23) and 'VITIS_LOOP_146_2'(calorimeter.cpp:146:27) in function 'calo_trigger_ref' into perfectly nested loops.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_218_1' (./calorimeter.h:218:23) in function 'find_clusters<3, 5>'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_145_1' (calorimeter.cpp:145:23) in function 'calo_trigger_ref'.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.25 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.28 seconds; current allocated memory: 422.664 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'calo_trigger_ref' ...
+WARNING: [SYN 201-103] Legalizing function name 'find_clusters<3, 5>' to 'find_clusters_3_5_s'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'find_clusters_3_5_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_218_1_VITIS_LOOP_219_2'.
+WARNING: [HLS 200-885] The II Violation in module 'find_clusters_3_5_s' (loop 'VITIS_LOOP_218_1_VITIS_LOOP_219_2'): Unable to schedule 'load' operation 12 bit ('neighbor', ./calorimeter.h:175->./calorimeter.h:226) on array 'grid' due to limited memory ports (II = 1). Please consider using a memory core with more ports or partitioning the array 'grid'.
+WARNING: [HLS 200-885] The II Violation in module 'find_clusters_3_5_s' (loop 'VITIS_LOOP_218_1_VITIS_LOOP_219_2'): Unable to schedule 'load' operation 12 bit ('neighbor', ./calorimeter.h:175->./calorimeter.h:226) on array 'grid' due to limited memory ports (II = 2). Please consider using a memory core with more ports or partitioning the array 'grid'.
+WARNING: [HLS 200-885] The II Violation in module 'find_clusters_3_5_s' (loop 'VITIS_LOOP_218_1_VITIS_LOOP_219_2'): Unable to schedule 'load' operation 12 bit ('neighbor', ./calorimeter.h:175->./calorimeter.h:226) on array 'grid' due to limited memory ports (II = 3). Please consider using a memory core with more ports or partitioning the array 'grid'.
+WARNING: [HLS 200-885] The II Violation in module 'find_clusters_3_5_s' (loop 'VITIS_LOOP_218_1_VITIS_LOOP_219_2'): Unable to schedule 'load' operation 12 bit ('neighbor', ./calorimeter.h:175->./calorimeter.h:226) on array 'grid' due to limited memory ports (II = 4). Please consider using a memory core with more ports or partitioning the array 'grid'.
+WARNING: [HLS 200-885] The II Violation in module 'find_clusters_3_5_s' (loop 'VITIS_LOOP_218_1_VITIS_LOOP_219_2'): Unable to schedule 'load' operation 12 bit ('grid_load_12', ./calorimeter.h:151->./calorimeter.h:197->./calorimeter.h:239) on array 'grid' due to limited memory ports (II = 11). Please consider using a memory core with more ports or partitioning the array 'grid'.
+WARNING: [HLS 200-885] The II Violation in module 'find_clusters_3_5_s' (loop 'VITIS_LOOP_218_1_VITIS_LOOP_219_2'): Unable to schedule 'load' operation 12 bit ('grid_load_14', ./calorimeter.h:151->./calorimeter.h:197->./calorimeter.h:239) on array 'grid' due to limited memory ports (II = 12). Please consider using a memory core with more ports or partitioning the array 'grid'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 13, Depth = 22, loop 'VITIS_LOOP_218_1_VITIS_LOOP_219_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.97 seconds. CPU system time: 0.04 seconds. Elapsed time: 1.08 seconds; current allocated memory: 425.043 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.11 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.14 seconds; current allocated memory: 425.043 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'select_top_n_Pipeline_VITIS_LOOP_108_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_108_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 1, loop 'VITIS_LOOP_108_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.16 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.19 seconds; current allocated memory: 425.043 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 425.043 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'select_top_n_Pipeline_VITIS_LOOP_128_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_128_3'.
+WARNING: [HLS 200-878] Unable to schedule the loop exit test ('load' operation 1 bit ('top_clusters_valid_load', calorimeter.cpp:129) on array 'top_clusters_valid') in the first pipeline iteration (II = 1 cycles).
+WARNING: [HLS 200-878] Unable to schedule the loop exit test ('icmp' operation 1 bit ('icmp_ln78', calorimeter.cpp:78->calorimeter.cpp:129)) in the first pipeline iteration (II = 2 cycles).
+WARNING: [HLS 200-878] Unable to schedule the loop exit test ('icmp' operation 1 bit ('icmp_ln86', calorimeter.cpp:86->calorimeter.cpp:129)) in the first pipeline iteration (II = 3 cycles).
+WARNING: [HLS 200-878] Unable to schedule the loop exit test ('icmp' operation 1 bit ('icmp_ln94', calorimeter.cpp:94->calorimeter.cpp:129)) in the first pipeline iteration (II = 4 cycles).
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 5, Depth = 5, loop 'VITIS_LOOP_128_3'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.14 seconds; current allocated memory: 425.043 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 425.043 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'select_top_n_Pipeline_VITIS_LOOP_131_4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_131_4'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 2, loop 'VITIS_LOOP_131_4'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 425.328 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 425.328 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'select_top_n' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.14 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 425.898 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 425.898 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'calo_trigger_ref_Pipeline_VITIS_LOOP_156_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_156_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 3, loop 'VITIS_LOOP_156_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.1 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.12 seconds; current allocated memory: 426.387 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 426.387 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'calo_trigger_ref_Pipeline_VITIS_LOOP_145_1_VITIS_LOOP_146_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_145_1_VITIS_LOOP_146_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 2, loop 'VITIS_LOOP_145_1_VITIS_LOOP_146_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.12 seconds; current allocated memory: 426.852 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 426.852 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'calo_trigger_ref' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.1 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.36 seconds; current allocated memory: 427.188 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 427.188 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'find_clusters_3_5_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'find_clusters_3_5_s' pipeline 'VITIS_LOOP_218_1_VITIS_LOOP_219_2' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'find_clusters_3_5_s'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.17 seconds. CPU system time: 0 seconds. Elapsed time: 0.18 seconds; current allocated memory: 428.902 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'select_top_n_Pipeline_VITIS_LOOP_108_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'select_top_n_Pipeline_VITIS_LOOP_108_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.3 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.45 seconds; current allocated memory: 435.582 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'select_top_n_Pipeline_VITIS_LOOP_128_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'select_top_n_Pipeline_VITIS_LOOP_128_3'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.14 seconds; current allocated memory: 435.582 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'select_top_n_Pipeline_VITIS_LOOP_131_4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'select_top_n_Pipeline_VITIS_LOOP_131_4' pipeline 'VITIS_LOOP_131_4' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'select_top_n_Pipeline_VITIS_LOOP_131_4'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.11 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.15 seconds; current allocated memory: 436.926 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'select_top_n' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'select_top_n'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.11 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.15 seconds; current allocated memory: 438.723 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'calo_trigger_ref_Pipeline_VITIS_LOOP_156_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'calo_trigger_ref_Pipeline_VITIS_LOOP_156_1' pipeline 'VITIS_LOOP_156_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'calo_trigger_ref_Pipeline_VITIS_LOOP_156_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.13 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.17 seconds; current allocated memory: 440.535 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'calo_trigger_ref_Pipeline_VITIS_LOOP_145_1_VITIS_LOOP_146_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'calo_trigger_ref_Pipeline_VITIS_LOOP_145_1_VITIS_LOOP_146_2' pipeline 'VITIS_LOOP_145_1_VITIS_LOOP_146_2' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'calo_trigger_ref_Pipeline_VITIS_LOOP_145_1_VITIS_LOOP_146_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.1 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.14 seconds; current allocated memory: 441.688 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'calo_trigger_ref' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'calo_trigger_ref/grid' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'calo_trigger_ref/seed_threshold' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'calo_trigger_ref/cluster_threshold' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'calo_trigger_ref/objects' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'calo_trigger_ref/ht' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'calo_trigger_ref/num_clusters' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'calo_trigger_ref' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'calo_trigger_ref'.
+INFO: [RTMG 210-278] Implementing memory 'calo_trigger_ref_top_clusters_valid_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'calo_trigger_ref_clusters_et_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'calo_trigger_ref_clusters_isolation_et_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'calo_trigger_ref_clusters_eta_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'calo_trigger_ref_clusters_phi_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'calo_trigger_ref_clusters_window_size_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'calo_trigger_ref_clusters_iso_outer_size_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'calo_trigger_ref_top_clusters_et_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'calo_trigger_ref_top_clusters_isolation_et_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'calo_trigger_ref_top_clusters_eta_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'calo_trigger_ref_top_clusters_phi_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'calo_trigger_ref_top_clusters_window_size_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'calo_trigger_ref_top_clusters_iso_outer_size_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.19 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.31 seconds; current allocated memory: 443.766 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.37 seconds. CPU system time: 0.05 seconds. Elapsed time: 0.45 seconds; current allocated memory: 447.000 MB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.93 seconds. CPU system time: 0.04 seconds. Elapsed time: 0.96 seconds; current allocated memory: 452.141 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for calo_trigger_ref.
+INFO: [VLOG 209-307] Generating Verilog RTL for calo_trigger_ref.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 102.56 MHz
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 00:00:26; Allocated memory: 127.867 MB.

@@ -1,0 +1,67 @@
+================================================================
+== Design Size Report
+================================================================
+
+* Total Instructions per Compilation Phase
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+| Phase         | Step                        | Instructions | Description                                                                            |
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+| Compile/Link  |                             | 1,473        | After all functions are compiled and linked into a single design                       |
+|               |                             |              |                                                                                        |
+| Unroll/Inline |                             |              | After user unroll and inline pragmas are applied                                       |
+|               | (1) unroll                  |   694        | user unroll pragmas are applied                                                        |
+|               | (2) simplification          |   557        | simplification of applied user unroll pragmas                                          |
+|               | (3) inline                  |   555        | user inline pragmas are applied                                                        |
+|               | (4) simplification          |   454        | simplification of applied user inline pragmas                                          |
+|               |                             |              |                                                                                        |
+| Array/Struct  |                             |              | After user array partition and struct aggregate/disaggregate pragmas are applied       |
+|               | (1) array partition         |   397        | user array partition pragmas are applied                                               |
+|               | (2) simplification          |   397        | simplification of applied user array partition & struct aggregate/disaggregate pragmas |
+|               | (3) aggregate/disaggregate  |   493        | user struct aggregate/disaggregate pragmas are applied                                 |
+|               | (4) array reshape           |   477        | apply array reshape pragmas                                                            |
+|               | (5) access patterns         |   488        | array access pattern optmizations                                                      |
+|               |                             |              |                                                                                        |
+| Performance   |                             |              | After transformations are applied to meet performance pragma targets                   |
+|               | (1) loop simplification     |   423        | loop and instruction simplification                                                    |
+|               | (2) parallelization         | 1,035        | loops are unrolled or pipelined to meet performance targets                            |
+|               | (3) array partition         | 1,025        | arrays are partitioned to meet performance targets                                     |
+|               | (4) simplification          | 1,025        | simplification of design after performance transformations                             |
+|               |                             |              |                                                                                        |
+| HW Transforms |                             |              | After hardware transfomations                                                          |
+|               | (1) lowering                | 1,039        | initial conversion to HW specific instructions                                         |
+|               | (2) optimizations           | 1,076        | high level synthesis optimizations                                                     |
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+
+* Instructions per Function for each Compilation Phase
++------------------------------------+---------------------+--------------+---------------+--------------+-------------+---------------+
+| Function                           | Location            | Compile/Link | Unroll/Inline | Array/Struct | Performance | HW Transforms |
++------------------------------------+---------------------+--------------+---------------+--------------+-------------+---------------+
+| + calo_trigger_ref                 | calorimeter.cpp:188 | 1,473        | 454           | 488          | 1,025       | 1,076         |
+|  + run_reference_trigger_3x3_is... | calorimeter.cpp:4   | 1,422        |               |              |             |               |
+|   + find_clusters_3x3_iso5         | calorimeter.cpp:26  |  715         |               |              |             |               |
+|    + find_clusters<3, 5>           | calorimeter.h:206   |  707         |               |              |             |               |
+|     + is_local_maximum<3>          | calorimeter.h:161   |  116         |               |              |             |               |
+|        wrap_phi                    | calorimeter.h:130   |   12         |               |              |             |               |
+|     + window_sum<3>                | calorimeter.h:142   |   78         |               |              |             |               |
+|        wrap_phi                    | calorimeter.h:130   |   12         |               |              |             |               |
+|     + isolation_sum<3, 5>          | calorimeter.h:196   |  291         |               |              |             |               |
+|      + window_sum<5>               | calorimeter.h:142   |   78         |               |              |             |               |
+|         wrap_phi                   | calorimeter.h:130   |   12         |               |              |             |               |
+|      + window_sum<3>               | calorimeter.h:142   |   78         |               |              |             |               |
+|         wrap_phi                   | calorimeter.h:130   |   12         |               |              |             |               |
+|   + select_top_n                   | calorimeter.cpp:104 |  345         |               |              |             |               |
+|      cluster_is_better             | calorimeter.cpp:68  |   96         |               |              |             |               |
+|     build_trigger_objects          | calorimeter.cpp:154 |  250         |               |              |             |               |
+|     compute_ht                     | calorimeter.cpp:143 |   93         |               |              |             |               |
+|    find_clusters<3, 5>             | calorimeter.h:206   |              | 230           | 214          |  816        |  823          |
+|    select_top_n                    | calorimeter.cpp:104 |              | 122           | 125          |  120        |  137          |
++------------------------------------+---------------------+--------------+---------------+--------------+-------------+---------------+
+
+* Design Size Message Settings
++---------------------------------------------+--------+------------------------------------------------------------------+
+| Message Setting                             | Value  | Description                                                      |
++---------------------------------------------+--------+------------------------------------------------------------------+
+| config_compile -design_size_maximum_warning | 100000 | Show a warning when total design instructions exceeds this value |
++---------------------------------------------+--------+------------------------------------------------------------------+
+
+

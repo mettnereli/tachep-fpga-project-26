@@ -1,0 +1,182 @@
+
+
+================================================================
+== Vitis HLS Report for 'calo_trigger_ref'
+================================================================
+* Date:           Tue May 12 15:59:07 2026
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        calorimeter
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu13p-fsga2577-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  25.00 ns|  9.750 ns|     6.75 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-------+--------+---------+
+    |  Latency (cycles) |  Latency (absolute) |    Interval    | Pipeline|
+    |   min   |   max   |    min   |    max   |  min  |   max  |   Type  |
+    +---------+---------+----------+----------+-------+--------+---------+
+    |    22567|   132367|  0.564 ms|  3.309 ms|  22568|  132368|       no|
+    +---------+---------+----------+----------+-------+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 6
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%cluster_threshold_read = read i20 @_ssdm_op_Read.ap_auto.i20, i20 %cluster_threshold"   --->   Operation 7 'read' 'cluster_threshold_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%seed_threshold_read = read i12 @_ssdm_op_Read.ap_auto.i12, i12 %seed_threshold"   --->   Operation 8 'read' 'seed_threshold_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%conv4_i4_i_i_loc = alloca i64 1"   --->   Operation 9 'alloca' 'conv4_i4_i_i_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%top_clusters_valid = alloca i64 1"   --->   Operation 10 'alloca' 'top_clusters_valid' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%clusters_et = alloca i64 1" [calorimeter.cpp:195]   --->   Operation 11 'alloca' 'clusters_et' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%clusters_isolation_et = alloca i64 1" [calorimeter.cpp:195]   --->   Operation 12 'alloca' 'clusters_isolation_et' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%clusters_eta = alloca i64 1" [calorimeter.cpp:195]   --->   Operation 13 'alloca' 'clusters_eta' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%clusters_phi = alloca i64 1" [calorimeter.cpp:195]   --->   Operation 14 'alloca' 'clusters_phi' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%clusters_window_size = alloca i64 1" [calorimeter.cpp:195]   --->   Operation 15 'alloca' 'clusters_window_size' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%clusters_iso_outer_size = alloca i64 1" [calorimeter.cpp:195]   --->   Operation 16 'alloca' 'clusters_iso_outer_size' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%clusters_valid = alloca i64 1" [calorimeter.cpp:195]   --->   Operation 17 'alloca' 'clusters_valid' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%top_clusters_et = alloca i64 1" [calorimeter.cpp:196]   --->   Operation 18 'alloca' 'top_clusters_et' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%top_clusters_isolation_et = alloca i64 1" [calorimeter.cpp:196]   --->   Operation 19 'alloca' 'top_clusters_isolation_et' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%top_clusters_eta = alloca i64 1" [calorimeter.cpp:196]   --->   Operation 20 'alloca' 'top_clusters_eta' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%top_clusters_phi = alloca i64 1" [calorimeter.cpp:196]   --->   Operation 21 'alloca' 'top_clusters_phi' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%top_clusters_window_size = alloca i64 1" [calorimeter.cpp:196]   --->   Operation 22 'alloca' 'top_clusters_window_size' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%top_clusters_iso_outer_size = alloca i64 1" [calorimeter.cpp:196]   --->   Operation 23 'alloca' 'top_clusters_iso_outer_size' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [2/2] (0.00ns)   --->   "%local_num_clusters = call i32 @find_clusters<3, 5>, i12 %grid, i12 %seed_threshold_read, i20 %cluster_threshold_read, i16 %clusters_et, i18 %clusters_isolation_et, i5 %clusters_eta, i6 %clusters_phi, i1 %clusters_window_size, i3 %clusters_iso_outer_size, i1 %clusters_valid" [calorimeter.cpp:31->calorimeter.cpp:12->calorimeter.cpp:201]   --->   Operation 24 'call' 'local_num_clusters' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 25 [1/2] (0.00ns)   --->   "%local_num_clusters = call i32 @find_clusters<3, 5>, i12 %grid, i12 %seed_threshold_read, i20 %cluster_threshold_read, i16 %clusters_et, i18 %clusters_isolation_et, i5 %clusters_eta, i6 %clusters_phi, i1 %clusters_window_size, i3 %clusters_iso_outer_size, i1 %clusters_valid" [calorimeter.cpp:31->calorimeter.cpp:12->calorimeter.cpp:201]   --->   Operation 25 'call' 'local_num_clusters' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%write_ln211 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %num_clusters, i32 %local_num_clusters" [calorimeter.cpp:211]   --->   Operation 26 'write' 'write_ln211' <Predicate = true> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 27 [2/2] (0.00ns)   --->   "%call_ln13 = call void @select_top_n, i16 %clusters_et, i18 %clusters_isolation_et, i5 %clusters_eta, i6 %clusters_phi, i1 %clusters_window_size, i3 %clusters_iso_outer_size, i1 %clusters_valid, i32 %local_num_clusters, i16 %top_clusters_et, i18 %top_clusters_isolation_et, i5 %top_clusters_eta, i6 %top_clusters_phi, i2 %top_clusters_window_size, i3 %top_clusters_iso_outer_size, i1 %top_clusters_valid" [calorimeter.cpp:13->calorimeter.cpp:201]   --->   Operation 27 'call' 'call_ln13' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 28 [2/2] (0.00ns)   --->   "%call_ln0 = call void @calo_trigger_ref_Pipeline_VITIS_LOOP_145_1_VITIS_LOOP_146_2, i12 %grid, i23 %conv4_i4_i_i_loc"   --->   Operation 28 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 4 <SV = 3> <Delay = 1.50>
+ST_4 : Operation 29 [1/2] (0.73ns)   --->   "%call_ln13 = call void @select_top_n, i16 %clusters_et, i18 %clusters_isolation_et, i5 %clusters_eta, i6 %clusters_phi, i1 %clusters_window_size, i3 %clusters_iso_outer_size, i1 %clusters_valid, i32 %local_num_clusters, i16 %top_clusters_et, i18 %top_clusters_isolation_et, i5 %top_clusters_eta, i6 %top_clusters_phi, i2 %top_clusters_window_size, i3 %top_clusters_iso_outer_size, i1 %top_clusters_valid" [calorimeter.cpp:13->calorimeter.cpp:201]   --->   Operation 29 'call' 'call_ln13' <Predicate = true> <Delay = 0.73> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 30 [1/2] (1.50ns)   --->   "%call_ln0 = call void @calo_trigger_ref_Pipeline_VITIS_LOOP_145_1_VITIS_LOOP_146_2, i12 %grid, i23 %conv4_i4_i_i_loc"   --->   Operation 30 'call' 'call_ln0' <Predicate = true> <Delay = 1.50> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 5 <SV = 4> <Delay = 0.00>
+ST_5 : Operation 31 [2/2] (0.00ns)   --->   "%call_ln0 = call void @calo_trigger_ref_Pipeline_VITIS_LOOP_156_1, i89 %objects, i1 %top_clusters_valid, i16 %top_clusters_et, i18 %top_clusters_isolation_et, i5 %top_clusters_eta, i6 %top_clusters_phi, i2 %top_clusters_window_size"   --->   Operation 31 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 6 <SV = 5> <Delay = 0.00>
+ST_6 : Operation 32 [1/1] (0.00ns)   --->   "%spectopmodule_ln188 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_2" [calorimeter.cpp:188]   --->   Operation 32 'spectopmodule' 'spectopmodule_ln188' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 33 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i12 %grid, void @empty, i32 0, i32 0, void @empty_0, i32 4294967295, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 33 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 34 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i12 %grid"   --->   Operation 34 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 35 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i12 %seed_threshold"   --->   Operation 35 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 36 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i12 %seed_threshold, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 36 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 37 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i20 %cluster_threshold"   --->   Operation 37 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 38 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i20 %cluster_threshold, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 38 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 39 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i89 %objects, void @empty, i32 0, i32 0, void @empty_0, i32 4294967295, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 39 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 40 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i89 %objects"   --->   Operation 40 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 41 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i24 %ht"   --->   Operation 41 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 42 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i24 %ht, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 42 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 43 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %num_clusters"   --->   Operation 43 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 44 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %num_clusters, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 44 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 45 [1/2] (0.00ns)   --->   "%call_ln0 = call void @calo_trigger_ref_Pipeline_VITIS_LOOP_156_1, i89 %objects, i1 %top_clusters_valid, i16 %top_clusters_et, i18 %top_clusters_isolation_et, i5 %top_clusters_eta, i6 %top_clusters_phi, i2 %top_clusters_window_size"   --->   Operation 45 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 46 [1/1] (0.00ns)   --->   "%conv4_i4_i_i_loc_load = load i23 %conv4_i4_i_i_loc"   --->   Operation 46 'load' 'conv4_i4_i_i_loc_load' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 47 [1/1] (0.00ns)   --->   "%conv4_i4_i_i_reload_cast = zext i23 %conv4_i4_i_i_loc_load"   --->   Operation 47 'zext' 'conv4_i4_i_i_reload_cast' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 48 [1/1] (0.00ns)   --->   "%write_ln210 = write void @_ssdm_op_Write.ap_auto.i24P0A, i24 %ht, i24 %conv4_i4_i_i_reload_cast" [calorimeter.cpp:210]   --->   Operation 48 'write' 'write_ln210' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 49 [1/1] (0.00ns)   --->   "%ret_ln212 = ret" [calorimeter.cpp:212]   --->   Operation 49 'ret' 'ret_ln212' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 25.000ns, clock uncertainty: 6.750ns.
+
+ <State 1>: 0.000ns
+The critical path consists of the following:
+
+ <State 2>: 0.000ns
+The critical path consists of the following:
+
+ <State 3>: 0.000ns
+The critical path consists of the following:
+
+ <State 4>: 1.509ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln0') to 'calo_trigger_ref_Pipeline_VITIS_LOOP_145_1_VITIS_LOOP_146_2' [40]  (1.509 ns)
+
+ <State 5>: 0.000ns
+The critical path consists of the following:
+
+ <State 6>: 0.000ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

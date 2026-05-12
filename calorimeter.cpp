@@ -115,8 +115,13 @@ void select_top_n(const Cluster clusters[MAX_CLUSTERS],
         top_clusters[i].valid = false;
     }
 
-    for (int i = 0; i < num_clusters; ++i) {
-        if (!clusters[i].valid) continue;
+    for (int i = 0; i < MAX_CLUSTERS; ++i) {
+	if (i >= num_clusters) {
+		continue;
+	}
+        if (!clusters[i].valid) { 
+		continue;
+	}
 
         Cluster candidate = clusters[i];
 
@@ -174,6 +179,8 @@ void build_trigger_objects(const Cluster top_clusters[TOP_N],
         } else {
             trigger_objects[i].type = TRIG_JET;
         }
+
+	trigger_objects[i].valid = true;
     }
 }
 

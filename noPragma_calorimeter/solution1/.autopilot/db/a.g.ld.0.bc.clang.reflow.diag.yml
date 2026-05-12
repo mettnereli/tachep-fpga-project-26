@@ -1,0 +1,642 @@
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: ./calorimeter.h, Line: 161, Column: 0 }
+Function:        _Z16is_local_maximumILi3EEbPA60_K7ap_uintILi12EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'wrap_phi(int)'
+    DebugLoc:        { File: ./calorimeter.h, Line: 130, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'bool is_local_maximum<3>(ap_uint<12> const (*) [60], int, int)'
+    DebugLoc:        { File: ./calorimeter.h, Line: 161, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: ./calorimeter.h, Line: 142, Column: 0 }
+Function:        _Z10window_sumILi3EE7ap_uintILi20EEPA60_KS0_ILi12EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'wrap_phi(int)'
+    DebugLoc:        { File: ./calorimeter.h, Line: 130, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'ap_uint<20> window_sum<3>(ap_uint<12> const (*) [60], int, int)'
+    DebugLoc:        { File: ./calorimeter.h, Line: 142, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: ./calorimeter.h, Line: 142, Column: 0 }
+Function:        _Z10window_sumILi5EE7ap_uintILi20EEPA60_KS0_ILi12EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'wrap_phi(int)'
+    DebugLoc:        { File: ./calorimeter.h, Line: 130, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'ap_uint<20> window_sum<5>(ap_uint<12> const (*) [60], int, int)'
+    DebugLoc:        { File: ./calorimeter.h, Line: 142, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: ./calorimeter.h, Line: 196, Column: 0 }
+Function:        _Z13isolation_sumILi3ELi5EE7ap_uintILi20EEPA60_KS0_ILi12EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_uint<20> window_sum<5>(ap_uint<12> const (*) [60], int, int)'
+    DebugLoc:        { File: ./calorimeter.h, Line: 142, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'ap_uint<20> isolation_sum<3, 5>(ap_uint<12> const (*) [60], int, int)'
+    DebugLoc:        { File: ./calorimeter.h, Line: 196, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: ./calorimeter.h, Line: 196, Column: 0 }
+Function:        _Z13isolation_sumILi3ELi5EE7ap_uintILi20EEPA60_KS0_ILi12EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_uint<20> window_sum<3>(ap_uint<12> const (*) [60], int, int)'
+    DebugLoc:        { File: ./calorimeter.h, Line: 142, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'ap_uint<20> isolation_sum<3, 5>(ap_uint<12> const (*) [60], int, int)'
+    DebugLoc:        { File: ./calorimeter.h, Line: 196, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool is_local_maximum<3>(ap_uint<12> const (*) [60], int, int)'
+    DebugLoc:        { File: ./calorimeter.h, Line: 161, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void find_clusters<3, 5>(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, Cluster*, int&)'
+    DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_uint<20> window_sum<3>(ap_uint<12> const (*) [60], int, int)'
+    DebugLoc:        { File: ./calorimeter.h, Line: 142, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void find_clusters<3, 5>(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, Cluster*, int&)'
+    DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_uint<20> isolation_sum<3, 5>(ap_uint<12> const (*) [60], int, int)'
+    DebugLoc:        { File: ./calorimeter.h, Line: 196, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void find_clusters<3, 5>(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, Cluster*, int&)'
+    DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: calorimeter.cpp, Line: 106, Column: 0 }
+Function:        _Z12select_top_nPK7ClusteriPS_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'cluster_is_better(Cluster const&, Cluster const&)'
+    DebugLoc:        { File: calorimeter.cpp, Line: 69, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'select_top_n(Cluster const*, int, Cluster*)'
+    DebugLoc:        { File: calorimeter.cpp, Line: 106, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: calorimeter.cpp, Line: 11, Column: 0 }
+Function:        _Z30run_reference_trigger_3x3_iso5PA60_K7ap_uintILi12EES0_S_ILi20EEP7ClusterRiS6_P13TriggerObjectRS_ILi24EE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'find_clusters_3x3_iso5(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, Cluster*, int&)'
+    DebugLoc:        { File: calorimeter.cpp, Line: 30, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'run_reference_trigger_3x3_iso5(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, Cluster*, int&, Cluster*, TriggerObject*, ap_uint<24>&)'
+    DebugLoc:        { File: calorimeter.cpp, Line: 11, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: calorimeter.cpp, Line: 11, Column: 0 }
+Function:        _Z30run_reference_trigger_3x3_iso5PA60_K7ap_uintILi12EES0_S_ILi20EEP7ClusterRiS6_P13TriggerObjectRS_ILi24EE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'build_trigger_objects(Cluster const*, TriggerObject*)'
+    DebugLoc:        { File: calorimeter.cpp, Line: 155, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'run_reference_trigger_3x3_iso5(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, Cluster*, int&, Cluster*, TriggerObject*, ap_uint<24>&)'
+    DebugLoc:        { File: calorimeter.cpp, Line: 11, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: calorimeter.cpp, Line: 11, Column: 0 }
+Function:        _Z30run_reference_trigger_3x3_iso5PA60_K7ap_uintILi12EES0_S_ILi20EEP7ClusterRiS6_P13TriggerObjectRS_ILi24EE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'compute_ht(ap_uint<12> const (*) [60])'
+    DebugLoc:        { File: calorimeter.cpp, Line: 143, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'run_reference_trigger_3x3_iso5(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, Cluster*, int&, Cluster*, TriggerObject*, ap_uint<24>&)'
+    DebugLoc:        { File: calorimeter.cpp, Line: 11, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: calorimeter.cpp, Line: 194, Column: 0 }
+Function:        _Z16calo_trigger_refPA60_K7ap_uintILi12EES0_S_ILi20EEP13TriggerObjectPS_ILi24EEPi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'run_reference_trigger_3x3_iso5(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, Cluster*, int&, Cluster*, TriggerObject*, ap_uint<24>&)'
+    DebugLoc:        { File: calorimeter.cpp, Line: 11, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'calo_trigger_ref(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, TriggerObject*, ap_uint<24>*, int*)'
+    DebugLoc:        { File: calorimeter.cpp, Line: 194, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: calorimeter.cpp, Line: 194, Column: 0 }
+Function:        _Z16calo_trigger_refPA60_K7ap_uintILi12EES0_S_ILi20EEP13TriggerObjectPS_ILi24EEPi
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        bram
+  - String:          ' variable '''
+  - Name:            objects
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '89'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: calorimeter.cpp, Line: 194, Column: 0 }
+Function:        _Z16calo_trigger_refPA60_K7ap_uintILi12EES0_S_ILi20EEP13TriggerObjectPS_ILi24EEPi
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        bram
+  - String:          ' variable '''
+  - Name:            grid
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '12'
+  - String:          '-bits'
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        VITIS_LOOP_108_1
+  - String:          '> at '
+  - LoopLoc:         'calorimeter.cpp:108:23'
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        VITIS_LOOP_131_4
+  - String:          '> at '
+  - LoopLoc:         'calorimeter.cpp:131:35'
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        VITIS_LOOP_128_3
+  - String:          '> at '
+  - LoopLoc:         'calorimeter.cpp:128:27'
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        VITIS_LOOP_219_2
+  - String:          '> at '
+  - LoopLoc:         './calorimeter.h:219:27'
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        VITIS_LOOP_156_1
+  - String:          '> at '
+  - LoopLoc:         'calorimeter.cpp:156:23'
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        VITIS_LOOP_146_2
+  - String:          '> at '
+  - LoopLoc:         'calorimeter.cpp:146:27'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 165, Column: 23 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_165_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 166, Column: 27 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_166_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 145, Column: 23 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_145_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 146, Column: 27 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_146_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 145, Column: 23 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_145_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 146, Column: 27 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_146_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 145, Column: 23 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_145_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 146, Column: 27 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_146_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_165_1
+  - String:          ''' ('
+  - LoopLoc:         './calorimeter.h:165:23'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'find_clusters<3, 5>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '3'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_166_2
+  - String:          ''' ('
+  - LoopLoc:         './calorimeter.h:166:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'find_clusters<3, 5>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '3'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_166_2
+  - String:          ''' ('
+  - LoopLoc:         './calorimeter.h:166:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'find_clusters<3, 5>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '3'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_166_2
+  - String:          ''' ('
+  - LoopLoc:         './calorimeter.h:166:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'find_clusters<3, 5>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '3'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_145_1
+  - String:          ''' ('
+  - LoopLoc:         './calorimeter.h:145:23'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'find_clusters<3, 5>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '3'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_146_2
+  - String:          ''' ('
+  - LoopLoc:         './calorimeter.h:146:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'find_clusters<3, 5>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '3'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_146_2
+  - String:          ''' ('
+  - LoopLoc:         './calorimeter.h:146:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'find_clusters<3, 5>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '3'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_146_2
+  - String:          ''' ('
+  - LoopLoc:         './calorimeter.h:146:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'find_clusters<3, 5>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '3'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_145_1
+  - String:          ''' ('
+  - LoopLoc:         './calorimeter.h:145:23'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'find_clusters<3, 5>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '5'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_146_2
+  - String:          ''' ('
+  - LoopLoc:         './calorimeter.h:146:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'find_clusters<3, 5>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '5'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_146_2
+  - String:          ''' ('
+  - LoopLoc:         './calorimeter.h:146:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'find_clusters<3, 5>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '5'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_146_2
+  - String:          ''' ('
+  - LoopLoc:         './calorimeter.h:146:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'find_clusters<3, 5>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '5'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_146_2
+  - String:          ''' ('
+  - LoopLoc:         './calorimeter.h:146:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'find_clusters<3, 5>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '5'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_146_2
+  - String:          ''' ('
+  - LoopLoc:         './calorimeter.h:146:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'find_clusters<3, 5>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '5'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_145_1
+  - String:          ''' ('
+  - LoopLoc:         './calorimeter.h:145:23'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'find_clusters<3, 5>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '3'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_146_2
+  - String:          ''' ('
+  - LoopLoc:         './calorimeter.h:146:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'find_clusters<3, 5>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '3'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_146_2
+  - String:          ''' ('
+  - LoopLoc:         './calorimeter.h:146:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'find_clusters<3, 5>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '3'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: ./calorimeter.h, Line: 210, Column: 0 }
+Function:        _Z13find_clustersILi3ELi5EEvPA60_K7ap_uintILi12EES1_S0_ILi20EEP7ClusterRi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_146_2
+  - String:          ''' ('
+  - LoopLoc:         './calorimeter.h:146:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'find_clusters<3, 5>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '3'
+...

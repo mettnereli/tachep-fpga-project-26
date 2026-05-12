@@ -1,0 +1,190 @@
+
+
+================================================================
+== Vitis HLS Report for 'select_top_n_Pipeline_VITIS_LOOP_131_4'
+================================================================
+* Date:           Tue May 12 15:59:08 2026
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        calorimeter
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu13p-fsga2577-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  25.00 ns|  1.658 ns|     6.75 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+-----+-----------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute)  |  Interval |                    Pipeline                   |
+    |   min   |   max   |    min    |    max   | min | max |                      Type                     |
+    +---------+---------+-----------+----------+-----+-----+-----------------------------------------------+
+    |        2|        9|  50.000 ns|  0.225 us|    1|    8|  loop auto-rewind stp(delay=0 clock cycles(s))|
+    +---------+---------+-----------+----------+-----+-----+-----------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count | Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |- VITIS_LOOP_131_4  |        0|        7|         2|          1|          1|  0 ~ 7|       yes|
+        +--------------------+---------+---------+----------+-----------+-----------+-------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+------+
+|         Name        | BRAM_18K|  DSP  |    FF   |   LUT   | URAM |
++---------------------+---------+-------+---------+---------+------+
+|DSP                  |        -|      -|        -|        -|     -|
+|Expression           |        -|      -|        0|       22|     -|
+|FIFO                 |        -|      -|        -|        -|     -|
+|Instance             |        -|      -|        -|        -|     -|
+|Memory               |        -|      -|        -|        -|     -|
+|Multiplexer          |        -|      -|        0|       36|     -|
+|Register             |        -|      -|        9|        -|     -|
++---------------------+---------+-------+---------+---------+------+
+|Total                |        0|      0|        9|       58|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available SLR        |     1344|   3072|   864000|   432000|   320|
++---------------------+---------+-------+---------+---------+------+
+|Utilization SLR (%)  |        0|      0|       ~0|       ~0|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available            |     5376|  12288|  3456000|  1728000|  1280|
++---------------------+---------+-------+---------+---------+------+
+|Utilization (%)      |        0|      0|       ~0|       ~0|     0|
++---------------------+---------+-------+---------+---------+------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------+----------+----+---+----+------------+------------+
+    |     Variable Name    | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+----+---+----+------------+------------+
+    |add_ln132_fu_248_p2   |         +|   0|  0|  10|           3|           2|
+    |icmp_ln131_fu_242_p2  |      icmp|   0|  0|  10|           3|           3|
+    |ap_enable_pp0         |       xor|   0|  0|   2|           1|           2|
+    +----------------------+----------+----+---+----+------------+------------+
+    |Total                 |          |   0|  0|  22|           7|           7|
+    +----------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |ap_done_int              |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1  |   9|          2|    1|          2|
+    |ap_sig_allocacmp_k_1     |   9|          2|    3|          6|
+    |k_fu_42                  |   9|          2|    3|          6|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    |  36|          8|    8|         16|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------+---+----+-----+-----------+
+    |           Name          | FF| LUT| Bits| Const Bits|
+    +-------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                |  1|   0|    1|          0|
+    |ap_done_reg              |  1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1  |  1|   0|    1|          0|
+    |k_1_reg_287              |  3|   0|    3|          0|
+    |k_fu_42                  |  3|   0|    3|          0|
+    +-------------------------+---+----+-----+-----------+
+    |Total                    |  9|   0|    9|          0|
+    +-------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------------------------+-----+-----+------------+----------------------------------------+--------------+
+|               RTL Ports              | Dir | Bits|  Protocol  |              Source Object             |    C Type    |
++--------------------------------------+-----+-----+------------+----------------------------------------+--------------+
+|ap_clk                                |   in|    1|  ap_ctrl_hs|  select_top_n_Pipeline_VITIS_LOOP_131_4|  return value|
+|ap_rst                                |   in|    1|  ap_ctrl_hs|  select_top_n_Pipeline_VITIS_LOOP_131_4|  return value|
+|ap_start                              |   in|    1|  ap_ctrl_hs|  select_top_n_Pipeline_VITIS_LOOP_131_4|  return value|
+|ap_done                               |  out|    1|  ap_ctrl_hs|  select_top_n_Pipeline_VITIS_LOOP_131_4|  return value|
+|ap_idle                               |  out|    1|  ap_ctrl_hs|  select_top_n_Pipeline_VITIS_LOOP_131_4|  return value|
+|ap_ready                              |  out|    1|  ap_ctrl_hs|  select_top_n_Pipeline_VITIS_LOOP_131_4|  return value|
+|empty                                 |   in|    3|     ap_none|                                   empty|        scalar|
+|top_clusters_et_address0              |  out|    3|   ap_memory|                         top_clusters_et|         array|
+|top_clusters_et_ce0                   |  out|    1|   ap_memory|                         top_clusters_et|         array|
+|top_clusters_et_we0                   |  out|    1|   ap_memory|                         top_clusters_et|         array|
+|top_clusters_et_d0                    |  out|   16|   ap_memory|                         top_clusters_et|         array|
+|top_clusters_et_address1              |  out|    3|   ap_memory|                         top_clusters_et|         array|
+|top_clusters_et_ce1                   |  out|    1|   ap_memory|                         top_clusters_et|         array|
+|top_clusters_et_q1                    |   in|   16|   ap_memory|                         top_clusters_et|         array|
+|top_clusters_isolation_et_address0    |  out|    3|   ap_memory|               top_clusters_isolation_et|         array|
+|top_clusters_isolation_et_ce0         |  out|    1|   ap_memory|               top_clusters_isolation_et|         array|
+|top_clusters_isolation_et_we0         |  out|    1|   ap_memory|               top_clusters_isolation_et|         array|
+|top_clusters_isolation_et_d0          |  out|   18|   ap_memory|               top_clusters_isolation_et|         array|
+|top_clusters_isolation_et_address1    |  out|    3|   ap_memory|               top_clusters_isolation_et|         array|
+|top_clusters_isolation_et_ce1         |  out|    1|   ap_memory|               top_clusters_isolation_et|         array|
+|top_clusters_isolation_et_q1          |   in|   18|   ap_memory|               top_clusters_isolation_et|         array|
+|top_clusters_eta_address0             |  out|    3|   ap_memory|                        top_clusters_eta|         array|
+|top_clusters_eta_ce0                  |  out|    1|   ap_memory|                        top_clusters_eta|         array|
+|top_clusters_eta_we0                  |  out|    1|   ap_memory|                        top_clusters_eta|         array|
+|top_clusters_eta_d0                   |  out|    5|   ap_memory|                        top_clusters_eta|         array|
+|top_clusters_eta_address1             |  out|    3|   ap_memory|                        top_clusters_eta|         array|
+|top_clusters_eta_ce1                  |  out|    1|   ap_memory|                        top_clusters_eta|         array|
+|top_clusters_eta_q1                   |   in|    5|   ap_memory|                        top_clusters_eta|         array|
+|top_clusters_phi_address0             |  out|    3|   ap_memory|                        top_clusters_phi|         array|
+|top_clusters_phi_ce0                  |  out|    1|   ap_memory|                        top_clusters_phi|         array|
+|top_clusters_phi_we0                  |  out|    1|   ap_memory|                        top_clusters_phi|         array|
+|top_clusters_phi_d0                   |  out|    6|   ap_memory|                        top_clusters_phi|         array|
+|top_clusters_phi_address1             |  out|    3|   ap_memory|                        top_clusters_phi|         array|
+|top_clusters_phi_ce1                  |  out|    1|   ap_memory|                        top_clusters_phi|         array|
+|top_clusters_phi_q1                   |   in|    6|   ap_memory|                        top_clusters_phi|         array|
+|top_clusters_window_size_address0     |  out|    3|   ap_memory|                top_clusters_window_size|         array|
+|top_clusters_window_size_ce0          |  out|    1|   ap_memory|                top_clusters_window_size|         array|
+|top_clusters_window_size_we0          |  out|    1|   ap_memory|                top_clusters_window_size|         array|
+|top_clusters_window_size_d0           |  out|    2|   ap_memory|                top_clusters_window_size|         array|
+|top_clusters_window_size_address1     |  out|    3|   ap_memory|                top_clusters_window_size|         array|
+|top_clusters_window_size_ce1          |  out|    1|   ap_memory|                top_clusters_window_size|         array|
+|top_clusters_window_size_q1           |   in|    2|   ap_memory|                top_clusters_window_size|         array|
+|top_clusters_iso_outer_size_address0  |  out|    3|   ap_memory|             top_clusters_iso_outer_size|         array|
+|top_clusters_iso_outer_size_ce0       |  out|    1|   ap_memory|             top_clusters_iso_outer_size|         array|
+|top_clusters_iso_outer_size_we0       |  out|    1|   ap_memory|             top_clusters_iso_outer_size|         array|
+|top_clusters_iso_outer_size_d0        |  out|    3|   ap_memory|             top_clusters_iso_outer_size|         array|
+|top_clusters_iso_outer_size_address1  |  out|    3|   ap_memory|             top_clusters_iso_outer_size|         array|
+|top_clusters_iso_outer_size_ce1       |  out|    1|   ap_memory|             top_clusters_iso_outer_size|         array|
+|top_clusters_iso_outer_size_q1        |   in|    3|   ap_memory|             top_clusters_iso_outer_size|         array|
+|top_clusters_valid_address0           |  out|    3|   ap_memory|                      top_clusters_valid|         array|
+|top_clusters_valid_ce0                |  out|    1|   ap_memory|                      top_clusters_valid|         array|
+|top_clusters_valid_we0                |  out|    1|   ap_memory|                      top_clusters_valid|         array|
+|top_clusters_valid_d0                 |  out|    1|   ap_memory|                      top_clusters_valid|         array|
+|top_clusters_valid_address1           |  out|    3|   ap_memory|                      top_clusters_valid|         array|
+|top_clusters_valid_ce1                |  out|    1|   ap_memory|                      top_clusters_valid|         array|
+|top_clusters_valid_q1                 |   in|    1|   ap_memory|                      top_clusters_valid|         array|
++--------------------------------------+-----+-----+------------+----------------------------------------+--------------+
+

@@ -1,0 +1,156 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'select_top_n_Pipeline_VITIS_LOOP_128_3'" level="0">
+<item name = "Date">Tue May 12 15:59:08 2026
+</item>
+<item name = "Version">2024.1 (Build 5069499 on May 21 2024)</item>
+<item name = "Project">calorimeter</item>
+<item name = "Solution">solution1 (Vivado IP Flow Target)</item>
+<item name = "Product family">virtexuplus</item>
+<item name = "Target device">xcvu13p-fsga2577-2-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">25.00 ns, 1.760 ns, 6.75 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">6, 47, 0.150 us, 1.175 us, 6, 47, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- VITIS_LOOP_128_3">4, 44, 5, 5, 1, 0 ~ 8, yes</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 107, -</column>
+<column name="FIFO">-, -, -, -, -</column>
+<column name="Instance">-, -, -, -, -</column>
+<column name="Memory">-, -, -, -, -</column>
+<column name="Multiplexer">-, -, 0, 118, -</column>
+<column name="Register">-, -, 44, -, -</column>
+<specialColumn name="Available SLR">1344, 3072, 864000, 432000, 320</specialColumn>
+<specialColumn name="Utilization SLR (%)">0, 0, ~0, ~0, 0</specialColumn>
+<specialColumn name="Available">5376, 12288, 3456000, 1728000, 1280</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
+</table>
+</item>
+<item name = "DSP"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="add_ln128_fu_192_p2">+, 0, 0, 12, 4, 1</column>
+<column name="icmp_ln128_fu_186_p2">icmp, 0, 0, 12, 4, 5</column>
+<column name="icmp_ln78_fu_203_p2">icmp, 0, 0, 23, 16, 16</column>
+<column name="icmp_ln82_fu_208_p2">icmp, 0, 0, 23, 16, 16</column>
+<column name="icmp_ln86_fu_213_p2">icmp, 0, 0, 12, 5, 5</column>
+<column name="icmp_ln90_fu_218_p2">icmp, 0, 0, 12, 5, 5</column>
+<column name="icmp_ln94_fu_223_p2">icmp, 0, 0, 13, 6, 6</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="UnifiedRetVal_reg_150">26, 5, 3, 15</column>
+<column name="ap_NS_fsm">65, 12, 1, 12</column>
+<column name="ap_phi_mux_UnifiedRetVal_phi_fu_157_p10">9, 2, 3, 6</column>
+<column name="ap_return">9, 2, 3, 6</column>
+<column name="b_valid_fu_64">9, 2, 4, 8</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="UnifiedRetVal_reg_150">3, 0, 3, 0</column>
+<column name="add_ln128_reg_266">4, 0, 4, 0</column>
+<column name="ap_CS_fsm">11, 0, 11, 0</column>
+<column name="ap_return_preg">3, 0, 3, 0</column>
+<column name="b_eta_reg_292">3, 0, 3, 0</column>
+<column name="b_phi_reg_297">3, 0, 3, 0</column>
+<column name="b_valid_fu_64">4, 0, 4, 0</column>
+<column name="icmp_ln128_reg_262">1, 0, 1, 0</column>
+<column name="icmp_ln78_reg_302">1, 0, 1, 0</column>
+<column name="icmp_ln82_reg_306">1, 0, 1, 0</column>
+<column name="icmp_ln86_reg_310">1, 0, 1, 0</column>
+<column name="icmp_ln90_reg_314">1, 0, 1, 0</column>
+<column name="top_clusters_valid_load_reg_283">1, 0, 1, 0</column>
+<column name="trunc_ln128_reg_256">3, 0, 3, 0</column>
+<column name="zext_ln128_reg_271">4, 0, 64, 60</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, select_top_n_Pipeline_VITIS_LOOP_128_3, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, select_top_n_Pipeline_VITIS_LOOP_128_3, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, select_top_n_Pipeline_VITIS_LOOP_128_3, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, select_top_n_Pipeline_VITIS_LOOP_128_3, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, select_top_n_Pipeline_VITIS_LOOP_128_3, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, select_top_n_Pipeline_VITIS_LOOP_128_3, return value</column>
+<column name="ap_return">out, 3, ap_ctrl_hs, select_top_n_Pipeline_VITIS_LOOP_128_3, return value</column>
+<column name="candidate_et">in, 16, ap_none, candidate_et, scalar</column>
+<column name="top_clusters_et_address0">out, 3, ap_memory, top_clusters_et, array</column>
+<column name="top_clusters_et_ce0">out, 1, ap_memory, top_clusters_et, array</column>
+<column name="top_clusters_et_q0">in, 16, ap_memory, top_clusters_et, array</column>
+<column name="top_clusters_eta_address0">out, 3, ap_memory, top_clusters_eta, array</column>
+<column name="top_clusters_eta_ce0">out, 1, ap_memory, top_clusters_eta, array</column>
+<column name="top_clusters_eta_q0">in, 5, ap_memory, top_clusters_eta, array</column>
+<column name="top_clusters_phi_address0">out, 3, ap_memory, top_clusters_phi, array</column>
+<column name="top_clusters_phi_ce0">out, 1, ap_memory, top_clusters_phi, array</column>
+<column name="top_clusters_phi_q0">in, 6, ap_memory, top_clusters_phi, array</column>
+<column name="top_clusters_valid_address0">out, 3, ap_memory, top_clusters_valid, array</column>
+<column name="top_clusters_valid_ce0">out, 1, ap_memory, top_clusters_valid, array</column>
+<column name="top_clusters_valid_q0">in, 1, ap_memory, top_clusters_valid, array</column>
+<column name="candidate_eta">in, 5, ap_none, candidate_eta, scalar</column>
+<column name="candidate_phi">in, 6, ap_none, candidate_phi, scalar</column>
+<column name="j_out">out, 3, ap_vld, j_out, pointer</column>
+<column name="j_out_ap_vld">out, 1, ap_vld, j_out, pointer</column>
+<column name="zext_ln128_out">out, 3, ap_vld, zext_ln128_out, pointer</column>
+<column name="zext_ln128_out_ap_vld">out, 1, ap_vld, zext_ln128_out, pointer</column>
+</table>
+</item>
+</section>
+</profile>

@@ -111,6 +111,11 @@ for (int i = 0; i < TOP_N; i++) {
         errors++;
     }
 
+    if (!objects[0].valid || objects[0].et != 221 || objects[0].eta != 5 || objects[0].phi != 10) {
+    	std::cout << "ERROR: Object 0 mismatch" << std::endl;
+    	errors++;
+    }
+
     if (!objects[1].valid || objects[1].et != 139 || objects[1].eta != 10 || objects[1].phi != 20) {
     std::cout << "ERROR: Object 1 mismatch" << std::endl;
     errors++;

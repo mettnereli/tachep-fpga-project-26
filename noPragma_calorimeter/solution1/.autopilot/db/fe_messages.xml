@@ -1,0 +1,81 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/emettner/tachep-fpga-project-26/run_calorimeter.tcl:33:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="calo_trigger_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=calo_trigger_ref" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="./calorimeter.h:161:0" msg_body="Inlining function 'wrap_phi(int)' into 'bool is_local_maximum&lt;3&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)'">
+        <args Callee="wrap_phi(int)" Callee-DebugLoc="File ./calorimeter.h Line 130 Column 0" Caller="bool is_local_maximum&lt;3&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Caller-DebugLoc="File ./calorimeter.h Line 161 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="./calorimeter.h:142:0" msg_body="Inlining function 'wrap_phi(int)' into 'ap_uint&lt;20&gt; window_sum&lt;3&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)'">
+        <args Callee="wrap_phi(int)" Callee-DebugLoc="File ./calorimeter.h Line 130 Column 0" Caller="ap_uint&lt;20&gt; window_sum&lt;3&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Caller-DebugLoc="File ./calorimeter.h Line 142 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="./calorimeter.h:142:0" msg_body="Inlining function 'wrap_phi(int)' into 'ap_uint&lt;20&gt; window_sum&lt;5&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)'">
+        <args Callee="wrap_phi(int)" Callee-DebugLoc="File ./calorimeter.h Line 130 Column 0" Caller="ap_uint&lt;20&gt; window_sum&lt;5&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Caller-DebugLoc="File ./calorimeter.h Line 142 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="./calorimeter.h:196:0" msg_body="Inlining function 'ap_uint&lt;20&gt; window_sum&lt;5&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)' into 'ap_uint&lt;20&gt; isolation_sum&lt;3, 5&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)'">
+        <args Callee="ap_uint&lt;20&gt; window_sum&lt;5&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Callee-DebugLoc="File ./calorimeter.h Line 142 Column 0" Caller="ap_uint&lt;20&gt; isolation_sum&lt;3, 5&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Caller-DebugLoc="File ./calorimeter.h Line 196 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="./calorimeter.h:196:0" msg_body="Inlining function 'ap_uint&lt;20&gt; window_sum&lt;3&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)' into 'ap_uint&lt;20&gt; isolation_sum&lt;3, 5&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)'">
+        <args Callee="ap_uint&lt;20&gt; window_sum&lt;3&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Callee-DebugLoc="File ./calorimeter.h Line 142 Column 0" Caller="ap_uint&lt;20&gt; isolation_sum&lt;3, 5&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Caller-DebugLoc="File ./calorimeter.h Line 196 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="./calorimeter.h:210:0" msg_body="Inlining function 'bool is_local_maximum&lt;3&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)' into 'void find_clusters&lt;3, 5&gt;(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, Cluster*, int&amp;)'">
+        <args Callee="bool is_local_maximum&lt;3&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Callee-DebugLoc="File ./calorimeter.h Line 161 Column 0" Caller="void find_clusters&lt;3, 5&gt;(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, Cluster*, int&amp;)" Caller-DebugLoc="File ./calorimeter.h Line 210 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="./calorimeter.h:210:0" msg_body="Inlining function 'ap_uint&lt;20&gt; window_sum&lt;3&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)' into 'void find_clusters&lt;3, 5&gt;(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, Cluster*, int&amp;)'">
+        <args Callee="ap_uint&lt;20&gt; window_sum&lt;3&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Callee-DebugLoc="File ./calorimeter.h Line 142 Column 0" Caller="void find_clusters&lt;3, 5&gt;(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, Cluster*, int&amp;)" Caller-DebugLoc="File ./calorimeter.h Line 210 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="./calorimeter.h:210:0" msg_body="Inlining function 'ap_uint&lt;20&gt; isolation_sum&lt;3, 5&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)' into 'void find_clusters&lt;3, 5&gt;(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, Cluster*, int&amp;)'">
+        <args Callee="ap_uint&lt;20&gt; isolation_sum&lt;3, 5&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Callee-DebugLoc="File ./calorimeter.h Line 196 Column 0" Caller="void find_clusters&lt;3, 5&gt;(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, Cluster*, int&amp;)" Caller-DebugLoc="File ./calorimeter.h Line 210 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="calorimeter.cpp:106:0" msg_body="Inlining function 'cluster_is_better(Cluster const&amp;, Cluster const&amp;)' into 'select_top_n(Cluster const*, int, Cluster*)'">
+        <args Callee="cluster_is_better(Cluster const&amp;, Cluster const&amp;)" Callee-DebugLoc="File calorimeter.cpp Line 69 Column 0" Caller="select_top_n(Cluster const*, int, Cluster*)" Caller-DebugLoc="File calorimeter.cpp Line 106 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="calorimeter.cpp:11:0" msg_body="Inlining function 'find_clusters_3x3_iso5(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, Cluster*, int&amp;)' into 'run_reference_trigger_3x3_iso5(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, Cluster*, int&amp;, Cluster*, TriggerObject*, ap_uint&lt;24&gt;&amp;)'">
+        <args Callee="find_clusters_3x3_iso5(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, Cluster*, int&amp;)" Callee-DebugLoc="File calorimeter.cpp Line 30 Column 0" Caller="run_reference_trigger_3x3_iso5(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, Cluster*, int&amp;, Cluster*, TriggerObject*, ap_uint&lt;24&gt;&amp;)" Caller-DebugLoc="File calorimeter.cpp Line 11 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="calorimeter.cpp:11:0" msg_body="Inlining function 'build_trigger_objects(Cluster const*, TriggerObject*)' into 'run_reference_trigger_3x3_iso5(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, Cluster*, int&amp;, Cluster*, TriggerObject*, ap_uint&lt;24&gt;&amp;)'">
+        <args Callee="build_trigger_objects(Cluster const*, TriggerObject*)" Callee-DebugLoc="File calorimeter.cpp Line 155 Column 0" Caller="run_reference_trigger_3x3_iso5(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, Cluster*, int&amp;, Cluster*, TriggerObject*, ap_uint&lt;24&gt;&amp;)" Caller-DebugLoc="File calorimeter.cpp Line 11 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="calorimeter.cpp:11:0" msg_body="Inlining function 'compute_ht(ap_uint&lt;12&gt; const (*) [60])' into 'run_reference_trigger_3x3_iso5(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, Cluster*, int&amp;, Cluster*, TriggerObject*, ap_uint&lt;24&gt;&amp;)'">
+        <args Callee="compute_ht(ap_uint&lt;12&gt; const (*) [60])" Callee-DebugLoc="File calorimeter.cpp Line 143 Column 0" Caller="run_reference_trigger_3x3_iso5(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, Cluster*, int&amp;, Cluster*, TriggerObject*, ap_uint&lt;24&gt;&amp;)" Caller-DebugLoc="File calorimeter.cpp Line 11 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="calorimeter.cpp:194:0" msg_body="Inlining function 'run_reference_trigger_3x3_iso5(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, Cluster*, int&amp;, Cluster*, TriggerObject*, ap_uint&lt;24&gt;&amp;)' into 'calo_trigger_ref(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, TriggerObject*, ap_uint&lt;24&gt;*, int*)'">
+        <args Callee="run_reference_trigger_3x3_iso5(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, Cluster*, int&amp;, Cluster*, TriggerObject*, ap_uint&lt;24&gt;&amp;)" Callee-DebugLoc="File calorimeter.cpp Line 11 Column 0" Caller="calo_trigger_ref(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, TriggerObject*, ap_uint&lt;24&gt;*, int*)" Caller-DebugLoc="File calorimeter.cpp Line 194 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="calorimeter.cpp:194:0" msg_body="Aggregating bram variable 'objects' with compact=bit mode in 89-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="89" HwTyName="bram" Name="objects"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="calorimeter.cpp:194:0" msg_body="Aggregating bram variable 'grid' with compact=bit mode in 12-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="12" HwTyName="bram" Name="grid"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="./calorimeter.h:165:23" msg_body="Loop 'VITIS_LOOP_165_1' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_165_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="./calorimeter.h:166:27" msg_body="Loop 'VITIS_LOOP_166_2' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_166_2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="./calorimeter.h:145:23" msg_body="Loop 'VITIS_LOOP_145_1' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_145_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="./calorimeter.h:146:27" msg_body="Loop 'VITIS_LOOP_146_2' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_146_2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./calorimeter.h:210:0" msg_body="Unrolling loop 'VITIS_LOOP_165_1' (./calorimeter.h:165:23) in function 'find_clusters&lt;3, 5&gt;' completely with a factor of 3">
+        <args Factor="3" LoopLoc="./calorimeter.h:165:23" LoopName="VITIS_LOOP_165_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./calorimeter.h:210:0" msg_body="Unrolling loop 'VITIS_LOOP_166_2' (./calorimeter.h:166:27) in function 'find_clusters&lt;3, 5&gt;' completely with a factor of 3">
+        <args Factor="3" LoopLoc="./calorimeter.h:166:27" LoopName="VITIS_LOOP_166_2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./calorimeter.h:210:0" msg_body="Unrolling loop 'VITIS_LOOP_145_1' (./calorimeter.h:145:23) in function 'find_clusters&lt;3, 5&gt;' completely with a factor of 3">
+        <args Factor="3" LoopLoc="./calorimeter.h:145:23" LoopName="VITIS_LOOP_145_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./calorimeter.h:210:0" msg_body="Unrolling loop 'VITIS_LOOP_146_2' (./calorimeter.h:146:27) in function 'find_clusters&lt;3, 5&gt;' completely with a factor of 3">
+        <args Factor="3" LoopLoc="./calorimeter.h:146:27" LoopName="VITIS_LOOP_146_2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./calorimeter.h:210:0" msg_body="Unrolling loop 'VITIS_LOOP_145_1' (./calorimeter.h:145:23) in function 'find_clusters&lt;3, 5&gt;' completely with a factor of 5">
+        <args Factor="5" LoopLoc="./calorimeter.h:145:23" LoopName="VITIS_LOOP_145_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./calorimeter.h:210:0" msg_body="Unrolling loop 'VITIS_LOOP_146_2' (./calorimeter.h:146:27) in function 'find_clusters&lt;3, 5&gt;' completely with a factor of 5">
+        <args Factor="5" LoopLoc="./calorimeter.h:146:27" LoopName="VITIS_LOOP_146_2"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

@@ -1,0 +1,143 @@
+{
+    "1": {
+        "name": "select_top_n_Pipeline_VITIS_LOOP_131_4",
+        "file": "calorimeter.cpp",
+        "fileloc": "131",
+        "instructions": "44",
+        "total_instructions": "44",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "L": "8"
+        },
+        "stores": {
+            "L": "9"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "2": {
+        "name": "select_top_n_Pipeline_VITIS_LOOP_108_1",
+        "file": "calorimeter.cpp",
+        "fileloc": "108",
+        "instructions": "28",
+        "total_instructions": "28",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "L": "1"
+        },
+        "stores": {
+            "L": "9"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "3": {
+        "name": "find_clusters<3, 5>",
+        "file": ".\/calorimeter.h",
+        "fileloc": "209",
+        "instructions": "322",
+        "total_instructions": "322",
+        "calls": "",
+        "basicblocks": "20",
+        "loads": {
+            "L": "5",
+            "T": "25"
+        },
+        "stores": {
+            "L": "17"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "4": {
+        "name": "calo_trigger_ref_Pipeline_VITIS_LOOP_156_1",
+        "file": "calorimeter.cpp",
+        "fileloc": "201",
+        "instructions": "41",
+        "total_instructions": "41",
+        "calls": "",
+        "basicblocks": "6",
+        "loads": {
+            "L": "7"
+        },
+        "stores": {
+            "L": "2",
+            "T": "2"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "5": {
+        "name": "calo_trigger_ref_Pipeline_VITIS_LOOP_145_1_VITIS_LOOP_146_2",
+        "file": "calorimeter.cpp",
+        "fileloc": "201",
+        "instructions": "44",
+        "total_instructions": "44",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "L": "5",
+            "T": "1"
+        },
+        "stores": {
+            "L": "8"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "6": {
+        "name": "select_top_n",
+        "file": "calorimeter.cpp",
+        "fileloc": "104",
+        "instructions": "60",
+        "total_instructions": "184",
+        "calls": "2 7 1",
+        "basicblocks": "9",
+        "loads": {
+            "L": "10"
+        },
+        "stores": {
+            "L": "9"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "7": {
+        "name": "select_top_n_Pipeline_VITIS_LOOP_128_3",
+        "file": "calorimeter.cpp",
+        "fileloc": "128",
+        "instructions": "52",
+        "total_instructions": "52",
+        "calls": "",
+        "basicblocks": "15",
+        "loads": {
+            "L": "5"
+        },
+        "stores": {
+            "L": "2"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "0": {
+        "name": "calo_trigger_ref",
+        "file": "calorimeter.cpp",
+        "fileloc": "188",
+        "instructions": "39",
+        "total_instructions": "630",
+        "calls": "3 6 4 5",
+        "basicblocks": "1",
+        "loads": {
+            "L": "1"
+        }
+    }
+}

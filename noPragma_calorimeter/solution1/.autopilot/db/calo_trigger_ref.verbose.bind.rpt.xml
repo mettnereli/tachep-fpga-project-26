@@ -1,0 +1,49 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'calo_trigger_ref'" level="0">
+<item name = "Date">Tue May 12 15:59:07 2026
+</item>
+<item name = "Version">2024.1 (Build 5069499 on May 21 2024)</item>
+<item name = "Project">calorimeter</item>
+<item name = "Solution">solution1 (Vivado IP Flow Target)</item>
+<item name = "Product family">virtexuplus</item>
+<item name = "Target device">xcvu13p-fsga2577-2-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">25.00 ns, 9.750 ns, 6.75 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">22567, 132367, 0.564 ms, 3.309 ms, 22568, 132368, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_find_clusters_3_5_s_fu_134">find_clusters_3_5_s, 18939, 18939, 0.473 ms, 0.473 ms, 18938, 18938, loop auto-rewind stp(delay=0 clock cycles(s))</column>
+<column name="grp_select_top_n_fu_159">select_top_n, 3612, 113412, 90.300 us, 2.835 ms, 3612, 113412, no</column>
+<column name="grp_calo_trigger_ref_Pipeline_VITIS_LOOP_145_1_VITIS_LOOP_146_2_fu_178">calo_trigger_ref_Pipeline_VITIS_LOOP_145_1_VITIS_LOOP_146_2, 1802, 1802, 45.050 us, 45.050 us, 1801, 1801, loop auto-rewind stp(delay=0 clock cycles(s))</column>
+<column name="grp_calo_trigger_ref_Pipeline_VITIS_LOOP_156_1_fu_185">calo_trigger_ref_Pipeline_VITIS_LOOP_156_1, 11, 11, 0.275 us, 0.275 us, 9, 9, loop auto-rewind stp(delay=0 clock cycles(s))</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

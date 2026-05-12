@@ -1,0 +1,280 @@
+
+
+================================================================
+== Vitis HLS Report for 'select_top_n'
+================================================================
+* Date:           Tue May 12 15:59:08 2026
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        calorimeter
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu13p-fsga2577-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  25.00 ns|  1.794 ns|     6.75 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+------+--------+---------+
+    |  Latency (cycles) |  Latency (absolute)  |    Interval   | Pipeline|
+    |   min   |   max   |    min    |    max   |  min |   max  |   Type  |
+    +---------+---------+-----------+----------+------+--------+---------+
+    |     3612|   113412|  90.300 us|  2.835 ms|  3612|  113412|       no|
+    +---------+---------+-----------+----------+------+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        +---------------------------------------------------+----------------------------------------+---------+---------+-----------+----------+-----+-----+-----------------------------------------------+
+        |                                                   |                                        |  Latency (cycles) |  Latency (absolute)  |  Interval |                    Pipeline                   |
+        |                      Instance                     |                 Module                 |   min   |   max   |    min    |    max   | min | max |                      Type                     |
+        +---------------------------------------------------+----------------------------------------+---------+---------+-----------+----------+-----+-----+-----------------------------------------------+
+        |grp_select_top_n_Pipeline_VITIS_LOOP_108_1_fu_267  |select_top_n_Pipeline_VITIS_LOOP_108_1  |       10|       10|   0.250 us|  0.250 us|    9|    9|  loop auto-rewind stp(delay=0 clock cycles(s))|
+        |grp_select_top_n_Pipeline_VITIS_LOOP_128_3_fu_285  |select_top_n_Pipeline_VITIS_LOOP_128_3  |        6|       47|   0.150 us|  1.175 us|    6|   47|                                             no|
+        |grp_select_top_n_Pipeline_VITIS_LOOP_131_4_fu_305  |select_top_n_Pipeline_VITIS_LOOP_131_4  |        2|        9|  50.000 ns|  0.225 us|    1|    8|  loop auto-rewind stp(delay=0 clock cycles(s))|
+        +---------------------------------------------------+----------------------------------------+---------+---------+-----------+----------+-----+-----+-----------------------------------------------+
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_118_2  |     3600|   113400|    2 ~ 63|          -|          -|  1800|        no|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+------+
+|         Name        | BRAM_18K|  DSP  |    FF   |   LUT   | URAM |
++---------------------+---------+-------+---------+---------+------+
+|DSP                  |        -|      -|        -|        -|     -|
+|Expression           |        -|      -|        0|       87|     -|
+|FIFO                 |        -|      -|        -|        -|     -|
+|Instance             |        -|      -|       59|      334|     -|
+|Memory               |        -|      -|        -|        -|     -|
+|Multiplexer          |        -|      -|        0|      566|     -|
+|Register             |        -|      -|      108|        -|     -|
++---------------------+---------+-------+---------+---------+------+
+|Total                |        0|      0|      167|      987|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available SLR        |     1344|   3072|   864000|   432000|   320|
++---------------------+---------+-------+---------+---------+------+
+|Utilization SLR (%)  |        0|      0|       ~0|       ~0|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available            |     5376|  12288|  3456000|  1728000|  1280|
++---------------------+---------+-------+---------+---------+------+
+|Utilization (%)      |        0|      0|       ~0|       ~0|     0|
++---------------------+---------+-------+---------+---------+------+
+
++ Detail: 
+    * Instance: 
+    +---------------------------------------------------+----------------------------------------+---------+----+----+-----+-----+
+    |                      Instance                     |                 Module                 | BRAM_18K| DSP| FF | LUT | URAM|
+    +---------------------------------------------------+----------------------------------------+---------+----+----+-----+-----+
+    |grp_select_top_n_Pipeline_VITIS_LOOP_108_1_fu_267  |select_top_n_Pipeline_VITIS_LOOP_108_1  |        0|   0|   6|   51|    0|
+    |grp_select_top_n_Pipeline_VITIS_LOOP_128_3_fu_285  |select_top_n_Pipeline_VITIS_LOOP_128_3  |        0|   0|  44|  225|    0|
+    |grp_select_top_n_Pipeline_VITIS_LOOP_131_4_fu_305  |select_top_n_Pipeline_VITIS_LOOP_131_4  |        0|   0|   9|   58|    0|
+    +---------------------------------------------------+----------------------------------------+---------+----+----+-----+-----+
+    |Total                                              |                                        |        0|   0|  59|  334|    0|
+    +---------------------------------------------------+----------------------------------------+---------+----+----+-----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------+----------+----+---+----+------------+------------+
+    |      Variable Name     | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------+----------+----+---+----+------------+------------+
+    |add_ln118_fu_338_p2     |         +|   0|  0|  18|          11|           1|
+    |cond_fu_358_p2          |      icmp|   0|  0|  10|           3|           1|
+    |icmp_ln118_fu_332_p2    |      icmp|   0|  0|  18|          11|           9|
+    |icmp_ln119_fu_353_p2    |      icmp|   0|  0|  39|          32|          32|
+    |select_ln126_fu_364_p3  |    select|   0|  0|   2|           1|           2|
+    +------------------------+----------+----+---+----+------------+------------+
+    |Total                   |          |   0|  0|  87|          58|          45|
+    +------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------------------------------+----+-----------+-----+-----------+
+    |                 Name                 | LUT| Input Size| Bits| Total Bits|
+    +--------------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                             |  54|         10|    1|         10|
+    |i_1_fu_66                             |   9|          2|   11|         22|
+    |top_clusters_et_address0              |  20|          4|    3|         12|
+    |top_clusters_et_ce0                   |  20|          4|    1|          4|
+    |top_clusters_et_ce1                   |   9|          2|    1|          2|
+    |top_clusters_et_d0                    |  14|          3|   16|         48|
+    |top_clusters_et_we0                   |  14|          3|    1|          3|
+    |top_clusters_eta_address0             |  20|          4|    3|         12|
+    |top_clusters_eta_ce0                  |  20|          4|    1|          4|
+    |top_clusters_eta_ce1                  |   9|          2|    1|          2|
+    |top_clusters_eta_d0                   |  14|          3|    5|         15|
+    |top_clusters_eta_we0                  |  14|          3|    1|          3|
+    |top_clusters_iso_outer_size_address0  |  14|          3|    3|          9|
+    |top_clusters_iso_outer_size_ce0       |  14|          3|    1|          3|
+    |top_clusters_iso_outer_size_ce1       |   9|          2|    1|          2|
+    |top_clusters_iso_outer_size_d0        |  14|          3|    3|          9|
+    |top_clusters_iso_outer_size_we0       |  14|          3|    1|          3|
+    |top_clusters_isolation_et_address0    |  14|          3|    3|          9|
+    |top_clusters_isolation_et_ce0         |  14|          3|    1|          3|
+    |top_clusters_isolation_et_ce1         |   9|          2|    1|          2|
+    |top_clusters_isolation_et_d0          |  14|          3|   18|         54|
+    |top_clusters_isolation_et_we0         |  14|          3|    1|          3|
+    |top_clusters_phi_address0             |  20|          4|    3|         12|
+    |top_clusters_phi_ce0                  |  20|          4|    1|          4|
+    |top_clusters_phi_ce1                  |   9|          2|    1|          2|
+    |top_clusters_phi_d0                   |  14|          3|    6|         18|
+    |top_clusters_phi_we0                  |  14|          3|    1|          3|
+    |top_clusters_valid_address0           |  20|          4|    3|         12|
+    |top_clusters_valid_ce0                |  20|          4|    1|          4|
+    |top_clusters_valid_ce1                |   9|          2|    1|          2|
+    |top_clusters_valid_d0                 |  14|          3|    1|          3|
+    |top_clusters_valid_we0                |  14|          3|    1|          3|
+    |top_clusters_window_size_address0     |  14|          3|    3|          9|
+    |top_clusters_window_size_ce0          |  14|          3|    1|          3|
+    |top_clusters_window_size_ce1          |   9|          2|    1|          2|
+    |top_clusters_window_size_d0           |  14|          3|    2|          6|
+    |top_clusters_window_size_we0          |  14|          3|    1|          3|
+    +--------------------------------------+----+-----------+-----+-----------+
+    |Total                                 | 566|        118|  105|        320|
+    +--------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------------------------------------------+----+----+-----+-----------+
+    |                              Name                              | FF | LUT| Bits| Const Bits|
+    +----------------------------------------------------------------+----+----+-----+-----------+
+    |add_ln118_reg_422                                               |  11|   0|   11|          0|
+    |ap_CS_fsm                                                       |   9|   0|    9|          0|
+    |candidate_et_reg_480                                            |  16|   0|   16|          0|
+    |candidate_eta_reg_491                                           |   5|   0|    5|          0|
+    |candidate_iso_outer_size_reg_508                                |   3|   0|    3|          0|
+    |candidate_isolation_et_reg_486                                  |  18|   0|   18|          0|
+    |candidate_phi_reg_497                                           |   6|   0|    6|          0|
+    |candidate_window_size_reg_503                                   |   1|   0|    1|          0|
+    |clusters_valid_load_reg_446                                     |   1|   0|    1|          0|
+    |cond_reg_513                                                    |   1|   0|    1|          0|
+    |grp_select_top_n_Pipeline_VITIS_LOOP_108_1_fu_267_ap_start_reg  |   1|   0|    1|          0|
+    |grp_select_top_n_Pipeline_VITIS_LOOP_128_3_fu_285_ap_start_reg  |   1|   0|    1|          0|
+    |grp_select_top_n_Pipeline_VITIS_LOOP_131_4_fu_305_ap_start_reg  |   1|   0|    1|          0|
+    |i_1_fu_66                                                       |  11|   0|   11|          0|
+    |icmp_ln119_reg_437                                              |   1|   0|    1|          0|
+    |j_loc_fu_74                                                     |   3|   0|    3|          0|
+    |select_ln126_reg_517                                            |   2|   0|    2|          0|
+    |zext_ln118_reg_427                                              |  11|   0|   64|         53|
+    |zext_ln128_loc_fu_70                                            |   3|   0|    3|          0|
+    |zext_ln128_reload_cast_reg_525                                  |   3|   0|   64|         61|
+    +----------------------------------------------------------------+----+----+-----+-----------+
+    |Total                                                           | 108|   0|  222|        114|
+    +----------------------------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------------------------+-----+-----+------------+-----------------------------+--------------+
+|               RTL Ports              | Dir | Bits|  Protocol  |        Source Object        |    C Type    |
++--------------------------------------+-----+-----+------------+-----------------------------+--------------+
+|ap_clk                                |   in|    1|  ap_ctrl_hs|                 select_top_n|  return value|
+|ap_rst                                |   in|    1|  ap_ctrl_hs|                 select_top_n|  return value|
+|ap_start                              |   in|    1|  ap_ctrl_hs|                 select_top_n|  return value|
+|ap_done                               |  out|    1|  ap_ctrl_hs|                 select_top_n|  return value|
+|ap_idle                               |  out|    1|  ap_ctrl_hs|                 select_top_n|  return value|
+|ap_ready                              |  out|    1|  ap_ctrl_hs|                 select_top_n|  return value|
+|clusters_et_address0                  |  out|   11|   ap_memory|                  clusters_et|         array|
+|clusters_et_ce0                       |  out|    1|   ap_memory|                  clusters_et|         array|
+|clusters_et_q0                        |   in|   16|   ap_memory|                  clusters_et|         array|
+|clusters_isolation_et_address0        |  out|   11|   ap_memory|        clusters_isolation_et|         array|
+|clusters_isolation_et_ce0             |  out|    1|   ap_memory|        clusters_isolation_et|         array|
+|clusters_isolation_et_q0              |   in|   18|   ap_memory|        clusters_isolation_et|         array|
+|clusters_eta_address0                 |  out|   11|   ap_memory|                 clusters_eta|         array|
+|clusters_eta_ce0                      |  out|    1|   ap_memory|                 clusters_eta|         array|
+|clusters_eta_q0                       |   in|    5|   ap_memory|                 clusters_eta|         array|
+|clusters_phi_address0                 |  out|   11|   ap_memory|                 clusters_phi|         array|
+|clusters_phi_ce0                      |  out|    1|   ap_memory|                 clusters_phi|         array|
+|clusters_phi_q0                       |   in|    6|   ap_memory|                 clusters_phi|         array|
+|clusters_window_size_address0         |  out|   11|   ap_memory|         clusters_window_size|         array|
+|clusters_window_size_ce0              |  out|    1|   ap_memory|         clusters_window_size|         array|
+|clusters_window_size_q0               |   in|    1|   ap_memory|         clusters_window_size|         array|
+|clusters_iso_outer_size_address0      |  out|   11|   ap_memory|      clusters_iso_outer_size|         array|
+|clusters_iso_outer_size_ce0           |  out|    1|   ap_memory|      clusters_iso_outer_size|         array|
+|clusters_iso_outer_size_q0            |   in|    3|   ap_memory|      clusters_iso_outer_size|         array|
+|clusters_valid_address0               |  out|   11|   ap_memory|               clusters_valid|         array|
+|clusters_valid_ce0                    |  out|    1|   ap_memory|               clusters_valid|         array|
+|clusters_valid_q0                     |   in|    1|   ap_memory|               clusters_valid|         array|
+|num_clusters                          |   in|   32|     ap_none|                 num_clusters|        scalar|
+|top_clusters_et_address0              |  out|    3|   ap_memory|              top_clusters_et|         array|
+|top_clusters_et_ce0                   |  out|    1|   ap_memory|              top_clusters_et|         array|
+|top_clusters_et_we0                   |  out|    1|   ap_memory|              top_clusters_et|         array|
+|top_clusters_et_d0                    |  out|   16|   ap_memory|              top_clusters_et|         array|
+|top_clusters_et_q0                    |   in|   16|   ap_memory|              top_clusters_et|         array|
+|top_clusters_et_address1              |  out|    3|   ap_memory|              top_clusters_et|         array|
+|top_clusters_et_ce1                   |  out|    1|   ap_memory|              top_clusters_et|         array|
+|top_clusters_et_q1                    |   in|   16|   ap_memory|              top_clusters_et|         array|
+|top_clusters_isolation_et_address0    |  out|    3|   ap_memory|    top_clusters_isolation_et|         array|
+|top_clusters_isolation_et_ce0         |  out|    1|   ap_memory|    top_clusters_isolation_et|         array|
+|top_clusters_isolation_et_we0         |  out|    1|   ap_memory|    top_clusters_isolation_et|         array|
+|top_clusters_isolation_et_d0          |  out|   18|   ap_memory|    top_clusters_isolation_et|         array|
+|top_clusters_isolation_et_address1    |  out|    3|   ap_memory|    top_clusters_isolation_et|         array|
+|top_clusters_isolation_et_ce1         |  out|    1|   ap_memory|    top_clusters_isolation_et|         array|
+|top_clusters_isolation_et_q1          |   in|   18|   ap_memory|    top_clusters_isolation_et|         array|
+|top_clusters_eta_address0             |  out|    3|   ap_memory|             top_clusters_eta|         array|
+|top_clusters_eta_ce0                  |  out|    1|   ap_memory|             top_clusters_eta|         array|
+|top_clusters_eta_we0                  |  out|    1|   ap_memory|             top_clusters_eta|         array|
+|top_clusters_eta_d0                   |  out|    5|   ap_memory|             top_clusters_eta|         array|
+|top_clusters_eta_q0                   |   in|    5|   ap_memory|             top_clusters_eta|         array|
+|top_clusters_eta_address1             |  out|    3|   ap_memory|             top_clusters_eta|         array|
+|top_clusters_eta_ce1                  |  out|    1|   ap_memory|             top_clusters_eta|         array|
+|top_clusters_eta_q1                   |   in|    5|   ap_memory|             top_clusters_eta|         array|
+|top_clusters_phi_address0             |  out|    3|   ap_memory|             top_clusters_phi|         array|
+|top_clusters_phi_ce0                  |  out|    1|   ap_memory|             top_clusters_phi|         array|
+|top_clusters_phi_we0                  |  out|    1|   ap_memory|             top_clusters_phi|         array|
+|top_clusters_phi_d0                   |  out|    6|   ap_memory|             top_clusters_phi|         array|
+|top_clusters_phi_q0                   |   in|    6|   ap_memory|             top_clusters_phi|         array|
+|top_clusters_phi_address1             |  out|    3|   ap_memory|             top_clusters_phi|         array|
+|top_clusters_phi_ce1                  |  out|    1|   ap_memory|             top_clusters_phi|         array|
+|top_clusters_phi_q1                   |   in|    6|   ap_memory|             top_clusters_phi|         array|
+|top_clusters_window_size_address0     |  out|    3|   ap_memory|     top_clusters_window_size|         array|
+|top_clusters_window_size_ce0          |  out|    1|   ap_memory|     top_clusters_window_size|         array|
+|top_clusters_window_size_we0          |  out|    1|   ap_memory|     top_clusters_window_size|         array|
+|top_clusters_window_size_d0           |  out|    2|   ap_memory|     top_clusters_window_size|         array|
+|top_clusters_window_size_address1     |  out|    3|   ap_memory|     top_clusters_window_size|         array|
+|top_clusters_window_size_ce1          |  out|    1|   ap_memory|     top_clusters_window_size|         array|
+|top_clusters_window_size_q1           |   in|    2|   ap_memory|     top_clusters_window_size|         array|
+|top_clusters_iso_outer_size_address0  |  out|    3|   ap_memory|  top_clusters_iso_outer_size|         array|
+|top_clusters_iso_outer_size_ce0       |  out|    1|   ap_memory|  top_clusters_iso_outer_size|         array|
+|top_clusters_iso_outer_size_we0       |  out|    1|   ap_memory|  top_clusters_iso_outer_size|         array|
+|top_clusters_iso_outer_size_d0        |  out|    3|   ap_memory|  top_clusters_iso_outer_size|         array|
+|top_clusters_iso_outer_size_address1  |  out|    3|   ap_memory|  top_clusters_iso_outer_size|         array|
+|top_clusters_iso_outer_size_ce1       |  out|    1|   ap_memory|  top_clusters_iso_outer_size|         array|
+|top_clusters_iso_outer_size_q1        |   in|    3|   ap_memory|  top_clusters_iso_outer_size|         array|
+|top_clusters_valid_address0           |  out|    3|   ap_memory|           top_clusters_valid|         array|
+|top_clusters_valid_ce0                |  out|    1|   ap_memory|           top_clusters_valid|         array|
+|top_clusters_valid_we0                |  out|    1|   ap_memory|           top_clusters_valid|         array|
+|top_clusters_valid_d0                 |  out|    1|   ap_memory|           top_clusters_valid|         array|
+|top_clusters_valid_q0                 |   in|    1|   ap_memory|           top_clusters_valid|         array|
+|top_clusters_valid_address1           |  out|    3|   ap_memory|           top_clusters_valid|         array|
+|top_clusters_valid_ce1                |  out|    1|   ap_memory|           top_clusters_valid|         array|
+|top_clusters_valid_q1                 |   in|    1|   ap_memory|           top_clusters_valid|         array|
++--------------------------------------+-----+-----+------------+-----------------------------+--------------+
+

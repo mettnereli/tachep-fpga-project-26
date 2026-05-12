@@ -1,0 +1,49 @@
+{
+  "0": {
+    "basicblocks": 12,
+    "calls": "1 2",
+    "file": "calorimeter.cpp",
+    "fileloc": 188,
+    "instructions": 115,
+    "loads": {
+      "L": 10,
+      "T": 1
+    },
+    "name": "calo_trigger_ref",
+    "stores": {
+      "L": 5,
+      "T": 17
+    },
+    "total_instructions": 555
+  },
+  "1": {
+    "basicblocks": 54,
+    "calls": "",
+    "file": "calorimeter.h",
+    "fileloc": 206,
+    "instructions": 271,
+    "loads": {
+      "L": 10
+    },
+    "name": "find_clusters<3, 5>",
+    "stores": {
+      "L": 16
+    },
+    "total_instructions": 271
+  },
+  "2": {
+    "basicblocks": 25,
+    "calls": "",
+    "file": "calorimeter.cpp",
+    "fileloc": 104,
+    "instructions": 169,
+    "loads": {
+      "L": 23
+    },
+    "name": "select_top_n",
+    "stores": {
+      "L": 28
+    },
+    "total_instructions": 169
+  }
+}
