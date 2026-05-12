@@ -1,0 +1,129 @@
+#include "calorimeter.h"
+
+
+void run_reference_trigger_3x3_iso5(const tower_et_t towers[NETA][NPHI],
+                            tower_et_t seed_threshold,
+                            tower_et_t cluster_threshold,
+                            Cluster clusters[MAX_CLUSTERS],
+                            int &num_clusters,
+                            Cluster top_clusters[TOP_N],
+                            TriggerObject trigger_objects[TOP_N],
+                            ht_t &ht) {
+    find_clusters_3x3_iso5(towers, seed_threshold, cluster_threshold, clusters, num_clusters);
+    select_top_n(clusters, num_clusters, top_clusters);
+    build_trigger_objects(top_clusters, trigger_objects);
+    ht = compute_ht(towers);
+}
+
+void find_clusters_3x3_iso5(const tower_et_t towers[NETA][NPHI],
+                           tower_et_t seed_threshold,
+                           tower_et_t cluster_threshold,
+                           Cluster clusters[MAX_CLUSTERS],
+                           int &num_clusters) {
+    find_clusters<3, 5>(towers, seed_threshold, cluster_threshold, clusters, num_clusters);
+}
+
+void find_clusters_3x3(const tower_et_t towers[NETA][NPHI],
+                    tower_et_t seed_threshold,
+                    tower_et_t cluster_threshold,
+                    Cluster clusters[MAX_CLUSTERS],
+                    int &num_clusters) {
+    find_clusters<3, 3>(towers, seed_threshold, cluster_threshold, clusters, num_clusters);
+}
+
+void select_top_n(const Cluster clusters[MAX_CLUSTERS], 
+                  int num_clusters, 
+                  Cluster top_clusters[TOP_N]) {
+    // Simple selection sort for top N clusters
+    for (int i = 0; i < TOP_N; ++i) {
+        top_clusters[i].valid = false; // Initialize as invalid
+    }
+
+    for (int i = 0; i < num_clusters; ++i) {
+        if (!clusters[i].valid) continue;
+
+        Cluster candidate = clusters[i];
+
+        for (int j = 0; j < TOP_N; j++) {
+            if (!top_clusters[j].valid || candidate.et > top_clusters[j].et) {
+                // Shift down lower-ranked clusters
+                for (int k = TOP_N - 1; k > j; k--) {
+                    top_clusters[k] = top_clusters[k - 1];
+                }
+                top_clusters[j] = candidate;
+                break;
+            }
+        }
+    }
+}
+
+
+
+ht_t compute_ht(const tower_et_t towers[NETA][NPHI]) {
+    ht_t ht = 0;
+    for (int eta = 0; eta < NETA; eta++) {
+        for (int phi = 0; phi < NPHI; phi++) {
+            ht += (ht_t) towers[eta][phi];
+        }
+    }
+    return ht;
+}
+
+
+void build_trigger_objects(const Cluster top_clusters[TOP_N], 
+                          TriggerObject trigger_objects[TOP_N]) {
+    for (int i = 0; i < TOP_N; ++i) {
+        if (!top_clusters[i].valid) {
+            trigger_objects[i].valid = false;
+            continue;
+        }
+        trigger_objects[i].valid = true;
+        trigger_objects[i].type = TRIG_NONE; // Default type
+    }
+    for (int i  = 0; i < TOP_N; i++) {
+        if (!top_clusters[i].valid) {
+            continue;
+        }
+
+        trigger_objects[i].et = top_clusters[i].et;
+        trigger_objects[i].isolation_et = top_clusters[i].isolation_et;
+        trigger_objects[i].eta = top_clusters[i].eta;
+        trigger_objects[i].phi = top_clusters[i].phi;
+        trigger_objects[i].window_size = top_clusters[i].window_size;
+
+
+        // Classification logic based on isolation energy
+        if (top_clusters[i].window_size == 3 && top_clusters[i].isolation_et < 10) {
+            trigger_objects[i].type = TRIG_EM;
+        } else {
+            trigger_objects[i].type = TRIG_JET;
+        }
+    }
+}
+
+
+void calo_trigger_ref(const tower_et_t grid[NETA][NPHI],
+                      tower_et_t seed_threshold,
+                      cluster_et_t cluster_threshold,
+                      TriggerObject objects[TOP_N],
+                      ht_t *ht,
+                      int *num_clusters)
+{
+    Cluster clusters[MAX_CLUSTERS];
+    Cluster top_clusters[TOP_N];
+
+    int local_num_clusters = 0;
+    ht_t local_ht = 0;
+
+    run_reference_trigger_3x3_iso5(grid,
+                                   seed_threshold,
+                                   cluster_threshold,
+                                   clusters,
+                                   local_num_clusters,
+                                   top_clusters,
+                                   objects,
+                                   local_ht);
+
+    *ht = local_ht;
+    *num_clusters = local_num_clusters;
+}
