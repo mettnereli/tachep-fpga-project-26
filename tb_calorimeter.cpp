@@ -82,47 +82,23 @@ int main()
                     &num_clusters);
 
     std::cout << "HT = " << ht << std::endl;
-    std::cout << "Number of clusters found: " << num_clusters << std::endl;
+std::cout << "Number of clusters found = " << num_clusters << std::endl;
 
-    std::cout << "\nAll clusters:\n";
-    for (int i = 0; i < num_clusters; i++) {
-        std::cout << "Cluster " << i
-                << " | ET = " << clusters[i].et
-                << " | iso = " << clusters[i].isolation_et
-                << " | eta = " << clusters[i].eta
-                << " | phi = " << clusters[i].phi
-                << " | window = " << clusters[i].window_size << "x"
-                << clusters[i].window_size
-                << std::endl;
+std::cout << "\nTrigger objects:\n";
+
+for (int i = 0; i < TOP_N; i++) {
+    if (!objects[i].valid) {
+        continue;
     }
 
-    std::cout << "\nTop clusters:\n";
-    for (int i = 0; i < TOP_N; i++) {
-        if (!top_clusters[i].valid) {
-            continue;
-        }
-
-        std::cout << "Top " << i
-                << " | ET = " << top_clusters[i].et
-                << " | iso = " << top_clusters[i].isolation_et
-                << " | eta = " << top_clusters[i].eta
-                << " | phi = " << top_clusters[i].phi
-                << std::endl;
-    }
-
-    std::cout << "\nTrigger objects:\n";
-    for (int i = 0; i < TOP_N; i++) {
-        if (!objects[i].valid) {
-            continue;
-        }
-
-        std::cout << "Object " << i
-                << " | ET = " << objects[i].et
-                << " | iso = " << objects[i].isolation_et
-                << " | eta = " << objects[i].eta
-                << " | phi = " << objects[i].phi
-                << " | type = " << objects[i].type
-                << std::endl;
-    }
+    std::cout << "Object " << i
+              << " | ET = " << objects[i].et
+              << " | iso = " << objects[i].isolation_et
+              << " | eta = " << objects[i].eta
+              << " | phi = " << objects[i].phi
+              << " | window = " << objects[i].window_size
+              << " | type = " << objects[i].type
+              << std::endl;
+}
     return 0;
 }

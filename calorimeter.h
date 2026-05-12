@@ -58,7 +58,7 @@ struct TriggerObject {
     ap_uint<4> window_size;
     TriggerType type;
     bool valid;
-}
+};
 
 
 // Function prototypes
@@ -164,13 +164,7 @@ void find_clusters(const tower_et_t towers[NETA][NPHI],
     const int CLUSTER_HALF_W = cluster_W / 2;
     const int ISO_HALF_W = iso_W / 2;
 
-
-    if (cluster_W > iso_W) {
-        const int HALF_W = cluster_W / 2;
-    } else {
-        const int HALF_W = iso_W / 2;
-    }
-
+    const int HALF_W = (cluster_W > iso_W) ? (cluster_W / 2) : (iso_W / 2);
     //Ignore boundary cells for right now. 
     for (int eta = HALF_W; eta < NETA - HALF_W; eta++) {
         for (int phi = HALF_W; phi < NPHI - HALF_W; phi++) {

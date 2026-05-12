@@ -93,7 +93,7 @@ void build_trigger_objects(const Cluster top_clusters[TOP_N],
 
 
         // Classification logic based on isolation energy
-        if (top_clusters[i].window_size == 3 && top_clusters[i].isolation_et < 10) {
+        if (top_clusters[i].window_size == 3) {
             trigger_objects[i].type = TRIG_EM;
         } else {
             trigger_objects[i].type = TRIG_JET;
