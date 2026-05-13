@@ -1,0 +1,450 @@
+
+
+================================================================
+== Synthesis Summary Report of 'calo_trigger_ref'
+================================================================
++ General Information: 
+    * Date:           Tue May 12 19:45:24 2026
+    * Version:        2024.1 (Build 5069499 on May 21 2024)
+    * Project:        calorimeter
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: virtexuplus
+    * Target device:  xcvu13p-fsga2577-2-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +------------------------+------+-------+---------+-----------+----------+---------+------+----------+---------+----+------------+------------+-----+
+    |         Modules        | Issue|       | Latency |  Latency  | Iteration|         | Trip |          |         |    |            |            |     |
+    |         & Loops        | Type | Slack | (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|  BRAM   | DSP|     FF     |     LUT    | URAM|
+    +------------------------+------+-------+---------+-----------+----------+---------+------+----------+---------+----+------------+------------+-----+
+    |+ calo_trigger_ref      |     -|  12.00|    47294|  1.182e+06|         -|    47295|     -|        no|  9 (~0%)|   -|  1814 (~0%)|  6158 (~0%)|    -|
+    | + find_clusters_3_5_s  |     -|  12.00|    20288|  5.072e+05|         -|    20288|     -|        no|        -|   -|   546 (~0%)|  1948 (~0%)|    -|
+    |  o FIND_ETA_FIND_PHI   |    II|  18.25|    20286|  5.072e+05|        20|       13|  1560|       yes|        -|   -|           -|           -|    -|
+    | + select_top_n         |     -|  15.53|    25201|  6.300e+05|         -|    25201|     -|        no|        -|   -|   975 (~0%)|  2710 (~0%)|    -|
+    |  o FIND_CLUSTER        |     -|  18.25|    25200|  6.300e+05|        14|        -|  1800|        no|        -|   -|           -|           -|    -|
+    |   o VITIS_LOOP_135_2   |     -|  18.25|        7|    175.000|         1|        -|     7|        no|        -|   -|           -|           -|    -|
+    | o HT_ETA_HT_PHI        |     -|  18.25|     1800|  4.500e+04|         2|        1|  1800|       yes|        -|   -|           -|           -|    -|
+    +------------------------+------+-------+---------+-----------+----------+---------+------+----------+---------+----+------------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* S_AXILITE Interfaces
++------------+------------+---------------+--------+----------+
+| Interface  | Data Width | Address Width | Offset | Register |
++------------+------------+---------------+--------+----------+
+| s_axi_CTRL | 32         | 6             | 16     | 0        |
++------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++------------+-------------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface  | Register          | Offset | Width | Access | Description                      | Bit Fields                                                           |
++------------+-------------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_CTRL | CTRL              | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_CTRL | GIER              | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_CTRL | IP_IER            | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_CTRL | IP_ISR            | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
+| s_axi_CTRL | seed_threshold    | 0x10   | 32    | W      | Data signal of seed_threshold    |                                                                      |
+| s_axi_CTRL | cluster_threshold | 0x18   | 32    | W      | Data signal of cluster_threshold |                                                                      |
+| s_axi_CTRL | ht                | 0x20   | 32    | R      | Data signal of ht                |                                                                      |
+| s_axi_CTRL | ht_ctrl           | 0x24   | 32    | R      | Control signal of ht             | 0=ht_ap_vld                                                          |
+| s_axi_CTRL | num_clusters      | 0x30   | 32    | R      | Data signal of num_clusters      |                                                                      |
+| s_axi_CTRL | num_clusters_ctrl | 0x34   | 32    | R      | Control signal of num_clusters   | 0=num_clusters_ap_vld                                                |
++------------+-------------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* BRAM
++------------+------------+---------------+
+| Interface  | Data Width | Address Width |
++------------+------------+---------------+
+| grid_PORTA | 12         | 32            |
+| grid_PORTB | 12         | 32            |
++------------+------------+---------------+
+
+* Other Ports
++-----------+--------+-----------+----------+
+| Port      | Mode   | Direction | Bitwidth |
++-----------+--------+-----------+----------+
+| objects_0 | ap_vld | out       | 89       |
+| objects_1 | ap_vld | out       | 89       |
+| objects_2 | ap_vld | out       | 89       |
+| objects_3 | ap_vld | out       | 89       |
+| objects_4 | ap_vld | out       | 89       |
+| objects_5 | ap_vld | out       | 89       |
+| objects_6 | ap_vld | out       | 89       |
+| objects_7 | ap_vld | out       | 89       |
++-----------+--------+-----------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++-------------------+-----------+---------------------+
+| Argument          | Direction | Datatype            |
++-------------------+-----------+---------------------+
+| grid              | in        | ap_uint<12> const * |
+| seed_threshold    | in        | ap_uint<12>         |
+| cluster_threshold | in        | ap_uint<20>         |
+| objects           | out       | TriggerObject*      |
+| ht                | out       | ap_uint<24>*        |
+| num_clusters      | out       | int*                |
++-------------------+-----------+---------------------+
+
+* SW-to-HW Mapping
++-------------------+------------------+-----------+---------------------------------------------+
+| Argument          | HW Interface     | HW Type   | HW Info                                     |
++-------------------+------------------+-----------+---------------------------------------------+
+| grid              | grid_PORTA       | interface |                                             |
+| grid              | grid_PORTB       | interface |                                             |
+| seed_threshold    | s_axi_CTRL       | register  | name=seed_threshold offset=0x10 range=32    |
+| cluster_threshold | s_axi_CTRL       | register  | name=cluster_threshold offset=0x18 range=32 |
+| objects           | objects_0        | port      |                                             |
+| objects           | objects_0_ap_vld | port      |                                             |
+| objects           | objects_1        | port      |                                             |
+| objects           | objects_1_ap_vld | port      |                                             |
+| objects           | objects_2        | port      |                                             |
+| objects           | objects_2_ap_vld | port      |                                             |
+| objects           | objects_3        | port      |                                             |
+| objects           | objects_3_ap_vld | port      |                                             |
+| objects           | objects_4        | port      |                                             |
+| objects           | objects_4_ap_vld | port      |                                             |
+| objects           | objects_5        | port      |                                             |
+| objects           | objects_5_ap_vld | port      |                                             |
+| objects           | objects_6        | port      |                                             |
+| objects           | objects_6_ap_vld | port      |                                             |
+| objects           | objects_7        | port      |                                             |
+| objects           | objects_7_ap_vld | port      |                                             |
+| ht                | s_axi_CTRL       | register  | name=ht offset=0x20 range=32                |
+| ht                | s_axi_CTRL       | register  | name=ht_ctrl offset=0x24 range=32           |
+| num_clusters      | s_axi_CTRL       | register  | name=num_clusters offset=0x30 range=32      |
+| num_clusters      | s_axi_CTRL       | register  | name=num_clusters_ctrl offset=0x34 range=32 |
++-------------------+------------------+-----------+---------------------------------------------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++------------------------------+-----+--------+----------------+-----------+----------+---------+
+| Name                         | DSP | Pragma | Variable       | Op        | Impl     | Latency |
++------------------------------+-----+--------+----------------+-----------+----------+---------+
+| + calo_trigger_ref           | 0   |        |                |           |          |         |
+|   icmp_ln185_fu_525_p2       |     |        | icmp_ln185     | seteq     | auto     | 0       |
+|   select_ln185_fu_531_p3     |     |        | select_ln185   | select    | auto_sel | 0       |
+|   objects_0                  |     |        | objects_0_0_i  | select    | auto_sel | 0       |
+|   icmp_ln185_1_fu_576_p2     |     |        | icmp_ln185_1   | seteq     | auto     | 0       |
+|   select_ln185_1_fu_582_p3   |     |        | select_ln185_1 | select    | auto_sel | 0       |
+|   objects_1                  |     |        | objects_1_0_i  | select    | auto_sel | 0       |
+|   icmp_ln185_2_fu_627_p2     |     |        | icmp_ln185_2   | seteq     | auto     | 0       |
+|   select_ln185_2_fu_633_p3   |     |        | select_ln185_2 | select    | auto_sel | 0       |
+|   objects_2                  |     |        | objects_2_0_i  | select    | auto_sel | 0       |
+|   icmp_ln185_3_fu_678_p2     |     |        | icmp_ln185_3   | seteq     | auto     | 0       |
+|   select_ln185_3_fu_684_p3   |     |        | select_ln185_3 | select    | auto_sel | 0       |
+|   objects_3                  |     |        | objects_3_0_i  | select    | auto_sel | 0       |
+|   icmp_ln185_4_fu_729_p2     |     |        | icmp_ln185_4   | seteq     | auto     | 0       |
+|   select_ln185_4_fu_735_p3   |     |        | select_ln185_4 | select    | auto_sel | 0       |
+|   objects_4                  |     |        | objects_4_0_i  | select    | auto_sel | 0       |
+|   icmp_ln185_5_fu_780_p2     |     |        | icmp_ln185_5   | seteq     | auto     | 0       |
+|   select_ln185_5_fu_786_p3   |     |        | select_ln185_5 | select    | auto_sel | 0       |
+|   objects_5                  |     |        | objects_5_0_i  | select    | auto_sel | 0       |
+|   icmp_ln185_6_fu_831_p2     |     |        | icmp_ln185_6   | seteq     | auto     | 0       |
+|   select_ln185_6_fu_837_p3   |     |        | select_ln185_6 | select    | auto_sel | 0       |
+|   objects_6                  |     |        | objects_6_0_i  | select    | auto_sel | 0       |
+|   icmp_ln185_7_fu_882_p2     |     |        | icmp_ln185_7   | seteq     | auto     | 0       |
+|   select_ln185_7_fu_888_p3   |     |        | select_ln185_7 | select    | auto_sel | 0       |
+|   objects_7                  |     |        | objects_7_0_i  | select    | auto_sel | 0       |
+|   add_ln149_fu_942_p2        |     |        | add_ln149      | add       | fabric   | 0       |
+|   select_ln149_fu_948_p3     |     |        | select_ln149   | select    | auto_sel | 0       |
+|   eta_fu_956_p3              |     |        | eta            | select    | auto_sel | 0       |
+|   ht_2_fu_1051_p2            |     |        | ht_2           | add       | fabric   | 0       |
+|   phi_fu_1005_p2             |     |        | phi            | add       | fabric   | 0       |
+|   add_ln149_1_fu_1011_p2     |     |        | add_ln149_1    | add       | fabric   | 0       |
+|   icmp_ln150_fu_1017_p2      |     |        | icmp_ln150     | seteq     | auto     | 0       |
+|   icmp_ln149_fu_1023_p2      |     |        | icmp_ln149     | seteq     | auto     | 0       |
+|  + find_clusters_3_5_s       | 0   |        |                |           |          |         |
+|    icmp_ln232_fu_473_p2      |     |        | icmp_ln232     | seteq     | auto     | 0       |
+|    add_ln232_1_fu_479_p2     |     |        | add_ln232_1    | add       | fabric   | 0       |
+|    icmp_ln233_fu_491_p2      |     |        | icmp_ln233     | seteq     | auto     | 0       |
+|    select_ln232_fu_497_p3    |     |        | select_ln232   | select    | auto_sel | 0       |
+|    add_ln232_fu_505_p2       |     |        | add_ln232      | add       | fabric   | 0       |
+|    add_ln232_2_fu_511_p2     |     |        | add_ln232_2    | add       | fabric   | 0       |
+|    select_ln232_1_fu_517_p3  |     |        | select_ln232_1 | select    | auto_sel | 0       |
+|    select_ln232_2_fu_525_p3  |     |        | select_ln232_2 | select    | auto_sel | 0       |
+|    sub_ln235_fu_553_p2       |     |        | sub_ln235      | sub       | fabric   | 0       |
+|    empty_61_fu_584_p2        |     |        | empty_61       | add       | fabric   | 0       |
+|    sub_ln188_fu_609_p2       |     |        | sub_ln188      | sub       | fabric   | 0       |
+|    sub_ln188_1_fu_770_p2     |     |        | sub_ln188_1    | sub       | fabric   | 0       |
+|    empty_62_fu_983_p2        |     |        | empty_62       | add       | fabric   | 0       |
+|    sub_ln159_fu_1008_p2      |     |        | sub_ln159      | sub       | fabric   | 0       |
+|    empty_63_fu_1320_p2       |     |        | empty_63       | add       | fabric   | 0       |
+|    sub_ln159_1_fu_1345_p2    |     |        | sub_ln159_1    | sub       | fabric   | 0       |
+|    add_ln235_fu_563_p2       |     |        | add_ln235      | add       | fabric   | 0       |
+|    add_ln188_fu_615_p2       |     |        | add_ln188      | add       | fabric   | 0       |
+|    add_ln188_1_fu_826_p2     |     |        | add_ln188_1    | add       | fabric   | 0       |
+|    add_ln159_7_fu_1203_p2    |     |        | add_ln159_7    | add       | fabric   | 0       |
+|    add_ln159_8_fu_1351_p2    |     |        | add_ln159_8    | add       | fabric   | 0       |
+|    icmp_ln237_fu_628_p2      |     |        | icmp_ln237     | setlt     | auto     | 0       |
+|    phi_fu_692_p2             |     |        | phi            | add       | fabric   | 0       |
+|    add_ln185_fu_633_p2       |     |        | add_ln185      | add       | fabric   | 0       |
+|    add_ln133_fu_651_p2       |     |        | add_ln133      | add       | fabric   | 0       |
+|    phi_idx_fu_657_p3         |     |        | phi_idx        | select    | auto_sel | 0       |
+|    add_ln188_2_fu_669_p2     |     |        | add_ln188_2    | add       | fabric   | 0       |
+|    grp_fu_440_p2             |     |        | is_max         | setlt     | auto     | 0       |
+|    icmp_ln192_fu_776_p2      |     |        | icmp_ln192     | setne     | auto     | 0       |
+|    icmp_ln190_fu_780_p2      |     |        | icmp_ln190     | setlt     | auto     | 0       |
+|    xor_ln190_1_fu_784_p2     |     |        | xor_ln190_1    | xor       | auto     | 0       |
+|    icmp_ln134_fu_697_p2      |     |        | icmp_ln134     | setgt     | auto     | 0       |
+|    add_ln135_fu_703_p2       |     |        | add_ln135      | add       | fabric   | 0       |
+|    phi_idx_2_fu_712_p3       |     |        | phi_idx_2      | select    | auto_sel | 0       |
+|    add_ln188_3_fu_724_p2     |     |        | add_ln188_3    | add       | fabric   | 0       |
+|    add_ln188_4_fu_790_p2     |     |        | add_ln188_4    | add       | fabric   | 0       |
+|    add_ln188_5_fu_835_p2     |     |        | add_ln188_5    | add       | fabric   | 0       |
+|    add_ln159_9_fu_1212_p2    |     |        | add_ln159_9    | add       | fabric   | 0       |
+|    add_ln159_10_fu_1361_p2   |     |        | add_ln159_10   | add       | fabric   | 0       |
+|    phi_idx_3_fu_684_p3       |     |        | phi_idx_3      | select    | auto_sel | 0       |
+|    add_ln188_6_fu_737_p2     |     |        | add_ln188_6    | add       | fabric   | 0       |
+|    add_ln188_7_fu_799_p2     |     |        | add_ln188_7    | add       | fabric   | 0       |
+|    add_ln159_11_fu_844_p2    |     |        | add_ln159_11   | add       | fabric   | 0       |
+|    add_ln159_12_fu_1014_p2   |     |        | add_ln159_12   | add       | fabric   | 0       |
+|    add_ln159_13_fu_1371_p2   |     |        | add_ln159_13   | add       | fabric   | 0       |
+|    icmp_ln190_1_fu_853_p2    |     |        | icmp_ln190_1   | setlt     | auto     | 0       |
+|    xor_ln190_2_fu_857_p2     |     |        | xor_ln190_2    | xor       | auto     | 0       |
+|    icmp_ln190_2_fu_863_p2    |     |        | icmp_ln190_2   | setlt     | auto     | 0       |
+|    xor_ln190_3_fu_867_p2     |     |        | xor_ln190_3    | xor       | auto     | 0       |
+|    icmp_ln190_3_fu_873_p2    |     |        | icmp_ln190_3   | setlt     | auto     | 0       |
+|    xor_ln190_4_fu_878_p2     |     |        | xor_ln190_4    | xor       | auto     | 0       |
+|    and_ln190_fu_809_p2       |     |        | and_ln190      | and       | auto     | 0       |
+|    grp_fu_440_p2             |     |        | icmp_ln190_4   | setlt     | auto     | 0       |
+|    and_ln190_1_fu_814_p2     |     |        | and_ln190_1    | and       | auto     | 0       |
+|    and_ln190_2_fu_820_p2     |     |        | and_ln190_2    | and       | auto     | 0       |
+|    icmp_ln190_5_fu_884_p2    |     |        | icmp_ln190_5   | setlt     | auto     | 0       |
+|    and_ln190_4_fu_888_p2     |     |        | and_ln190_4    | and       | auto     | 0       |
+|    and_ln190_5_fu_894_p2     |     |        | and_ln190_5    | and       | auto     | 0       |
+|    and_ln190_6_fu_900_p2     |     |        | and_ln190_6    | and       | auto     | 0       |
+|    and_ln190_3_fu_906_p2     |     |        | and_ln190_3    | and       | auto     | 0       |
+|    icmp_ln190_6_fu_911_p2    |     |        | icmp_ln190_6   | setgt     | auto     | 0       |
+|    xor_ln190_fu_916_p2       |     |        | xor_ln190      | xor       | auto     | 0       |
+|    or_ln190_fu_922_p2        |     |        | or_ln190       | or        | auto     | 0       |
+|    add_ln159_fu_948_p2       |     |        | add_ln159      | add       | fabric   | 0       |
+|    add_ln159_1_fu_958_p2     |     |        | add_ln159_1    | add       | fabric   | 0       |
+|    add_ln159_2_fu_968_p2     |     |        | add_ln159_2    | add       | fabric   | 0       |
+|    add_ln159_3_fu_974_p2     |     |        | add_ln159_3    | add       | fabric   | 0       |
+|    add_ln159_4_fu_1040_p2    |     |        | add_ln159_4    | add       | fabric   | 0       |
+|    add_ln159_5_fu_1050_p2    |     |        | add_ln159_5    | add       | fabric   | 0       |
+|    add_ln159_6_fu_1060_p2    |     |        | add_ln159_6    | add       | fabric   | 0       |
+|    cluster_et_fu_1070_p2     |     |        | cluster_et     | add       | fabric   | 0       |
+|    icmp_ln248_fu_1081_p2     |     |        | icmp_ln248     | setlt     | auto     | 0       |
+|    add_ln156_fu_1086_p2      |     |        | add_ln156      | add       | fabric   | 0       |
+|    add_ln133_1_fu_1103_p2    |     |        | add_ln133_1    | add       | fabric   | 0       |
+|    phi_idx_4_fu_1108_p3      |     |        | phi_idx_4      | select    | auto_sel | 0       |
+|    add_ln159_15_fu_1120_p2   |     |        | add_ln159_15   | add       | fabric   | 0       |
+|    add_ln156_1_fu_1131_p2    |     |        | add_ln156_1    | add       | fabric   | 0       |
+|    icmp_ln134_1_fu_1136_p2   |     |        | icmp_ln134_1   | setgt     | auto     | 0       |
+|    add_ln135_1_fu_1142_p2    |     |        | add_ln135_1    | add       | fabric   | 0       |
+|    phi_idx_5_fu_1151_p3      |     |        | phi_idx_5      | select    | auto_sel | 0       |
+|    add_ln159_16_fu_1246_p2   |     |        | add_ln159_16   | add       | fabric   | 0       |
+|    add_ln159_17_fu_1288_p2   |     |        | add_ln159_17   | add       | fabric   | 0       |
+|    add_ln159_18_fu_1381_p2   |     |        | add_ln159_18   | add       | fabric   | 0       |
+|    add_ln159_19_fu_1390_p2   |     |        | add_ln159_19   | add       | fabric   | 0       |
+|    add_ln159_20_fu_1394_p2   |     |        | add_ln159_20   | add       | fabric   | 0       |
+|    phi_idx_6_fu_1163_p3      |     |        | phi_idx_6      | select    | auto_sel | 0       |
+|    add_ln159_21_fu_1259_p2   |     |        | add_ln159_21   | add       | fabric   | 0       |
+|    add_ln159_22_fu_1301_p2   |     |        | add_ln159_22   | add       | fabric   | 0       |
+|    add_ln159_23_fu_1399_p2   |     |        | add_ln159_23   | add       | fabric   | 0       |
+|    add_ln159_24_fu_1408_p2   |     |        | add_ln159_24   | add       | fabric   | 0       |
+|    add_ln211_fu_1229_p2      |     |        | add_ln211      | add       | fabric   | 0       |
+|    add_ln211_1_fu_1272_p2    |     |        | add_ln211_1    | add       | fabric   | 0       |
+|    add_ln211_2_fu_1282_p2    |     |        | add_ln211_2    | add       | fabric   | 0       |
+|    add_ln211_3_fu_1314_p2    |     |        | add_ln211_3    | add       | fabric   | 0       |
+|    add_ln211_4_fu_1427_p2    |     |        | add_ln211_4    | add       | fabric   | 0       |
+|    add_ln211_5_fu_1437_p2    |     |        | add_ln211_5    | add       | fabric   | 0       |
+|    add_ln211_6_fu_1447_p2    |     |        | add_ln211_6    | add       | fabric   | 0       |
+|    add_ln211_7_fu_1469_p2    |     |        | add_ln211_7    | add       | fabric   | 0       |
+|    add_ln211_8_fu_1486_p2    |     |        | add_ln211_8    | add       | fabric   | 0       |
+|    add_ln211_9_fu_1496_p2    |     |        | add_ln211_9    | add       | fabric   | 0       |
+|    add_ln211_10_fu_1510_p2   |     |        | add_ln211_10   | add       | fabric   | 0       |
+|    add_ln211_11_fu_1536_p2   |     |        | add_ln211_11   | add       | fabric   | 0       |
+|    add_ln211_12_fu_1546_p2   |     |        | add_ln211_12   | add       | fabric   | 0       |
+|    add_ln211_13_fu_1556_p2   |     |        | add_ln211_13   | add       | fabric   | 0       |
+|    isolation_et_fu_1566_p2   |     |        | isolation_et   | add       | fabric   | 0       |
+|    icmp_ln257_fu_1171_p2     |     |        | icmp_ln257     | setlt     | auto     | 0       |
+|    add_ln265_fu_1187_p2      |     |        | add_ln265      | add       | fabric   | 0       |
+|  + select_top_n              | 0   |        |                |           |          |         |
+|    icmp_ln121_fu_1399_p2     |     |        | icmp_ln121     | seteq     | auto     | 0       |
+|    add_ln121_fu_1405_p2      |     |        | add_ln121      | add       | fabric   | 0       |
+|    icmp_ln123_fu_1420_p2     |     |        | icmp_ln123     | setlt     | auto     | 0       |
+|    select_ln130_fu_1878_p3   |     |        | select_ln130   | select    | auto_sel | 0       |
+|    xor_ln133_fu_1886_p2      |     |        | xor_ln133      | xor       | auto     | 0       |
+|    icmp_ln79_fu_1892_p2      |     |        | icmp_ln79      | setgt     | auto     | 0       |
+|    or_ln133_fu_1898_p2       |     |        | or_ln133       | or        | auto     | 0       |
+|    icmp_ln83_fu_1904_p2      |     |        | icmp_ln83      | setlt     | auto     | 0       |
+|    icmp_ln87_fu_1910_p2      |     |        | icmp_ln87      | setlt     | auto     | 0       |
+|    icmp_ln91_fu_1916_p2      |     |        | icmp_ln91      | setlt     | auto     | 0       |
+|    xor_ln91_7_fu_1922_p2     |     |        | xor_ln91_7     | xor       | auto     | 0       |
+|    icmp_ln95_fu_1928_p2      |     |        | icmp_ln95      | setlt     | auto     | 0       |
+|    and_ln91_fu_1934_p2       |     |        | and_ln91       | and       | auto     | 0       |
+|    xor_ln91_fu_1940_p2       |     |        | xor_ln91       | xor       | auto     | 0       |
+|    or_ln91_fu_1946_p2        |     |        | or_ln91        | or        | auto     | 0       |
+|    and_ln91_8_fu_1952_p2     |     |        | and_ln91_8     | and       | auto     | 0       |
+|    xor_ln91_6_fu_1958_p2     |     |        | xor_ln91_6     | xor       | auto     | 0       |
+|    grp_fu_787_p2             |     |        | icmp_ln79_2    | setgt     | auto     | 0       |
+|    xor_ln133_1_fu_1968_p2    |     |        | xor_ln133_1    | xor       | auto     | 0       |
+|    grp_fu_787_p2             |     |        | icmp_ln79_1    | setgt     | auto     | 0       |
+|    or_ln133_1_fu_1974_p2     |     |        | or_ln133_1     | or        | auto     | 0       |
+|    icmp_ln83_1_fu_1983_p2    |     |        | icmp_ln83_1    | setlt     | auto     | 0       |
+|    icmp_ln87_1_fu_1989_p2    |     |        | icmp_ln87_1    | setlt     | auto     | 0       |
+|    icmp_ln91_1_fu_1995_p2    |     |        | icmp_ln91_1    | setlt     | auto     | 0       |
+|    xor_ln91_8_fu_2001_p2     |     |        | xor_ln91_8     | xor       | auto     | 0       |
+|    icmp_ln95_1_fu_2007_p2    |     |        | icmp_ln95_1    | setlt     | auto     | 0       |
+|    and_ln91_1_fu_2013_p2     |     |        | and_ln91_1     | and       | auto     | 0       |
+|    xor_ln91_1_fu_2019_p2     |     |        | xor_ln91_1     | xor       | auto     | 0       |
+|    or_ln91_1_fu_2025_p2      |     |        | or_ln91_1      | or        | auto     | 0       |
+|    select_ln91_fu_2031_p3    |     |        | select_ln91    | select    | auto_sel | 0       |
+|    grp_fu_804_p2             |     |        | icmp_ln79_4    | setgt     | auto     | 0       |
+|    xor_ln133_2_fu_2039_p2    |     |        | xor_ln133_2    | xor       | auto     | 0       |
+|    grp_fu_804_p2             |     |        | icmp_ln79_3    | setgt     | auto     | 0       |
+|    or_ln133_2_fu_2045_p2     |     |        | or_ln133_2     | or        | auto     | 0       |
+|    icmp_ln83_2_fu_2054_p2    |     |        | icmp_ln83_2    | setlt     | auto     | 0       |
+|    icmp_ln87_2_fu_2060_p2    |     |        | icmp_ln87_2    | setlt     | auto     | 0       |
+|    icmp_ln91_2_fu_2066_p2    |     |        | icmp_ln91_2    | setlt     | auto     | 0       |
+|    xor_ln91_9_fu_2072_p2     |     |        | xor_ln91_9     | xor       | auto     | 0       |
+|    icmp_ln95_2_fu_2078_p2    |     |        | icmp_ln95_2    | setlt     | auto     | 0       |
+|    and_ln91_2_fu_2084_p2     |     |        | and_ln91_2     | and       | auto     | 0       |
+|    xor_ln91_2_fu_2090_p2     |     |        | xor_ln91_2     | xor       | auto     | 0       |
+|    or_ln91_2_fu_2096_p2      |     |        | or_ln91_2      | or        | auto     | 0       |
+|    select_ln91_1_fu_2102_p3  |     |        | select_ln91_1  | select    | auto_sel | 0       |
+|    grp_fu_821_p2             |     |        | icmp_ln79_6    | setgt     | auto     | 0       |
+|    xor_ln133_3_fu_2110_p2    |     |        | xor_ln133_3    | xor       | auto     | 0       |
+|    grp_fu_821_p2             |     |        | icmp_ln79_5    | setgt     | auto     | 0       |
+|    or_ln133_3_fu_2116_p2     |     |        | or_ln133_3     | or        | auto     | 0       |
+|    icmp_ln83_3_fu_2125_p2    |     |        | icmp_ln83_3    | setlt     | auto     | 0       |
+|    icmp_ln87_3_fu_2131_p2    |     |        | icmp_ln87_3    | setlt     | auto     | 0       |
+|    icmp_ln91_3_fu_2137_p2    |     |        | icmp_ln91_3    | setlt     | auto     | 0       |
+|    xor_ln91_10_fu_2143_p2    |     |        | xor_ln91_10    | xor       | auto     | 0       |
+|    icmp_ln95_3_fu_2149_p2    |     |        | icmp_ln95_3    | setlt     | auto     | 0       |
+|    and_ln91_3_fu_2155_p2     |     |        | and_ln91_3     | and       | auto     | 0       |
+|    xor_ln91_3_fu_2161_p2     |     |        | xor_ln91_3     | xor       | auto     | 0       |
+|    or_ln91_3_fu_2167_p2      |     |        | or_ln91_3      | or        | auto     | 0       |
+|    select_ln91_2_fu_2173_p3  |     |        | select_ln91_2  | select    | auto_sel | 0       |
+|    grp_fu_838_p2             |     |        | icmp_ln79_8    | setgt     | auto     | 0       |
+|    xor_ln133_4_fu_2181_p2    |     |        | xor_ln133_4    | xor       | auto     | 0       |
+|    grp_fu_838_p2             |     |        | icmp_ln79_7    | setgt     | auto     | 0       |
+|    or_ln133_4_fu_2187_p2     |     |        | or_ln133_4     | or        | auto     | 0       |
+|    icmp_ln83_4_fu_2196_p2    |     |        | icmp_ln83_4    | setlt     | auto     | 0       |
+|    icmp_ln87_4_fu_2202_p2    |     |        | icmp_ln87_4    | setlt     | auto     | 0       |
+|    icmp_ln91_4_fu_2208_p2    |     |        | icmp_ln91_4    | setlt     | auto     | 0       |
+|    xor_ln91_11_fu_2214_p2    |     |        | xor_ln91_11    | xor       | auto     | 0       |
+|    icmp_ln95_4_fu_2220_p2    |     |        | icmp_ln95_4    | setlt     | auto     | 0       |
+|    and_ln91_4_fu_2226_p2     |     |        | and_ln91_4     | and       | auto     | 0       |
+|    xor_ln91_4_fu_2232_p2     |     |        | xor_ln91_4     | xor       | auto     | 0       |
+|    or_ln91_4_fu_2238_p2      |     |        | or_ln91_4      | or        | auto     | 0       |
+|    select_ln91_3_fu_2244_p3  |     |        | select_ln91_3  | select    | auto_sel | 0       |
+|    grp_fu_855_p2             |     |        | icmp_ln79_10   | setgt     | auto     | 0       |
+|    xor_ln133_5_fu_2252_p2    |     |        | xor_ln133_5    | xor       | auto     | 0       |
+|    grp_fu_855_p2             |     |        | icmp_ln79_9    | setgt     | auto     | 0       |
+|    or_ln133_5_fu_2258_p2     |     |        | or_ln133_5     | or        | auto     | 0       |
+|    icmp_ln83_5_fu_2267_p2    |     |        | icmp_ln83_5    | setlt     | auto     | 0       |
+|    icmp_ln87_5_fu_2273_p2    |     |        | icmp_ln87_5    | setlt     | auto     | 0       |
+|    icmp_ln91_5_fu_2279_p2    |     |        | icmp_ln91_5    | setlt     | auto     | 0       |
+|    xor_ln91_12_fu_2285_p2    |     |        | xor_ln91_12    | xor       | auto     | 0       |
+|    icmp_ln95_5_fu_2291_p2    |     |        | icmp_ln95_5    | setlt     | auto     | 0       |
+|    and_ln91_5_fu_2297_p2     |     |        | and_ln91_5     | and       | auto     | 0       |
+|    xor_ln91_5_fu_2303_p2     |     |        | xor_ln91_5     | xor       | auto     | 0       |
+|    or_ln91_5_fu_2309_p2      |     |        | or_ln91_5      | or        | auto     | 0       |
+|    select_ln91_4_fu_2315_p3  |     |        | select_ln91_4  | select    | auto_sel | 0       |
+|    grp_fu_872_p2             |     |        | icmp_ln79_12   | setgt     | auto     | 0       |
+|    xor_ln133_6_fu_2323_p2    |     |        | xor_ln133_6    | xor       | auto     | 0       |
+|    grp_fu_872_p2             |     |        | icmp_ln79_11   | setgt     | auto     | 0       |
+|    or_ln133_6_fu_2329_p2     |     |        | or_ln133_6     | or        | auto     | 0       |
+|    icmp_ln83_6_fu_2338_p2    |     |        | icmp_ln83_6    | setlt     | auto     | 0       |
+|    icmp_ln87_6_fu_2344_p2    |     |        | icmp_ln87_6    | setlt     | auto     | 0       |
+|    icmp_ln91_6_fu_2350_p2    |     |        | icmp_ln91_6    | setlt     | auto     | 0       |
+|    xor_ln91_13_fu_2356_p2    |     |        | xor_ln91_13    | xor       | auto     | 0       |
+|    icmp_ln95_6_fu_2362_p2    |     |        | icmp_ln95_6    | setlt     | auto     | 0       |
+|    and_ln91_6_fu_2368_p2     |     |        | and_ln91_6     | and       | auto     | 0       |
+|    xor_ln133_7_fu_2380_p2    |     |        | xor_ln133_7    | xor       | auto     | 0       |
+|    icmp_ln79_13_fu_2386_p2   |     |        | icmp_ln79_13   | setgt     | auto     | 0       |
+|    or_ln133_7_fu_2392_p2     |     |        | or_ln133_7     | or        | auto     | 0       |
+|    icmp_ln83_7_fu_2398_p2    |     |        | icmp_ln83_7    | setlt     | auto     | 0       |
+|    icmp_ln87_7_fu_2407_p2    |     |        | icmp_ln87_7    | setlt     | auto     | 0       |
+|    icmp_ln91_7_fu_2416_p2    |     |        | icmp_ln91_7    | setlt     | auto     | 0       |
+|    xor_ln91_14_fu_2422_p2    |     |        | xor_ln91_14    | xor       | auto     | 0       |
+|    icmp_ln95_7_fu_2428_p2    |     |        | icmp_ln95_7    | setlt     | auto     | 0       |
+|    and_ln91_7_fu_2434_p2     |     |        | and_ln91_7     | and       | auto     | 0       |
+|    icmp_ln135_fu_2498_p2     |     |        | icmp_ln135     | setgt     | auto     | 0       |
+|    add_ln136_fu_2546_p2      |     |        | add_ln136      | add       | fabric   | 0       |
+|    sparsemux_15_3_20_1_1_U10 |     |        | tmp            | sparsemux | auto     | 0       |
+|    sparsemux_15_3_20_1_1_U11 |     |        | tmp_1          | sparsemux | auto     | 0       |
+|    sparsemux_15_3_6_1_1_U12  |     |        | tmp_2          | sparsemux | auto     | 0       |
+|    sparsemux_15_3_6_1_1_U13  |     |        | tmp_3          | sparsemux | auto     | 0       |
+|    sparsemux_15_3_4_1_1_U14  |     |        | tmp_4          | sparsemux | auto     | 0       |
+|    sparsemux_15_3_1_1_1_U15  |     |        | tmp_6          | sparsemux | auto     | 0       |
++------------------------------+-----+--------+----------------+-----------+----------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++-----------------------------+--------------+-----------+------+------+--------+-------------------------+------+---------+------------------+
+| Name                        | Usage        | Type      | BRAM | URAM | Pragma | Variable                | Impl | Latency | Bitwidth, Depth, |
+|                             |              |           |      |      |        |                         |      |         | Banks            |
++-----------------------------+--------------+-----------+------+------+--------+-------------------------+------+---------+------------------+
+| + calo_trigger_ref          |              |           | 9    | 0    |        |                         |      |         |                  |
+|   CTRL_s_axi_U              | interface    | s_axilite |      |      |        |                         |      |         |                  |
+|   clusters_et_U             | ram_1p array |           | 2    |      |        | clusters_et             | auto | 1       | 16, 1800, 1      |
+|   clusters_isolation_et_U   | ram_1p array |           | 2    |      |        | clusters_isolation_et   | auto | 1       | 16, 1800, 1      |
+|   clusters_eta_U            | ram_1p array |           | 1    |      |        | clusters_eta            | auto | 1       | 5, 1800, 1       |
+|   clusters_phi_U            | ram_1p array |           | 1    |      |        | clusters_phi            | auto | 1       | 6, 1800, 1       |
+|   clusters_window_size_U    | ram_1p array |           | 1    |      |        | clusters_window_size    | auto | 1       | 1, 1800, 1       |
+|   clusters_iso_outer_size_U | ram_1p array |           | 1    |      |        | clusters_iso_outer_size | auto | 1       | 3, 1800, 1       |
+|   clusters_valid_U          | ram_1p array |           | 1    |      |        | clusters_valid          | auto | 1       | 1, 1800, 1       |
++-----------------------------+--------------+-----------+------+------+--------+-------------------------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------------+----------------------------------------------+---------------------------------------------------------------+
+| Type            | Options                                      | Location                                                      |
++-----------------+----------------------------------------------+---------------------------------------------------------------+
+| inline          |                                              | ./calorimeter.h:131 in wrap_phi                               |
+| inline          |                                              | ./calorimeter.h:144 in window_sum                             |
+| unroll          |                                              | ./calorimeter.h:149 in window_sum                             |
+| unroll          |                                              | ./calorimeter.h:151 in window_sum                             |
+| inline          |                                              | ./calorimeter.h:170 in is_local_maximum                       |
+| unroll          |                                              | ./calorimeter.h:176 in is_local_maximum                       |
+| unroll          |                                              | ./calorimeter.h:178 in is_local_maximum                       |
+| inline          |                                              | ./calorimeter.h:210 in isolation_sum                          |
+| pipeline        | II=1                                         | ./calorimeter.h:234 in find_clusters                          |
+| inline          |                                              | calorimeter.cpp:70 in cluster_is_better                       |
+| array_partition | variable=top_clusters complete dim=1         | calorimeter.cpp:108 in select_top_n, top_clusters             |
+| unroll          |                                              | calorimeter.cpp:111 in select_top_n                           |
+| pipeline        | II=1                                         | calorimeter.cpp:122 in select_top_n                           |
+| pipeline        | II=1                                         | calorimeter.cpp:151 in compute_ht                             |
+| array_partition | variable=trigger_objects complete dim=1      | calorimeter.cpp:161 in build_trigger_objects, trigger_objects |
+| array_partition | variable=top_clusters complete dim=1         | calorimeter.cpp:162 in build_trigger_objects, top_clusters    |
+| unroll          |                                              | calorimeter.cpp:164 in build_trigger_objects                  |
+| interface       | bram port=grid                               | calorimeter.cpp:203 in calo_trigger_ref, grid                 |
+| interface       | s_axilite port=seed_threshold bundle=CTRL    | calorimeter.cpp:205 in calo_trigger_ref, seed_threshold       |
+| interface       | s_axilite port=cluster_threshold bundle=CTRL | calorimeter.cpp:206 in calo_trigger_ref, cluster_threshold    |
+| interface       | s_axilite port=ht bundle=CTRL                | calorimeter.cpp:207 in calo_trigger_ref, ht                   |
+| interface       | s_axilite port=num_clusters bundle=CTRL      | calorimeter.cpp:208 in calo_trigger_ref, num_clusters         |
+| interface       | s_axilite port=return bundle=CTRL            | calorimeter.cpp:209 in calo_trigger_ref, return               |
+| array_partition | variable=objects complete dim=1              | calorimeter.cpp:211 in calo_trigger_ref, objects              |
+| array_partition | variable=top_clusters complete dim=1         | calorimeter.cpp:215 in calo_trigger_ref, top_clusters         |
++-----------------+----------------------------------------------+---------------------------------------------------------------+
+
+

@@ -1,0 +1,15 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch CLANG as the compiler.
+   Compiling ../../../../calorimeter.cpp in debug mode
+   Generating csim.exe
+HT = 692
+Number of clusters found = 4
+
+Trigger objects:
+Object 0 | ET = 221 | iso = 26 | eta = 5 | phi = 10 | window = 3 | type = 1
+Object 1 | ET = 139 | iso = 22 | eta = 10 | phi = 20 | window = 3 | type = 1
+Object 2 | ET = 133 | iso = 21 | eta = 18 | phi = 40 | window = 3 | type = 1
+Object 3 | ET = 120 | iso = 0 | eta = 12 | phi = 31 | window = 3 | type = 1
+Test PASSED
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

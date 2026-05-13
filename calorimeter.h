@@ -170,6 +170,7 @@ bool is_local_maximum(const tower_et_t towers[NETA][NPHI], int eta, int phi) {
 #pragma HLS INLINE
     tower_et_t center_et = towers[eta][phi];
     int half_W = W / 2;
+    bool is_max = true;
 
     LOCAL_ETA: for (int i = 0; i < W; ++i) {
 #pragma HLS UNROLL

@@ -209,11 +209,10 @@ void calo_trigger_ref(const tower_et_t grid[NETA][NPHI],
 #pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 
 #pragma HLS ARRAY_PARTITION variable=objects complete dim=1
-#pragma HLS ARRAY_PARTITION variable=top_clusters complete dim=1
 
     Cluster clusters[MAX_CLUSTERS];
     Cluster top_clusters[TOP_N];
-
+#pragma HLS ARRAY_PARTITION variable=top_clusters complete dim=1
     
     int local_num_clusters = 0;
     ht_t local_ht = 0;

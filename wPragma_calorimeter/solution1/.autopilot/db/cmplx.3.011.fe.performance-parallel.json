@@ -1,0 +1,61 @@
+{
+  "0": {
+    "basicblocks": 5,
+    "calls": "3 2 1",
+    "file": "calorimeter.cpp",
+    "fileloc": 196,
+    "instructions": 148,
+    "loads": {
+      "L": 49,
+      "T": 1
+    },
+    "name": "calo_trigger_ref",
+    "stores": {
+      "L": 1,
+      "T": 2
+    },
+    "total_instructions": 1515
+  },
+  "1": {
+    "basicblocks": 41,
+    "calls": "",
+    "file": "calorimeter.cpp",
+    "fileloc": 159,
+    "instructions": 233,
+    "name": "build_trigger_objects",
+    "stores": {
+      "L": 40
+    },
+    "total_instructions": 233
+  },
+  "2": {
+    "basicblocks": 63,
+    "calls": "",
+    "file": "calorimeter.cpp",
+    "fileloc": 105,
+    "instructions": 823,
+    "loads": {
+      "L": 7
+    },
+    "name": "select_top_n",
+    "stores": {
+      "L": 112
+    },
+    "total_instructions": 823
+  },
+  "3": {
+    "basicblocks": 10,
+    "calls": "",
+    "file": "calorimeter.h",
+    "fileloc": 220,
+    "instructions": 311,
+    "loads": {
+      "L": 26
+    },
+    "name": "find_clusters<3, 5>",
+    "stores": {
+      "L": 9
+    },
+    "total_instructions": 311
+  }
+}

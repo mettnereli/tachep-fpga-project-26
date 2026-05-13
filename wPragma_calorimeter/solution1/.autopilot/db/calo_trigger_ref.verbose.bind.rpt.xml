@@ -1,0 +1,48 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'calo_trigger_ref'" level="0">
+<item name = "Date">Tue May 12 19:45:16 2026
+</item>
+<item name = "Version">2024.1 (Build 5069499 on May 21 2024)</item>
+<item name = "Project">calorimeter</item>
+<item name = "Solution">solution1 (Vivado IP Flow Target)</item>
+<item name = "Product family">virtexuplus</item>
+<item name = "Target device">xcvu13p-fsga2577-2-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">25.00 ns, 6.255 ns, 6.75 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">25694, 47294, 0.642 ms, 1.182 ms, 25695, 47295, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_find_clusters_3_5_s_fu_278">find_clusters_3_5_s, 20288, 20288, 0.507 ms, 0.507 ms, 20287, 20287, loop auto-rewind stp(delay=0 clock cycles(s))</column>
+<column name="grp_select_top_n_fu_302">select_top_n, 3601, 25201, 90.025 us, 0.630 ms, 3601, 25201, no</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- HT_ETA_HT_PHI">1800, 1800, 2, 1, 1, 1800, yes</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>
