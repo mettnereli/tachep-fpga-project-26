@@ -13,13 +13,30 @@
 
 #define TOP_N 8
 
-// Streaming constants
-#define CLUSTER_W_STREAM 3
-#define ISO_W_STREAM 5
+// EM cluster window and isolation sizes for reference implementation
+#define EM_CLUSTER_W 3
+#define EM_ISO_W 5
+#define EM_SHAPE_W 7
+#define EM_SCAN_RADIUS (EM_SHAPE_W / 2)
+#define EM_SCAN_CELLS ((NETA - 2 * EM_SCAN_RADIUS) * NPHI)
+
+// Jet cluster window and isolation sizes for reference implementation
+#define JET_CLUSTER_W 7
+#define JET_ISO_W 7
+#define JET_SCAN_RADIUS (JET_ISO_W / 2)
+#define JET_SCAN_CELLS ((NETA - 2 * JET_SCAN_RADIUS) * NPHI)
+
+
+// Old names for EM-only streaming implementation (ignore)
+#define CLUSTER_W_STREAM EM_CLUSTER_W
+#define ISO_W_STREAM EM_ISO_W
 #define STREAM_SCAN_RADIUS (ISO_W_STREAM / 2)
 #define STREAM_SCAN_CELLS ((NETA - 2 * STREAM_SCAN_RADIUS) * NPHI)
 
-
+// Shape cuts. EM requires smaller clusters and less isolation energy, while jets can be larger and less isolated.
+#define EM_ISO_DEN 6 // Denominator for EM isolation cut (isolation_et < cluster_et / EM_ISO_DEN)
+#define EM_RING_DEN 6 // Denominator for EM ring cut (ring_et < cluster_et / EM_RING_DEN)
+#define JET_RING_DEN 6 // Denominator for jet ring cut (ring_et < cluster_et / JET_RING_DEN)    
 // Data types
 
 //Each tower's transverse energy (ET) is represented as a 12-bit unsigned integer
@@ -29,6 +46,9 @@ typedef ap_uint<12> tower_et_t;
 // Each cluster's transverse energy (ET) is represented as a 20-bit unsigned integer
 typedef ap_uint<20> cluster_et_t;
 
+
+// Wider shape for ring energy calculation to avoid overflow
+typedef ap_uint<28> shape_calc_t;
 
 // total HT is represented as a 24-bit unsigned integer
 typedef ap_uint<24> ht_t;
@@ -219,7 +239,46 @@ cluster_et_t isolation_sum(const tower_et_t towers[NETA][NPHI], int eta, int phi
     return window_sum<outer_W>(towers, eta, phi) - window_sum<inner_W>(towers, eta, phi);
 }
 
+inline bool is_em_like(cluster_et_t core3_et, cluster_et_t iso5_et, cluster_et_t ring7_et) {
+#pragma HLS INLINE
+    // Isolated in 5x5:
+    // EM_ISO_DEN = 6 means that iso5_et must be less than core3_et / 6
+    // EM_ISO_DEN * iso5 < core3_et
+    shape_calc_t iso_lhs = (shape_calc_t) EM_ISO_DEN * iso5_et;
+    shape_calc_t iso_rhs = (shape_calc_t) core3_et;
 
+    if (iso_lhs >= iso_rhs) {
+        return false;
+    }
+
+    // Compact in 7x7:
+    // EM_RING_DEN = 6 means that ring7_et must be less than core3_et / 6
+    // EM_RING_DEN * ring7_et < core3_et
+    shape_calc_t ring_lhs = (shape_calc_t) EM_RING_DEN * ring7_et;
+    shape_calc_t ring_rhs = (shape_calc_t) core3_et;
+
+    if (ring_lhs >= ring_rhs) {
+        return false;
+    }
+
+    return true;
+}
+
+
+inline bool is_jet_like(cluster_et_t core3_et, cluster_et_t sum7_et) {
+#pragma HLS INLINE
+    cluster_et_t ring7_et = sum7_et - core3_et;
+
+    //Broadness:
+    // JET_RING_DEN * ring7 > core3_et
+    shape_calc_t ring_lhs = (shape_calc_t) JET_RING_DEN * ring7_et;
+    shape_calc_t ring_rhs = (shape_calc_t) core3_et;    
+
+    if (ring_lhs <= ring_rhs) {
+        return false;
+    }   
+    return true;
+}
 
 // Now we need to implement the main cluster finding function using these templates.
 // We want to find the cluster using a given size, and the isolation size.
@@ -331,14 +390,38 @@ void calo_trigger_stream_ref(const tower_et_t towers[NETA][NPHI],
                             ht_t *ht,
                             int *num_clusters);
 
+void calo_trigger_em_jet_stream_ref(const tower_et_t towers[NETA][NPHI],
+                                    tower_et_t em_seed_threshold,
+                                    cluster_et_t em_cluster_threshold,
+                                    tower_et_t jet_seed_threshold,
+                                    cluster_et_t jet_cluster_threshold,
+                                    TriggerObject em_objects[TOP_N],
+                                    TriggerObject jet_objects[TOP_N],
+                                    ht_t *ht,
+                                    int *num_em_clusters,
+                                    int *num_jet_clusters);
+
 void produce_cluster_stream_3x3_iso5(const tower_et_t towers[NETA][NPHI],
                             tower_et_t seed_threshold,
                             cluster_et_t cluster_threshold,
                             hls::stream<Cluster> &cluster_stream);
 
-void select_top_n_from_stream(hls::stream<Cluster> &cluster_stream,
-                            Cluster top_clusters[TOP_N],
-                            int *num_clusters);
+void produce_cluster_stream_7x7(const tower_et_t towers[NETA][NPHI],
+                            tower_et_t seed_threshold,
+                            cluster_et_t cluster_threshold,
+                            hls::stream<Cluster> &cluster_stream);
+
+
+void produce_em_cluster_stream(const tower_et_t towers[NETA][NPHI],
+                               tower_et_t seed_threshold,
+                               cluster_et_t cluster_threshold,
+                               hls::stream<Cluster> &cluster_stream);
+
+void produce_jet_cluster_stream(const tower_et_t towers[NETA][NPHI],
+                                tower_et_t seed_threshold,
+                                cluster_et_t cluster_threshold,
+                                hls::stream<Cluster> &cluster_stream);
+
 
 void cluster_sort_build_stream(const tower_et_t towers[NETA][NPHI],
                             tower_et_t seed_threshold,
@@ -346,7 +429,55 @@ void cluster_sort_build_stream(const tower_et_t towers[NETA][NPHI],
                             TriggerObject trigger_objects[TOP_N],
                             int *num_clusters);
 
+void cluster_sort_build_em_jet_stream(const tower_et_t towers[NETA][NPHI],
+                                      tower_et_t em_seed_threshold,
+                                      cluster_et_t em_cluster_threshold,
+                                      tower_et_t jet_seed_threshold,
+                                      cluster_et_t jet_cluster_threshold,
+                                      TriggerObject em_objects[TOP_N],
+                                      TriggerObject jet_objects[TOP_N],
+                                      int *num_em_clusters,
+                                      int *num_jet_clusters);
 
+
+
+
+
+
+
+
+template<int NUM_CANDIDATES>
+void select_top_n_from_stream_fixed(hls::stream<Cluster> &cluster_stream,
+                            Cluster top_clusters[TOP_N],
+                            int *num_clusters) {
+#pragma HLS ARRAY_PARTITION variable=top_clusters complete dim=1
+    int local_num_clusters = 0;
+
+    for (int i = 0; i < TOP_N; i++) {
+#pragma HLS UNROLL
+        top_clusters[i].et = 0;
+        top_clusters[i].isolation_et = 0;
+        top_clusters[i].eta = 0;
+        top_clusters[i].phi = 0;
+        top_clusters[i].window_size = 0;
+        top_clusters[i].iso_outer_size = 0;
+        top_clusters[i].valid = false;
+    }
+
+    for (int i = 0; i < NUM_CANDIDATES; i++){
+#pragma HLS PIPELINE II=1
+        Cluster candidate = cluster_stream.read();
+
+        if (!candidate.valid) {
+            continue;
+        }
+
+        local_num_clusters++;
+        insert_cluster_into_top_n(candidate, top_clusters);
+    }
+
+    *num_clusters = local_num_clusters;
+}
 
 
 #endif // CALORIMETER_H
