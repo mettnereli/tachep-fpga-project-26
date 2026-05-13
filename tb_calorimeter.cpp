@@ -1,6 +1,10 @@
 #include <iostream>
 #include "calorimeter.h"
 
+
+#define USE_STREAMING_IMPLEMENTATION 1
+
+
 int main()
 {
     tower_et_t towers[NETA][NPHI] = {0}; // Initialize all towers to zero ET
@@ -72,13 +76,21 @@ int main()
     ht_t ht = 0;
 
     //Run cluster finding
-    calo_trigger_ref(towers,
+    #if USE_STREAMING_IMPLEMENTATION
+        calo_trigger_stream_ref(towers,
+                                seed_threshold,
+                                cluster_threshold,
+                                objects,
+                                &ht,
+                                &num_clusters);
+    #else   
+        calo_trigger_ref(towers,
                     seed_threshold,
                     cluster_threshold,
                     objects,
                     &ht,
                     &num_clusters);
-
+    #endif
     std::cout << "HT = " << ht << std::endl;
 std::cout << "Number of clusters found = " << num_clusters << std::endl;
 

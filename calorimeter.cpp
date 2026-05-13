@@ -99,6 +99,28 @@ bool cluster_is_better(const Cluster &a, const Cluster &b)
     return false;
 }
 
+void insert_cluster_into_top_n(const Cluster &candidate,
+                               Cluster top_clusters[TOP_N]) {
+#pragma HLS INLINE
+
+    if (!candidate.valid) {
+        return;
+    }
+
+    INSERT_POSITION: for (int j = 0; j < TOP_N; j++) {
+        if (!top_clusters[j].valid || cluster_is_better(candidate, top_clusters[j])) {
+            // Shift down lower-ranked clusters
+            for (int k = TOP_N - 1; k > j; k--) {
+                top_clusters[k] = top_clusters[k - 1];
+            }
+            top_clusters[j] = candidate;
+            break;
+        }
+    }
+
+}
+
+
 // Sort by ET and select top N clusters.
 // If ET is equal, smaller eta first
 // IF eta is equal, smaller phi first
@@ -129,20 +151,9 @@ void select_top_n(const Cluster clusters[MAX_CLUSTERS],
 
         Cluster candidate = clusters[i];
 
-        for (int j = 0; j < TOP_N; j++) {
-            if (!top_clusters[j].valid || cluster_is_better(candidate, top_clusters[j])) {
-                // Shift down lower-ranked clusters
-                for (int k = TOP_N - 1; k > j; k--) {
-                    top_clusters[k] = top_clusters[k - 1];
-                }
-                top_clusters[j] = candidate;
-                break;
-            }
-        }
+        insert_cluster_into_top_n(clusters[i], top_clusters);
     }
 }
-
-
 
 ht_t compute_ht(const tower_et_t towers[NETA][NPHI]) {
     ht_t ht = 0;
@@ -228,4 +239,97 @@ void calo_trigger_ref(const tower_et_t grid[NETA][NPHI],
 
     *ht = local_ht;
     *num_clusters = local_num_clusters;
+}
+
+
+/// STREAMING IMPLEMENTATIONS
+
+
+void calo_trigger_stream_ref(const tower_et_t towers[NETA][NPHI],
+                            tower_et_t seed_threshold,
+                            cluster_et_t cluster_threshold,
+                            TriggerObject trigger_objects[TOP_N],
+                            ht_t *ht,
+                            int *num_clusters) {
+#pragma HLS INTERFACE bram port=towers
+
+#pragma HLS INTERFACE s_axilite port=seed_threshold bundle=CTRL
+#pragma HLS INTERFACE s_axilite port=cluster_threshold bundle=CTRL
+#pragma HLS INTERFACE s_axilite port=ht bundle=CTRL
+#pragma HLS INTERFACE s_axilite port=num_clusters bundle=CTRL
+#pragma HLS INTERFACE s_axilite port=return bundle=CTRL
+
+#pragma HLS ARRAY_PARTITION variable=trigger_objects complete dim=1
+
+    ht_t local_ht = compute_ht(towers);
+
+    cluster_sort_build_stream(towers, seed_threshold, cluster_threshold, trigger_objects, num_clusters);
+
+    *ht = local_ht;
+
+}
+
+
+
+
+void produce_cluster_stream_3x3_iso5(const tower_et_t towers[NETA][NPHI],
+                            tower_et_t seed_threshold,
+                            cluster_et_t cluster_threshold,
+                            hls::stream<Cluster> &cluster_stream) {
+    find_clusters_stream<3, 5>(towers, seed_threshold, cluster_threshold, cluster_stream);
+}
+
+void select_top_n_from_stream(hls::stream<Cluster> &cluster_stream,
+                              Cluster top_clusters[TOP_N],
+                              int *num_clusters) {
+#pragma HLS ARRAY_PARTITION variable=top_clusters complete dim=1 
+    int local_num_clusters = 0;
+
+    for (int i = 0; i < TOP_N; i++) {
+#pragma HLS UNROLL
+        top_clusters[i].et = 0;
+        top_clusters[i].isolation_et = 0;
+        top_clusters[i].eta = 0;
+        top_clusters[i].phi = 0;
+        top_clusters[i].window_size = 0;
+        top_clusters[i].iso_outer_size = 0;
+        top_clusters[i].valid = false;
+    }
+
+    for (int i = 0; i < STREAM_SCAN_CELLS; i++) {
+#pragma HLS PIPELINE II=1
+
+        Cluster candidate = cluster_stream.read();
+
+        if (!candidate.valid) {
+            continue;
+        }
+
+        local_num_clusters++;
+
+        insert_cluster_into_top_n(candidate, top_clusters);
+    }
+    *num_clusters = local_num_clusters;
+}
+
+
+
+void cluster_sort_build_stream(const tower_et_t towers[NETA][NPHI],
+                            tower_et_t seed_threshold,
+                            cluster_et_t cluster_threshold,
+                            TriggerObject trigger_objects[TOP_N],
+                            int *num_clusters) {
+
+#pragma HLS DATAFLOW
+
+    hls::stream<Cluster> cluster_stream;
+
+#pragma HLS STREAM variable=cluster_stream depth=64
+
+    Cluster top_clusters[TOP_N];
+#pragma HLS ARRAY_PARTITION variable=top_clusters complete dim=1
+
+    produce_cluster_stream_3x3_iso5(towers, seed_threshold, cluster_threshold, cluster_stream);
+    select_top_n_from_stream(cluster_stream, top_clusters, num_clusters);
+    build_trigger_objects(top_clusters, trigger_objects);
 }

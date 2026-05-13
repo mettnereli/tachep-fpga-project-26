@@ -2,7 +2,7 @@
 #define CALORIMETER_H
 
 #include <ap_int.h>
-
+#include <hls_stream.h>
 
 
 // Detector geometry
@@ -11,7 +11,13 @@
 #define NPHI 60
 #define MAX_CLUSTERS (NETA * NPHI)
 
+#define TOP_N 8
 
+// Streaming constants
+#define CLUSTER_W_STREAM 3
+#define ISO_W_STREAM 5
+#define STREAM_SCAN_RADIUS (ISO_W_STREAM / 2)
+#define STREAM_SCAN_CELLS ((NETA - 2 * STREAM_SCAN_RADIUS) * NPHI)
 
 
 // Data types
@@ -40,8 +46,6 @@ struct Cluster {
     bool valid; // Validity flag
 };
 
-#define TOP_N 8
-
 
 //Trigger object setup
 enum TriggerType {
@@ -60,7 +64,7 @@ struct TriggerObject {
     bool valid;
 };
 
-//Top function
+//Top function (no stream)
 void calo_trigger_ref(const tower_et_t grid[NETA][NPHI],
                       tower_et_t seed_threshold,
                       cluster_et_t cluster_threshold,
@@ -107,9 +111,13 @@ void find_clusters_7x7(const tower_et_t towers[NETA][NPHI],
                     int &num_clusters);
 
 
+
 void select_top_n(const Cluster clusters[MAX_CLUSTERS], 
                   int num_clusters, 
                   Cluster top_clusters[TOP_N]);
+
+void insert_cluster_into_top_n(const Cluster &candidate,
+                               Cluster top_clusters[TOP_N]);
 
 ht_t compute_ht(const tower_et_t towers[NETA][NPHI]);
 
@@ -267,5 +275,78 @@ void find_clusters(const tower_et_t towers[NETA][NPHI],
         }
     }
 }
+
+
+template<int cluster_W, int iso_W>
+void find_clusters_stream(const tower_et_t towers[NETA][NPHI],
+                    tower_et_t seed_threshold,
+                    cluster_et_t cluster_threshold,
+                    hls::stream<Cluster> &cluster_stream) {
+
+    const int HALF_W = (cluster_W > iso_W) ? (cluster_W / 2) : (iso_W / 2);
+
+    for (int eta = HALF_W; eta < NETA - HALF_W; eta++) {
+        for (int phi = 0; phi < NPHI; phi++) {
+    #pragma HLS PIPELINE II=1
+            
+            Cluster candidate;
+            candidate.et = 0;
+            candidate.isolation_et = 0;
+            candidate.eta = eta;
+            candidate.phi = phi;
+            candidate.window_size = cluster_W;
+            candidate.iso_outer_size = iso_W;
+            candidate.valid = false;    
+
+            tower_et_t seed_et = towers[eta][phi];
+
+            if (seed_et >= seed_threshold && is_local_maximum<cluster_W>(towers, eta, phi)) {
+                // Calculate cluster energy
+                cluster_et_t cluster_et = window_sum<cluster_W>(towers, eta, phi);
+
+                if (cluster_et >= cluster_threshold) {
+                    // Calculate isolation energy
+                    candidate.et = cluster_et;
+                    candidate.isolation_et = isolation_sum<cluster_W, iso_W>(towers, eta, phi);
+                    candidate.valid = true;
+                }
+            }
+            cluster_stream.write(candidate);
+        }
+    }
+}
+
+////////////////////////////////////////////////
+
+// STREAMING IMPLEMENTATIONS
+
+////////////////////////////////////////////////
+
+
+//Top function (streaming)
+void calo_trigger_stream_ref(const tower_et_t towers[NETA][NPHI],
+                            tower_et_t seed_threshold,
+                            cluster_et_t cluster_threshold,
+                            TriggerObject trigger_objects[TOP_N],
+                            ht_t *ht,
+                            int *num_clusters);
+
+void produce_cluster_stream_3x3_iso5(const tower_et_t towers[NETA][NPHI],
+                            tower_et_t seed_threshold,
+                            cluster_et_t cluster_threshold,
+                            hls::stream<Cluster> &cluster_stream);
+
+void select_top_n_from_stream(hls::stream<Cluster> &cluster_stream,
+                            Cluster top_clusters[TOP_N],
+                            int *num_clusters);
+
+void cluster_sort_build_stream(const tower_et_t towers[NETA][NPHI],
+                            tower_et_t seed_threshold,
+                            cluster_et_t cluster_threshold,
+                            TriggerObject trigger_objects[TOP_N],
+                            int *num_clusters);
+
+
+
 
 #endif // CALORIMETER_H
