@@ -1,0 +1,232 @@
+
+
+================================================================
+== Vitis HLS Report for 'build_trigger_objects'
+================================================================
+* Date:           Tue May 12 23:42:15 2026
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        calorimeter
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu13p-fsga2577-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  25.00 ns|  2.478 ns|     6.75 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        0|        0|      0 ns|      0 ns|    0|    0|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+------+
+|         Name        | BRAM_18K|  DSP  |    FF   |   LUT   | URAM |
++---------------------+---------+-------+---------+---------+------+
+|DSP                  |        -|      -|        -|        -|     -|
+|Expression           |        -|      -|        0|      786|     -|
+|FIFO                 |        -|      -|        -|        -|     -|
+|Instance             |        -|      -|        -|        -|     -|
+|Memory               |        -|      -|        -|        -|     -|
+|Multiplexer          |        -|      -|        0|       81|     -|
+|Register             |        -|      -|      474|        -|     -|
++---------------------+---------+-------+---------+---------+------+
+|Total                |        0|      0|      474|      867|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available SLR        |     1344|   3072|   864000|   432000|   320|
++---------------------+---------+-------+---------+---------+------+
+|Utilization SLR (%)  |        0|      0|       ~0|       ~0|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available            |     5376|  12288|  3456000|  1728000|  1280|
++---------------------+---------+-------+---------+---------+------+
+|Utilization (%)      |        0|      0|       ~0|       ~0|     0|
++---------------------+---------+-------+---------+---------+------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------------+----------+----+---+----+------------+------------+
+    |         Variable Name        | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------------+----------+----+---+----+------------+------------+
+    |icmp_ln234_10_fu_633_p2       |      icmp|   0|  0|  12|           4|           2|
+    |icmp_ln234_11_fu_684_p2       |      icmp|   0|  0|  12|           4|           2|
+    |icmp_ln234_12_fu_735_p2       |      icmp|   0|  0|  12|           4|           2|
+    |icmp_ln234_13_fu_786_p2       |      icmp|   0|  0|  12|           4|           2|
+    |icmp_ln234_14_fu_837_p2       |      icmp|   0|  0|  12|           4|           2|
+    |icmp_ln234_8_fu_531_p2        |      icmp|   0|  0|  12|           4|           2|
+    |icmp_ln234_9_fu_582_p2        |      icmp|   0|  0|  12|           4|           2|
+    |icmp_ln234_fu_480_p2          |      icmp|   0|  0|  12|           4|           2|
+    |ap_block_state1               |        or|   0|  0|   2|           1|           1|
+    |em_objects_0_new_0_fu_522_p3  |    select|   0|  0|  83|           1|          89|
+    |em_objects_1_new_0_fu_573_p3  |    select|   0|  0|  83|           1|          89|
+    |em_objects_2_new_0_fu_624_p3  |    select|   0|  0|  83|           1|          89|
+    |em_objects_3_new_0_fu_675_p3  |    select|   0|  0|  83|           1|          89|
+    |em_objects_4_new_0_fu_726_p3  |    select|   0|  0|  83|           1|          89|
+    |em_objects_5_new_0_fu_777_p3  |    select|   0|  0|  83|           1|          89|
+    |em_objects_6_new_0_fu_828_p3  |    select|   0|  0|  83|           1|          89|
+    |em_objects_7_new_0_fu_879_p3  |    select|   0|  0|  83|           1|          89|
+    |select_ln234_10_fu_639_p3     |    select|   0|  0|   3|           1|           1|
+    |select_ln234_11_fu_690_p3     |    select|   0|  0|   3|           1|           1|
+    |select_ln234_12_fu_741_p3     |    select|   0|  0|   3|           1|           1|
+    |select_ln234_13_fu_792_p3     |    select|   0|  0|   3|           1|           1|
+    |select_ln234_14_fu_843_p3     |    select|   0|  0|   3|           1|           1|
+    |select_ln234_8_fu_537_p3      |    select|   0|  0|   3|           1|           1|
+    |select_ln234_9_fu_588_p3      |    select|   0|  0|   3|           1|           1|
+    |select_ln234_fu_486_p3        |    select|   0|  0|   3|           1|           1|
+    +------------------------------+----------+----+---+----+------------+------------+
+    |Total                         |          |   0|  0| 786|          49|         737|
+    +------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------+----+-----------+-----+-----------+
+    |     Name     | LUT| Input Size| Bits| Total Bits|
+    +--------------+----+-----------+-----+-----------+
+    |ap_done       |   9|          2|    1|          2|
+    |em_objects_0  |   9|          2|   59|        118|
+    |em_objects_1  |   9|          2|   59|        118|
+    |em_objects_2  |   9|          2|   59|        118|
+    |em_objects_3  |   9|          2|   59|        118|
+    |em_objects_4  |   9|          2|   59|        118|
+    |em_objects_5  |   9|          2|   59|        118|
+    |em_objects_6  |   9|          2|   59|        118|
+    |em_objects_7  |   9|          2|   59|        118|
+    +--------------+----+-----------+-----+-----------+
+    |Total         |  81|         18|  473|        946|
+    +--------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------+----+----+-----+-----------+
+    |        Name       | FF | LUT| Bits| Const Bits|
+    +-------------------+----+----+-----+-----------+
+    |ap_CS_fsm          |   1|   0|    1|          0|
+    |ap_done_reg        |   1|   0|    1|          0|
+    |em_objects_0_preg  |  59|   0|   89|         30|
+    |em_objects_1_preg  |  59|   0|   89|         30|
+    |em_objects_2_preg  |  59|   0|   89|         30|
+    |em_objects_3_preg  |  59|   0|   89|         30|
+    |em_objects_4_preg  |  59|   0|   89|         30|
+    |em_objects_5_preg  |  59|   0|   89|         30|
+    |em_objects_6_preg  |  59|   0|   89|         30|
+    |em_objects_7_preg  |  59|   0|   89|         30|
+    +-------------------+----+----+-----+-----------+
+    |Total              | 474|   0|  714|        240|
+    +-------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------+-----+-----+------------+-----------------------+--------------+
+|      RTL Ports      | Dir | Bits|  Protocol  |     Source Object     |    C Type    |
++---------------------+-----+-----+------------+-----------------------+--------------+
+|ap_clk               |   in|    1|  ap_ctrl_hs|  build_trigger_objects|  return value|
+|ap_rst               |   in|    1|  ap_ctrl_hs|  build_trigger_objects|  return value|
+|ap_start             |   in|    1|  ap_ctrl_hs|  build_trigger_objects|  return value|
+|ap_done              |  out|    1|  ap_ctrl_hs|  build_trigger_objects|  return value|
+|ap_continue          |   in|    1|  ap_ctrl_hs|  build_trigger_objects|  return value|
+|ap_idle              |  out|    1|  ap_ctrl_hs|  build_trigger_objects|  return value|
+|ap_ready             |  out|    1|  ap_ctrl_hs|  build_trigger_objects|  return value|
+|p_read               |   in|   20|     ap_none|                 p_read|        scalar|
+|p_read1              |   in|   20|     ap_none|                p_read1|        scalar|
+|p_read2              |   in|   20|     ap_none|                p_read2|        scalar|
+|p_read3              |   in|   20|     ap_none|                p_read3|        scalar|
+|p_read4              |   in|   20|     ap_none|                p_read4|        scalar|
+|p_read5              |   in|   20|     ap_none|                p_read5|        scalar|
+|p_read6              |   in|   20|     ap_none|                p_read6|        scalar|
+|p_read7              |   in|   20|     ap_none|                p_read7|        scalar|
+|p_read8              |   in|   20|     ap_none|                p_read8|        scalar|
+|p_read9              |   in|   20|     ap_none|                p_read9|        scalar|
+|p_read10             |   in|   20|     ap_none|               p_read10|        scalar|
+|p_read11             |   in|   20|     ap_none|               p_read11|        scalar|
+|p_read12             |   in|   20|     ap_none|               p_read12|        scalar|
+|p_read13             |   in|   20|     ap_none|               p_read13|        scalar|
+|p_read14             |   in|   20|     ap_none|               p_read14|        scalar|
+|p_read15             |   in|   20|     ap_none|               p_read15|        scalar|
+|p_read16             |   in|    6|     ap_none|               p_read16|        scalar|
+|p_read17             |   in|    6|     ap_none|               p_read17|        scalar|
+|p_read18             |   in|    6|     ap_none|               p_read18|        scalar|
+|p_read19             |   in|    6|     ap_none|               p_read19|        scalar|
+|p_read20             |   in|    6|     ap_none|               p_read20|        scalar|
+|p_read21             |   in|    6|     ap_none|               p_read21|        scalar|
+|p_read22             |   in|    6|     ap_none|               p_read22|        scalar|
+|p_read23             |   in|    6|     ap_none|               p_read23|        scalar|
+|p_read24             |   in|    6|     ap_none|               p_read24|        scalar|
+|p_read25             |   in|    6|     ap_none|               p_read25|        scalar|
+|p_read26             |   in|    6|     ap_none|               p_read26|        scalar|
+|p_read27             |   in|    6|     ap_none|               p_read27|        scalar|
+|p_read28             |   in|    6|     ap_none|               p_read28|        scalar|
+|p_read29             |   in|    6|     ap_none|               p_read29|        scalar|
+|p_read30             |   in|    6|     ap_none|               p_read30|        scalar|
+|p_read31             |   in|    6|     ap_none|               p_read31|        scalar|
+|p_read32             |   in|    4|     ap_none|               p_read32|        scalar|
+|p_read33             |   in|    4|     ap_none|               p_read33|        scalar|
+|p_read34             |   in|    4|     ap_none|               p_read34|        scalar|
+|p_read35             |   in|    4|     ap_none|               p_read35|        scalar|
+|p_read36             |   in|    4|     ap_none|               p_read36|        scalar|
+|p_read37             |   in|    4|     ap_none|               p_read37|        scalar|
+|p_read38             |   in|    4|     ap_none|               p_read38|        scalar|
+|p_read39             |   in|    4|     ap_none|               p_read39|        scalar|
+|p_read40             |   in|    1|     ap_none|               p_read40|        scalar|
+|p_read41             |   in|    1|     ap_none|               p_read41|        scalar|
+|p_read42             |   in|    1|     ap_none|               p_read42|        scalar|
+|p_read43             |   in|    1|     ap_none|               p_read43|        scalar|
+|p_read44             |   in|    1|     ap_none|               p_read44|        scalar|
+|p_read45             |   in|    1|     ap_none|               p_read45|        scalar|
+|p_read46             |   in|    1|     ap_none|               p_read46|        scalar|
+|p_read47             |   in|    1|     ap_none|               p_read47|        scalar|
+|em_objects_0         |  out|   89|      ap_vld|           em_objects_0|       pointer|
+|em_objects_0_ap_vld  |  out|    1|      ap_vld|           em_objects_0|       pointer|
+|em_objects_1         |  out|   89|      ap_vld|           em_objects_1|       pointer|
+|em_objects_1_ap_vld  |  out|    1|      ap_vld|           em_objects_1|       pointer|
+|em_objects_2         |  out|   89|      ap_vld|           em_objects_2|       pointer|
+|em_objects_2_ap_vld  |  out|    1|      ap_vld|           em_objects_2|       pointer|
+|em_objects_3         |  out|   89|      ap_vld|           em_objects_3|       pointer|
+|em_objects_3_ap_vld  |  out|    1|      ap_vld|           em_objects_3|       pointer|
+|em_objects_4         |  out|   89|      ap_vld|           em_objects_4|       pointer|
+|em_objects_4_ap_vld  |  out|    1|      ap_vld|           em_objects_4|       pointer|
+|em_objects_5         |  out|   89|      ap_vld|           em_objects_5|       pointer|
+|em_objects_5_ap_vld  |  out|    1|      ap_vld|           em_objects_5|       pointer|
+|em_objects_6         |  out|   89|      ap_vld|           em_objects_6|       pointer|
+|em_objects_6_ap_vld  |  out|    1|      ap_vld|           em_objects_6|       pointer|
+|em_objects_7         |  out|   89|      ap_vld|           em_objects_7|       pointer|
+|em_objects_7_ap_vld  |  out|    1|      ap_vld|           em_objects_7|       pointer|
++---------------------+-----+-----+------------+-----------------------+--------------+
+

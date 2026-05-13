@@ -1,0 +1,1949 @@
+{
+  "Top": "calo_trigger_tower_stream_ref",
+  "RtlTop": "calo_trigger_tower_stream_ref",
+  "RtlPrefix": "",
+  "RtlSubPrefix": "calo_trigger_tower_stream_ref_",
+  "SourceLanguage": "cpp",
+  "HostMachineBits": "64",
+  "FunctionProtocol": "ap_ctrl_hs",
+  "ResetStyle": "control",
+  "Target": {
+    "Family": "virtexuplus",
+    "Device": "xcvu13p",
+    "Package": "-fsga2577",
+    "Speed": "-2-e",
+    "Triple": "fpga64-xilinx-none"
+  },
+  "Args": {
+    "tower_in": {
+      "index": "0",
+      "direction": "in",
+      "srcType": "stream<ap_uint<12>, 0>&",
+      "srcSize": "16",
+      "hwRefs": [{
+          "type": "interface",
+          "interface": "tower_in",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "em_seed_threshold": {
+      "index": "1",
+      "direction": "in",
+      "srcType": "ap_uint<12>",
+      "srcSize": "16",
+      "hwRefs": [{
+          "type": "register",
+          "interface": "s_axi_CTRL",
+          "name": "em_seed_threshold",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "em_cluster_threshold": {
+      "index": "2",
+      "direction": "in",
+      "srcType": "ap_uint<20>",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "register",
+          "interface": "s_axi_CTRL",
+          "name": "em_cluster_threshold",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "jet_seed_threshold": {
+      "index": "3",
+      "direction": "in",
+      "srcType": "ap_uint<12>",
+      "srcSize": "16",
+      "hwRefs": [{
+          "type": "register",
+          "interface": "s_axi_CTRL",
+          "name": "jet_seed_threshold",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "jet_cluster_threshold": {
+      "index": "4",
+      "direction": "in",
+      "srcType": "ap_uint<20>",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "register",
+          "interface": "s_axi_CTRL",
+          "name": "jet_cluster_threshold",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "em_objects": {
+      "index": "5",
+      "direction": "out",
+      "srcType": "TriggerObject*",
+      "srcSize": "160",
+      "hwRefs": [
+        {
+          "type": "port",
+          "interface": "em_objects_0",
+          "name": "em_objects_0",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "em_objects_0_ap_vld",
+          "name": "em_objects_0_ap_vld",
+          "usage": "control",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "em_objects_1",
+          "name": "em_objects_1",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "em_objects_1_ap_vld",
+          "name": "em_objects_1_ap_vld",
+          "usage": "control",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "em_objects_2",
+          "name": "em_objects_2",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "em_objects_2_ap_vld",
+          "name": "em_objects_2_ap_vld",
+          "usage": "control",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "em_objects_3",
+          "name": "em_objects_3",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "em_objects_3_ap_vld",
+          "name": "em_objects_3_ap_vld",
+          "usage": "control",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "em_objects_4",
+          "name": "em_objects_4",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "em_objects_4_ap_vld",
+          "name": "em_objects_4_ap_vld",
+          "usage": "control",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "em_objects_5",
+          "name": "em_objects_5",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "em_objects_5_ap_vld",
+          "name": "em_objects_5_ap_vld",
+          "usage": "control",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "em_objects_6",
+          "name": "em_objects_6",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "em_objects_6_ap_vld",
+          "name": "em_objects_6_ap_vld",
+          "usage": "control",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "em_objects_7",
+          "name": "em_objects_7",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "em_objects_7_ap_vld",
+          "name": "em_objects_7_ap_vld",
+          "usage": "control",
+          "direction": "out"
+        }
+      ]
+    },
+    "jet_objects": {
+      "index": "6",
+      "direction": "out",
+      "srcType": "TriggerObject*",
+      "srcSize": "160",
+      "hwRefs": [
+        {
+          "type": "port",
+          "interface": "jet_objects_0",
+          "name": "jet_objects_0",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "jet_objects_0_ap_vld",
+          "name": "jet_objects_0_ap_vld",
+          "usage": "control",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "jet_objects_1",
+          "name": "jet_objects_1",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "jet_objects_1_ap_vld",
+          "name": "jet_objects_1_ap_vld",
+          "usage": "control",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "jet_objects_2",
+          "name": "jet_objects_2",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "jet_objects_2_ap_vld",
+          "name": "jet_objects_2_ap_vld",
+          "usage": "control",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "jet_objects_3",
+          "name": "jet_objects_3",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "jet_objects_3_ap_vld",
+          "name": "jet_objects_3_ap_vld",
+          "usage": "control",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "jet_objects_4",
+          "name": "jet_objects_4",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "jet_objects_4_ap_vld",
+          "name": "jet_objects_4_ap_vld",
+          "usage": "control",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "jet_objects_5",
+          "name": "jet_objects_5",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "jet_objects_5_ap_vld",
+          "name": "jet_objects_5_ap_vld",
+          "usage": "control",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "jet_objects_6",
+          "name": "jet_objects_6",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "jet_objects_6_ap_vld",
+          "name": "jet_objects_6_ap_vld",
+          "usage": "control",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "jet_objects_7",
+          "name": "jet_objects_7",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "jet_objects_7_ap_vld",
+          "name": "jet_objects_7_ap_vld",
+          "usage": "control",
+          "direction": "out"
+        }
+      ]
+    },
+    "ht": {
+      "index": "7",
+      "direction": "out",
+      "srcType": "ap_uint<24>*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "register",
+          "interface": "s_axi_CTRL",
+          "name": "ht",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_CTRL",
+          "name": "ht_ctrl",
+          "usage": "control",
+          "direction": "out"
+        }
+      ]
+    },
+    "num_em_clusters": {
+      "index": "8",
+      "direction": "out",
+      "srcType": "int*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "register",
+          "interface": "s_axi_CTRL",
+          "name": "num_em_clusters",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_CTRL",
+          "name": "num_em_clusters_ctrl",
+          "usage": "control",
+          "direction": "out"
+        }
+      ]
+    },
+    "num_jet_clusters": {
+      "index": "9",
+      "direction": "out",
+      "srcType": "int*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "register",
+          "interface": "s_axi_CTRL",
+          "name": "num_jet_clusters",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_CTRL",
+          "name": "num_jet_clusters_ctrl",
+          "usage": "control",
+          "direction": "out"
+        }
+      ]
+    }
+  },
+  "HlsSolution": {
+    "FlowTarget": "vivado",
+    "ProfileOption": "0",
+    "ProfileType": "none",
+    "KernelName": "calo_trigger_tower_stream_ref"
+  },
+  "ClockInfo": {
+    "ClockName": "ap_clk",
+    "ClockPeriod": "25",
+    "Uncertainty": "6.75",
+    "IsCombinational": "0",
+    "II": "2898 ~ 17298",
+    "Latency": "2897"
+  },
+  "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 25.000 [get_ports ap_clk]"]},
+  "Ipx": {
+    "Vendor": "xilinx.com",
+    "Library": "hls",
+    "Name": "calo_trigger_tower_stream_ref",
+    "Version": "1.0",
+    "DisplayName": "Calo_trigger_tower_stream_ref",
+    "Revision": "2114606202",
+    "Description": "An IP generated by Vitis HLS",
+    "Taxonomy": "\/VITIS_HLS_IP",
+    "AutoFamilySupport": "",
+    "ZipFile": "xilinx_com_hls_calo_trigger_tower_stream_ref_1_0.zip"
+  },
+  "Files": {
+    "CSource": ["..\/..\/calorimeter.cpp"],
+    "TestBench": ["..\/..\/tb_calorimeter_towerStream.cpp"],
+    "Vhdl": [
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_build_trigger_objects.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_build_trigger_objects_2.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_cluster_sort_build_tower_stream.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_CTRL_s_axi.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_fifo_w1_d2_S.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_fifo_w4_d2_S.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_fifo_w6_d2_S.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_fifo_w20_d2_S.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_fifo_w61_d64_A.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_flow_control_loop_pipe_sequential_init.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_produce_em_jet_cluster_stream_from_towers.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_produce_em_jet_cluster_stream_from_towers_linebuf_RAM_1WNR_AUTO_1R1W.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_produce_em_jet_cluster_stream_from_towers_Pipeline_VITIS_LOOP_486_2.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_produce_em_jet_cluster_stream_from_towers_Pipeline_VITIS_LOOP_500_3.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_regslice_both.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_select_top_n_from_stream_fixed_1440_1.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_select_top_n_from_stream_fixed_1440_s.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_sparsemux_15_3_1_1_1.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_sparsemux_15_3_4_1_1.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_sparsemux_15_3_6_1_1.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_sparsemux_15_3_12_1_1.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_sparsemux_15_3_20_1_1.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_start_for_select_top_n_from_stream_fixed_1440_1_U0.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_start_for_select_top_n_from_stream_fixed_1440_U0.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref_urem_5ns_4ns_3_9_seq_1.vhd",
+      "impl\/vhdl\/calo_trigger_tower_stream_ref.vhd"
+    ],
+    "Verilog": [
+      "impl\/verilog\/calo_trigger_tower_stream_ref_build_trigger_objects.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_build_trigger_objects_2.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_cluster_sort_build_tower_stream.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_CTRL_s_axi.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_fifo_w1_d2_S.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_fifo_w4_d2_S.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_fifo_w6_d2_S.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_fifo_w20_d2_S.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_fifo_w61_d64_A.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_flow_control_loop_pipe_sequential_init.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_produce_em_jet_cluster_stream_from_towers.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_produce_em_jet_cluster_stream_from_towers_linebuf_RAM_1WNR_AUTO_1R1W.dat",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_produce_em_jet_cluster_stream_from_towers_linebuf_RAM_1WNR_AUTO_1R1W.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_produce_em_jet_cluster_stream_from_towers_Pipeline_VITIS_LOOP_486_2.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_produce_em_jet_cluster_stream_from_towers_Pipeline_VITIS_LOOP_500_3.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_regslice_both.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_select_top_n_from_stream_fixed_1440_1.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_select_top_n_from_stream_fixed_1440_s.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_sparsemux_15_3_1_1_1.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_sparsemux_15_3_4_1_1.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_sparsemux_15_3_6_1_1.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_sparsemux_15_3_12_1_1.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_sparsemux_15_3_20_1_1.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_start_for_select_top_n_from_stream_fixed_1440_1_U0.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_start_for_select_top_n_from_stream_fixed_1440_U0.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref_urem_5ns_4ns_3_9_seq_1.v",
+      "impl\/verilog\/calo_trigger_tower_stream_ref.v"
+    ],
+    "SwDriver": [
+      "impl\/misc\/drivers\/calo_trigger_tower_stream_ref_v1_0\/data\/calo_trigger_tower_stream_ref.mdd",
+      "impl\/misc\/drivers\/calo_trigger_tower_stream_ref_v1_0\/data\/calo_trigger_tower_stream_ref.tcl",
+      "impl\/misc\/drivers\/calo_trigger_tower_stream_ref_v1_0\/data\/calo_trigger_tower_stream_ref.yaml",
+      "impl\/misc\/drivers\/calo_trigger_tower_stream_ref_v1_0\/src\/CMakeLists.txt",
+      "impl\/misc\/drivers\/calo_trigger_tower_stream_ref_v1_0\/src\/Makefile",
+      "impl\/misc\/drivers\/calo_trigger_tower_stream_ref_v1_0\/src\/xcalo_trigger_tower_stream_ref.c",
+      "impl\/misc\/drivers\/calo_trigger_tower_stream_ref_v1_0\/src\/xcalo_trigger_tower_stream_ref.h",
+      "impl\/misc\/drivers\/calo_trigger_tower_stream_ref_v1_0\/src\/xcalo_trigger_tower_stream_ref_hw.h",
+      "impl\/misc\/drivers\/calo_trigger_tower_stream_ref_v1_0\/src\/xcalo_trigger_tower_stream_ref_linux.c",
+      "impl\/misc\/drivers\/calo_trigger_tower_stream_ref_v1_0\/src\/xcalo_trigger_tower_stream_ref_sinit.c"
+    ],
+    "IpMisc": ["impl\/misc\/logo.png"],
+    "CsynthXml": "syn\/report\/csynth.xml",
+    "DebugDir": ".debug",
+    "KernelXml": ".autopilot\/db\/kernel.internal.xml",
+    "Xo": "",
+    "XoHlsDir": "",
+    "ProtoInst": [".debug\/calo_trigger_tower_stream_ref.protoinst"]
+  },
+  "SubcoreInfo": {
+    "HasXpmMemory": false,
+    "HasClockedDsp": false,
+    "Ip": []
+  },
+  "Interfaces": {
+    "s_axi_CTRL": {
+      "type": "axi4lite",
+      "busTypeName": "aximm",
+      "mode": "slave",
+      "dataWidth": "32",
+      "addrWidth": "7",
+      "portPrefix": "s_axi_CTRL_",
+      "paramPrefix": "C_S_AXI_CTRL_",
+      "ports": [
+        "s_axi_CTRL_ARADDR",
+        "s_axi_CTRL_ARREADY",
+        "s_axi_CTRL_ARVALID",
+        "s_axi_CTRL_AWADDR",
+        "s_axi_CTRL_AWREADY",
+        "s_axi_CTRL_AWVALID",
+        "s_axi_CTRL_BREADY",
+        "s_axi_CTRL_BRESP",
+        "s_axi_CTRL_BVALID",
+        "s_axi_CTRL_RDATA",
+        "s_axi_CTRL_RREADY",
+        "s_axi_CTRL_RRESP",
+        "s_axi_CTRL_RVALID",
+        "s_axi_CTRL_WDATA",
+        "s_axi_CTRL_WREADY",
+        "s_axi_CTRL_WSTRB",
+        "s_axi_CTRL_WVALID"
+      ],
+      "registers": [
+        {
+          "offset": "0x00",
+          "name": "CTRL",
+          "access": "RW",
+          "description": "Control signals",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "AP_START",
+              "access": "RW",
+              "description": "Control signal Register for 'ap_start'."
+            },
+            {
+              "offset": "1",
+              "width": "1",
+              "name": "AP_DONE",
+              "access": "R",
+              "description": "Control signal Register for 'ap_done'."
+            },
+            {
+              "offset": "2",
+              "width": "1",
+              "name": "AP_IDLE",
+              "access": "R",
+              "description": "Control signal Register for 'ap_idle'."
+            },
+            {
+              "offset": "3",
+              "width": "1",
+              "name": "AP_READY",
+              "access": "R",
+              "description": "Control signal Register for 'ap_ready'."
+            },
+            {
+              "offset": "4",
+              "width": "3",
+              "name": "RESERVED_1",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            },
+            {
+              "offset": "7",
+              "width": "1",
+              "name": "AUTO_RESTART",
+              "access": "RW",
+              "description": "Control signal Register for 'auto_restart'."
+            },
+            {
+              "offset": "8",
+              "width": "1",
+              "name": "RESERVED_2",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            },
+            {
+              "offset": "9",
+              "width": "1",
+              "name": "INTERRUPT",
+              "access": "R",
+              "description": "Control signal Register for 'interrupt'."
+            },
+            {
+              "offset": "10",
+              "width": "22",
+              "name": "RESERVED_3",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x04",
+          "name": "GIER",
+          "access": "RW",
+          "description": "Global Interrupt Enable Register",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "Enable",
+              "access": "RW",
+              "description": "Master enable for the device interrupt output to the system interrupt controller: 0 = Disabled, 1 = Enabled"
+            },
+            {
+              "offset": "1",
+              "width": "31",
+              "name": "RESERVED",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x08",
+          "name": "IP_IER",
+          "access": "RW",
+          "description": "IP Interrupt Enable Register",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "CHAN0_INT_EN",
+              "access": "RW",
+              "description": "Enable Channel 0 (ap_done) Interrupt.  0 = Disabled, 1 = Enabled."
+            },
+            {
+              "offset": "1",
+              "width": "1",
+              "name": "CHAN1_INT_EN",
+              "access": "RW",
+              "description": "Enable Channel 1 (ap_ready) Interrupt.  0 = Disabled, 1 = Enabled."
+            },
+            {
+              "offset": "2",
+              "width": "30",
+              "name": "RESERVED_0",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x0c",
+          "name": "IP_ISR",
+          "access": "RW",
+          "description": "IP Interrupt Status Register",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "CHAN0_INT_ST",
+              "access": "RTOW",
+              "description": "Channel 0 (ap_done) Interrupt Status. 0 = No Channel 0 interrupt, 1 = Channel 0 interrupt."
+            },
+            {
+              "offset": "1",
+              "width": "1",
+              "name": "CHAN1_INT_ST",
+              "access": "RTOW",
+              "description": "Channel 1 (ap_ready) Interrupt Status. 0 = No Channel 1 interrupt, 1 = Channel 1 interrupt."
+            },
+            {
+              "offset": "2",
+              "width": "30",
+              "name": "RESERVED_0",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x10",
+          "name": "em_seed_threshold",
+          "access": "W",
+          "description": "Data signal of em_seed_threshold",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "12",
+              "name": "em_seed_threshold",
+              "access": "W",
+              "description": "Bit 11 to 0 of em_seed_threshold"
+            },
+            {
+              "offset": "12",
+              "width": "20",
+              "name": "RESERVED",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x18",
+          "name": "em_cluster_threshold",
+          "access": "W",
+          "description": "Data signal of em_cluster_threshold",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "20",
+              "name": "em_cluster_threshold",
+              "access": "W",
+              "description": "Bit 19 to 0 of em_cluster_threshold"
+            },
+            {
+              "offset": "20",
+              "width": "12",
+              "name": "RESERVED",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x20",
+          "name": "jet_seed_threshold",
+          "access": "W",
+          "description": "Data signal of jet_seed_threshold",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "12",
+              "name": "jet_seed_threshold",
+              "access": "W",
+              "description": "Bit 11 to 0 of jet_seed_threshold"
+            },
+            {
+              "offset": "12",
+              "width": "20",
+              "name": "RESERVED",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x28",
+          "name": "jet_cluster_threshold",
+          "access": "W",
+          "description": "Data signal of jet_cluster_threshold",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "20",
+              "name": "jet_cluster_threshold",
+              "access": "W",
+              "description": "Bit 19 to 0 of jet_cluster_threshold"
+            },
+            {
+              "offset": "20",
+              "width": "12",
+              "name": "RESERVED",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x30",
+          "name": "ht",
+          "access": "R",
+          "description": "Data signal of ht",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "24",
+              "name": "ht",
+              "access": "R",
+              "description": "Bit 23 to 0 of ht"
+            },
+            {
+              "offset": "24",
+              "width": "8",
+              "name": "RESERVED",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x34",
+          "name": "ht_ctrl",
+          "access": "R",
+          "description": "Control signal of ht",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "ht_ap_vld",
+              "access": "R",
+              "description": "Control signal ht_ap_vld"
+            },
+            {
+              "offset": "1",
+              "width": "31",
+              "name": "RESERVED",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x40",
+          "name": "num_em_clusters",
+          "access": "R",
+          "description": "Data signal of num_em_clusters",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "num_em_clusters",
+              "access": "R",
+              "description": "Bit 31 to 0 of num_em_clusters"
+            }]
+        },
+        {
+          "offset": "0x44",
+          "name": "num_em_clusters_ctrl",
+          "access": "R",
+          "description": "Control signal of num_em_clusters",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "num_em_clusters_ap_vld",
+              "access": "R",
+              "description": "Control signal num_em_clusters_ap_vld"
+            },
+            {
+              "offset": "1",
+              "width": "31",
+              "name": "RESERVED",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x50",
+          "name": "num_jet_clusters",
+          "access": "R",
+          "description": "Data signal of num_jet_clusters",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "num_jet_clusters",
+              "access": "R",
+              "description": "Bit 31 to 0 of num_jet_clusters"
+            }]
+        },
+        {
+          "offset": "0x54",
+          "name": "num_jet_clusters_ctrl",
+          "access": "R",
+          "description": "Control signal of num_jet_clusters",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "num_jet_clusters_ap_vld",
+              "access": "R",
+              "description": "Control signal num_jet_clusters_ap_vld"
+            },
+            {
+              "offset": "1",
+              "width": "31",
+              "name": "RESERVED",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        }
+      ],
+      "constraints": [
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "16",
+          "argName": "em_seed_threshold"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "24",
+          "argName": "em_cluster_threshold"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "32",
+          "argName": "jet_seed_threshold"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "40",
+          "argName": "jet_cluster_threshold"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "48",
+          "argName": "ht"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "64",
+          "argName": "num_em_clusters"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "80",
+          "argName": "num_jet_clusters"
+        }
+      ]
+    },
+    "ap_clk": {
+      "type": "clock",
+      "busTypeName": "clock",
+      "mode": "slave",
+      "busParams": {
+        "ASSOCIATED_BUSIF": "s_axi_CTRL:tower_in",
+        "ASSOCIATED_RESET": "ap_rst_n"
+      },
+      "portMap": {"ap_clk": "CLK"},
+      "ports": ["ap_clk"]
+    },
+    "ap_rst_n": {
+      "type": "reset",
+      "busTypeName": "reset",
+      "mode": "slave",
+      "busParams": {"POLARITY": "ACTIVE_LOW"},
+      "portMap": {"ap_rst_n": "RST"},
+      "ports": ["ap_rst_n"]
+    },
+    "interrupt": {
+      "type": "interrupt",
+      "busTypeName": "interrupt",
+      "mode": "master",
+      "dataWidth": "1",
+      "busParams": {"SENSITIVITY": "LEVEL_HIGH"},
+      "portMap": {"interrupt": "INTERRUPT"},
+      "ports": ["interrupt"]
+    },
+    "tower_in": {
+      "type": "axi4stream",
+      "busTypeName": "axis",
+      "mode": "slave",
+      "direction": "in",
+      "dataWidth": "16",
+      "portPrefix": "tower_in_",
+      "ports": [
+        "tower_in_TDATA",
+        "tower_in_TREADY",
+        "tower_in_TVALID"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "axis",
+          "register_option": "1",
+          "register_mode": "both",
+          "argName": "tower_in"
+        }]
+    },
+    "em_objects_0": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_vld",
+      "mode": "master",
+      "dataWidth": "89",
+      "portMap": {"em_objects_0": "DATA"},
+      "ports": ["em_objects_0"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "em_objects"
+        }]
+    },
+    "em_objects_1": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_vld",
+      "mode": "master",
+      "dataWidth": "89",
+      "portMap": {"em_objects_1": "DATA"},
+      "ports": ["em_objects_1"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "em_objects"
+        }]
+    },
+    "em_objects_2": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_vld",
+      "mode": "master",
+      "dataWidth": "89",
+      "portMap": {"em_objects_2": "DATA"},
+      "ports": ["em_objects_2"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "em_objects"
+        }]
+    },
+    "em_objects_3": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_vld",
+      "mode": "master",
+      "dataWidth": "89",
+      "portMap": {"em_objects_3": "DATA"},
+      "ports": ["em_objects_3"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "em_objects"
+        }]
+    },
+    "em_objects_4": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_vld",
+      "mode": "master",
+      "dataWidth": "89",
+      "portMap": {"em_objects_4": "DATA"},
+      "ports": ["em_objects_4"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "em_objects"
+        }]
+    },
+    "em_objects_5": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_vld",
+      "mode": "master",
+      "dataWidth": "89",
+      "portMap": {"em_objects_5": "DATA"},
+      "ports": ["em_objects_5"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "em_objects"
+        }]
+    },
+    "em_objects_6": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_vld",
+      "mode": "master",
+      "dataWidth": "89",
+      "portMap": {"em_objects_6": "DATA"},
+      "ports": ["em_objects_6"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "em_objects"
+        }]
+    },
+    "em_objects_7": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_vld",
+      "mode": "master",
+      "dataWidth": "89",
+      "portMap": {"em_objects_7": "DATA"},
+      "ports": ["em_objects_7"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "em_objects"
+        }]
+    },
+    "jet_objects_0": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_vld",
+      "mode": "master",
+      "dataWidth": "89",
+      "portMap": {"jet_objects_0": "DATA"},
+      "ports": ["jet_objects_0"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "jet_objects"
+        }]
+    },
+    "jet_objects_1": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_vld",
+      "mode": "master",
+      "dataWidth": "89",
+      "portMap": {"jet_objects_1": "DATA"},
+      "ports": ["jet_objects_1"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "jet_objects"
+        }]
+    },
+    "jet_objects_2": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_vld",
+      "mode": "master",
+      "dataWidth": "89",
+      "portMap": {"jet_objects_2": "DATA"},
+      "ports": ["jet_objects_2"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "jet_objects"
+        }]
+    },
+    "jet_objects_3": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_vld",
+      "mode": "master",
+      "dataWidth": "89",
+      "portMap": {"jet_objects_3": "DATA"},
+      "ports": ["jet_objects_3"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "jet_objects"
+        }]
+    },
+    "jet_objects_4": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_vld",
+      "mode": "master",
+      "dataWidth": "89",
+      "portMap": {"jet_objects_4": "DATA"},
+      "ports": ["jet_objects_4"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "jet_objects"
+        }]
+    },
+    "jet_objects_5": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_vld",
+      "mode": "master",
+      "dataWidth": "89",
+      "portMap": {"jet_objects_5": "DATA"},
+      "ports": ["jet_objects_5"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "jet_objects"
+        }]
+    },
+    "jet_objects_6": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_vld",
+      "mode": "master",
+      "dataWidth": "89",
+      "portMap": {"jet_objects_6": "DATA"},
+      "ports": ["jet_objects_6"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "jet_objects"
+        }]
+    },
+    "jet_objects_7": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_vld",
+      "mode": "master",
+      "dataWidth": "89",
+      "portMap": {"jet_objects_7": "DATA"},
+      "ports": ["jet_objects_7"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "jet_objects"
+        }]
+    }
+  },
+  "RtlPorts": {
+    "s_axi_CTRL_AWVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_CTRL_AWREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_CTRL_AWADDR": {
+      "dir": "in",
+      "width": "7"
+    },
+    "s_axi_CTRL_WVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_CTRL_WREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_CTRL_WDATA": {
+      "dir": "in",
+      "width": "32"
+    },
+    "s_axi_CTRL_WSTRB": {
+      "dir": "in",
+      "width": "4"
+    },
+    "s_axi_CTRL_ARVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_CTRL_ARREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_CTRL_ARADDR": {
+      "dir": "in",
+      "width": "7"
+    },
+    "s_axi_CTRL_RVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_CTRL_RREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_CTRL_RDATA": {
+      "dir": "out",
+      "width": "32"
+    },
+    "s_axi_CTRL_RRESP": {
+      "dir": "out",
+      "width": "2"
+    },
+    "s_axi_CTRL_BVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_CTRL_BREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_CTRL_BRESP": {
+      "dir": "out",
+      "width": "2"
+    },
+    "ap_clk": {
+      "dir": "in",
+      "width": "1"
+    },
+    "ap_rst_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "interrupt": {
+      "dir": "out",
+      "width": "1"
+    },
+    "tower_in_TDATA": {
+      "dir": "in",
+      "width": "16"
+    },
+    "tower_in_TVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "tower_in_TREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "em_objects_0": {
+      "dir": "out",
+      "width": "89"
+    },
+    "em_objects_0_ap_vld": {
+      "dir": "out",
+      "width": "1"
+    },
+    "em_objects_1": {
+      "dir": "out",
+      "width": "89"
+    },
+    "em_objects_1_ap_vld": {
+      "dir": "out",
+      "width": "1"
+    },
+    "em_objects_2": {
+      "dir": "out",
+      "width": "89"
+    },
+    "em_objects_2_ap_vld": {
+      "dir": "out",
+      "width": "1"
+    },
+    "em_objects_3": {
+      "dir": "out",
+      "width": "89"
+    },
+    "em_objects_3_ap_vld": {
+      "dir": "out",
+      "width": "1"
+    },
+    "em_objects_4": {
+      "dir": "out",
+      "width": "89"
+    },
+    "em_objects_4_ap_vld": {
+      "dir": "out",
+      "width": "1"
+    },
+    "em_objects_5": {
+      "dir": "out",
+      "width": "89"
+    },
+    "em_objects_5_ap_vld": {
+      "dir": "out",
+      "width": "1"
+    },
+    "em_objects_6": {
+      "dir": "out",
+      "width": "89"
+    },
+    "em_objects_6_ap_vld": {
+      "dir": "out",
+      "width": "1"
+    },
+    "em_objects_7": {
+      "dir": "out",
+      "width": "89"
+    },
+    "em_objects_7_ap_vld": {
+      "dir": "out",
+      "width": "1"
+    },
+    "jet_objects_0": {
+      "dir": "out",
+      "width": "89"
+    },
+    "jet_objects_0_ap_vld": {
+      "dir": "out",
+      "width": "1"
+    },
+    "jet_objects_1": {
+      "dir": "out",
+      "width": "89"
+    },
+    "jet_objects_1_ap_vld": {
+      "dir": "out",
+      "width": "1"
+    },
+    "jet_objects_2": {
+      "dir": "out",
+      "width": "89"
+    },
+    "jet_objects_2_ap_vld": {
+      "dir": "out",
+      "width": "1"
+    },
+    "jet_objects_3": {
+      "dir": "out",
+      "width": "89"
+    },
+    "jet_objects_3_ap_vld": {
+      "dir": "out",
+      "width": "1"
+    },
+    "jet_objects_4": {
+      "dir": "out",
+      "width": "89"
+    },
+    "jet_objects_4_ap_vld": {
+      "dir": "out",
+      "width": "1"
+    },
+    "jet_objects_5": {
+      "dir": "out",
+      "width": "89"
+    },
+    "jet_objects_5_ap_vld": {
+      "dir": "out",
+      "width": "1"
+    },
+    "jet_objects_6": {
+      "dir": "out",
+      "width": "89"
+    },
+    "jet_objects_6_ap_vld": {
+      "dir": "out",
+      "width": "1"
+    },
+    "jet_objects_7": {
+      "dir": "out",
+      "width": "89"
+    },
+    "jet_objects_7_ap_vld": {
+      "dir": "out",
+      "width": "1"
+    }
+  },
+  "ModuleInfo": {
+    "Hierarchy": {
+      "ModuleName": "calo_trigger_tower_stream_ref",
+      "BindInstances": "CTRL_s_axi_U",
+      "Instances": [{
+          "ModuleName": "cluster_sort_build_tower_stream",
+          "InstanceName": "grp_cluster_sort_build_tower_stream_fu_118",
+          "BindInstances": "em_cluster_stream_U jet_cluster_stream_U em_top_clusters_et_U em_top_clusters_et_1_U em_top_clusters_et_2_U em_top_clusters_et_3_U em_top_clusters_et_4_U em_top_clusters_et_5_U em_top_clusters_et_6_U em_top_clusters_et_7_U em_top_clusters_isolation_et_U em_top_clusters_isolation_et_1_U em_top_clusters_isolation_et_2_U em_top_clusters_isolation_et_3_U em_top_clusters_isolation_et_4_U em_top_clusters_isolation_et_5_U em_top_clusters_isolation_et_6_U em_top_clusters_isolation_et_7_U em_top_clusters_eta_U em_top_clusters_eta_1_U em_top_clusters_eta_2_U em_top_clusters_eta_3_U em_top_clusters_eta_4_U em_top_clusters_eta_5_U em_top_clusters_eta_6_U em_top_clusters_eta_7_U em_top_clusters_phi_U em_top_clusters_phi_1_U em_top_clusters_phi_2_U em_top_clusters_phi_3_U em_top_clusters_phi_4_U em_top_clusters_phi_5_U em_top_clusters_phi_6_U em_top_clusters_phi_7_U em_top_clusters_window_size_U em_top_clusters_window_size_1_U em_top_clusters_window_size_2_U em_top_clusters_window_size_3_U em_top_clusters_window_size_4_U em_top_clusters_window_size_5_U em_top_clusters_window_size_6_U em_top_clusters_window_size_7_U em_top_clusters_valid_U em_top_clusters_valid_1_U em_top_clusters_valid_2_U em_top_clusters_valid_3_U em_top_clusters_valid_4_U em_top_clusters_valid_5_U em_top_clusters_valid_6_U em_top_clusters_valid_7_U jet_top_clusters_et_U jet_top_clusters_et_1_U jet_top_clusters_et_2_U jet_top_clusters_et_3_U jet_top_clusters_et_4_U jet_top_clusters_et_5_U jet_top_clusters_et_6_U jet_top_clusters_et_7_U jet_top_clusters_isolation_et_U jet_top_clusters_isolation_et_1_U jet_top_clusters_isolation_et_2_U jet_top_clusters_isolation_et_3_U jet_top_clusters_isolation_et_4_U jet_top_clusters_isolation_et_5_U jet_top_clusters_isolation_et_6_U jet_top_clusters_isolation_et_7_U jet_top_clusters_eta_U jet_top_clusters_eta_1_U jet_top_clusters_eta_2_U jet_top_clusters_eta_3_U jet_top_clusters_eta_4_U jet_top_clusters_eta_5_U jet_top_clusters_eta_6_U jet_top_clusters_eta_7_U jet_top_clusters_phi_U jet_top_clusters_phi_1_U jet_top_clusters_phi_2_U jet_top_clusters_phi_3_U jet_top_clusters_phi_4_U jet_top_clusters_phi_5_U jet_top_clusters_phi_6_U jet_top_clusters_phi_7_U jet_top_clusters_window_size_U jet_top_clusters_window_size_1_U jet_top_clusters_window_size_2_U jet_top_clusters_window_size_3_U jet_top_clusters_window_size_4_U jet_top_clusters_window_size_5_U jet_top_clusters_window_size_6_U jet_top_clusters_window_size_7_U jet_top_clusters_valid_U jet_top_clusters_valid_1_U jet_top_clusters_valid_2_U jet_top_clusters_valid_3_U jet_top_clusters_valid_4_U jet_top_clusters_valid_5_U jet_top_clusters_valid_6_U jet_top_clusters_valid_7_U",
+          "Instances": [
+            {
+              "ModuleName": "produce_em_jet_cluster_stream_from_towers",
+              "InstanceName": "produce_em_jet_cluster_stream_from_towers_U0",
+              "BindInstances": "linebuf_U linebuf_1_U linebuf_2_U linebuf_3_U linebuf_4_U linebuf_5_U linebuf_6_U icmp_ln481_fu_223_p2 eta_2_fu_229_p2 empty_108_fu_240_p2 icmp_ln496_fu_250_p2 grp_fu_293_p0 grp_fu_265_p0 urem_5ns_4ns_3_9_seq_1_U84 grp_fu_276_p0 urem_5ns_4ns_3_9_seq_1_U85 grp_fu_287_p0 urem_5ns_4ns_3_9_seq_1_U86 urem_5ns_4ns_3_9_seq_1_U87 grp_fu_304_p0 urem_5ns_4ns_3_9_seq_1_U88 grp_fu_315_p0 urem_5ns_4ns_3_9_seq_1_U89 add_ln479_fu_351_p2 icmp_ln479_fu_357_p2 select_ln479_fu_363_p3",
+              "Instances": [
+                {
+                  "ModuleName": "produce_em_jet_cluster_stream_from_towers_Pipeline_VITIS_LOOP_486_2",
+                  "InstanceName": "grp_produce_em_jet_cluster_stream_from_towers_Pipeline_VITIS_LOOP_486_2_fu_153",
+                  "BindInstances": "icmp_ln486_fu_221_p2 add_ln486_fu_227_p2 local_ht_2_fu_262_p2"
+                },
+                {
+                  "ModuleName": "produce_em_jet_cluster_stream_from_towers_Pipeline_VITIS_LOOP_500_3",
+                  "InstanceName": "grp_produce_em_jet_cluster_stream_from_towers_Pipeline_VITIS_LOOP_500_3_fu_170",
+                  "BindInstances": "icmp_ln500_fu_1101_p2 center_phi_fu_1107_p2 add_ln517_fu_1128_p2 add_ln166_fu_1142_p2 src_phi_fu_1152_p3 sparsemux_15_3_12_1_1_U13 add_ln517_1_fu_1171_p2 add_ln166_1_fu_1185_p2 src_phi_1_fu_1195_p3 sparsemux_15_3_12_1_1_U14 add_ln517_2_fu_1214_p2 add_ln166_2_fu_1228_p2 src_phi_2_fu_1238_p3 sparsemux_15_3_12_1_1_U15 sparsemux_15_3_12_1_1_U16 icmp_ln167_fu_1257_p2 add_ln168_fu_1263_p2 src_phi_4_fu_1269_p3 sparsemux_15_3_12_1_1_U17 add_ln517_4_fu_1288_p2 icmp_ln167_1_fu_1294_p2 add_ln168_1_fu_1300_p2 src_phi_5_fu_1306_p3 sparsemux_15_3_12_1_1_U18 add_ln517_5_fu_1325_p2 icmp_ln167_2_fu_1331_p2 add_ln168_2_fu_1337_p2 src_phi_6_fu_1343_p3 sparsemux_15_3_12_1_1_U19 select_ln165_fu_1362_p3 src_phi_7_fu_1370_p2 sparsemux_15_3_12_1_1_U20 select_ln165_1_fu_1387_p3 src_phi_8_fu_1395_p2 sparsemux_15_3_12_1_1_U21 select_ln165_2_fu_1412_p3 src_phi_9_fu_1420_p2 sparsemux_15_3_12_1_1_U22 sparsemux_15_3_12_1_1_U23 sparsemux_15_3_12_1_1_U24 sparsemux_15_3_12_1_1_U25 sparsemux_15_3_12_1_1_U26 sparsemux_15_3_12_1_1_U27 sparsemux_15_3_12_1_1_U28 sparsemux_15_3_12_1_1_U29 sparsemux_15_3_12_1_1_U30 sparsemux_15_3_12_1_1_U31 sparsemux_15_3_12_1_1_U32 sparsemux_15_3_12_1_1_U33 sparsemux_15_3_12_1_1_U34 sparsemux_15_3_12_1_1_U35 sparsemux_15_3_12_1_1_U36 sparsemux_15_3_12_1_1_U37 sparsemux_15_3_12_1_1_U38 sparsemux_15_3_12_1_1_U39 sparsemux_15_3_12_1_1_U40 sparsemux_15_3_12_1_1_U41 sparsemux_15_3_12_1_1_U42 sparsemux_15_3_12_1_1_U43 sparsemux_15_3_12_1_1_U44 sparsemux_15_3_12_1_1_U45 sparsemux_15_3_12_1_1_U46 sparsemux_15_3_12_1_1_U47 sparsemux_15_3_12_1_1_U48 sparsemux_15_3_12_1_1_U49 sparsemux_15_3_12_1_1_U50 sparsemux_15_3_12_1_1_U51 sparsemux_15_3_12_1_1_U52 sparsemux_15_3_12_1_1_U53 sparsemux_15_3_12_1_1_U54 sparsemux_15_3_12_1_1_U55 sparsemux_15_3_12_1_1_U56 sparsemux_15_3_12_1_1_U57 sparsemux_15_3_12_1_1_U58 sparsemux_15_3_12_1_1_U59 sparsemux_15_3_12_1_1_U60 sparsemux_15_3_12_1_1_U61 icmp_ln427_fu_3157_p2 is_max_fu_3162_p2 icmp_ln348_fu_3168_p2 icmp_ln346_fu_3174_p2 xor_ln346_2_fu_3180_p2 icmp_ln346_1_fu_3186_p2 xor_ln346_3_fu_3192_p2 icmp_ln346_2_fu_3198_p2 xor_ln346_4_fu_3204_p2 icmp_ln346_3_fu_3210_p2 xor_ln346_5_fu_3216_p2 and_ln346_fu_3222_p2 icmp_ln346_4_fu_3228_p2 and_ln346_1_fu_3234_p2 and_ln346_2_fu_3240_p2 icmp_ln346_5_fu_3246_p2 and_ln346_4_fu_3252_p2 and_ln346_5_fu_3258_p2 and_ln346_6_fu_3264_p2 and_ln346_3_fu_3270_p2 icmp_ln346_6_fu_3276_p2 xor_ln346_fu_3282_p2 add_ln278_fu_3344_p2 add_ln278_1_fu_3354_p2 add_ln278_2_fu_3364_p2 add_ln278_4_fu_3380_p2 add_ln278_5_fu_3390_p2 core3_et_3_fu_3418_p2 add_ln278_8_fu_3616_p2 add_ln278_9_fu_3626_p2 add_ln278_10_fu_3636_p2 add_ln278_12_fu_3652_p2 add_ln278_14_fu_3672_p2 add_ln278_15_fu_3678_p2 add_ln278_17_fu_3694_p2 add_ln278_18_fu_3704_p2 add_ln278_19_fu_3714_p2 add_ln278_20_fu_3724_p2 add_ln278_23_fu_3750_p2 add_ln278_24_fu_3760_p2 sub_ln278_fu_3780_p2 add_ln434_fu_3786_p2 add_ln434_2_fu_3802_p2 add_ln434_3_fu_3812_p2 add_ln278_26_fu_3828_p2 add_ln278_27_fu_3838_p2 add_ln278_28_fu_3848_p2 add_ln278_30_fu_3864_p2 add_ln278_31_fu_3874_p2 add_ln278_33_fu_3894_p2 add_ln278_34_fu_3900_p2 add_ln278_36_fu_3916_p2 add_ln278_37_fu_3926_p2 add_ln278_38_fu_3936_p2 add_ln278_39_fu_3946_p2 add_ln278_42_fu_3972_p2 add_ln278_44_fu_3988_p2 add_ln278_45_fu_3998_p2 add_ln278_46_fu_4008_p2 add_ln278_48_fu_4028_p2 add_ln278_49_fu_4038_p2 add_ln278_50_fu_4048_p2 add_ln278_51_fu_4058_p2 add_ln278_52_fu_4068_p2 add_ln278_53_fu_4078_p2 add_ln278_55_fu_4102_p2 sub_ln278_1_fu_4112_p2 add_ln435_1_fu_4124_p2 add_ln435_3_fu_4140_p2 add_ln435_4_fu_4150_p2 add_ln435_5_fu_4160_p2 add_ln435_7_fu_4176_p2 add_ln435_8_fu_4186_p2 add_ln435_9_fu_4196_p2 add_ln435_10_fu_4206_p2 add_ln435_11_fu_4216_p2 add_ln435_12_fu_4226_p2 add_ln435_13_fu_4236_p2 icmp_ln437_fu_4252_p2 iso_lhs_fu_4285_p2 ring_lhs_fu_4323_p2 icmp_ln380_fu_4329_p2 xor_ln380_fu_4335_p2 icmp_ln390_fu_4341_p2 xor_ln390_fu_4347_p2 or_ln390_fu_4353_p2 or_ln390_1_fu_4359_p2 or_ln390_2_fu_4365_p2 or_ln390_3_fu_4371_p2 or_ln390_4_fu_4377_p2 em_candidate_et_fu_4383_p3 em_candidate_isolation_et_fu_4391_p3 candidate_valid_fu_4399_p2 icmp_ln459_fu_4409_p2 is_max_1_fu_4414_p2 icmp_ln348_1_fu_4420_p2 icmp_ln346_8_fu_4426_p2 xor_ln346_6_fu_4432_p2 icmp_ln348_2_fu_4438_p2 icmp_ln346_9_fu_4444_p2 xor_ln346_7_fu_4450_p2 icmp_ln348_3_fu_4456_p2 icmp_ln346_10_fu_4462_p2 xor_ln346_8_fu_4468_p2 icmp_ln348_4_fu_4474_p2 icmp_ln346_11_fu_4480_p2 xor_ln346_9_fu_4486_p2 icmp_ln348_5_fu_4492_p2 icmp_ln346_12_fu_4498_p2 xor_ln346_10_fu_4504_p2 icmp_ln348_6_fu_4510_p2 icmp_ln346_13_fu_4516_p2 xor_ln346_11_fu_4522_p2 icmp_ln348_7_fu_4528_p2 icmp_ln346_14_fu_4534_p2 xor_ln346_12_fu_4540_p2 icmp_ln348_8_fu_4546_p2 icmp_ln346_15_fu_4552_p2 xor_ln346_13_fu_4558_p2 icmp_ln348_9_fu_4564_p2 icmp_ln346_16_fu_4570_p2 xor_ln346_14_fu_4576_p2 icmp_ln348_10_fu_4582_p2 icmp_ln346_17_fu_4588_p2 xor_ln346_15_fu_4594_p2 icmp_ln348_11_fu_4600_p2 icmp_ln346_18_fu_4606_p2 xor_ln346_16_fu_4612_p2 icmp_ln348_12_fu_4618_p2 icmp_ln346_19_fu_4624_p2 xor_ln346_17_fu_4630_p2 icmp_ln346_20_fu_4636_p2 xor_ln346_18_fu_4642_p2 icmp_ln346_21_fu_4648_p2 xor_ln346_19_fu_4654_p2 icmp_ln346_22_fu_4660_p2 xor_ln346_20_fu_4666_p2 icmp_ln346_23_fu_4672_p2 xor_ln346_21_fu_4678_p2 icmp_ln346_24_fu_4684_p2 xor_ln346_22_fu_4690_p2 icmp_ln346_25_fu_4696_p2 xor_ln346_23_fu_4702_p2 icmp_ln346_26_fu_4708_p2 xor_ln346_24_fu_4714_p2 icmp_ln346_27_fu_4720_p2 xor_ln346_25_fu_4726_p2 icmp_ln346_28_fu_4732_p2 xor_ln346_26_fu_4738_p2 icmp_ln346_29_fu_4744_p2 xor_ln346_27_fu_4750_p2 icmp_ln346_30_fu_4756_p2 xor_ln346_28_fu_4762_p2 icmp_ln346_31_fu_4768_p2 xor_ln346_29_fu_4774_p2 icmp_ln346_32_fu_4780_p2 xor_ln346_30_fu_4786_p2 icmp_ln346_33_fu_4792_p2 xor_ln346_31_fu_4798_p2 icmp_ln346_34_fu_4804_p2 xor_ln346_32_fu_4810_p2 icmp_ln346_35_fu_4816_p2 xor_ln346_33_fu_4822_p2 icmp_ln346_36_fu_4828_p2 xor_ln346_34_fu_4834_p2 icmp_ln346_37_fu_4840_p2 xor_ln346_35_fu_4846_p2 icmp_ln346_38_fu_4852_p2 xor_ln346_36_fu_4858_p2 icmp_ln346_39_fu_4864_p2 xor_ln346_37_fu_4870_p2 and_ln346_7_fu_4876_p2 and_ln346_8_fu_4882_p2 and_ln346_9_fu_4888_p2 and_ln346_10_fu_4894_p2 and_ln346_11_fu_4900_p2 and_ln346_12_fu_4906_p2 and_ln346_13_fu_4912_p2 and_ln346_14_fu_4918_p2 and_ln346_15_fu_4924_p2 and_ln346_16_fu_4930_p2 and_ln346_17_fu_4936_p2 icmp_ln346_40_fu_4942_p2 and_ln346_18_fu_4948_p2 and_ln346_19_fu_4954_p2 and_ln346_20_fu_4960_p2 and_ln346_21_fu_4966_p2 icmp_ln346_41_fu_4972_p2 icmp_ln346_42_fu_4978_p2 and_ln346_22_fu_4984_p2 icmp_ln346_43_fu_4990_p2 and_ln346_23_fu_4996_p2 and_ln346_24_fu_5002_p2 and_ln346_25_fu_5008_p2 and_ln346_26_fu_5014_p2 and_ln346_27_fu_5020_p2 and_ln346_28_fu_5026_p2 and_ln346_29_fu_5032_p2 and_ln346_30_fu_5038_p2 icmp_ln346_44_fu_5044_p2 and_ln346_31_fu_5050_p2 and_ln346_32_fu_5056_p2 and_ln346_33_fu_5062_p2 and_ln346_34_fu_5068_p2 and_ln346_35_fu_5074_p2 icmp_ln346_45_fu_5080_p2 and_ln346_36_fu_5086_p2 icmp_ln346_46_fu_5092_p2 icmp_ln346_47_fu_5098_p2 and_ln346_37_fu_5104_p2 and_ln346_38_fu_5110_p2 icmp_ln346_48_fu_5116_p2 and_ln346_39_fu_5122_p2 and_ln346_40_fu_5128_p2 and_ln346_41_fu_5134_p2 and_ln346_42_fu_5140_p2 and_ln346_43_fu_5146_p2 and_ln346_44_fu_5152_p2 and_ln346_45_fu_5158_p2 and_ln346_46_fu_5164_p2 and_ln346_47_fu_5170_p2 and_ln346_48_fu_5176_p2 and_ln346_50_fu_5182_p2 and_ln346_51_fu_5188_p2 and_ln346_52_fu_5194_p2 and_ln346_53_fu_5200_p2 and_ln346_54_fu_5206_p2 and_ln346_55_fu_5212_p2 and_ln346_56_fu_5218_p2 and_ln346_57_fu_5224_p2 and_ln346_58_fu_5230_p2 and_ln346_59_fu_5236_p2 and_ln346_60_fu_5242_p2 and_ln346_61_fu_5248_p2 and_ln346_62_fu_5254_p2 and_ln346_63_fu_5260_p2 and_ln346_49_fu_5266_p2 icmp_ln346_49_fu_5272_p2 xor_ln346_1_fu_5278_p2 add_ln278_57_fu_5298_p2 add_ln278_59_fu_5314_p2 add_ln278_60_fu_5324_p2 add_ln278_61_fu_5334_p2 add_ln278_63_fu_5350_p2 add_ln278_64_fu_5360_p2 add_ln278_65_fu_5370_p2 add_ln278_66_fu_5380_p2 add_ln278_67_fu_5390_p2 add_ln278_68_fu_5400_p2 add_ln278_69_fu_5410_p2 ring7_et_1_fu_5434_p2 icmp_ln466_fu_5440_p2 ring_lhs_1_fu_5473_p2 icmp_ln407_fu_5479_p2 select_ln466_fu_5485_p3 select_ln466_1_fu_5493_p3 or_ln466_fu_5501_p2 or_ln466_1_fu_5507_p2 or_ln466_2_fu_5513_p2 jet_candidate_et_fu_5519_p3 jet_candidate_isolation_et_fu_5527_p3 not_sel_tmp22_fu_5535_p2 candidate_valid_1_fu_5541_p2"
+                }
+              ]
+            },
+            {
+              "ModuleName": "select_top_n_from_stream_fixed_1440_s",
+              "InstanceName": "select_top_n_from_stream_fixed_1440_U0",
+              "BindInstances": "icmp_ln668_fu_1363_p2 i_4_fu_1369_p2 local_num_clusters_2_fu_1436_p2 xor_ln111_fu_1442_p2 icmp_ln79_fu_1448_p2 or_ln111_fu_1454_p2 icmp_ln83_fu_1460_p2 icmp_ln87_fu_1466_p2 icmp_ln91_fu_1472_p2 xor_ln91_15_fu_1478_p2 icmp_ln95_fu_1484_p2 and_ln91_fu_1490_p2 xor_ln91_fu_1496_p2 or_ln91_fu_1502_p2 and_ln91_15_fu_1508_p2 xor_ln91_11_fu_1514_p2 grp_fu_746_p2 xor_ln111_8_fu_1524_p2 grp_fu_746_p2 or_ln111_8_fu_1530_p2 icmp_ln83_8_fu_1539_p2 icmp_ln87_8_fu_1545_p2 icmp_ln91_8_fu_1551_p2 xor_ln91_16_fu_1557_p2 icmp_ln95_8_fu_1563_p2 and_ln91_8_fu_1569_p2 xor_ln91_6_fu_1575_p2 or_ln91_6_fu_1581_p2 select_ln91_fu_1587_p3 grp_fu_763_p2 xor_ln111_9_fu_1595_p2 grp_fu_763_p2 or_ln111_9_fu_1601_p2 icmp_ln83_9_fu_1610_p2 icmp_ln87_9_fu_1616_p2 icmp_ln91_9_fu_1622_p2 xor_ln91_17_fu_1628_p2 icmp_ln95_9_fu_1634_p2 and_ln91_9_fu_1640_p2 xor_ln91_7_fu_1646_p2 or_ln91_7_fu_1652_p2 select_ln91_5_fu_1658_p3 grp_fu_780_p2 xor_ln111_10_fu_1666_p2 grp_fu_780_p2 or_ln111_10_fu_1672_p2 icmp_ln83_10_fu_1681_p2 icmp_ln87_10_fu_1687_p2 icmp_ln91_10_fu_1693_p2 xor_ln91_18_fu_1699_p2 icmp_ln95_10_fu_1705_p2 and_ln91_10_fu_1711_p2 xor_ln91_8_fu_1717_p2 or_ln91_8_fu_1723_p2 select_ln91_6_fu_1729_p3 grp_fu_797_p2 xor_ln111_11_fu_1737_p2 grp_fu_797_p2 or_ln111_11_fu_1743_p2 icmp_ln83_11_fu_1752_p2 icmp_ln87_11_fu_1758_p2 icmp_ln91_11_fu_1764_p2 xor_ln91_19_fu_1770_p2 icmp_ln95_11_fu_1776_p2 and_ln91_11_fu_1782_p2 xor_ln91_9_fu_1788_p2 or_ln91_9_fu_1794_p2 select_ln91_7_fu_1800_p3 grp_fu_814_p2 xor_ln111_12_fu_1808_p2 grp_fu_814_p2 or_ln111_12_fu_1814_p2 icmp_ln83_12_fu_1823_p2 icmp_ln87_12_fu_1829_p2 icmp_ln91_12_fu_1835_p2 xor_ln91_20_fu_1841_p2 icmp_ln95_12_fu_1847_p2 and_ln91_12_fu_1853_p2 xor_ln91_10_fu_1859_p2 or_ln91_10_fu_1865_p2 select_ln91_8_fu_1871_p3 grp_fu_831_p2 xor_ln111_13_fu_1879_p2 grp_fu_831_p2 or_ln111_13_fu_1885_p2 icmp_ln83_13_fu_1894_p2 icmp_ln87_13_fu_1900_p2 icmp_ln91_13_fu_1906_p2 xor_ln91_21_fu_1912_p2 icmp_ln95_13_fu_1918_p2 and_ln91_13_fu_1924_p2 xor_ln111_14_fu_1936_p2 icmp_ln79_26_fu_1942_p2 or_ln111_14_fu_1948_p2 icmp_ln83_14_fu_1954_p2 icmp_ln87_14_fu_1963_p2 icmp_ln91_14_fu_1972_p2 xor_ln91_22_fu_1978_p2 icmp_ln95_14_fu_1984_p2 and_ln91_14_fu_1990_p2 icmp_ln113_fu_2491_p2 add_ln114_fu_2539_p2 sparsemux_15_3_20_1_1_U100 sparsemux_15_3_20_1_1_U101 sparsemux_15_3_6_1_1_U102 sparsemux_15_3_6_1_1_U103 sparsemux_15_3_4_1_1_U104 sparsemux_15_3_1_1_1_U105"
+            },
+            {
+              "ModuleName": "select_top_n_from_stream_fixed_1440_1",
+              "InstanceName": "select_top_n_from_stream_fixed_1440_1_U0",
+              "BindInstances": "icmp_ln668_fu_1363_p2 i_2_fu_1369_p2 local_num_clusters_1_fu_1436_p2 xor_ln111_fu_1442_p2 icmp_ln79_fu_1448_p2 or_ln111_fu_1454_p2 icmp_ln83_fu_1460_p2 icmp_ln87_fu_1466_p2 icmp_ln91_fu_1472_p2 xor_ln91_7_fu_1478_p2 icmp_ln95_fu_1484_p2 and_ln91_fu_1490_p2 xor_ln91_fu_1496_p2 or_ln91_fu_1502_p2 and_ln91_8_fu_1508_p2 xor_ln91_6_fu_1514_p2 grp_fu_746_p2 xor_ln111_1_fu_1524_p2 grp_fu_746_p2 or_ln111_1_fu_1530_p2 icmp_ln83_1_fu_1539_p2 icmp_ln87_1_fu_1545_p2 icmp_ln91_1_fu_1551_p2 xor_ln91_8_fu_1557_p2 icmp_ln95_1_fu_1563_p2 and_ln91_1_fu_1569_p2 xor_ln91_1_fu_1575_p2 or_ln91_1_fu_1581_p2 select_ln91_fu_1587_p3 grp_fu_763_p2 xor_ln111_2_fu_1595_p2 grp_fu_763_p2 or_ln111_2_fu_1601_p2 icmp_ln83_2_fu_1610_p2 icmp_ln87_2_fu_1616_p2 icmp_ln91_2_fu_1622_p2 xor_ln91_9_fu_1628_p2 icmp_ln95_2_fu_1634_p2 and_ln91_2_fu_1640_p2 xor_ln91_2_fu_1646_p2 or_ln91_2_fu_1652_p2 select_ln91_1_fu_1658_p3 grp_fu_780_p2 xor_ln111_3_fu_1666_p2 grp_fu_780_p2 or_ln111_3_fu_1672_p2 icmp_ln83_3_fu_1681_p2 icmp_ln87_3_fu_1687_p2 icmp_ln91_3_fu_1693_p2 xor_ln91_10_fu_1699_p2 icmp_ln95_3_fu_1705_p2 and_ln91_3_fu_1711_p2 xor_ln91_3_fu_1717_p2 or_ln91_3_fu_1723_p2 select_ln91_2_fu_1729_p3 grp_fu_797_p2 xor_ln111_4_fu_1737_p2 grp_fu_797_p2 or_ln111_4_fu_1743_p2 icmp_ln83_4_fu_1752_p2 icmp_ln87_4_fu_1758_p2 icmp_ln91_4_fu_1764_p2 xor_ln91_11_fu_1770_p2 icmp_ln95_4_fu_1776_p2 and_ln91_4_fu_1782_p2 xor_ln91_4_fu_1788_p2 or_ln91_4_fu_1794_p2 select_ln91_3_fu_1800_p3 grp_fu_814_p2 xor_ln111_5_fu_1808_p2 grp_fu_814_p2 or_ln111_5_fu_1814_p2 icmp_ln83_5_fu_1823_p2 icmp_ln87_5_fu_1829_p2 icmp_ln91_5_fu_1835_p2 xor_ln91_12_fu_1841_p2 icmp_ln95_5_fu_1847_p2 and_ln91_5_fu_1853_p2 xor_ln91_5_fu_1859_p2 or_ln91_5_fu_1865_p2 select_ln91_4_fu_1871_p3 grp_fu_831_p2 xor_ln111_6_fu_1879_p2 grp_fu_831_p2 or_ln111_6_fu_1885_p2 icmp_ln83_6_fu_1894_p2 icmp_ln87_6_fu_1900_p2 icmp_ln91_6_fu_1906_p2 xor_ln91_13_fu_1912_p2 icmp_ln95_6_fu_1918_p2 and_ln91_6_fu_1924_p2 xor_ln111_7_fu_1936_p2 icmp_ln79_13_fu_1942_p2 or_ln111_7_fu_1948_p2 icmp_ln83_7_fu_1954_p2 icmp_ln87_7_fu_1963_p2 icmp_ln91_7_fu_1972_p2 xor_ln91_14_fu_1978_p2 icmp_ln95_7_fu_1984_p2 and_ln91_7_fu_1990_p2 icmp_ln113_fu_2491_p2 add_ln114_fu_2539_p2 sparsemux_15_3_20_1_1_U112 sparsemux_15_3_20_1_1_U113 sparsemux_15_3_6_1_1_U114 sparsemux_15_3_6_1_1_U115 sparsemux_15_3_4_1_1_U116 sparsemux_15_3_1_1_1_U117"
+            },
+            {
+              "ModuleName": "build_trigger_objects",
+              "InstanceName": "build_trigger_objects_U0",
+              "BindInstances": "icmp_ln234_fu_480_p2 select_ln234_fu_486_p3 em_objects_0_new_0_fu_522_p3 icmp_ln234_8_fu_531_p2 select_ln234_8_fu_537_p3 em_objects_1_new_0_fu_573_p3 icmp_ln234_9_fu_582_p2 select_ln234_9_fu_588_p3 em_objects_2_new_0_fu_624_p3 icmp_ln234_10_fu_633_p2 select_ln234_10_fu_639_p3 em_objects_3_new_0_fu_675_p3 icmp_ln234_11_fu_684_p2 select_ln234_11_fu_690_p3 em_objects_4_new_0_fu_726_p3 icmp_ln234_12_fu_735_p2 select_ln234_12_fu_741_p3 em_objects_5_new_0_fu_777_p3 icmp_ln234_13_fu_786_p2 select_ln234_13_fu_792_p3 em_objects_6_new_0_fu_828_p3 icmp_ln234_14_fu_837_p2 select_ln234_14_fu_843_p3 em_objects_7_new_0_fu_879_p3"
+            },
+            {
+              "ModuleName": "build_trigger_objects_2",
+              "InstanceName": "build_trigger_objects_2_U0",
+              "BindInstances": "icmp_ln234_fu_480_p2 select_ln234_fu_486_p3 jet_objects_0_new_0_fu_522_p3 icmp_ln234_1_fu_531_p2 select_ln234_1_fu_537_p3 jet_objects_1_new_0_fu_573_p3 icmp_ln234_2_fu_582_p2 select_ln234_2_fu_588_p3 jet_objects_2_new_0_fu_624_p3 icmp_ln234_3_fu_633_p2 select_ln234_3_fu_639_p3 jet_objects_3_new_0_fu_675_p3 icmp_ln234_4_fu_684_p2 select_ln234_4_fu_690_p3 jet_objects_4_new_0_fu_726_p3 icmp_ln234_5_fu_735_p2 select_ln234_5_fu_741_p3 jet_objects_5_new_0_fu_777_p3 icmp_ln234_6_fu_786_p2 select_ln234_6_fu_792_p3 jet_objects_6_new_0_fu_828_p3 icmp_ln234_7_fu_837_p2 select_ln234_7_fu_843_p3 jet_objects_7_new_0_fu_879_p3"
+            }
+          ]
+        }]
+    },
+    "Info": {
+      "produce_em_jet_cluster_stream_from_towers_Pipeline_VITIS_LOOP_486_2": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "produce_em_jet_cluster_stream_from_towers_Pipeline_VITIS_LOOP_500_3": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "produce_em_jet_cluster_stream_from_towers": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "select_top_n_from_stream_fixed_1440_s": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "select_top_n_from_stream_fixed_1440_1": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "build_trigger_objects": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "1"
+      },
+      "build_trigger_objects_2": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "1"
+      },
+      "cluster_sort_build_tower_stream": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "calo_trigger_tower_stream_ref": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      }
+    },
+    "Metrics": {
+      "produce_em_jet_cluster_stream_from_towers_Pipeline_VITIS_LOOP_486_2": {
+        "Latency": {
+          "LatencyBest": "62",
+          "LatencyAvg": "62",
+          "LatencyWorst": "62",
+          "PipelineII": "61",
+          "PipelineDepth": "",
+          "PipelineType": "loop auto-rewind (delay=0 clock cycles(s))"
+        },
+        "Timing": {
+          "Target": "25.00",
+          "Uncertainty": "6.75",
+          "Estimate": "2.392"
+        },
+        "Loops": [{
+            "Name": "VITIS_LOOP_486_2",
+            "TripCount": "60",
+            "Latency": "60",
+            "PipelineII": "1",
+            "PipelineDepth": "1"
+          }],
+        "Area": {
+          "FF": "32",
+          "AVAIL_FF": "3456000",
+          "UTIL_FF": "~0",
+          "LUT": "113",
+          "AVAIL_LUT": "1728000",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "5376",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "12288",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "1280",
+          "UTIL_URAM": "0"
+        }
+      },
+      "produce_em_jet_cluster_stream_from_towers_Pipeline_VITIS_LOOP_500_3": {
+        "Latency": {
+          "LatencyBest": "62",
+          "LatencyAvg": "62",
+          "LatencyWorst": "62",
+          "PipelineII": "61",
+          "PipelineDepth": "",
+          "PipelineType": "loop auto-rewind (delay=0 clock cycles(s))"
+        },
+        "Timing": {
+          "Target": "25.00",
+          "Uncertainty": "6.75",
+          "Estimate": "12.510"
+        },
+        "Loops": [{
+            "Name": "VITIS_LOOP_500_3",
+            "TripCount": "60",
+            "Latency": "60",
+            "PipelineII": "1",
+            "PipelineDepth": "2"
+          }],
+        "Area": {
+          "FF": "15",
+          "AVAIL_FF": "3456000",
+          "UTIL_FF": "~0",
+          "LUT": "5866",
+          "AVAIL_LUT": "1728000",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "5376",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "12288",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "1280",
+          "UTIL_URAM": "0"
+        }
+      },
+      "produce_em_jet_cluster_stream_from_towers": {
+        "Latency": {
+          "LatencyBest": "1981",
+          "LatencyAvg": "3031",
+          "LatencyWorst": "4081",
+          "PipelineIIMin": "1981",
+          "PipelineIIMax": "4081",
+          "PipelineII": "1981 ~ 4081",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "25.00",
+          "Uncertainty": "6.75",
+          "Estimate": "12.510"
+        },
+        "Loops": [{
+            "Name": "VITIS_LOOP_481_1",
+            "TripCount": "30",
+            "LatencyMin": "1980",
+            "LatencyMax": "4080",
+            "Latency": "1980 ~ 4080",
+            "PipelineII": "",
+            "PipelineDepthMin": "66",
+            "PipelineDepthMax": "136",
+            "PipelineDepth": "66 ~ 136"
+          }],
+        "Area": {
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "5376",
+          "UTIL_BRAM": "0",
+          "FF": "711",
+          "AVAIL_FF": "3456000",
+          "UTIL_FF": "~0",
+          "LUT": "7383",
+          "AVAIL_LUT": "1728000",
+          "UTIL_LUT": "~0",
+          "URAM": "0",
+          "AVAIL_URAM": "1280",
+          "UTIL_URAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "12288",
+          "UTIL_DSP": "0"
+        }
+      },
+      "select_top_n_from_stream_fixed_1440_s": {
+        "Latency": {
+          "LatencyBest": "2881",
+          "LatencyAvg": "7201",
+          "LatencyWorst": "17281",
+          "PipelineIIMin": "2881",
+          "PipelineIIMax": "17281",
+          "PipelineII": "2881 ~ 17281",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "25.00",
+          "Uncertainty": "6.75",
+          "Estimate": "3.402"
+        },
+        "Loops": [{
+            "Name": "VITIS_LOOP_668_1",
+            "TripCount": "1440",
+            "LatencyMin": "2880",
+            "LatencyMax": "17280",
+            "Latency": "2880 ~ 17280",
+            "PipelineII": "",
+            "PipelineDepthMin": "2",
+            "PipelineDepthMax": "12",
+            "PipelineDepth": "2 ~ 12",
+            "Loops": [{
+                "Name": "VITIS_LOOP_113_1",
+                "TripCount": "",
+                "LatencyMin": "0",
+                "LatencyMax": "7",
+                "Latency": "0 ~ 7",
+                "PipelineII": "",
+                "PipelineDepth": "1"
+              }]
+          }],
+        "Area": {
+          "FF": "1092",
+          "AVAIL_FF": "3456000",
+          "UTIL_FF": "~0",
+          "LUT": "2741",
+          "AVAIL_LUT": "1728000",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "5376",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "12288",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "1280",
+          "UTIL_URAM": "0"
+        }
+      },
+      "select_top_n_from_stream_fixed_1440_1": {
+        "Latency": {
+          "LatencyBest": "2881",
+          "LatencyAvg": "7201",
+          "LatencyWorst": "17281",
+          "PipelineIIMin": "2881",
+          "PipelineIIMax": "17281",
+          "PipelineII": "2881 ~ 17281",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "25.00",
+          "Uncertainty": "6.75",
+          "Estimate": "3.402"
+        },
+        "Loops": [{
+            "Name": "VITIS_LOOP_668_1",
+            "TripCount": "1440",
+            "LatencyMin": "2880",
+            "LatencyMax": "17280",
+            "Latency": "2880 ~ 17280",
+            "PipelineII": "",
+            "PipelineDepthMin": "2",
+            "PipelineDepthMax": "12",
+            "PipelineDepth": "2 ~ 12",
+            "Loops": [{
+                "Name": "VITIS_LOOP_113_1",
+                "TripCount": "",
+                "LatencyMin": "0",
+                "LatencyMax": "7",
+                "Latency": "0 ~ 7",
+                "PipelineII": "",
+                "PipelineDepth": "1"
+              }]
+          }],
+        "Area": {
+          "FF": "1092",
+          "AVAIL_FF": "3456000",
+          "UTIL_FF": "~0",
+          "LUT": "2741",
+          "AVAIL_LUT": "1728000",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "5376",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "12288",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "1280",
+          "UTIL_URAM": "0"
+        }
+      },
+      "build_trigger_objects": {
+        "Latency": {
+          "LatencyBest": "0",
+          "LatencyAvg": "0",
+          "LatencyWorst": "0",
+          "PipelineII": "0",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "25.00",
+          "Uncertainty": "6.75",
+          "Estimate": "2.478"
+        },
+        "Area": {
+          "FF": "474",
+          "AVAIL_FF": "3456000",
+          "UTIL_FF": "~0",
+          "LUT": "867",
+          "AVAIL_LUT": "1728000",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "5376",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "12288",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "1280",
+          "UTIL_URAM": "0"
+        }
+      },
+      "build_trigger_objects_2": {
+        "Latency": {
+          "LatencyBest": "0",
+          "LatencyAvg": "0",
+          "LatencyWorst": "0",
+          "PipelineII": "0",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "25.00",
+          "Uncertainty": "6.75",
+          "Estimate": "2.478"
+        },
+        "Area": {
+          "FF": "474",
+          "AVAIL_FF": "3456000",
+          "UTIL_FF": "~0",
+          "LUT": "867",
+          "AVAIL_LUT": "1728000",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "5376",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "12288",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "1280",
+          "UTIL_URAM": "0"
+        }
+      },
+      "cluster_sort_build_tower_stream": {
+        "Latency": {
+          "LatencyBest": "2895",
+          "LatencyAvg": "7215",
+          "LatencyWorst": "17295",
+          "PipelineIIMin": "2882",
+          "PipelineIIMax": "17282",
+          "PipelineII": "2882 ~ 17282",
+          "PipelineDepth": "",
+          "PipelineType": "dataflow"
+        },
+        "Timing": {
+          "Target": "25.00",
+          "Uncertainty": "6.75",
+          "Estimate": "12.510"
+        },
+        "Area": {
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "5376",
+          "UTIL_BRAM": "0",
+          "FF": "7511",
+          "AVAIL_FF": "3456000",
+          "UTIL_FF": "~0",
+          "LUT": "18333",
+          "AVAIL_LUT": "1728000",
+          "UTIL_LUT": "1",
+          "URAM": "0",
+          "AVAIL_URAM": "1280",
+          "UTIL_URAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "12288",
+          "UTIL_DSP": "0"
+        }
+      },
+      "calo_trigger_tower_stream_ref": {
+        "Latency": {
+          "LatencyBest": "2897",
+          "LatencyAvg": "7217",
+          "LatencyWorst": "17297",
+          "PipelineIIMin": "2898",
+          "PipelineIIMax": "17298",
+          "PipelineII": "2898 ~ 17298",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "25.00",
+          "Uncertainty": "6.75",
+          "Estimate": "12.510"
+        },
+        "Area": {
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "5376",
+          "UTIL_BRAM": "0",
+          "FF": "7811",
+          "AVAIL_FF": "3456000",
+          "UTIL_FF": "~0",
+          "LUT": "18708",
+          "AVAIL_LUT": "1728000",
+          "UTIL_LUT": "1",
+          "URAM": "0",
+          "AVAIL_URAM": "1280",
+          "UTIL_URAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "12288",
+          "UTIL_DSP": "0"
+        }
+      }
+    }
+  },
+  "GenerateBdFiles": "0",
+  "GenData": {
+    "DataVersion": "0.2",
+    "Time": "2026-05-12 23:42:21 CDT",
+    "ToolName": "vitis_hls",
+    "ToolVersion": "2024.1"
+  }
+}

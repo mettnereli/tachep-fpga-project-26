@@ -1,0 +1,120 @@
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:1315:7: warning: Added loop label VITIS_LOOP_1223_1:   [xilinx-label-all-loops]
+      for (i = 0; i < __N - 1; ++i) {
+      ^~~
+      VITIS_LOOP_1223_1: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:1315:7: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:2289:5: warning: Added loop label VITIS_LOOP_676_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high; ++i) {
+    ^~~
+    VITIS_LOOP_676_1: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:2289:5: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:2303:5: warning: Added loop label VITIS_LOOP_690_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high; ++i) {
+    ^~~
+    VITIS_LOOP_690_1: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:2303:5: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:2317:5: warning: Added loop label VITIS_LOOP_704_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high; ++i) {
+    ^~~
+    VITIS_LOOP_704_1: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:2317:5: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:3946:7: warning: Added loop label VITIS_LOOP_1247_1:   [xilinx-label-all-loops]
+      for (i = 0; i < __N - 1; ++i) {
+      ^~~
+      VITIS_LOOP_1247_1: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:3946:7: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:5994:2: warning: Added loop label VITIS_LOOP_190_1:   [xilinx-label-all-loops]
+ for (int i = 0; i < 8; i++) {
+ ^~~
+ VITIS_LOOP_190_1: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:5994:2: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6078:5: warning: Added loop label VITIS_LOOP_274_1:   [xilinx-label-all-loops]
+    for (int i = 0; i < W; i++) {
+    ^~~
+    VITIS_LOOP_274_1: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6078:5: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6080:2: warning: Added loop label VITIS_LOOP_276_2:   [xilinx-label-all-loops]
+ for (int j = 0; j < W; j++) {
+ ^~~
+ VITIS_LOOP_276_2: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6080:2: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6136:5: warning: Added loop label VITIS_LOOP_332_1:   [xilinx-label-all-loops]
+    for (int i = 0; i < W; i++) {
+    ^~~
+    VITIS_LOOP_332_1: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6136:5: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6138:2: warning: Added loop label VITIS_LOOP_334_2:   [xilinx-label-all-loops]
+ for (int j = 0; j < W; j++) {
+ ^~~
+ VITIS_LOOP_334_2: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6138:2: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6335:5: warning: Added loop label VITIS_LOOP_531_1:   [xilinx-label-all-loops]
+    for (int eta = HALF_W; eta < 30 - HALF_W; eta++) {
+    ^~~
+    VITIS_LOOP_531_1: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6335:5: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6336:9: warning: Added loop label VITIS_LOOP_532_2:   [xilinx-label-all-loops]
+        for (int phi = 0; phi < 60; phi++) {
+        ^~~
+        VITIS_LOOP_532_2: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6336:9: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6464:5: warning: Added loop label VITIS_LOOP_668_1:   [xilinx-label-all-loops]
+    for (int i = 0; i < NUM_CANDIDATES; i++){
+    ^~~
+    VITIS_LOOP_668_1: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6464:5: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6590:13: warning: Added loop label VITIS_LOOP_113_1:   [xilinx-label-all-loops]
+            for (int k = 8 - 1; k > j; k--) {
+            ^~~
+            VITIS_LOOP_113_1: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6590:13: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6636:2: warning: Added loop label VITIS_LOOP_159_1:   [xilinx-label-all-loops]
+ for (int i = 0; i < 8; ++i) {
+ ^~~
+ VITIS_LOOP_159_1: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6636:2: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6809:5: warning: Added loop label VITIS_LOOP_328_1:   [xilinx-label-all-loops]
+    for (int eta = R; eta < 30 - R; eta++) {
+    ^~~
+    VITIS_LOOP_328_1: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6809:5: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6810:9: warning: Added loop label VITIS_LOOP_329_2:   [xilinx-label-all-loops]
+        for (int phi = 0; phi < 60; phi++) {
+        ^~~
+        VITIS_LOOP_329_2: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6810:9: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6845:5: warning: Added loop label VITIS_LOOP_364_1:   [xilinx-label-all-loops]
+    for (int eta = R; eta < 30 - R; eta++) {
+    ^~~
+    VITIS_LOOP_364_1: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6845:5: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6846:9: warning: Added loop label VITIS_LOOP_365_2:   [xilinx-label-all-loops]
+        for (int phi = 0; phi < 60; phi++) {
+        ^~~
+        VITIS_LOOP_365_2: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6846:9: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6962:5: warning: Added loop label VITIS_LOOP_481_1:   [xilinx-label-all-loops]
+    for (int eta = 0; eta < 30; eta++) {
+    ^~~
+    VITIS_LOOP_481_1: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6962:5: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6967:9: warning: Added loop label VITIS_LOOP_486_2:   [xilinx-label-all-loops]
+        for (int phi = 0; phi < 60; phi++) {
+        ^~~
+        VITIS_LOOP_486_2: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6967:9: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6981:13: warning: Added loop label VITIS_LOOP_500_3:   [xilinx-label-all-loops]
+            for (int center_phi = 0; center_phi < 60; center_phi++) {
+            ^~~
+            VITIS_LOOP_500_3: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6981:13: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6986:2: warning: Added loop label VITIS_LOOP_505_4:   [xilinx-label-all-loops]
+ for (int d_eta = -(7 / 2);
+ ^~~
+ VITIS_LOOP_505_4: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6986:2: note: FIX-IT applied suggested code changes
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6991:2: warning: Added loop label VITIS_LOOP_510_5:   [xilinx-label-all-loops]
+ for (int d_phi = -(7 / 2);
+ ^~~
+ VITIS_LOOP_510_5: 
+/scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp:6991:2: note: FIX-IT applied suggested code changes

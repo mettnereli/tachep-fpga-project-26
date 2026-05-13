@@ -1,0 +1,195 @@
+
+
+================================================================
+== Vitis HLS Report for 'calo_trigger_tower_stream_ref'
+================================================================
+* Date:           Tue May 12 23:42:19 2026
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        calorimeter
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu13p-fsga2577-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+-----------+------------+
+    |  Clock |  Target  | Estimated | Uncertainty|
+    +--------+----------+-----------+------------+
+    |ap_clk  |  25.00 ns|  12.510 ns|     6.75 ns|
+    +--------+----------+-----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+------+-------+---------+
+    |  Latency (cycles) |  Latency (absolute)  |   Interval   | Pipeline|
+    |   min   |   max   |    min    |    max   |  min |  max  |   Type  |
+    +---------+---------+-----------+----------+------+-------+---------+
+    |     2897|    17297|  72.425 us|  0.432 ms|  2898|  17298|       no|
+    +---------+---------+-----------+----------+------+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        +--------------------------------------------+---------------------------------+---------+---------+-----------+----------+------+-------+----------+
+        |                                            |                                 |  Latency (cycles) |  Latency (absolute)  |   Interval   | Pipeline |
+        |                  Instance                  |              Module             |   min   |   max   |    min    |    max   |  min |  max  |   Type   |
+        +--------------------------------------------+---------------------------------+---------+---------+-----------+----------+------+-------+----------+
+        |grp_cluster_sort_build_tower_stream_fu_118  |cluster_sort_build_tower_stream  |     2895|    17295|  72.375 us|  0.432 ms|  2882|  17282|  dataflow|
+        +--------------------------------------------+---------------------------------+---------+---------+-----------+----------+------+-------+----------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+------+
+|         Name        | BRAM_18K|  DSP  |    FF   |   LUT   | URAM |
++---------------------+---------+-------+---------+---------+------+
+|DSP                  |        -|      -|        -|        -|     -|
+|Expression           |        -|      -|        0|        2|     -|
+|FIFO                 |        -|      -|        -|        -|     -|
+|Instance             |        0|      -|     7741|    18677|     0|
+|Memory               |        -|      -|        -|        -|     -|
+|Multiplexer          |        -|      -|        0|       29|     -|
+|Register             |        -|      -|       70|        -|     -|
++---------------------+---------+-------+---------+---------+------+
+|Total                |        0|      0|     7811|    18708|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available SLR        |     1344|   3072|   864000|   432000|   320|
++---------------------+---------+-------+---------+---------+------+
+|Utilization SLR (%)  |        0|      0|       ~0|        4|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available            |     5376|  12288|  3456000|  1728000|  1280|
++---------------------+---------+-------+---------+---------+------+
+|Utilization (%)      |        0|      0|       ~0|        1|     0|
++---------------------+---------+-------+---------+---------+------+
+
++ Detail: 
+    * Instance: 
+    +--------------------------------------------+---------------------------------+---------+----+------+-------+-----+
+    |                  Instance                  |              Module             | BRAM_18K| DSP|  FF  |  LUT  | URAM|
+    +--------------------------------------------+---------------------------------+---------+----+------+-------+-----+
+    |CTRL_s_axi_U                                |CTRL_s_axi                       |        0|   0|   230|    344|    0|
+    |grp_cluster_sort_build_tower_stream_fu_118  |cluster_sort_build_tower_stream  |        0|   0|  7511|  18333|    0|
+    +--------------------------------------------+---------------------------------+---------+----+------+-------+-----+
+    |Total                                       |                                 |        0|   0|  7741|  18677|    0|
+    +--------------------------------------------+---------------------------------+---------+----+------+-------+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-------------------------------------------------------------+----------+----+---+----+------------+------------+
+    |                        Variable Name                        | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-------------------------------------------------------------+----------+----+---+----+------------+------------+
+    |ap_sync_grp_cluster_sort_build_tower_stream_fu_118_ap_ready  |        or|   0|  0|   2|           1|           1|
+    +-------------------------------------------------------------+----------+----+---+----+------------+------------+
+    |Total                                                        |          |   0|  0|   2|           1|           1|
+    +-------------------------------------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------------------+----+-----------+-----+-----------+
+    |             Name             | LUT| Input Size| Bits| Total Bits|
+    +------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                     |  20|          4|    1|          4|
+    |tower_in_TREADY_int_regslice  |   9|          2|    1|          2|
+    +------------------------------+----+-----------+-----+-----------+
+    |Total                         |  29|          6|    2|          6|
+    +------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------------------------------------------+----+----+-----+-----------+
+    |                               Name                              | FF | LUT| Bits| Const Bits|
+    +-----------------------------------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                                                        |   3|   0|    3|          0|
+    |ap_sync_reg_grp_cluster_sort_build_tower_stream_fu_118_ap_done   |   1|   0|    1|          0|
+    |ap_sync_reg_grp_cluster_sort_build_tower_stream_fu_118_ap_ready  |   1|   0|    1|          0|
+    |em_cluster_threshold_read_reg_180                                |  20|   0|   20|          0|
+    |em_seed_threshold_read_reg_185                                   |  12|   0|   12|          0|
+    |grp_cluster_sort_build_tower_stream_fu_118_ap_start_reg          |   1|   0|    1|          0|
+    |jet_cluster_threshold_read_reg_170                               |  20|   0|   20|          0|
+    |jet_seed_threshold_read_reg_175                                  |  12|   0|   12|          0|
+    +-----------------------------------------------------------------+----+----+-----+-----------+
+    |Total                                                            |  70|   0|   70|          0|
+    +-----------------------------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------+-----+-----+------------+-------------------------------+--------------+
+|       RTL Ports      | Dir | Bits|  Protocol  |         Source Object         |    C Type    |
++----------------------+-----+-----+------------+-------------------------------+--------------+
+|s_axi_CTRL_AWVALID    |   in|    1|       s_axi|                           CTRL|       pointer|
+|s_axi_CTRL_AWREADY    |  out|    1|       s_axi|                           CTRL|       pointer|
+|s_axi_CTRL_AWADDR     |   in|    7|       s_axi|                           CTRL|       pointer|
+|s_axi_CTRL_WVALID     |   in|    1|       s_axi|                           CTRL|       pointer|
+|s_axi_CTRL_WREADY     |  out|    1|       s_axi|                           CTRL|       pointer|
+|s_axi_CTRL_WDATA      |   in|   32|       s_axi|                           CTRL|       pointer|
+|s_axi_CTRL_WSTRB      |   in|    4|       s_axi|                           CTRL|       pointer|
+|s_axi_CTRL_ARVALID    |   in|    1|       s_axi|                           CTRL|       pointer|
+|s_axi_CTRL_ARREADY    |  out|    1|       s_axi|                           CTRL|       pointer|
+|s_axi_CTRL_ARADDR     |   in|    7|       s_axi|                           CTRL|       pointer|
+|s_axi_CTRL_RVALID     |  out|    1|       s_axi|                           CTRL|       pointer|
+|s_axi_CTRL_RREADY     |   in|    1|       s_axi|                           CTRL|       pointer|
+|s_axi_CTRL_RDATA      |  out|   32|       s_axi|                           CTRL|       pointer|
+|s_axi_CTRL_RRESP      |  out|    2|       s_axi|                           CTRL|       pointer|
+|s_axi_CTRL_BVALID     |  out|    1|       s_axi|                           CTRL|       pointer|
+|s_axi_CTRL_BREADY     |   in|    1|       s_axi|                           CTRL|       pointer|
+|s_axi_CTRL_BRESP      |  out|    2|       s_axi|                           CTRL|       pointer|
+|ap_clk                |   in|    1|  ap_ctrl_hs|  calo_trigger_tower_stream_ref|  return value|
+|ap_rst_n              |   in|    1|  ap_ctrl_hs|  calo_trigger_tower_stream_ref|  return value|
+|interrupt             |  out|    1|  ap_ctrl_hs|  calo_trigger_tower_stream_ref|  return value|
+|tower_in_TDATA        |   in|   16|        axis|                       tower_in|       pointer|
+|tower_in_TVALID       |   in|    1|        axis|                       tower_in|       pointer|
+|tower_in_TREADY       |  out|    1|        axis|                       tower_in|       pointer|
+|em_objects_0          |  out|   89|      ap_vld|                   em_objects_0|       pointer|
+|em_objects_0_ap_vld   |  out|    1|      ap_vld|                   em_objects_0|       pointer|
+|em_objects_1          |  out|   89|      ap_vld|                   em_objects_1|       pointer|
+|em_objects_1_ap_vld   |  out|    1|      ap_vld|                   em_objects_1|       pointer|
+|em_objects_2          |  out|   89|      ap_vld|                   em_objects_2|       pointer|
+|em_objects_2_ap_vld   |  out|    1|      ap_vld|                   em_objects_2|       pointer|
+|em_objects_3          |  out|   89|      ap_vld|                   em_objects_3|       pointer|
+|em_objects_3_ap_vld   |  out|    1|      ap_vld|                   em_objects_3|       pointer|
+|em_objects_4          |  out|   89|      ap_vld|                   em_objects_4|       pointer|
+|em_objects_4_ap_vld   |  out|    1|      ap_vld|                   em_objects_4|       pointer|
+|em_objects_5          |  out|   89|      ap_vld|                   em_objects_5|       pointer|
+|em_objects_5_ap_vld   |  out|    1|      ap_vld|                   em_objects_5|       pointer|
+|em_objects_6          |  out|   89|      ap_vld|                   em_objects_6|       pointer|
+|em_objects_6_ap_vld   |  out|    1|      ap_vld|                   em_objects_6|       pointer|
+|em_objects_7          |  out|   89|      ap_vld|                   em_objects_7|       pointer|
+|em_objects_7_ap_vld   |  out|    1|      ap_vld|                   em_objects_7|       pointer|
+|jet_objects_0         |  out|   89|      ap_vld|                  jet_objects_0|       pointer|
+|jet_objects_0_ap_vld  |  out|    1|      ap_vld|                  jet_objects_0|       pointer|
+|jet_objects_1         |  out|   89|      ap_vld|                  jet_objects_1|       pointer|
+|jet_objects_1_ap_vld  |  out|    1|      ap_vld|                  jet_objects_1|       pointer|
+|jet_objects_2         |  out|   89|      ap_vld|                  jet_objects_2|       pointer|
+|jet_objects_2_ap_vld  |  out|    1|      ap_vld|                  jet_objects_2|       pointer|
+|jet_objects_3         |  out|   89|      ap_vld|                  jet_objects_3|       pointer|
+|jet_objects_3_ap_vld  |  out|    1|      ap_vld|                  jet_objects_3|       pointer|
+|jet_objects_4         |  out|   89|      ap_vld|                  jet_objects_4|       pointer|
+|jet_objects_4_ap_vld  |  out|    1|      ap_vld|                  jet_objects_4|       pointer|
+|jet_objects_5         |  out|   89|      ap_vld|                  jet_objects_5|       pointer|
+|jet_objects_5_ap_vld  |  out|    1|      ap_vld|                  jet_objects_5|       pointer|
+|jet_objects_6         |  out|   89|      ap_vld|                  jet_objects_6|       pointer|
+|jet_objects_6_ap_vld  |  out|    1|      ap_vld|                  jet_objects_6|       pointer|
+|jet_objects_7         |  out|   89|      ap_vld|                  jet_objects_7|       pointer|
+|jet_objects_7_ap_vld  |  out|    1|      ap_vld|                  jet_objects_7|       pointer|
++----------------------+-----+-----+------------+-------------------------------+--------------+
+

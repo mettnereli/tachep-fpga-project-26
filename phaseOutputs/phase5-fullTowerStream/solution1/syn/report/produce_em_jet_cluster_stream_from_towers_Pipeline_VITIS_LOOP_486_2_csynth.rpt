@@ -1,0 +1,178 @@
+
+
+================================================================
+== Vitis HLS Report for 'produce_em_jet_cluster_stream_from_towers_Pipeline_VITIS_LOOP_486_2'
+================================================================
+* Date:           Tue May 12 23:41:58 2026
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        calorimeter
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu13p-fsga2577-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  25.00 ns|  2.392 ns|     6.75 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+-----------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval |                    Pipeline                   |
+    |   min   |   max   |    min   |    max   | min | max |                      Type                     |
+    +---------+---------+----------+----------+-----+-----+-----------------------------------------------+
+    |       62|       62|  1.550 us|  1.550 us|   61|   61|  loop auto-rewind stp(delay=0 clock cycles(s))|
+    +---------+---------+----------+----------+-----+-----+-----------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_486_2  |       60|       60|         1|          1|          1|    60|       yes|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+------+
+|         Name        | BRAM_18K|  DSP  |    FF   |   LUT   | URAM |
++---------------------+---------+-------+---------+---------+------+
+|DSP                  |        -|      -|        -|        -|     -|
+|Expression           |        -|      -|        0|       59|     -|
+|FIFO                 |        -|      -|        -|        -|     -|
+|Instance             |        -|      -|        -|        -|     -|
+|Memory               |        -|      -|        -|        -|     -|
+|Multiplexer          |        -|      -|        0|       54|     -|
+|Register             |        -|      -|       32|        -|     -|
++---------------------+---------+-------+---------+---------+------+
+|Total                |        0|      0|       32|      113|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available SLR        |     1344|   3072|   864000|   432000|   320|
++---------------------+---------+-------+---------+---------+------+
+|Utilization SLR (%)  |        0|      0|       ~0|       ~0|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available            |     5376|  12288|  3456000|  1728000|  1280|
++---------------------+---------+-------+---------+---------+------+
+|Utilization (%)      |        0|      0|       ~0|       ~0|     0|
++---------------------+---------+-------+---------+---------+------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+----+---+----+------------+------------+
+    |           Variable Name          | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+----+---+----+------------+------------+
+    |add_ln486_fu_227_p2               |         +|   0|  0|  13|           6|           1|
+    |local_ht_2_fu_262_p2              |         +|   0|  0|  31|          24|          24|
+    |icmp_ln486_fu_221_p2              |      icmp|   0|  0|  13|           6|           4|
+    |ap_block_state1_pp0_stage0_iter0  |        or|   0|  0|   2|           1|           1|
+    +----------------------------------+----------+----+---+----+------------+------------+
+    |Total                             |          |   0|  0|  59|          37|          30|
+    +----------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------------------------+----+-----------+-----+-----------+
+    |               Name               | LUT| Input Size| Bits| Total Bits|
+    +----------------------------------+----+-----------+-----+-----------+
+    |ap_done_int                       |   9|          2|    1|          2|
+    |ap_sig_allocacmp_local_ht_1_load  |   9|          2|   24|         48|
+    |ap_sig_allocacmp_phi_1            |   9|          2|    6|         12|
+    |local_ht_1_fu_78                  |   9|          2|   24|         48|
+    |phi_fu_82                         |   9|          2|    6|         12|
+    |tower_in_TDATA_blk_n              |   9|          2|    1|          2|
+    +----------------------------------+----+-----------+-----+-----------+
+    |Total                             |  54|         12|   62|        124|
+    +----------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +------------------+----+----+-----+-----------+
+    |       Name       | FF | LUT| Bits| Const Bits|
+    +------------------+----+----+-----+-----------+
+    |ap_CS_fsm         |   1|   0|    1|          0|
+    |ap_done_reg       |   1|   0|    1|          0|
+    |local_ht_1_fu_78  |  24|   0|   24|          0|
+    |phi_fu_82         |   6|   0|    6|          0|
+    +------------------+----+----+-----+-----------+
+    |Total             |  32|   0|   32|          0|
+    +------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------+-----+-----+------------+---------------------------------------------------------------------+--------------+
+|       RTL Ports       | Dir | Bits|  Protocol  |                            Source Object                            |    C Type    |
++-----------------------+-----+-----+------------+---------------------------------------------------------------------+--------------+
+|ap_clk                 |   in|    1|  ap_ctrl_hs|  produce_em_jet_cluster_stream_from_towers_Pipeline_VITIS_LOOP_486_2|  return value|
+|ap_rst                 |   in|    1|  ap_ctrl_hs|  produce_em_jet_cluster_stream_from_towers_Pipeline_VITIS_LOOP_486_2|  return value|
+|ap_start               |   in|    1|  ap_ctrl_hs|  produce_em_jet_cluster_stream_from_towers_Pipeline_VITIS_LOOP_486_2|  return value|
+|ap_done                |  out|    1|  ap_ctrl_hs|  produce_em_jet_cluster_stream_from_towers_Pipeline_VITIS_LOOP_486_2|  return value|
+|ap_idle                |  out|    1|  ap_ctrl_hs|  produce_em_jet_cluster_stream_from_towers_Pipeline_VITIS_LOOP_486_2|  return value|
+|ap_ready               |  out|    1|  ap_ctrl_hs|  produce_em_jet_cluster_stream_from_towers_Pipeline_VITIS_LOOP_486_2|  return value|
+|tower_in_TVALID        |   in|    1|        axis|                                                             tower_in|       pointer|
+|tower_in_TDATA         |   in|   16|        axis|                                                             tower_in|       pointer|
+|tower_in_TREADY        |  out|    1|        axis|                                                             tower_in|       pointer|
+|local_ht               |   in|   24|     ap_none|                                                             local_ht|        scalar|
+|linebuf_6_address0     |  out|    6|   ap_memory|                                                            linebuf_6|         array|
+|linebuf_6_ce0          |  out|    1|   ap_memory|                                                            linebuf_6|         array|
+|linebuf_6_we0          |  out|    1|   ap_memory|                                                            linebuf_6|         array|
+|linebuf_6_d0           |  out|   12|   ap_memory|                                                            linebuf_6|         array|
+|linebuf_5_address0     |  out|    6|   ap_memory|                                                            linebuf_5|         array|
+|linebuf_5_ce0          |  out|    1|   ap_memory|                                                            linebuf_5|         array|
+|linebuf_5_we0          |  out|    1|   ap_memory|                                                            linebuf_5|         array|
+|linebuf_5_d0           |  out|   12|   ap_memory|                                                            linebuf_5|         array|
+|linebuf_4_address0     |  out|    6|   ap_memory|                                                            linebuf_4|         array|
+|linebuf_4_ce0          |  out|    1|   ap_memory|                                                            linebuf_4|         array|
+|linebuf_4_we0          |  out|    1|   ap_memory|                                                            linebuf_4|         array|
+|linebuf_4_d0           |  out|   12|   ap_memory|                                                            linebuf_4|         array|
+|linebuf_3_address0     |  out|    6|   ap_memory|                                                            linebuf_3|         array|
+|linebuf_3_ce0          |  out|    1|   ap_memory|                                                            linebuf_3|         array|
+|linebuf_3_we0          |  out|    1|   ap_memory|                                                            linebuf_3|         array|
+|linebuf_3_d0           |  out|   12|   ap_memory|                                                            linebuf_3|         array|
+|linebuf_2_address0     |  out|    6|   ap_memory|                                                            linebuf_2|         array|
+|linebuf_2_ce0          |  out|    1|   ap_memory|                                                            linebuf_2|         array|
+|linebuf_2_we0          |  out|    1|   ap_memory|                                                            linebuf_2|         array|
+|linebuf_2_d0           |  out|   12|   ap_memory|                                                            linebuf_2|         array|
+|linebuf_1_address0     |  out|    6|   ap_memory|                                                            linebuf_1|         array|
+|linebuf_1_ce0          |  out|    1|   ap_memory|                                                            linebuf_1|         array|
+|linebuf_1_we0          |  out|    1|   ap_memory|                                                            linebuf_1|         array|
+|linebuf_1_d0           |  out|   12|   ap_memory|                                                            linebuf_1|         array|
+|linebuf_address0       |  out|    6|   ap_memory|                                                              linebuf|         array|
+|linebuf_ce0            |  out|    1|   ap_memory|                                                              linebuf|         array|
+|linebuf_we0            |  out|    1|   ap_memory|                                                              linebuf|         array|
+|linebuf_d0             |  out|   12|   ap_memory|                                                              linebuf|         array|
+|empty_25               |   in|    3|     ap_none|                                                             empty_25|        scalar|
+|empty                  |   in|    1|     ap_none|                                                                empty|        scalar|
+|local_ht_1_out         |  out|   24|      ap_vld|                                                       local_ht_1_out|       pointer|
+|local_ht_1_out_ap_vld  |  out|    1|      ap_vld|                                                       local_ht_1_out|       pointer|
++-----------------------+-----+-----+------------+---------------------------------------------------------------------+--------------+
+

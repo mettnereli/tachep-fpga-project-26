@@ -1,0 +1,75 @@
+================================================================
+== Design Size Report
+================================================================
+
+* Total Instructions per Compilation Phase
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+| Phase         | Step                        | Instructions | Description                                                                            |
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+| Compile/Link  |                             | 3,935        | After all functions are compiled and linked into a single design                       |
+|               |                             |              |                                                                                        |
+| Unroll/Inline |                             |              | After user unroll and inline pragmas are applied                                       |
+|               | (1) unroll                  | 4,749        | user unroll pragmas are applied                                                        |
+|               | (2) simplification          | 2,289        | simplification of applied user unroll pragmas                                          |
+|               | (3) inline                  | 2,126        | user inline pragmas are applied                                                        |
+|               | (4) simplification          | 2,124        | simplification of applied user inline pragmas                                          |
+|               |                             |              |                                                                                        |
+| Array/Struct  |                             |              | After user array partition and struct aggregate/disaggregate pragmas are applied       |
+|               | (1) array partition         | 3,882        | user array partition pragmas are applied                                               |
+|               | (2) simplification          | 2,709        | simplification of applied user array partition & struct aggregate/disaggregate pragmas |
+|               | (3) aggregate/disaggregate  | 4,153        | user struct aggregate/disaggregate pragmas are applied                                 |
+|               | (4) array reshape           | 3,623        | apply array reshape pragmas                                                            |
+|               | (5) access patterns         | 4,168        | array access pattern optmizations                                                      |
+|               |                             |              |                                                                                        |
+| Performance   |                             |              | After transformations are applied to meet performance pragma targets                   |
+|               | (1) loop simplification     | 3,598        | loop and instruction simplification                                                    |
+|               | (2) parallelization         | 3,292        | loops are unrolled or pipelined to meet performance targets                            |
+|               | (3) array partition         | 3,289        | arrays are partitioned to meet performance targets                                     |
+|               | (4) simplification          | 3,289        | simplification of design after performance transformations                             |
+|               |                             |              |                                                                                        |
+| HW Transforms |                             |              | After hardware transfomations                                                          |
+|               | (1) lowering                | 3,311        | initial conversion to HW specific instructions                                         |
+|               | (2) optimizations           | 3,354        | high level synthesis optimizations                                                     |
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+
+* Instructions per Function for each Compilation Phase
++--------------------------------------+---------------------+----------------+----------------+-----------------+-----------------+-----------------+
+| Function                             | Location            | Compile/Link   | Unroll/Inline  | Array/Struct    | Performance     | HW Transforms   |
++--------------------------------------+---------------------+----------------+----------------+-----------------+-----------------+-----------------+
+| + calo_trigger_tower_stream_re...    | calorimeter.cpp:267 | 3,935          | 2,124          | 4,168           | 3,289           | 3,354           |
+|  + cluster_sort_build_tower_str...   | calorimeter.cpp:538 | 3,913          | 2,109          | 4,153           | 3,274           | 3,295           |
+|   + produce_em_jet_cluster_strea...  | calorimeter.cpp:463 | 2,687          |  777           |  897            |  894            |  899            |
+|      wrap_phi                        | calorimeter.h:163   |   12           |                |                 |                 |                 |
+|    + make_em_candidate_from_windo... | calorimeter.h:413   | 1,385          |                |                 |                 |                 |
+|       init_cluster                   | calorimeter.h:173   |  159           |                |                 |                 |                 |
+|       local_is_maximum_7x7<3>        | calorimeter.h:323   |   92           |                |                 |                 |                 |
+|       local_window_sum_7x7<3>        | calorimeter.h:269   |   95           |                |                 |                 |                 |
+|       local_window_sum_7x7<5>        | calorimeter.h:269   |   95           |                |                 |                 |                 |
+|       local_window_sum_7x7<7>        | calorimeter.h:269   |   95           |                |                 |                 |                 |
+|       is_em_like                     | calorimeter.h:372   |  403           |                |                 |                 |                 |
+|       set_valid_cluster              | calorimeter.h:196   |  113           |                |                 |                 |                 |
+|    + make_jet_candidate_from_wind... | calorimeter.h:445   | 1,080          |                |                 |                 |                 |
+|       init_cluster                   | calorimeter.h:173   |  159           |                |                 |                 |                 |
+|       local_is_maximum_7x7<7>        | calorimeter.h:323   |   92           |                |                 |                 |                 |
+|       local_window_sum_7x7<3>        | calorimeter.h:269   |   95           |                |                 |                 |                 |
+|       local_window_sum_7x7<7>        | calorimeter.h:269   |   95           |                |                 |                 |                 |
+|       is_jet_like                    | calorimeter.h:398   |  329           |                |                 |                 |                 |
+|       set_valid_cluster              | calorimeter.h:196   |  113           |                |                 |                 |                 |
+|   + select_top_n_from_stream_fix...  | calorimeter.h:660   |  700 (2 calls) |  602 (2 calls) | 2,148 (2 calls) | 1,726 (2 calls) | 1,740 (2 calls) |
+|    + clear_top_clusters              | calorimeter.h:186   |  344 (2 calls) |                |                 |                 |                 |
+|       init_cluster                   | calorimeter.h:173   |  318 (2 calls) |                |                 |                 |                 |
+|    + insert_cluster_into_top_n       | calorimeter.cpp:102 |  282 (2 calls) |                |                 |                 |                 |
+|       cluster_is_better              | calorimeter.cpp:68  |  192 (2 calls) |                |                 |                 |                 |
+|   + build_trigger_objects            | calorimeter.cpp:155 |  458 (2 calls) |  630 (2 calls) |  984 (2 calls)  |  530 (2 calls)  |  530 (2 calls)  |
+|      init_trigger_object             | calorimeter.h:208   |  270 (2 calls) |                |                 |                 |                 |
+|      make_trigger_object_from_clu... | calorimeter.h:221   |  136 (2 calls) |                |                 |                 |                 |
++--------------------------------------+---------------------+----------------+----------------+-----------------+-----------------+-----------------+
+
+* Design Size Message Settings
++---------------------------------------------+--------+------------------------------------------------------------------+
+| Message Setting                             | Value  | Description                                                      |
++---------------------------------------------+--------+------------------------------------------------------------------+
+| config_compile -design_size_maximum_warning | 100000 | Show a warning when total design instructions exceeds this value |
++---------------------------------------------+--------+------------------------------------------------------------------+
+
+
