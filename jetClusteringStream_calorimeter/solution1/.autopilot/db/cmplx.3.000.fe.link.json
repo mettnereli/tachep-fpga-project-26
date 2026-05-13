@@ -1,0 +1,213 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "12 15",
+    "file": "calorimeter.cpp",
+    "fileloc": 272,
+    "instructions": 29,
+    "loads": {
+      "L": 1
+    },
+    "name": "calo_trigger_em_jet_stream_ref",
+    "stores": {
+      "L": 4,
+      "T": 1
+    },
+    "total_instructions": 3840
+  },
+  "1": {
+    "basicblocks": 12,
+    "calls": "",
+    "file": "calorimeter.cpp",
+    "fileloc": 170,
+    "instructions": 141,
+    "loads": {
+      "L": 11
+    },
+    "name": "build_trigger_objects",
+    "stores": {
+      "L": 15
+    },
+    "total_instructions": 252
+  },
+  "10": {
+    "basicblocks": 7,
+    "calls": "",
+    "file": "calorimeter.h",
+    "fileloc": 158,
+    "instructions": 12,
+    "name": "wrap_phi",
+    "total_instructions": 12
+  },
+  "11": {
+    "basicblocks": 19,
+    "calls": "3",
+    "file": "calorimeter.cpp",
+    "fileloc": 102,
+    "instructions": 45,
+    "loads": {
+      "L": 4
+    },
+    "name": "insert_cluster_into_top_n",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 141
+  },
+  "12": {
+    "basicblocks": 13,
+    "calls": "",
+    "file": "calorimeter.cpp",
+    "fileloc": 158,
+    "instructions": 33,
+    "name": "compute_ht",
+    "total_instructions": 93
+  },
+  "13": {
+    "basicblocks": 4,
+    "calls": "",
+    "file": "calorimeter.h",
+    "fileloc": 268,
+    "instructions": 48,
+    "name": "is_jet_like",
+    "total_instructions": 329
+  },
+  "14": {
+    "basicblocks": 16,
+    "calls": "10",
+    "file": "calorimeter.h",
+    "fileloc": 171,
+    "instructions": 43,
+    "name": "window_sum<3>",
+    "total_instructions": 115
+  },
+  "15": {
+    "basicblocks": 1,
+    "calls": "16 2 4 4 1 1",
+    "file": "calorimeter.cpp",
+    "fileloc": 442,
+    "instructions": 69,
+    "loads": {
+      "L": 4
+    },
+    "name": "cluster_sort_build_em_jet_stream",
+    "stores": {
+      "L": 4
+    },
+    "total_instructions": 3718
+  },
+  "16": {
+    "basicblocks": 19,
+    "calls": "5 14 8 9 6",
+    "file": "calorimeter.cpp",
+    "fileloc": 321,
+    "instructions": 169,
+    "loads": {
+      "L": 12
+    },
+    "name": "produce_em_cluster_stream",
+    "stores": {
+      "L": 14
+    },
+    "total_instructions": 1376
+  },
+  "2": {
+    "basicblocks": 19,
+    "calls": "7 14 9 13",
+    "file": "calorimeter.cpp",
+    "fileloc": 368,
+    "instructions": 146,
+    "loads": {
+      "L": 11
+    },
+    "name": "produce_jet_cluster_stream",
+    "stores": {
+      "L": 13
+    },
+    "total_instructions": 1051
+  },
+  "3": {
+    "basicblocks": 16,
+    "calls": "",
+    "file": "calorimeter.cpp",
+    "fileloc": 68,
+    "instructions": 46,
+    "loads": {
+      "L": 2
+    },
+    "name": "cluster_is_better",
+    "total_instructions": 96
+  },
+  "4": {
+    "basicblocks": 18,
+    "calls": "11",
+    "file": "calorimeter.h",
+    "fileloc": 450,
+    "instructions": 109,
+    "loads": {
+      "L": 7
+    },
+    "name": "select_top_n_from_stream_fixed<1440>",
+    "stores": {
+      "L": 8
+    },
+    "total_instructions": 358
+  },
+  "5": {
+    "basicblocks": 25,
+    "calls": "10",
+    "file": "calorimeter.h",
+    "fileloc": 197,
+    "instructions": 75,
+    "loads": {
+      "L": 2
+    },
+    "name": "is_local_maximum<3>",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 107
+  },
+  "6": {
+    "basicblocks": 7,
+    "calls": "",
+    "file": "calorimeter.h",
+    "fileloc": 242,
+    "instructions": 67,
+    "name": "is_em_like",
+    "total_instructions": 403
+  },
+  "7": {
+    "basicblocks": 25,
+    "calls": "10",
+    "file": "calorimeter.h",
+    "fileloc": 197,
+    "instructions": 75,
+    "loads": {
+      "L": 2
+    },
+    "name": "is_local_maximum<7>",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 107
+  },
+  "8": {
+    "basicblocks": 16,
+    "calls": "10",
+    "file": "calorimeter.h",
+    "fileloc": 171,
+    "instructions": 43,
+    "name": "window_sum<5>",
+    "total_instructions": 115
+  },
+  "9": {
+    "basicblocks": 16,
+    "calls": "10",
+    "file": "calorimeter.h",
+    "fileloc": 171,
+    "instructions": 43,
+    "name": "window_sum<7>",
+    "total_instructions": 115
+  }
+}

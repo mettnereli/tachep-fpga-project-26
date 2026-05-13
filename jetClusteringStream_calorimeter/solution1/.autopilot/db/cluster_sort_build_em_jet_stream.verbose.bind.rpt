@@ -1,0 +1,2973 @@
+
+
+================================================================
+== Vitis HLS Report for 'cluster_sort_build_em_jet_stream'
+================================================================
+* Date:           Tue May 12 22:45:35 2026
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        calorimeter
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu13p-fsga2577-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  25.00 ns|  7.274 ns|     6.75 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-------+-------+----------+
+    |  Latency (cycles) |  Latency (absolute) |    Interval   | Pipeline |
+    |   min   |   max   |    min   |    max   |  min  |  max  |   Type   |
+    +---------+---------+----------+----------+-------+-------+----------+
+    |    70562|    70575|  1.764 ms|  1.764 ms|  70561|  70561|  dataflow|
+    +---------+---------+----------+----------+-------+-------+----------+
+
+    + Detail: 
+        * Instance: 
+        +--------------------------------------------------+---------------------------------------+---------+---------+-----------+----------+-------+-------+-----------------------------------------------+
+        |                                                  |                                       |  Latency (cycles) |  Latency (absolute)  |    Interval   |                    Pipeline                   |
+        |                     Instance                     |                 Module                |   min   |   max   |    min    |    max   |  min  |  max  |                      Type                     |
+        +--------------------------------------------------+---------------------------------------+---------+---------+-----------+----------+-------+-------+-----------------------------------------------+
+        |grp_produce_em_cluster_stream_fu_124              |produce_em_cluster_stream              |    70562|    70562|   1.764 ms|  1.764 ms|  70561|  70561|  loop auto-rewind stp(delay=0 clock cycles(s))|
+        |grp_produce_jet_cluster_stream_fu_135             |produce_jet_cluster_stream             |    70562|    70562|   1.764 ms|  1.764 ms|  70561|  70561|  loop auto-rewind stp(delay=0 clock cycles(s))|
+        |grp_select_top_n_from_stream_fixed_1440_s_fu_146  |select_top_n_from_stream_fixed_1440_s  |     2881|    17281|  72.025 us|  0.432 ms|   2881|  17281|                                             no|
+        |call_ln478_build_trigger_objects_fu_153           |build_trigger_objects                  |        0|        0|       0 ns|      0 ns|      0|      0|                                             no|
+        |grp_select_top_n_from_stream_fixed_1440_1_fu_221  |select_top_n_from_stream_fixed_1440_1  |     2881|    17281|  72.025 us|  0.432 ms|   2881|  17281|                                             no|
+        |call_ln479_build_trigger_objects_2_fu_228         |build_trigger_objects_2                |        0|        0|       0 ns|      0 ns|      0|      0|                                             no|
+        +--------------------------------------------------+---------------------------------------+---------+---------+-----------+----------+-------+-------+-----------------------------------------------+
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 6
+* Pipeline : 0
+* Dataflow Pipeline: 1
+  DF-Pipeline-0: Size = 6, States = { 1 2 3 4 5 6 }
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%em_cluster_threshold_read = read i20 @_ssdm_op_Read.ap_auto.i20, i20 %em_cluster_threshold"   --->   Operation 7 'read' 'em_cluster_threshold_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%em_seed_threshold_read = read i12 @_ssdm_op_Read.ap_auto.i12, i12 %em_seed_threshold"   --->   Operation 8 'read' 'em_seed_threshold_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%em_cluster_stream = alloca i64 1"   --->   Operation 9 'alloca' 'em_cluster_stream' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO">   --->   Core 77 'FIFO' <Latency = 0> <II = 1> <Delay = 1.13> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 61> <Depth = 64> <FIFO>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%jet_cluster_stream = alloca i64 1"   --->   Operation 10 'alloca' 'jet_cluster_stream' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO">   --->   Core 77 'FIFO' <Latency = 0> <II = 1> <Delay = 1.13> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 61> <Depth = 64> <FIFO>
+ST_1 : Operation 11 [2/2] (0.00ns)   --->   "%call_ln465 = call void @produce_em_cluster_stream, i12 %towers, i12 %em_seed_threshold_read, i20 %em_cluster_threshold_read, i61 %em_cluster_stream" [calorimeter.cpp:465]   --->   Operation 11 'call' 'call_ln465' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 2 <SV = 1> <Delay = 1.50>
+ST_2 : Operation 12 [1/2] (1.50ns)   --->   "%call_ln465 = call void @produce_em_cluster_stream, i12 %towers, i12 %em_seed_threshold_read, i20 %em_cluster_threshold_read, i61 %em_cluster_stream" [calorimeter.cpp:465]   --->   Operation 12 'call' 'call_ln465' <Predicate = true> <Delay = 1.50> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 13 [1/1] (0.00ns)   --->   "%jet_cluster_threshold_read = read i20 @_ssdm_op_Read.ap_auto.i20, i20 %jet_cluster_threshold"   --->   Operation 13 'read' 'jet_cluster_threshold_read' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 14 [1/1] (0.00ns)   --->   "%jet_seed_threshold_read = read i12 @_ssdm_op_Read.ap_auto.i12, i12 %jet_seed_threshold"   --->   Operation 14 'read' 'jet_seed_threshold_read' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 15 [2/2] (0.00ns)   --->   "%call_ln470 = call void @produce_jet_cluster_stream, i12 %towers, i12 %jet_seed_threshold_read, i20 %jet_cluster_threshold_read, i61 %jet_cluster_stream" [calorimeter.cpp:470]   --->   Operation 15 'call' 'call_ln470' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 16 [2/2] (0.00ns)   --->   "%call_ret1 = call i456 @select_top_n_from_stream_fixed<1440>, i61 %em_cluster_stream, i32 %num_em_clusters" [calorimeter.cpp:475]   --->   Operation 16 'call' 'call_ret1' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 4 <SV = 3> <Delay = 3.21>
+ST_4 : Operation 17 [1/2] (1.50ns)   --->   "%call_ln470 = call void @produce_jet_cluster_stream, i12 %towers, i12 %jet_seed_threshold_read, i20 %jet_cluster_threshold_read, i61 %jet_cluster_stream" [calorimeter.cpp:470]   --->   Operation 17 'call' 'call_ln470' <Predicate = true> <Delay = 1.50> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 18 [1/2] (0.73ns)   --->   "%call_ret1 = call i456 @select_top_n_from_stream_fixed<1440>, i61 %em_cluster_stream, i32 %num_em_clusters" [calorimeter.cpp:475]   --->   Operation 18 'call' 'call_ret1' <Predicate = true> <Delay = 0.73> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 19 [1/1] (0.00ns)   --->   "%em_top_clusters_et = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 19 'extractvalue' 'em_top_clusters_et' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 20 [1/1] (0.00ns)   --->   "%em_top_clusters_et_1 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 20 'extractvalue' 'em_top_clusters_et_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 21 [1/1] (0.00ns)   --->   "%em_top_clusters_et_2 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 21 'extractvalue' 'em_top_clusters_et_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 22 [1/1] (0.00ns)   --->   "%em_top_clusters_et_3 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 22 'extractvalue' 'em_top_clusters_et_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 23 [1/1] (0.00ns)   --->   "%em_top_clusters_et_4 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 23 'extractvalue' 'em_top_clusters_et_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 24 [1/1] (0.00ns)   --->   "%em_top_clusters_et_5 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 24 'extractvalue' 'em_top_clusters_et_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 25 [1/1] (0.00ns)   --->   "%em_top_clusters_et_6 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 25 'extractvalue' 'em_top_clusters_et_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 26 [1/1] (0.00ns)   --->   "%em_top_clusters_et_7 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 26 'extractvalue' 'em_top_clusters_et_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 27 [1/1] (0.00ns)   --->   "%em_top_clusters_isolation_et = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 27 'extractvalue' 'em_top_clusters_isolation_et' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 28 [1/1] (0.00ns)   --->   "%em_top_clusters_isolation_et_1 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 28 'extractvalue' 'em_top_clusters_isolation_et_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 29 [1/1] (0.00ns)   --->   "%em_top_clusters_isolation_et_2 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 29 'extractvalue' 'em_top_clusters_isolation_et_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 30 [1/1] (0.00ns)   --->   "%em_top_clusters_isolation_et_3 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 30 'extractvalue' 'em_top_clusters_isolation_et_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 31 [1/1] (0.00ns)   --->   "%em_top_clusters_isolation_et_4 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 31 'extractvalue' 'em_top_clusters_isolation_et_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 32 [1/1] (0.00ns)   --->   "%em_top_clusters_isolation_et_5 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 32 'extractvalue' 'em_top_clusters_isolation_et_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 33 [1/1] (0.00ns)   --->   "%em_top_clusters_isolation_et_6 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 33 'extractvalue' 'em_top_clusters_isolation_et_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 34 [1/1] (0.00ns)   --->   "%em_top_clusters_isolation_et_7 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 34 'extractvalue' 'em_top_clusters_isolation_et_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 35 [1/1] (0.00ns)   --->   "%em_top_clusters_eta = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 35 'extractvalue' 'em_top_clusters_eta' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 36 [1/1] (0.00ns)   --->   "%em_top_clusters_eta_1 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 36 'extractvalue' 'em_top_clusters_eta_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 37 [1/1] (0.00ns)   --->   "%em_top_clusters_eta_2 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 37 'extractvalue' 'em_top_clusters_eta_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 38 [1/1] (0.00ns)   --->   "%em_top_clusters_eta_3 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 38 'extractvalue' 'em_top_clusters_eta_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 39 [1/1] (0.00ns)   --->   "%em_top_clusters_eta_4 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 39 'extractvalue' 'em_top_clusters_eta_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 40 [1/1] (0.00ns)   --->   "%em_top_clusters_eta_5 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 40 'extractvalue' 'em_top_clusters_eta_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 41 [1/1] (0.00ns)   --->   "%em_top_clusters_eta_6 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 41 'extractvalue' 'em_top_clusters_eta_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 42 [1/1] (0.00ns)   --->   "%em_top_clusters_eta_7 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 42 'extractvalue' 'em_top_clusters_eta_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 43 [1/1] (0.00ns)   --->   "%em_top_clusters_phi = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 43 'extractvalue' 'em_top_clusters_phi' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 44 [1/1] (0.00ns)   --->   "%em_top_clusters_phi_1 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 44 'extractvalue' 'em_top_clusters_phi_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 45 [1/1] (0.00ns)   --->   "%em_top_clusters_phi_2 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 45 'extractvalue' 'em_top_clusters_phi_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 46 [1/1] (0.00ns)   --->   "%em_top_clusters_phi_3 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 46 'extractvalue' 'em_top_clusters_phi_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 47 [1/1] (0.00ns)   --->   "%em_top_clusters_phi_4 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 47 'extractvalue' 'em_top_clusters_phi_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 48 [1/1] (0.00ns)   --->   "%em_top_clusters_phi_5 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 48 'extractvalue' 'em_top_clusters_phi_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 49 [1/1] (0.00ns)   --->   "%em_top_clusters_phi_6 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 49 'extractvalue' 'em_top_clusters_phi_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 50 [1/1] (0.00ns)   --->   "%em_top_clusters_phi_7 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 50 'extractvalue' 'em_top_clusters_phi_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 51 [1/1] (0.00ns)   --->   "%em_top_clusters_window_size = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 51 'extractvalue' 'em_top_clusters_window_size' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 52 [1/1] (0.00ns)   --->   "%em_top_clusters_window_size_1 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 52 'extractvalue' 'em_top_clusters_window_size_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 53 [1/1] (0.00ns)   --->   "%em_top_clusters_window_size_2 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 53 'extractvalue' 'em_top_clusters_window_size_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 54 [1/1] (0.00ns)   --->   "%em_top_clusters_window_size_3 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 54 'extractvalue' 'em_top_clusters_window_size_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 55 [1/1] (0.00ns)   --->   "%em_top_clusters_window_size_4 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 55 'extractvalue' 'em_top_clusters_window_size_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 56 [1/1] (0.00ns)   --->   "%em_top_clusters_window_size_5 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 56 'extractvalue' 'em_top_clusters_window_size_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 57 [1/1] (0.00ns)   --->   "%em_top_clusters_window_size_6 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 57 'extractvalue' 'em_top_clusters_window_size_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 58 [1/1] (0.00ns)   --->   "%em_top_clusters_window_size_7 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 58 'extractvalue' 'em_top_clusters_window_size_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 59 [1/1] (0.00ns)   --->   "%em_top_clusters_valid = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 59 'extractvalue' 'em_top_clusters_valid' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 60 [1/1] (0.00ns)   --->   "%em_top_clusters_valid_1 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 60 'extractvalue' 'em_top_clusters_valid_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 61 [1/1] (0.00ns)   --->   "%em_top_clusters_valid_2 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 61 'extractvalue' 'em_top_clusters_valid_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 62 [1/1] (0.00ns)   --->   "%em_top_clusters_valid_3 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 62 'extractvalue' 'em_top_clusters_valid_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 63 [1/1] (0.00ns)   --->   "%em_top_clusters_valid_4 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 63 'extractvalue' 'em_top_clusters_valid_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 64 [1/1] (0.00ns)   --->   "%em_top_clusters_valid_5 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 64 'extractvalue' 'em_top_clusters_valid_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 65 [1/1] (0.00ns)   --->   "%em_top_clusters_valid_6 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 65 'extractvalue' 'em_top_clusters_valid_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 66 [1/1] (0.00ns)   --->   "%em_top_clusters_valid_7 = extractvalue i456 %call_ret1" [calorimeter.cpp:475]   --->   Operation 66 'extractvalue' 'em_top_clusters_valid_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 67 [1/1] (2.47ns)   --->   "%call_ln478 = call void @build_trigger_objects, i20 %em_top_clusters_et, i20 %em_top_clusters_et_1, i20 %em_top_clusters_et_2, i20 %em_top_clusters_et_3, i20 %em_top_clusters_et_4, i20 %em_top_clusters_et_5, i20 %em_top_clusters_et_6, i20 %em_top_clusters_et_7, i20 %em_top_clusters_isolation_et, i20 %em_top_clusters_isolation_et_1, i20 %em_top_clusters_isolation_et_2, i20 %em_top_clusters_isolation_et_3, i20 %em_top_clusters_isolation_et_4, i20 %em_top_clusters_isolation_et_5, i20 %em_top_clusters_isolation_et_6, i20 %em_top_clusters_isolation_et_7, i6 %em_top_clusters_eta, i6 %em_top_clusters_eta_1, i6 %em_top_clusters_eta_2, i6 %em_top_clusters_eta_3, i6 %em_top_clusters_eta_4, i6 %em_top_clusters_eta_5, i6 %em_top_clusters_eta_6, i6 %em_top_clusters_eta_7, i6 %em_top_clusters_phi, i6 %em_top_clusters_phi_1, i6 %em_top_clusters_phi_2, i6 %em_top_clusters_phi_3, i6 %em_top_clusters_phi_4, i6 %em_top_clusters_phi_5, i6 %em_top_clusters_phi_6, i6 %em_top_clusters_phi_7, i4 %em_top_clusters_window_size, i4 %em_top_clusters_window_size_1, i4 %em_top_clusters_window_size_2, i4 %em_top_clusters_window_size_3, i4 %em_top_clusters_window_size_4, i4 %em_top_clusters_window_size_5, i4 %em_top_clusters_window_size_6, i4 %em_top_clusters_window_size_7, i1 %em_top_clusters_valid, i1 %em_top_clusters_valid_1, i1 %em_top_clusters_valid_2, i1 %em_top_clusters_valid_3, i1 %em_top_clusters_valid_4, i1 %em_top_clusters_valid_5, i1 %em_top_clusters_valid_6, i1 %em_top_clusters_valid_7, i89 %em_objects_0, i89 %em_objects_1, i89 %em_objects_2, i89 %em_objects_3, i89 %em_objects_4, i89 %em_objects_5, i89 %em_objects_6, i89 %em_objects_7" [calorimeter.cpp:478]   --->   Operation 67 'call' 'call_ln478' <Predicate = true> <Delay = 2.47> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 5 <SV = 4> <Delay = 0.00>
+ST_5 : Operation 68 [2/2] (0.00ns)   --->   "%call_ret = call i456 @select_top_n_from_stream_fixed<1440>.1, i61 %jet_cluster_stream, i32 %num_jet_clusters" [calorimeter.cpp:476]   --->   Operation 68 'call' 'call_ret' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 6 <SV = 5> <Delay = 3.21>
+ST_6 : Operation 69 [1/1] (0.00ns)   --->   "%specshared_ln0 = specshared void @_ssdm_op_SpecShared, i12 %towers, void @p_str"   --->   Operation 69 'specshared' 'specshared_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 70 [1/1] (0.00ns)   --->   "%specdataflowpipeline_ln451 = specdataflowpipeline void @_ssdm_op_SpecDataflowPipeline, i32 4294967295, i32 0, void @empty_14" [calorimeter.cpp:451]   --->   Operation 70 'specdataflowpipeline' 'specdataflowpipeline_ln451' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 71 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i12 %towers, void @empty_13, i32 0, i32 0, void @empty_14, i32 4294967295, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0, i32 0"   --->   Operation 71 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 72 [1/1] (0.00ns)   --->   "%empty = specchannel i32 @_ssdm_op_SpecChannel, void @em_cluster_stream_str, i32 1, void @p_str, void @p_str, i32 64, i32 64, i61 %em_cluster_stream, i61 %em_cluster_stream"   --->   Operation 72 'specchannel' 'empty' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 73 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i61 %em_cluster_stream, void @empty_8, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0, i32 0"   --->   Operation 73 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 74 [1/1] (0.00ns)   --->   "%empty_107 = specchannel i32 @_ssdm_op_SpecChannel, void @jet_cluster_stream_str, i32 1, void @p_str, void @p_str, i32 64, i32 64, i61 %jet_cluster_stream, i61 %jet_cluster_stream"   --->   Operation 74 'specchannel' 'empty_107' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 75 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i61 %jet_cluster_stream, void @empty_8, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0, i32 0"   --->   Operation 75 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 76 [1/2] (0.73ns)   --->   "%call_ret = call i456 @select_top_n_from_stream_fixed<1440>.1, i61 %jet_cluster_stream, i32 %num_jet_clusters" [calorimeter.cpp:476]   --->   Operation 76 'call' 'call_ret' <Predicate = true> <Delay = 0.73> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 77 [1/1] (0.00ns)   --->   "%jet_top_clusters_et = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 77 'extractvalue' 'jet_top_clusters_et' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_6 : Operation 78 [1/1] (0.00ns)   --->   "%jet_top_clusters_et_1 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 78 'extractvalue' 'jet_top_clusters_et_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_6 : Operation 79 [1/1] (0.00ns)   --->   "%jet_top_clusters_et_2 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 79 'extractvalue' 'jet_top_clusters_et_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_6 : Operation 80 [1/1] (0.00ns)   --->   "%jet_top_clusters_et_3 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 80 'extractvalue' 'jet_top_clusters_et_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_6 : Operation 81 [1/1] (0.00ns)   --->   "%jet_top_clusters_et_4 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 81 'extractvalue' 'jet_top_clusters_et_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_6 : Operation 82 [1/1] (0.00ns)   --->   "%jet_top_clusters_et_5 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 82 'extractvalue' 'jet_top_clusters_et_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_6 : Operation 83 [1/1] (0.00ns)   --->   "%jet_top_clusters_et_6 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 83 'extractvalue' 'jet_top_clusters_et_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_6 : Operation 84 [1/1] (0.00ns)   --->   "%jet_top_clusters_et_7 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 84 'extractvalue' 'jet_top_clusters_et_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_6 : Operation 85 [1/1] (0.00ns)   --->   "%jet_top_clusters_isolation_et = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 85 'extractvalue' 'jet_top_clusters_isolation_et' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_6 : Operation 86 [1/1] (0.00ns)   --->   "%jet_top_clusters_isolation_et_1 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 86 'extractvalue' 'jet_top_clusters_isolation_et_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_6 : Operation 87 [1/1] (0.00ns)   --->   "%jet_top_clusters_isolation_et_2 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 87 'extractvalue' 'jet_top_clusters_isolation_et_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_6 : Operation 88 [1/1] (0.00ns)   --->   "%jet_top_clusters_isolation_et_3 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 88 'extractvalue' 'jet_top_clusters_isolation_et_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_6 : Operation 89 [1/1] (0.00ns)   --->   "%jet_top_clusters_isolation_et_4 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 89 'extractvalue' 'jet_top_clusters_isolation_et_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_6 : Operation 90 [1/1] (0.00ns)   --->   "%jet_top_clusters_isolation_et_5 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 90 'extractvalue' 'jet_top_clusters_isolation_et_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_6 : Operation 91 [1/1] (0.00ns)   --->   "%jet_top_clusters_isolation_et_6 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 91 'extractvalue' 'jet_top_clusters_isolation_et_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_6 : Operation 92 [1/1] (0.00ns)   --->   "%jet_top_clusters_isolation_et_7 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 92 'extractvalue' 'jet_top_clusters_isolation_et_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_6 : Operation 93 [1/1] (0.00ns)   --->   "%jet_top_clusters_eta = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 93 'extractvalue' 'jet_top_clusters_eta' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_6 : Operation 94 [1/1] (0.00ns)   --->   "%jet_top_clusters_eta_1 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 94 'extractvalue' 'jet_top_clusters_eta_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_6 : Operation 95 [1/1] (0.00ns)   --->   "%jet_top_clusters_eta_2 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 95 'extractvalue' 'jet_top_clusters_eta_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_6 : Operation 96 [1/1] (0.00ns)   --->   "%jet_top_clusters_eta_3 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 96 'extractvalue' 'jet_top_clusters_eta_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_6 : Operation 97 [1/1] (0.00ns)   --->   "%jet_top_clusters_eta_4 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 97 'extractvalue' 'jet_top_clusters_eta_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_6 : Operation 98 [1/1] (0.00ns)   --->   "%jet_top_clusters_eta_5 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 98 'extractvalue' 'jet_top_clusters_eta_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_6 : Operation 99 [1/1] (0.00ns)   --->   "%jet_top_clusters_eta_6 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 99 'extractvalue' 'jet_top_clusters_eta_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_6 : Operation 100 [1/1] (0.00ns)   --->   "%jet_top_clusters_eta_7 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 100 'extractvalue' 'jet_top_clusters_eta_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_6 : Operation 101 [1/1] (0.00ns)   --->   "%jet_top_clusters_phi = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 101 'extractvalue' 'jet_top_clusters_phi' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_6 : Operation 102 [1/1] (0.00ns)   --->   "%jet_top_clusters_phi_1 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 102 'extractvalue' 'jet_top_clusters_phi_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_6 : Operation 103 [1/1] (0.00ns)   --->   "%jet_top_clusters_phi_2 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 103 'extractvalue' 'jet_top_clusters_phi_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_6 : Operation 104 [1/1] (0.00ns)   --->   "%jet_top_clusters_phi_3 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 104 'extractvalue' 'jet_top_clusters_phi_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_6 : Operation 105 [1/1] (0.00ns)   --->   "%jet_top_clusters_phi_4 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 105 'extractvalue' 'jet_top_clusters_phi_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_6 : Operation 106 [1/1] (0.00ns)   --->   "%jet_top_clusters_phi_5 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 106 'extractvalue' 'jet_top_clusters_phi_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_6 : Operation 107 [1/1] (0.00ns)   --->   "%jet_top_clusters_phi_6 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 107 'extractvalue' 'jet_top_clusters_phi_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_6 : Operation 108 [1/1] (0.00ns)   --->   "%jet_top_clusters_phi_7 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 108 'extractvalue' 'jet_top_clusters_phi_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_6 : Operation 109 [1/1] (0.00ns)   --->   "%jet_top_clusters_window_size = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 109 'extractvalue' 'jet_top_clusters_window_size' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_6 : Operation 110 [1/1] (0.00ns)   --->   "%jet_top_clusters_window_size_1 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 110 'extractvalue' 'jet_top_clusters_window_size_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_6 : Operation 111 [1/1] (0.00ns)   --->   "%jet_top_clusters_window_size_2 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 111 'extractvalue' 'jet_top_clusters_window_size_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_6 : Operation 112 [1/1] (0.00ns)   --->   "%jet_top_clusters_window_size_3 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 112 'extractvalue' 'jet_top_clusters_window_size_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_6 : Operation 113 [1/1] (0.00ns)   --->   "%jet_top_clusters_window_size_4 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 113 'extractvalue' 'jet_top_clusters_window_size_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_6 : Operation 114 [1/1] (0.00ns)   --->   "%jet_top_clusters_window_size_5 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 114 'extractvalue' 'jet_top_clusters_window_size_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_6 : Operation 115 [1/1] (0.00ns)   --->   "%jet_top_clusters_window_size_6 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 115 'extractvalue' 'jet_top_clusters_window_size_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_6 : Operation 116 [1/1] (0.00ns)   --->   "%jet_top_clusters_window_size_7 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 116 'extractvalue' 'jet_top_clusters_window_size_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_6 : Operation 117 [1/1] (0.00ns)   --->   "%jet_top_clusters_valid = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 117 'extractvalue' 'jet_top_clusters_valid' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_6 : Operation 118 [1/1] (0.00ns)   --->   "%jet_top_clusters_valid_1 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 118 'extractvalue' 'jet_top_clusters_valid_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_6 : Operation 119 [1/1] (0.00ns)   --->   "%jet_top_clusters_valid_2 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 119 'extractvalue' 'jet_top_clusters_valid_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_6 : Operation 120 [1/1] (0.00ns)   --->   "%jet_top_clusters_valid_3 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 120 'extractvalue' 'jet_top_clusters_valid_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_6 : Operation 121 [1/1] (0.00ns)   --->   "%jet_top_clusters_valid_4 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 121 'extractvalue' 'jet_top_clusters_valid_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_6 : Operation 122 [1/1] (0.00ns)   --->   "%jet_top_clusters_valid_5 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 122 'extractvalue' 'jet_top_clusters_valid_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_6 : Operation 123 [1/1] (0.00ns)   --->   "%jet_top_clusters_valid_6 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 123 'extractvalue' 'jet_top_clusters_valid_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_6 : Operation 124 [1/1] (0.00ns)   --->   "%jet_top_clusters_valid_7 = extractvalue i456 %call_ret" [calorimeter.cpp:476]   --->   Operation 124 'extractvalue' 'jet_top_clusters_valid_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_6 : Operation 125 [1/1] (2.47ns)   --->   "%call_ln479 = call void @build_trigger_objects.2, i20 %jet_top_clusters_et, i20 %jet_top_clusters_et_1, i20 %jet_top_clusters_et_2, i20 %jet_top_clusters_et_3, i20 %jet_top_clusters_et_4, i20 %jet_top_clusters_et_5, i20 %jet_top_clusters_et_6, i20 %jet_top_clusters_et_7, i20 %jet_top_clusters_isolation_et, i20 %jet_top_clusters_isolation_et_1, i20 %jet_top_clusters_isolation_et_2, i20 %jet_top_clusters_isolation_et_3, i20 %jet_top_clusters_isolation_et_4, i20 %jet_top_clusters_isolation_et_5, i20 %jet_top_clusters_isolation_et_6, i20 %jet_top_clusters_isolation_et_7, i6 %jet_top_clusters_eta, i6 %jet_top_clusters_eta_1, i6 %jet_top_clusters_eta_2, i6 %jet_top_clusters_eta_3, i6 %jet_top_clusters_eta_4, i6 %jet_top_clusters_eta_5, i6 %jet_top_clusters_eta_6, i6 %jet_top_clusters_eta_7, i6 %jet_top_clusters_phi, i6 %jet_top_clusters_phi_1, i6 %jet_top_clusters_phi_2, i6 %jet_top_clusters_phi_3, i6 %jet_top_clusters_phi_4, i6 %jet_top_clusters_phi_5, i6 %jet_top_clusters_phi_6, i6 %jet_top_clusters_phi_7, i4 %jet_top_clusters_window_size, i4 %jet_top_clusters_window_size_1, i4 %jet_top_clusters_window_size_2, i4 %jet_top_clusters_window_size_3, i4 %jet_top_clusters_window_size_4, i4 %jet_top_clusters_window_size_5, i4 %jet_top_clusters_window_size_6, i4 %jet_top_clusters_window_size_7, i1 %jet_top_clusters_valid, i1 %jet_top_clusters_valid_1, i1 %jet_top_clusters_valid_2, i1 %jet_top_clusters_valid_3, i1 %jet_top_clusters_valid_4, i1 %jet_top_clusters_valid_5, i1 %jet_top_clusters_valid_6, i1 %jet_top_clusters_valid_7, i89 %jet_objects_0, i89 %jet_objects_1, i89 %jet_objects_2, i89 %jet_objects_3, i89 %jet_objects_4, i89 %jet_objects_5, i89 %jet_objects_6, i89 %jet_objects_7" [calorimeter.cpp:479]   --->   Operation 125 'call' 'call_ln479' <Predicate = true> <Delay = 2.47> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 126 [1/1] (0.00ns)   --->   "%ret_ln484 = ret" [calorimeter.cpp:484]   --->   Operation 126 'ret' 'ret_ln484' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 0
+- Is one-state seq: 0
+- Is datapath-only: 0
+- Is pipelined: 0
+- Is top level: 0
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
+Port [ towers]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[11]; IO mode=bram:ce=0
+Port [ em_seed_threshold]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ em_cluster_threshold]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ jet_seed_threshold]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ jet_cluster_threshold]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ em_objects_0]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ em_objects_1]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ em_objects_2]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ em_objects_3]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ em_objects_4]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ em_objects_5]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ em_objects_6]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ em_objects_7]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ jet_objects_0]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ jet_objects_1]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ jet_objects_2]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ jet_objects_3]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ jet_objects_4]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ jet_objects_5]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ jet_objects_6]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ jet_objects_7]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ num_em_clusters]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ num_jet_clusters]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+em_cluster_threshold_read       (read                ) [ 0010000]
+em_seed_threshold_read          (read                ) [ 0010000]
+em_cluster_stream               (alloca              ) [ 0111111]
+jet_cluster_stream              (alloca              ) [ 0011111]
+call_ln465                      (call                ) [ 0000000]
+jet_cluster_threshold_read      (read                ) [ 0000100]
+jet_seed_threshold_read         (read                ) [ 0000100]
+call_ln470                      (call                ) [ 0000000]
+call_ret1                       (call                ) [ 0000000]
+em_top_clusters_et              (extractvalue        ) [ 0000000]
+em_top_clusters_et_1            (extractvalue        ) [ 0000000]
+em_top_clusters_et_2            (extractvalue        ) [ 0000000]
+em_top_clusters_et_3            (extractvalue        ) [ 0000000]
+em_top_clusters_et_4            (extractvalue        ) [ 0000000]
+em_top_clusters_et_5            (extractvalue        ) [ 0000000]
+em_top_clusters_et_6            (extractvalue        ) [ 0000000]
+em_top_clusters_et_7            (extractvalue        ) [ 0000000]
+em_top_clusters_isolation_et    (extractvalue        ) [ 0000000]
+em_top_clusters_isolation_et_1  (extractvalue        ) [ 0000000]
+em_top_clusters_isolation_et_2  (extractvalue        ) [ 0000000]
+em_top_clusters_isolation_et_3  (extractvalue        ) [ 0000000]
+em_top_clusters_isolation_et_4  (extractvalue        ) [ 0000000]
+em_top_clusters_isolation_et_5  (extractvalue        ) [ 0000000]
+em_top_clusters_isolation_et_6  (extractvalue        ) [ 0000000]
+em_top_clusters_isolation_et_7  (extractvalue        ) [ 0000000]
+em_top_clusters_eta             (extractvalue        ) [ 0000000]
+em_top_clusters_eta_1           (extractvalue        ) [ 0000000]
+em_top_clusters_eta_2           (extractvalue        ) [ 0000000]
+em_top_clusters_eta_3           (extractvalue        ) [ 0000000]
+em_top_clusters_eta_4           (extractvalue        ) [ 0000000]
+em_top_clusters_eta_5           (extractvalue        ) [ 0000000]
+em_top_clusters_eta_6           (extractvalue        ) [ 0000000]
+em_top_clusters_eta_7           (extractvalue        ) [ 0000000]
+em_top_clusters_phi             (extractvalue        ) [ 0000000]
+em_top_clusters_phi_1           (extractvalue        ) [ 0000000]
+em_top_clusters_phi_2           (extractvalue        ) [ 0000000]
+em_top_clusters_phi_3           (extractvalue        ) [ 0000000]
+em_top_clusters_phi_4           (extractvalue        ) [ 0000000]
+em_top_clusters_phi_5           (extractvalue        ) [ 0000000]
+em_top_clusters_phi_6           (extractvalue        ) [ 0000000]
+em_top_clusters_phi_7           (extractvalue        ) [ 0000000]
+em_top_clusters_window_size     (extractvalue        ) [ 0000000]
+em_top_clusters_window_size_1   (extractvalue        ) [ 0000000]
+em_top_clusters_window_size_2   (extractvalue        ) [ 0000000]
+em_top_clusters_window_size_3   (extractvalue        ) [ 0000000]
+em_top_clusters_window_size_4   (extractvalue        ) [ 0000000]
+em_top_clusters_window_size_5   (extractvalue        ) [ 0000000]
+em_top_clusters_window_size_6   (extractvalue        ) [ 0000000]
+em_top_clusters_window_size_7   (extractvalue        ) [ 0000000]
+em_top_clusters_valid           (extractvalue        ) [ 0000000]
+em_top_clusters_valid_1         (extractvalue        ) [ 0000000]
+em_top_clusters_valid_2         (extractvalue        ) [ 0000000]
+em_top_clusters_valid_3         (extractvalue        ) [ 0000000]
+em_top_clusters_valid_4         (extractvalue        ) [ 0000000]
+em_top_clusters_valid_5         (extractvalue        ) [ 0000000]
+em_top_clusters_valid_6         (extractvalue        ) [ 0000000]
+em_top_clusters_valid_7         (extractvalue        ) [ 0000000]
+call_ln478                      (call                ) [ 0000000]
+specshared_ln0                  (specshared          ) [ 0000000]
+specdataflowpipeline_ln451      (specdataflowpipeline) [ 0000000]
+specinterface_ln0               (specinterface       ) [ 0000000]
+empty                           (specchannel         ) [ 0000000]
+specinterface_ln0               (specinterface       ) [ 0000000]
+empty_107                       (specchannel         ) [ 0000000]
+specinterface_ln0               (specinterface       ) [ 0000000]
+call_ret                        (call                ) [ 0000000]
+jet_top_clusters_et             (extractvalue        ) [ 0000000]
+jet_top_clusters_et_1           (extractvalue        ) [ 0000000]
+jet_top_clusters_et_2           (extractvalue        ) [ 0000000]
+jet_top_clusters_et_3           (extractvalue        ) [ 0000000]
+jet_top_clusters_et_4           (extractvalue        ) [ 0000000]
+jet_top_clusters_et_5           (extractvalue        ) [ 0000000]
+jet_top_clusters_et_6           (extractvalue        ) [ 0000000]
+jet_top_clusters_et_7           (extractvalue        ) [ 0000000]
+jet_top_clusters_isolation_et   (extractvalue        ) [ 0000000]
+jet_top_clusters_isolation_et_1 (extractvalue        ) [ 0000000]
+jet_top_clusters_isolation_et_2 (extractvalue        ) [ 0000000]
+jet_top_clusters_isolation_et_3 (extractvalue        ) [ 0000000]
+jet_top_clusters_isolation_et_4 (extractvalue        ) [ 0000000]
+jet_top_clusters_isolation_et_5 (extractvalue        ) [ 0000000]
+jet_top_clusters_isolation_et_6 (extractvalue        ) [ 0000000]
+jet_top_clusters_isolation_et_7 (extractvalue        ) [ 0000000]
+jet_top_clusters_eta            (extractvalue        ) [ 0000000]
+jet_top_clusters_eta_1          (extractvalue        ) [ 0000000]
+jet_top_clusters_eta_2          (extractvalue        ) [ 0000000]
+jet_top_clusters_eta_3          (extractvalue        ) [ 0000000]
+jet_top_clusters_eta_4          (extractvalue        ) [ 0000000]
+jet_top_clusters_eta_5          (extractvalue        ) [ 0000000]
+jet_top_clusters_eta_6          (extractvalue        ) [ 0000000]
+jet_top_clusters_eta_7          (extractvalue        ) [ 0000000]
+jet_top_clusters_phi            (extractvalue        ) [ 0000000]
+jet_top_clusters_phi_1          (extractvalue        ) [ 0000000]
+jet_top_clusters_phi_2          (extractvalue        ) [ 0000000]
+jet_top_clusters_phi_3          (extractvalue        ) [ 0000000]
+jet_top_clusters_phi_4          (extractvalue        ) [ 0000000]
+jet_top_clusters_phi_5          (extractvalue        ) [ 0000000]
+jet_top_clusters_phi_6          (extractvalue        ) [ 0000000]
+jet_top_clusters_phi_7          (extractvalue        ) [ 0000000]
+jet_top_clusters_window_size    (extractvalue        ) [ 0000000]
+jet_top_clusters_window_size_1  (extractvalue        ) [ 0000000]
+jet_top_clusters_window_size_2  (extractvalue        ) [ 0000000]
+jet_top_clusters_window_size_3  (extractvalue        ) [ 0000000]
+jet_top_clusters_window_size_4  (extractvalue        ) [ 0000000]
+jet_top_clusters_window_size_5  (extractvalue        ) [ 0000000]
+jet_top_clusters_window_size_6  (extractvalue        ) [ 0000000]
+jet_top_clusters_window_size_7  (extractvalue        ) [ 0000000]
+jet_top_clusters_valid          (extractvalue        ) [ 0000000]
+jet_top_clusters_valid_1        (extractvalue        ) [ 0000000]
+jet_top_clusters_valid_2        (extractvalue        ) [ 0000000]
+jet_top_clusters_valid_3        (extractvalue        ) [ 0000000]
+jet_top_clusters_valid_4        (extractvalue        ) [ 0000000]
+jet_top_clusters_valid_5        (extractvalue        ) [ 0000000]
+jet_top_clusters_valid_6        (extractvalue        ) [ 0000000]
+jet_top_clusters_valid_7        (extractvalue        ) [ 0000000]
+call_ln479                      (call                ) [ 0000000]
+ret_ln484                       (ret                 ) [ 0000000]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="towers">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="towers"/><MemPortTyVec>1 1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1000" name="em_seed_threshold">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="em_seed_threshold"/></StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1000" name="em_cluster_threshold">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="em_cluster_threshold"/></StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1000" name="jet_seed_threshold">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="jet_seed_threshold"/></StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1000" name="jet_cluster_threshold">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="jet_cluster_threshold"/></StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1000" name="em_objects_0">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="em_objects_0"/></StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1000" name="em_objects_1">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="em_objects_1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1000" name="em_objects_2">
+<pin_list>
+<pin id="15" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="em_objects_2"/></StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1000" name="em_objects_3">
+<pin_list>
+<pin id="17" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="em_objects_3"/></StgValue>
+</bind>
+</comp>
+
+<comp id="18" class="1000" name="em_objects_4">
+<pin_list>
+<pin id="19" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="em_objects_4"/></StgValue>
+</bind>
+</comp>
+
+<comp id="20" class="1000" name="em_objects_5">
+<pin_list>
+<pin id="21" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="em_objects_5"/></StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1000" name="em_objects_6">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="em_objects_6"/></StgValue>
+</bind>
+</comp>
+
+<comp id="24" class="1000" name="em_objects_7">
+<pin_list>
+<pin id="25" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="em_objects_7"/></StgValue>
+</bind>
+</comp>
+
+<comp id="26" class="1000" name="jet_objects_0">
+<pin_list>
+<pin id="27" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="jet_objects_0"/></StgValue>
+</bind>
+</comp>
+
+<comp id="28" class="1000" name="jet_objects_1">
+<pin_list>
+<pin id="29" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="jet_objects_1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="30" class="1000" name="jet_objects_2">
+<pin_list>
+<pin id="31" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="jet_objects_2"/></StgValue>
+</bind>
+</comp>
+
+<comp id="32" class="1000" name="jet_objects_3">
+<pin_list>
+<pin id="33" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="jet_objects_3"/></StgValue>
+</bind>
+</comp>
+
+<comp id="34" class="1000" name="jet_objects_4">
+<pin_list>
+<pin id="35" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="jet_objects_4"/></StgValue>
+</bind>
+</comp>
+
+<comp id="36" class="1000" name="jet_objects_5">
+<pin_list>
+<pin id="37" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="jet_objects_5"/></StgValue>
+</bind>
+</comp>
+
+<comp id="38" class="1000" name="jet_objects_6">
+<pin_list>
+<pin id="39" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="jet_objects_6"/></StgValue>
+</bind>
+</comp>
+
+<comp id="40" class="1000" name="jet_objects_7">
+<pin_list>
+<pin id="41" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="jet_objects_7"/></StgValue>
+</bind>
+</comp>
+
+<comp id="42" class="1000" name="num_em_clusters">
+<pin_list>
+<pin id="43" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="num_em_clusters"/></StgValue>
+</bind>
+</comp>
+
+<comp id="44" class="1000" name="num_jet_clusters">
+<pin_list>
+<pin id="45" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="num_jet_clusters"/></StgValue>
+</bind>
+</comp>
+
+<comp id="46" class="1001" name="const_46">
+<pin_list>
+<pin id="47" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i20"/></StgValue>
+</bind>
+</comp>
+
+<comp id="48" class="1001" name="const_48">
+<pin_list>
+<pin id="49" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i12"/></StgValue>
+</bind>
+</comp>
+
+<comp id="50" class="1001" name="const_50">
+<pin_list>
+<pin id="51" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="52" class="1001" name="const_52">
+<pin_list>
+<pin id="53" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="produce_em_cluster_stream"/></StgValue>
+</bind>
+</comp>
+
+<comp id="54" class="1001" name="const_54">
+<pin_list>
+<pin id="55" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="produce_jet_cluster_stream"/></StgValue>
+</bind>
+</comp>
+
+<comp id="56" class="1001" name="const_56">
+<pin_list>
+<pin id="57" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="select_top_n_from_stream_fixed<1440>"/></StgValue>
+</bind>
+</comp>
+
+<comp id="58" class="1001" name="const_58">
+<pin_list>
+<pin id="59" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="build_trigger_objects"/></StgValue>
+</bind>
+</comp>
+
+<comp id="60" class="1001" name="const_60">
+<pin_list>
+<pin id="61" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="select_top_n_from_stream_fixed<1440>.1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="62" class="1001" name="const_62">
+<pin_list>
+<pin id="63" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecShared"/></StgValue>
+</bind>
+</comp>
+
+<comp id="64" class="1001" name="const_64">
+<pin_list>
+<pin id="65" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="66" class="1001" name="const_66">
+<pin_list>
+<pin id="67" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecDataflowPipeline"/></StgValue>
+</bind>
+</comp>
+
+<comp id="68" class="1001" name="const_68">
+<pin_list>
+<pin id="69" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="70" class="1001" name="const_70">
+<pin_list>
+<pin id="71" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="72" class="1001" name="const_72">
+<pin_list>
+<pin id="73" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_14"/></StgValue>
+</bind>
+</comp>
+
+<comp id="74" class="1001" name="const_74">
+<pin_list>
+<pin id="75" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
+</bind>
+</comp>
+
+<comp id="76" class="1001" name="const_76">
+<pin_list>
+<pin id="77" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_13"/></StgValue>
+</bind>
+</comp>
+
+<comp id="78" class="1001" name="const_78">
+<pin_list>
+<pin id="79" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecChannel"/></StgValue>
+</bind>
+</comp>
+
+<comp id="80" class="1001" name="const_80">
+<pin_list>
+<pin id="81" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="em_cluster_stream_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="82" class="1001" name="const_82">
+<pin_list>
+<pin id="83" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="84" class="1001" name="const_84">
+<pin_list>
+<pin id="85" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="86" class="1001" name="const_86">
+<pin_list>
+<pin id="87" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_8"/></StgValue>
+</bind>
+</comp>
+
+<comp id="88" class="1001" name="const_88">
+<pin_list>
+<pin id="89" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="jet_cluster_stream_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="90" class="1001" name="const_90">
+<pin_list>
+<pin id="91" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="build_trigger_objects.2"/></StgValue>
+</bind>
+</comp>
+
+<comp id="92" class="1004" name="em_cluster_stream_fu_92">
+<pin_list>
+<pin id="93" dir="0" index="0" bw="1" slack="0"/>
+<pin id="94" dir="1" index="1" bw="61" slack="0"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="em_cluster_stream/1 "/>
+</bind>
+</comp>
+
+<comp id="96" class="1004" name="jet_cluster_stream_fu_96">
+<pin_list>
+<pin id="97" dir="0" index="0" bw="1" slack="0"/>
+<pin id="98" dir="1" index="1" bw="61" slack="2"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="jet_cluster_stream/1 "/>
+</bind>
+</comp>
+
+<comp id="100" class="1004" name="em_cluster_threshold_read_read_fu_100">
+<pin_list>
+<pin id="101" dir="0" index="0" bw="20" slack="0"/>
+<pin id="102" dir="0" index="1" bw="20" slack="0"/>
+<pin id="103" dir="1" index="2" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="em_cluster_threshold_read/1 "/>
+</bind>
+</comp>
+
+<comp id="106" class="1004" name="em_seed_threshold_read_read_fu_106">
+<pin_list>
+<pin id="107" dir="0" index="0" bw="12" slack="0"/>
+<pin id="108" dir="0" index="1" bw="12" slack="0"/>
+<pin id="109" dir="1" index="2" bw="12" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="em_seed_threshold_read/1 "/>
+</bind>
+</comp>
+
+<comp id="112" class="1004" name="jet_cluster_threshold_read_read_fu_112">
+<pin_list>
+<pin id="113" dir="0" index="0" bw="20" slack="0"/>
+<pin id="114" dir="0" index="1" bw="20" slack="0"/>
+<pin id="115" dir="1" index="2" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="jet_cluster_threshold_read/3 "/>
+</bind>
+</comp>
+
+<comp id="118" class="1004" name="jet_seed_threshold_read_read_fu_118">
+<pin_list>
+<pin id="119" dir="0" index="0" bw="12" slack="0"/>
+<pin id="120" dir="0" index="1" bw="12" slack="0"/>
+<pin id="121" dir="1" index="2" bw="12" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="jet_seed_threshold_read/3 "/>
+</bind>
+</comp>
+
+<comp id="124" class="1004" name="grp_produce_em_cluster_stream_fu_124">
+<pin_list>
+<pin id="125" dir="0" index="0" bw="0" slack="0"/>
+<pin id="126" dir="0" index="1" bw="12" slack="0"/>
+<pin id="127" dir="0" index="2" bw="12" slack="0"/>
+<pin id="128" dir="0" index="3" bw="20" slack="0"/>
+<pin id="129" dir="0" index="4" bw="61" slack="0"/>
+<pin id="130" dir="1" index="5" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln465/1 "/>
+</bind>
+</comp>
+
+<comp id="135" class="1004" name="grp_produce_jet_cluster_stream_fu_135">
+<pin_list>
+<pin id="136" dir="0" index="0" bw="0" slack="0"/>
+<pin id="137" dir="0" index="1" bw="12" slack="0"/>
+<pin id="138" dir="0" index="2" bw="12" slack="0"/>
+<pin id="139" dir="0" index="3" bw="20" slack="0"/>
+<pin id="140" dir="0" index="4" bw="61" slack="2"/>
+<pin id="141" dir="1" index="5" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln470/3 "/>
+</bind>
+</comp>
+
+<comp id="146" class="1004" name="grp_select_top_n_from_stream_fixed_1440_s_fu_146">
+<pin_list>
+<pin id="147" dir="0" index="0" bw="456" slack="0"/>
+<pin id="148" dir="0" index="1" bw="61" slack="2"/>
+<pin id="149" dir="0" index="2" bw="32" slack="0"/>
+<pin id="150" dir="1" index="3" bw="456" slack="0"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ret1/3 "/>
+</bind>
+</comp>
+
+<comp id="153" class="1004" name="call_ln478_build_trigger_objects_fu_153">
+<pin_list>
+<pin id="154" dir="0" index="0" bw="0" slack="0"/>
+<pin id="155" dir="0" index="1" bw="20" slack="0"/>
+<pin id="156" dir="0" index="2" bw="20" slack="0"/>
+<pin id="157" dir="0" index="3" bw="20" slack="0"/>
+<pin id="158" dir="0" index="4" bw="20" slack="0"/>
+<pin id="159" dir="0" index="5" bw="20" slack="0"/>
+<pin id="160" dir="0" index="6" bw="20" slack="0"/>
+<pin id="161" dir="0" index="7" bw="20" slack="0"/>
+<pin id="162" dir="0" index="8" bw="20" slack="0"/>
+<pin id="163" dir="0" index="9" bw="20" slack="0"/>
+<pin id="164" dir="0" index="10" bw="20" slack="0"/>
+<pin id="165" dir="0" index="11" bw="20" slack="0"/>
+<pin id="166" dir="0" index="12" bw="20" slack="0"/>
+<pin id="167" dir="0" index="13" bw="20" slack="0"/>
+<pin id="168" dir="0" index="14" bw="20" slack="0"/>
+<pin id="169" dir="0" index="15" bw="20" slack="0"/>
+<pin id="170" dir="0" index="16" bw="20" slack="0"/>
+<pin id="171" dir="0" index="17" bw="6" slack="0"/>
+<pin id="172" dir="0" index="18" bw="6" slack="0"/>
+<pin id="173" dir="0" index="19" bw="6" slack="0"/>
+<pin id="174" dir="0" index="20" bw="6" slack="0"/>
+<pin id="175" dir="0" index="21" bw="6" slack="0"/>
+<pin id="176" dir="0" index="22" bw="6" slack="0"/>
+<pin id="177" dir="0" index="23" bw="6" slack="0"/>
+<pin id="178" dir="0" index="24" bw="6" slack="0"/>
+<pin id="179" dir="0" index="25" bw="6" slack="0"/>
+<pin id="180" dir="0" index="26" bw="6" slack="0"/>
+<pin id="181" dir="0" index="27" bw="6" slack="0"/>
+<pin id="182" dir="0" index="28" bw="6" slack="0"/>
+<pin id="183" dir="0" index="29" bw="6" slack="0"/>
+<pin id="184" dir="0" index="30" bw="6" slack="0"/>
+<pin id="185" dir="0" index="31" bw="6" slack="0"/>
+<pin id="186" dir="0" index="32" bw="6" slack="0"/>
+<pin id="187" dir="0" index="33" bw="4" slack="0"/>
+<pin id="188" dir="0" index="34" bw="4" slack="0"/>
+<pin id="189" dir="0" index="35" bw="4" slack="0"/>
+<pin id="190" dir="0" index="36" bw="4" slack="0"/>
+<pin id="191" dir="0" index="37" bw="4" slack="0"/>
+<pin id="192" dir="0" index="38" bw="4" slack="0"/>
+<pin id="193" dir="0" index="39" bw="4" slack="0"/>
+<pin id="194" dir="0" index="40" bw="4" slack="0"/>
+<pin id="195" dir="0" index="41" bw="1" slack="0"/>
+<pin id="196" dir="0" index="42" bw="1" slack="0"/>
+<pin id="197" dir="0" index="43" bw="1" slack="0"/>
+<pin id="198" dir="0" index="44" bw="1" slack="0"/>
+<pin id="199" dir="0" index="45" bw="1" slack="0"/>
+<pin id="200" dir="0" index="46" bw="1" slack="0"/>
+<pin id="201" dir="0" index="47" bw="1" slack="0"/>
+<pin id="202" dir="0" index="48" bw="1" slack="0"/>
+<pin id="203" dir="0" index="49" bw="89" slack="0"/>
+<pin id="204" dir="0" index="50" bw="89" slack="0"/>
+<pin id="205" dir="0" index="51" bw="89" slack="0"/>
+<pin id="206" dir="0" index="52" bw="89" slack="0"/>
+<pin id="207" dir="0" index="53" bw="89" slack="0"/>
+<pin id="208" dir="0" index="54" bw="89" slack="0"/>
+<pin id="209" dir="0" index="55" bw="89" slack="0"/>
+<pin id="210" dir="0" index="56" bw="89" slack="0"/>
+<pin id="211" dir="1" index="57" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln478/4 "/>
+</bind>
+</comp>
+
+<comp id="221" class="1004" name="grp_select_top_n_from_stream_fixed_1440_1_fu_221">
+<pin_list>
+<pin id="222" dir="0" index="0" bw="456" slack="0"/>
+<pin id="223" dir="0" index="1" bw="61" slack="4"/>
+<pin id="224" dir="0" index="2" bw="32" slack="0"/>
+<pin id="225" dir="1" index="3" bw="456" slack="0"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ret/5 "/>
+</bind>
+</comp>
+
+<comp id="228" class="1004" name="call_ln479_build_trigger_objects_2_fu_228">
+<pin_list>
+<pin id="229" dir="0" index="0" bw="0" slack="0"/>
+<pin id="230" dir="0" index="1" bw="20" slack="0"/>
+<pin id="231" dir="0" index="2" bw="20" slack="0"/>
+<pin id="232" dir="0" index="3" bw="20" slack="0"/>
+<pin id="233" dir="0" index="4" bw="20" slack="0"/>
+<pin id="234" dir="0" index="5" bw="20" slack="0"/>
+<pin id="235" dir="0" index="6" bw="20" slack="0"/>
+<pin id="236" dir="0" index="7" bw="20" slack="0"/>
+<pin id="237" dir="0" index="8" bw="20" slack="0"/>
+<pin id="238" dir="0" index="9" bw="20" slack="0"/>
+<pin id="239" dir="0" index="10" bw="20" slack="0"/>
+<pin id="240" dir="0" index="11" bw="20" slack="0"/>
+<pin id="241" dir="0" index="12" bw="20" slack="0"/>
+<pin id="242" dir="0" index="13" bw="20" slack="0"/>
+<pin id="243" dir="0" index="14" bw="20" slack="0"/>
+<pin id="244" dir="0" index="15" bw="20" slack="0"/>
+<pin id="245" dir="0" index="16" bw="20" slack="0"/>
+<pin id="246" dir="0" index="17" bw="6" slack="0"/>
+<pin id="247" dir="0" index="18" bw="6" slack="0"/>
+<pin id="248" dir="0" index="19" bw="6" slack="0"/>
+<pin id="249" dir="0" index="20" bw="6" slack="0"/>
+<pin id="250" dir="0" index="21" bw="6" slack="0"/>
+<pin id="251" dir="0" index="22" bw="6" slack="0"/>
+<pin id="252" dir="0" index="23" bw="6" slack="0"/>
+<pin id="253" dir="0" index="24" bw="6" slack="0"/>
+<pin id="254" dir="0" index="25" bw="6" slack="0"/>
+<pin id="255" dir="0" index="26" bw="6" slack="0"/>
+<pin id="256" dir="0" index="27" bw="6" slack="0"/>
+<pin id="257" dir="0" index="28" bw="6" slack="0"/>
+<pin id="258" dir="0" index="29" bw="6" slack="0"/>
+<pin id="259" dir="0" index="30" bw="6" slack="0"/>
+<pin id="260" dir="0" index="31" bw="6" slack="0"/>
+<pin id="261" dir="0" index="32" bw="6" slack="0"/>
+<pin id="262" dir="0" index="33" bw="4" slack="0"/>
+<pin id="263" dir="0" index="34" bw="4" slack="0"/>
+<pin id="264" dir="0" index="35" bw="4" slack="0"/>
+<pin id="265" dir="0" index="36" bw="4" slack="0"/>
+<pin id="266" dir="0" index="37" bw="4" slack="0"/>
+<pin id="267" dir="0" index="38" bw="4" slack="0"/>
+<pin id="268" dir="0" index="39" bw="4" slack="0"/>
+<pin id="269" dir="0" index="40" bw="4" slack="0"/>
+<pin id="270" dir="0" index="41" bw="1" slack="0"/>
+<pin id="271" dir="0" index="42" bw="1" slack="0"/>
+<pin id="272" dir="0" index="43" bw="1" slack="0"/>
+<pin id="273" dir="0" index="44" bw="1" slack="0"/>
+<pin id="274" dir="0" index="45" bw="1" slack="0"/>
+<pin id="275" dir="0" index="46" bw="1" slack="0"/>
+<pin id="276" dir="0" index="47" bw="1" slack="0"/>
+<pin id="277" dir="0" index="48" bw="1" slack="0"/>
+<pin id="278" dir="0" index="49" bw="89" slack="0"/>
+<pin id="279" dir="0" index="50" bw="89" slack="0"/>
+<pin id="280" dir="0" index="51" bw="89" slack="0"/>
+<pin id="281" dir="0" index="52" bw="89" slack="0"/>
+<pin id="282" dir="0" index="53" bw="89" slack="0"/>
+<pin id="283" dir="0" index="54" bw="89" slack="0"/>
+<pin id="284" dir="0" index="55" bw="89" slack="0"/>
+<pin id="285" dir="0" index="56" bw="89" slack="0"/>
+<pin id="286" dir="1" index="57" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln479/6 "/>
+</bind>
+</comp>
+
+<comp id="296" class="1004" name="em_top_clusters_et_fu_296">
+<pin_list>
+<pin id="297" dir="0" index="0" bw="456" slack="0"/>
+<pin id="298" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_et/4 "/>
+</bind>
+</comp>
+
+<comp id="301" class="1004" name="em_top_clusters_et_1_fu_301">
+<pin_list>
+<pin id="302" dir="0" index="0" bw="456" slack="0"/>
+<pin id="303" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_et_1/4 "/>
+</bind>
+</comp>
+
+<comp id="306" class="1004" name="em_top_clusters_et_2_fu_306">
+<pin_list>
+<pin id="307" dir="0" index="0" bw="456" slack="0"/>
+<pin id="308" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_et_2/4 "/>
+</bind>
+</comp>
+
+<comp id="311" class="1004" name="em_top_clusters_et_3_fu_311">
+<pin_list>
+<pin id="312" dir="0" index="0" bw="456" slack="0"/>
+<pin id="313" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_et_3/4 "/>
+</bind>
+</comp>
+
+<comp id="316" class="1004" name="em_top_clusters_et_4_fu_316">
+<pin_list>
+<pin id="317" dir="0" index="0" bw="456" slack="0"/>
+<pin id="318" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_et_4/4 "/>
+</bind>
+</comp>
+
+<comp id="321" class="1004" name="em_top_clusters_et_5_fu_321">
+<pin_list>
+<pin id="322" dir="0" index="0" bw="456" slack="0"/>
+<pin id="323" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_et_5/4 "/>
+</bind>
+</comp>
+
+<comp id="326" class="1004" name="em_top_clusters_et_6_fu_326">
+<pin_list>
+<pin id="327" dir="0" index="0" bw="456" slack="0"/>
+<pin id="328" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_et_6/4 "/>
+</bind>
+</comp>
+
+<comp id="331" class="1004" name="em_top_clusters_et_7_fu_331">
+<pin_list>
+<pin id="332" dir="0" index="0" bw="456" slack="0"/>
+<pin id="333" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_et_7/4 "/>
+</bind>
+</comp>
+
+<comp id="336" class="1004" name="em_top_clusters_isolation_et_fu_336">
+<pin_list>
+<pin id="337" dir="0" index="0" bw="456" slack="0"/>
+<pin id="338" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_isolation_et/4 "/>
+</bind>
+</comp>
+
+<comp id="341" class="1004" name="em_top_clusters_isolation_et_1_fu_341">
+<pin_list>
+<pin id="342" dir="0" index="0" bw="456" slack="0"/>
+<pin id="343" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_isolation_et_1/4 "/>
+</bind>
+</comp>
+
+<comp id="346" class="1004" name="em_top_clusters_isolation_et_2_fu_346">
+<pin_list>
+<pin id="347" dir="0" index="0" bw="456" slack="0"/>
+<pin id="348" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_isolation_et_2/4 "/>
+</bind>
+</comp>
+
+<comp id="351" class="1004" name="em_top_clusters_isolation_et_3_fu_351">
+<pin_list>
+<pin id="352" dir="0" index="0" bw="456" slack="0"/>
+<pin id="353" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_isolation_et_3/4 "/>
+</bind>
+</comp>
+
+<comp id="356" class="1004" name="em_top_clusters_isolation_et_4_fu_356">
+<pin_list>
+<pin id="357" dir="0" index="0" bw="456" slack="0"/>
+<pin id="358" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_isolation_et_4/4 "/>
+</bind>
+</comp>
+
+<comp id="361" class="1004" name="em_top_clusters_isolation_et_5_fu_361">
+<pin_list>
+<pin id="362" dir="0" index="0" bw="456" slack="0"/>
+<pin id="363" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_isolation_et_5/4 "/>
+</bind>
+</comp>
+
+<comp id="366" class="1004" name="em_top_clusters_isolation_et_6_fu_366">
+<pin_list>
+<pin id="367" dir="0" index="0" bw="456" slack="0"/>
+<pin id="368" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_isolation_et_6/4 "/>
+</bind>
+</comp>
+
+<comp id="371" class="1004" name="em_top_clusters_isolation_et_7_fu_371">
+<pin_list>
+<pin id="372" dir="0" index="0" bw="456" slack="0"/>
+<pin id="373" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_isolation_et_7/4 "/>
+</bind>
+</comp>
+
+<comp id="376" class="1004" name="em_top_clusters_eta_fu_376">
+<pin_list>
+<pin id="377" dir="0" index="0" bw="456" slack="0"/>
+<pin id="378" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_eta/4 "/>
+</bind>
+</comp>
+
+<comp id="381" class="1004" name="em_top_clusters_eta_1_fu_381">
+<pin_list>
+<pin id="382" dir="0" index="0" bw="456" slack="0"/>
+<pin id="383" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_eta_1/4 "/>
+</bind>
+</comp>
+
+<comp id="386" class="1004" name="em_top_clusters_eta_2_fu_386">
+<pin_list>
+<pin id="387" dir="0" index="0" bw="456" slack="0"/>
+<pin id="388" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_eta_2/4 "/>
+</bind>
+</comp>
+
+<comp id="391" class="1004" name="em_top_clusters_eta_3_fu_391">
+<pin_list>
+<pin id="392" dir="0" index="0" bw="456" slack="0"/>
+<pin id="393" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_eta_3/4 "/>
+</bind>
+</comp>
+
+<comp id="396" class="1004" name="em_top_clusters_eta_4_fu_396">
+<pin_list>
+<pin id="397" dir="0" index="0" bw="456" slack="0"/>
+<pin id="398" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_eta_4/4 "/>
+</bind>
+</comp>
+
+<comp id="401" class="1004" name="em_top_clusters_eta_5_fu_401">
+<pin_list>
+<pin id="402" dir="0" index="0" bw="456" slack="0"/>
+<pin id="403" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_eta_5/4 "/>
+</bind>
+</comp>
+
+<comp id="406" class="1004" name="em_top_clusters_eta_6_fu_406">
+<pin_list>
+<pin id="407" dir="0" index="0" bw="456" slack="0"/>
+<pin id="408" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_eta_6/4 "/>
+</bind>
+</comp>
+
+<comp id="411" class="1004" name="em_top_clusters_eta_7_fu_411">
+<pin_list>
+<pin id="412" dir="0" index="0" bw="456" slack="0"/>
+<pin id="413" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_eta_7/4 "/>
+</bind>
+</comp>
+
+<comp id="416" class="1004" name="em_top_clusters_phi_fu_416">
+<pin_list>
+<pin id="417" dir="0" index="0" bw="456" slack="0"/>
+<pin id="418" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_phi/4 "/>
+</bind>
+</comp>
+
+<comp id="421" class="1004" name="em_top_clusters_phi_1_fu_421">
+<pin_list>
+<pin id="422" dir="0" index="0" bw="456" slack="0"/>
+<pin id="423" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_phi_1/4 "/>
+</bind>
+</comp>
+
+<comp id="426" class="1004" name="em_top_clusters_phi_2_fu_426">
+<pin_list>
+<pin id="427" dir="0" index="0" bw="456" slack="0"/>
+<pin id="428" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_phi_2/4 "/>
+</bind>
+</comp>
+
+<comp id="431" class="1004" name="em_top_clusters_phi_3_fu_431">
+<pin_list>
+<pin id="432" dir="0" index="0" bw="456" slack="0"/>
+<pin id="433" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_phi_3/4 "/>
+</bind>
+</comp>
+
+<comp id="436" class="1004" name="em_top_clusters_phi_4_fu_436">
+<pin_list>
+<pin id="437" dir="0" index="0" bw="456" slack="0"/>
+<pin id="438" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_phi_4/4 "/>
+</bind>
+</comp>
+
+<comp id="441" class="1004" name="em_top_clusters_phi_5_fu_441">
+<pin_list>
+<pin id="442" dir="0" index="0" bw="456" slack="0"/>
+<pin id="443" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_phi_5/4 "/>
+</bind>
+</comp>
+
+<comp id="446" class="1004" name="em_top_clusters_phi_6_fu_446">
+<pin_list>
+<pin id="447" dir="0" index="0" bw="456" slack="0"/>
+<pin id="448" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_phi_6/4 "/>
+</bind>
+</comp>
+
+<comp id="451" class="1004" name="em_top_clusters_phi_7_fu_451">
+<pin_list>
+<pin id="452" dir="0" index="0" bw="456" slack="0"/>
+<pin id="453" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_phi_7/4 "/>
+</bind>
+</comp>
+
+<comp id="456" class="1004" name="em_top_clusters_window_size_fu_456">
+<pin_list>
+<pin id="457" dir="0" index="0" bw="456" slack="0"/>
+<pin id="458" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_window_size/4 "/>
+</bind>
+</comp>
+
+<comp id="461" class="1004" name="em_top_clusters_window_size_1_fu_461">
+<pin_list>
+<pin id="462" dir="0" index="0" bw="456" slack="0"/>
+<pin id="463" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_window_size_1/4 "/>
+</bind>
+</comp>
+
+<comp id="466" class="1004" name="em_top_clusters_window_size_2_fu_466">
+<pin_list>
+<pin id="467" dir="0" index="0" bw="456" slack="0"/>
+<pin id="468" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_window_size_2/4 "/>
+</bind>
+</comp>
+
+<comp id="471" class="1004" name="em_top_clusters_window_size_3_fu_471">
+<pin_list>
+<pin id="472" dir="0" index="0" bw="456" slack="0"/>
+<pin id="473" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_window_size_3/4 "/>
+</bind>
+</comp>
+
+<comp id="476" class="1004" name="em_top_clusters_window_size_4_fu_476">
+<pin_list>
+<pin id="477" dir="0" index="0" bw="456" slack="0"/>
+<pin id="478" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_window_size_4/4 "/>
+</bind>
+</comp>
+
+<comp id="481" class="1004" name="em_top_clusters_window_size_5_fu_481">
+<pin_list>
+<pin id="482" dir="0" index="0" bw="456" slack="0"/>
+<pin id="483" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_window_size_5/4 "/>
+</bind>
+</comp>
+
+<comp id="486" class="1004" name="em_top_clusters_window_size_6_fu_486">
+<pin_list>
+<pin id="487" dir="0" index="0" bw="456" slack="0"/>
+<pin id="488" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_window_size_6/4 "/>
+</bind>
+</comp>
+
+<comp id="491" class="1004" name="em_top_clusters_window_size_7_fu_491">
+<pin_list>
+<pin id="492" dir="0" index="0" bw="456" slack="0"/>
+<pin id="493" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_window_size_7/4 "/>
+</bind>
+</comp>
+
+<comp id="496" class="1004" name="em_top_clusters_valid_fu_496">
+<pin_list>
+<pin id="497" dir="0" index="0" bw="456" slack="0"/>
+<pin id="498" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_valid/4 "/>
+</bind>
+</comp>
+
+<comp id="501" class="1004" name="em_top_clusters_valid_1_fu_501">
+<pin_list>
+<pin id="502" dir="0" index="0" bw="456" slack="0"/>
+<pin id="503" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_valid_1/4 "/>
+</bind>
+</comp>
+
+<comp id="506" class="1004" name="em_top_clusters_valid_2_fu_506">
+<pin_list>
+<pin id="507" dir="0" index="0" bw="456" slack="0"/>
+<pin id="508" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_valid_2/4 "/>
+</bind>
+</comp>
+
+<comp id="511" class="1004" name="em_top_clusters_valid_3_fu_511">
+<pin_list>
+<pin id="512" dir="0" index="0" bw="456" slack="0"/>
+<pin id="513" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_valid_3/4 "/>
+</bind>
+</comp>
+
+<comp id="516" class="1004" name="em_top_clusters_valid_4_fu_516">
+<pin_list>
+<pin id="517" dir="0" index="0" bw="456" slack="0"/>
+<pin id="518" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_valid_4/4 "/>
+</bind>
+</comp>
+
+<comp id="521" class="1004" name="em_top_clusters_valid_5_fu_521">
+<pin_list>
+<pin id="522" dir="0" index="0" bw="456" slack="0"/>
+<pin id="523" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_valid_5/4 "/>
+</bind>
+</comp>
+
+<comp id="526" class="1004" name="em_top_clusters_valid_6_fu_526">
+<pin_list>
+<pin id="527" dir="0" index="0" bw="456" slack="0"/>
+<pin id="528" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_valid_6/4 "/>
+</bind>
+</comp>
+
+<comp id="531" class="1004" name="em_top_clusters_valid_7_fu_531">
+<pin_list>
+<pin id="532" dir="0" index="0" bw="456" slack="0"/>
+<pin id="533" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="em_top_clusters_valid_7/4 "/>
+</bind>
+</comp>
+
+<comp id="536" class="1004" name="jet_top_clusters_et_fu_536">
+<pin_list>
+<pin id="537" dir="0" index="0" bw="456" slack="0"/>
+<pin id="538" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_et/6 "/>
+</bind>
+</comp>
+
+<comp id="541" class="1004" name="jet_top_clusters_et_1_fu_541">
+<pin_list>
+<pin id="542" dir="0" index="0" bw="456" slack="0"/>
+<pin id="543" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_et_1/6 "/>
+</bind>
+</comp>
+
+<comp id="546" class="1004" name="jet_top_clusters_et_2_fu_546">
+<pin_list>
+<pin id="547" dir="0" index="0" bw="456" slack="0"/>
+<pin id="548" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_et_2/6 "/>
+</bind>
+</comp>
+
+<comp id="551" class="1004" name="jet_top_clusters_et_3_fu_551">
+<pin_list>
+<pin id="552" dir="0" index="0" bw="456" slack="0"/>
+<pin id="553" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_et_3/6 "/>
+</bind>
+</comp>
+
+<comp id="556" class="1004" name="jet_top_clusters_et_4_fu_556">
+<pin_list>
+<pin id="557" dir="0" index="0" bw="456" slack="0"/>
+<pin id="558" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_et_4/6 "/>
+</bind>
+</comp>
+
+<comp id="561" class="1004" name="jet_top_clusters_et_5_fu_561">
+<pin_list>
+<pin id="562" dir="0" index="0" bw="456" slack="0"/>
+<pin id="563" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_et_5/6 "/>
+</bind>
+</comp>
+
+<comp id="566" class="1004" name="jet_top_clusters_et_6_fu_566">
+<pin_list>
+<pin id="567" dir="0" index="0" bw="456" slack="0"/>
+<pin id="568" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_et_6/6 "/>
+</bind>
+</comp>
+
+<comp id="571" class="1004" name="jet_top_clusters_et_7_fu_571">
+<pin_list>
+<pin id="572" dir="0" index="0" bw="456" slack="0"/>
+<pin id="573" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_et_7/6 "/>
+</bind>
+</comp>
+
+<comp id="576" class="1004" name="jet_top_clusters_isolation_et_fu_576">
+<pin_list>
+<pin id="577" dir="0" index="0" bw="456" slack="0"/>
+<pin id="578" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_isolation_et/6 "/>
+</bind>
+</comp>
+
+<comp id="581" class="1004" name="jet_top_clusters_isolation_et_1_fu_581">
+<pin_list>
+<pin id="582" dir="0" index="0" bw="456" slack="0"/>
+<pin id="583" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_isolation_et_1/6 "/>
+</bind>
+</comp>
+
+<comp id="586" class="1004" name="jet_top_clusters_isolation_et_2_fu_586">
+<pin_list>
+<pin id="587" dir="0" index="0" bw="456" slack="0"/>
+<pin id="588" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_isolation_et_2/6 "/>
+</bind>
+</comp>
+
+<comp id="591" class="1004" name="jet_top_clusters_isolation_et_3_fu_591">
+<pin_list>
+<pin id="592" dir="0" index="0" bw="456" slack="0"/>
+<pin id="593" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_isolation_et_3/6 "/>
+</bind>
+</comp>
+
+<comp id="596" class="1004" name="jet_top_clusters_isolation_et_4_fu_596">
+<pin_list>
+<pin id="597" dir="0" index="0" bw="456" slack="0"/>
+<pin id="598" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_isolation_et_4/6 "/>
+</bind>
+</comp>
+
+<comp id="601" class="1004" name="jet_top_clusters_isolation_et_5_fu_601">
+<pin_list>
+<pin id="602" dir="0" index="0" bw="456" slack="0"/>
+<pin id="603" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_isolation_et_5/6 "/>
+</bind>
+</comp>
+
+<comp id="606" class="1004" name="jet_top_clusters_isolation_et_6_fu_606">
+<pin_list>
+<pin id="607" dir="0" index="0" bw="456" slack="0"/>
+<pin id="608" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_isolation_et_6/6 "/>
+</bind>
+</comp>
+
+<comp id="611" class="1004" name="jet_top_clusters_isolation_et_7_fu_611">
+<pin_list>
+<pin id="612" dir="0" index="0" bw="456" slack="0"/>
+<pin id="613" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_isolation_et_7/6 "/>
+</bind>
+</comp>
+
+<comp id="616" class="1004" name="jet_top_clusters_eta_fu_616">
+<pin_list>
+<pin id="617" dir="0" index="0" bw="456" slack="0"/>
+<pin id="618" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_eta/6 "/>
+</bind>
+</comp>
+
+<comp id="621" class="1004" name="jet_top_clusters_eta_1_fu_621">
+<pin_list>
+<pin id="622" dir="0" index="0" bw="456" slack="0"/>
+<pin id="623" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_eta_1/6 "/>
+</bind>
+</comp>
+
+<comp id="626" class="1004" name="jet_top_clusters_eta_2_fu_626">
+<pin_list>
+<pin id="627" dir="0" index="0" bw="456" slack="0"/>
+<pin id="628" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_eta_2/6 "/>
+</bind>
+</comp>
+
+<comp id="631" class="1004" name="jet_top_clusters_eta_3_fu_631">
+<pin_list>
+<pin id="632" dir="0" index="0" bw="456" slack="0"/>
+<pin id="633" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_eta_3/6 "/>
+</bind>
+</comp>
+
+<comp id="636" class="1004" name="jet_top_clusters_eta_4_fu_636">
+<pin_list>
+<pin id="637" dir="0" index="0" bw="456" slack="0"/>
+<pin id="638" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_eta_4/6 "/>
+</bind>
+</comp>
+
+<comp id="641" class="1004" name="jet_top_clusters_eta_5_fu_641">
+<pin_list>
+<pin id="642" dir="0" index="0" bw="456" slack="0"/>
+<pin id="643" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_eta_5/6 "/>
+</bind>
+</comp>
+
+<comp id="646" class="1004" name="jet_top_clusters_eta_6_fu_646">
+<pin_list>
+<pin id="647" dir="0" index="0" bw="456" slack="0"/>
+<pin id="648" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_eta_6/6 "/>
+</bind>
+</comp>
+
+<comp id="651" class="1004" name="jet_top_clusters_eta_7_fu_651">
+<pin_list>
+<pin id="652" dir="0" index="0" bw="456" slack="0"/>
+<pin id="653" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_eta_7/6 "/>
+</bind>
+</comp>
+
+<comp id="656" class="1004" name="jet_top_clusters_phi_fu_656">
+<pin_list>
+<pin id="657" dir="0" index="0" bw="456" slack="0"/>
+<pin id="658" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_phi/6 "/>
+</bind>
+</comp>
+
+<comp id="661" class="1004" name="jet_top_clusters_phi_1_fu_661">
+<pin_list>
+<pin id="662" dir="0" index="0" bw="456" slack="0"/>
+<pin id="663" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_phi_1/6 "/>
+</bind>
+</comp>
+
+<comp id="666" class="1004" name="jet_top_clusters_phi_2_fu_666">
+<pin_list>
+<pin id="667" dir="0" index="0" bw="456" slack="0"/>
+<pin id="668" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_phi_2/6 "/>
+</bind>
+</comp>
+
+<comp id="671" class="1004" name="jet_top_clusters_phi_3_fu_671">
+<pin_list>
+<pin id="672" dir="0" index="0" bw="456" slack="0"/>
+<pin id="673" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_phi_3/6 "/>
+</bind>
+</comp>
+
+<comp id="676" class="1004" name="jet_top_clusters_phi_4_fu_676">
+<pin_list>
+<pin id="677" dir="0" index="0" bw="456" slack="0"/>
+<pin id="678" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_phi_4/6 "/>
+</bind>
+</comp>
+
+<comp id="681" class="1004" name="jet_top_clusters_phi_5_fu_681">
+<pin_list>
+<pin id="682" dir="0" index="0" bw="456" slack="0"/>
+<pin id="683" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_phi_5/6 "/>
+</bind>
+</comp>
+
+<comp id="686" class="1004" name="jet_top_clusters_phi_6_fu_686">
+<pin_list>
+<pin id="687" dir="0" index="0" bw="456" slack="0"/>
+<pin id="688" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_phi_6/6 "/>
+</bind>
+</comp>
+
+<comp id="691" class="1004" name="jet_top_clusters_phi_7_fu_691">
+<pin_list>
+<pin id="692" dir="0" index="0" bw="456" slack="0"/>
+<pin id="693" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_phi_7/6 "/>
+</bind>
+</comp>
+
+<comp id="696" class="1004" name="jet_top_clusters_window_size_fu_696">
+<pin_list>
+<pin id="697" dir="0" index="0" bw="456" slack="0"/>
+<pin id="698" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_window_size/6 "/>
+</bind>
+</comp>
+
+<comp id="701" class="1004" name="jet_top_clusters_window_size_1_fu_701">
+<pin_list>
+<pin id="702" dir="0" index="0" bw="456" slack="0"/>
+<pin id="703" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_window_size_1/6 "/>
+</bind>
+</comp>
+
+<comp id="706" class="1004" name="jet_top_clusters_window_size_2_fu_706">
+<pin_list>
+<pin id="707" dir="0" index="0" bw="456" slack="0"/>
+<pin id="708" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_window_size_2/6 "/>
+</bind>
+</comp>
+
+<comp id="711" class="1004" name="jet_top_clusters_window_size_3_fu_711">
+<pin_list>
+<pin id="712" dir="0" index="0" bw="456" slack="0"/>
+<pin id="713" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_window_size_3/6 "/>
+</bind>
+</comp>
+
+<comp id="716" class="1004" name="jet_top_clusters_window_size_4_fu_716">
+<pin_list>
+<pin id="717" dir="0" index="0" bw="456" slack="0"/>
+<pin id="718" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_window_size_4/6 "/>
+</bind>
+</comp>
+
+<comp id="721" class="1004" name="jet_top_clusters_window_size_5_fu_721">
+<pin_list>
+<pin id="722" dir="0" index="0" bw="456" slack="0"/>
+<pin id="723" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_window_size_5/6 "/>
+</bind>
+</comp>
+
+<comp id="726" class="1004" name="jet_top_clusters_window_size_6_fu_726">
+<pin_list>
+<pin id="727" dir="0" index="0" bw="456" slack="0"/>
+<pin id="728" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_window_size_6/6 "/>
+</bind>
+</comp>
+
+<comp id="731" class="1004" name="jet_top_clusters_window_size_7_fu_731">
+<pin_list>
+<pin id="732" dir="0" index="0" bw="456" slack="0"/>
+<pin id="733" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_window_size_7/6 "/>
+</bind>
+</comp>
+
+<comp id="736" class="1004" name="jet_top_clusters_valid_fu_736">
+<pin_list>
+<pin id="737" dir="0" index="0" bw="456" slack="0"/>
+<pin id="738" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_valid/6 "/>
+</bind>
+</comp>
+
+<comp id="741" class="1004" name="jet_top_clusters_valid_1_fu_741">
+<pin_list>
+<pin id="742" dir="0" index="0" bw="456" slack="0"/>
+<pin id="743" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_valid_1/6 "/>
+</bind>
+</comp>
+
+<comp id="746" class="1004" name="jet_top_clusters_valid_2_fu_746">
+<pin_list>
+<pin id="747" dir="0" index="0" bw="456" slack="0"/>
+<pin id="748" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_valid_2/6 "/>
+</bind>
+</comp>
+
+<comp id="751" class="1004" name="jet_top_clusters_valid_3_fu_751">
+<pin_list>
+<pin id="752" dir="0" index="0" bw="456" slack="0"/>
+<pin id="753" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_valid_3/6 "/>
+</bind>
+</comp>
+
+<comp id="756" class="1004" name="jet_top_clusters_valid_4_fu_756">
+<pin_list>
+<pin id="757" dir="0" index="0" bw="456" slack="0"/>
+<pin id="758" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_valid_4/6 "/>
+</bind>
+</comp>
+
+<comp id="761" class="1004" name="jet_top_clusters_valid_5_fu_761">
+<pin_list>
+<pin id="762" dir="0" index="0" bw="456" slack="0"/>
+<pin id="763" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_valid_5/6 "/>
+</bind>
+</comp>
+
+<comp id="766" class="1004" name="jet_top_clusters_valid_6_fu_766">
+<pin_list>
+<pin id="767" dir="0" index="0" bw="456" slack="0"/>
+<pin id="768" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_valid_6/6 "/>
+</bind>
+</comp>
+
+<comp id="771" class="1004" name="jet_top_clusters_valid_7_fu_771">
+<pin_list>
+<pin id="772" dir="0" index="0" bw="456" slack="0"/>
+<pin id="773" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="jet_top_clusters_valid_7/6 "/>
+</bind>
+</comp>
+
+<comp id="776" class="1005" name="em_cluster_threshold_read_reg_776">
+<pin_list>
+<pin id="777" dir="0" index="0" bw="20" slack="1"/>
+<pin id="778" dir="1" index="1" bw="20" slack="1"/>
+</pin_list>
+<bind>
+<opset="em_cluster_threshold_read "/>
+</bind>
+</comp>
+
+<comp id="781" class="1005" name="em_seed_threshold_read_reg_781">
+<pin_list>
+<pin id="782" dir="0" index="0" bw="12" slack="1"/>
+<pin id="783" dir="1" index="1" bw="12" slack="1"/>
+</pin_list>
+<bind>
+<opset="em_seed_threshold_read "/>
+</bind>
+</comp>
+
+<comp id="786" class="1005" name="em_cluster_stream_reg_786">
+<pin_list>
+<pin id="787" dir="0" index="0" bw="61" slack="0"/>
+<pin id="788" dir="1" index="1" bw="61" slack="0"/>
+</pin_list>
+<bind>
+<opset="em_cluster_stream "/>
+</bind>
+</comp>
+
+<comp id="792" class="1005" name="jet_cluster_stream_reg_792">
+<pin_list>
+<pin id="793" dir="0" index="0" bw="61" slack="2"/>
+<pin id="794" dir="1" index="1" bw="61" slack="2"/>
+</pin_list>
+<bind>
+<opset="jet_cluster_stream "/>
+</bind>
+</comp>
+
+<comp id="798" class="1005" name="jet_cluster_threshold_read_reg_798">
+<pin_list>
+<pin id="799" dir="0" index="0" bw="20" slack="1"/>
+<pin id="800" dir="1" index="1" bw="20" slack="1"/>
+</pin_list>
+<bind>
+<opset="jet_cluster_threshold_read "/>
+</bind>
+</comp>
+
+<comp id="803" class="1005" name="jet_seed_threshold_read_reg_803">
+<pin_list>
+<pin id="804" dir="0" index="0" bw="12" slack="1"/>
+<pin id="805" dir="1" index="1" bw="12" slack="1"/>
+</pin_list>
+<bind>
+<opset="jet_seed_threshold_read "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="95"><net_src comp="50" pin="0"/><net_sink comp="92" pin=0"/></net>
+
+<net id="99"><net_src comp="50" pin="0"/><net_sink comp="96" pin=0"/></net>
+
+<net id="104"><net_src comp="46" pin="0"/><net_sink comp="100" pin=0"/></net>
+
+<net id="105"><net_src comp="4" pin="0"/><net_sink comp="100" pin=1"/></net>
+
+<net id="110"><net_src comp="48" pin="0"/><net_sink comp="106" pin=0"/></net>
+
+<net id="111"><net_src comp="2" pin="0"/><net_sink comp="106" pin=1"/></net>
+
+<net id="116"><net_src comp="46" pin="0"/><net_sink comp="112" pin=0"/></net>
+
+<net id="117"><net_src comp="8" pin="0"/><net_sink comp="112" pin=1"/></net>
+
+<net id="122"><net_src comp="48" pin="0"/><net_sink comp="118" pin=0"/></net>
+
+<net id="123"><net_src comp="6" pin="0"/><net_sink comp="118" pin=1"/></net>
+
+<net id="131"><net_src comp="52" pin="0"/><net_sink comp="124" pin=0"/></net>
+
+<net id="132"><net_src comp="0" pin="0"/><net_sink comp="124" pin=1"/></net>
+
+<net id="133"><net_src comp="106" pin="2"/><net_sink comp="124" pin=2"/></net>
+
+<net id="134"><net_src comp="100" pin="2"/><net_sink comp="124" pin=3"/></net>
+
+<net id="142"><net_src comp="54" pin="0"/><net_sink comp="135" pin=0"/></net>
+
+<net id="143"><net_src comp="0" pin="0"/><net_sink comp="135" pin=1"/></net>
+
+<net id="144"><net_src comp="118" pin="2"/><net_sink comp="135" pin=2"/></net>
+
+<net id="145"><net_src comp="112" pin="2"/><net_sink comp="135" pin=3"/></net>
+
+<net id="151"><net_src comp="56" pin="0"/><net_sink comp="146" pin=0"/></net>
+
+<net id="152"><net_src comp="42" pin="0"/><net_sink comp="146" pin=2"/></net>
+
+<net id="212"><net_src comp="58" pin="0"/><net_sink comp="153" pin=0"/></net>
+
+<net id="213"><net_src comp="10" pin="0"/><net_sink comp="153" pin=49"/></net>
+
+<net id="214"><net_src comp="12" pin="0"/><net_sink comp="153" pin=50"/></net>
+
+<net id="215"><net_src comp="14" pin="0"/><net_sink comp="153" pin=51"/></net>
+
+<net id="216"><net_src comp="16" pin="0"/><net_sink comp="153" pin=52"/></net>
+
+<net id="217"><net_src comp="18" pin="0"/><net_sink comp="153" pin=53"/></net>
+
+<net id="218"><net_src comp="20" pin="0"/><net_sink comp="153" pin=54"/></net>
+
+<net id="219"><net_src comp="22" pin="0"/><net_sink comp="153" pin=55"/></net>
+
+<net id="220"><net_src comp="24" pin="0"/><net_sink comp="153" pin=56"/></net>
+
+<net id="226"><net_src comp="60" pin="0"/><net_sink comp="221" pin=0"/></net>
+
+<net id="227"><net_src comp="44" pin="0"/><net_sink comp="221" pin=2"/></net>
+
+<net id="287"><net_src comp="90" pin="0"/><net_sink comp="228" pin=0"/></net>
+
+<net id="288"><net_src comp="26" pin="0"/><net_sink comp="228" pin=49"/></net>
+
+<net id="289"><net_src comp="28" pin="0"/><net_sink comp="228" pin=50"/></net>
+
+<net id="290"><net_src comp="30" pin="0"/><net_sink comp="228" pin=51"/></net>
+
+<net id="291"><net_src comp="32" pin="0"/><net_sink comp="228" pin=52"/></net>
+
+<net id="292"><net_src comp="34" pin="0"/><net_sink comp="228" pin=53"/></net>
+
+<net id="293"><net_src comp="36" pin="0"/><net_sink comp="228" pin=54"/></net>
+
+<net id="294"><net_src comp="38" pin="0"/><net_sink comp="228" pin=55"/></net>
+
+<net id="295"><net_src comp="40" pin="0"/><net_sink comp="228" pin=56"/></net>
+
+<net id="299"><net_src comp="146" pin="3"/><net_sink comp="296" pin=0"/></net>
+
+<net id="300"><net_src comp="296" pin="1"/><net_sink comp="153" pin=1"/></net>
+
+<net id="304"><net_src comp="146" pin="3"/><net_sink comp="301" pin=0"/></net>
+
+<net id="305"><net_src comp="301" pin="1"/><net_sink comp="153" pin=2"/></net>
+
+<net id="309"><net_src comp="146" pin="3"/><net_sink comp="306" pin=0"/></net>
+
+<net id="310"><net_src comp="306" pin="1"/><net_sink comp="153" pin=3"/></net>
+
+<net id="314"><net_src comp="146" pin="3"/><net_sink comp="311" pin=0"/></net>
+
+<net id="315"><net_src comp="311" pin="1"/><net_sink comp="153" pin=4"/></net>
+
+<net id="319"><net_src comp="146" pin="3"/><net_sink comp="316" pin=0"/></net>
+
+<net id="320"><net_src comp="316" pin="1"/><net_sink comp="153" pin=5"/></net>
+
+<net id="324"><net_src comp="146" pin="3"/><net_sink comp="321" pin=0"/></net>
+
+<net id="325"><net_src comp="321" pin="1"/><net_sink comp="153" pin=6"/></net>
+
+<net id="329"><net_src comp="146" pin="3"/><net_sink comp="326" pin=0"/></net>
+
+<net id="330"><net_src comp="326" pin="1"/><net_sink comp="153" pin=7"/></net>
+
+<net id="334"><net_src comp="146" pin="3"/><net_sink comp="331" pin=0"/></net>
+
+<net id="335"><net_src comp="331" pin="1"/><net_sink comp="153" pin=8"/></net>
+
+<net id="339"><net_src comp="146" pin="3"/><net_sink comp="336" pin=0"/></net>
+
+<net id="340"><net_src comp="336" pin="1"/><net_sink comp="153" pin=9"/></net>
+
+<net id="344"><net_src comp="146" pin="3"/><net_sink comp="341" pin=0"/></net>
+
+<net id="345"><net_src comp="341" pin="1"/><net_sink comp="153" pin=10"/></net>
+
+<net id="349"><net_src comp="146" pin="3"/><net_sink comp="346" pin=0"/></net>
+
+<net id="350"><net_src comp="346" pin="1"/><net_sink comp="153" pin=11"/></net>
+
+<net id="354"><net_src comp="146" pin="3"/><net_sink comp="351" pin=0"/></net>
+
+<net id="355"><net_src comp="351" pin="1"/><net_sink comp="153" pin=12"/></net>
+
+<net id="359"><net_src comp="146" pin="3"/><net_sink comp="356" pin=0"/></net>
+
+<net id="360"><net_src comp="356" pin="1"/><net_sink comp="153" pin=13"/></net>
+
+<net id="364"><net_src comp="146" pin="3"/><net_sink comp="361" pin=0"/></net>
+
+<net id="365"><net_src comp="361" pin="1"/><net_sink comp="153" pin=14"/></net>
+
+<net id="369"><net_src comp="146" pin="3"/><net_sink comp="366" pin=0"/></net>
+
+<net id="370"><net_src comp="366" pin="1"/><net_sink comp="153" pin=15"/></net>
+
+<net id="374"><net_src comp="146" pin="3"/><net_sink comp="371" pin=0"/></net>
+
+<net id="375"><net_src comp="371" pin="1"/><net_sink comp="153" pin=16"/></net>
+
+<net id="379"><net_src comp="146" pin="3"/><net_sink comp="376" pin=0"/></net>
+
+<net id="380"><net_src comp="376" pin="1"/><net_sink comp="153" pin=17"/></net>
+
+<net id="384"><net_src comp="146" pin="3"/><net_sink comp="381" pin=0"/></net>
+
+<net id="385"><net_src comp="381" pin="1"/><net_sink comp="153" pin=18"/></net>
+
+<net id="389"><net_src comp="146" pin="3"/><net_sink comp="386" pin=0"/></net>
+
+<net id="390"><net_src comp="386" pin="1"/><net_sink comp="153" pin=19"/></net>
+
+<net id="394"><net_src comp="146" pin="3"/><net_sink comp="391" pin=0"/></net>
+
+<net id="395"><net_src comp="391" pin="1"/><net_sink comp="153" pin=20"/></net>
+
+<net id="399"><net_src comp="146" pin="3"/><net_sink comp="396" pin=0"/></net>
+
+<net id="400"><net_src comp="396" pin="1"/><net_sink comp="153" pin=21"/></net>
+
+<net id="404"><net_src comp="146" pin="3"/><net_sink comp="401" pin=0"/></net>
+
+<net id="405"><net_src comp="401" pin="1"/><net_sink comp="153" pin=22"/></net>
+
+<net id="409"><net_src comp="146" pin="3"/><net_sink comp="406" pin=0"/></net>
+
+<net id="410"><net_src comp="406" pin="1"/><net_sink comp="153" pin=23"/></net>
+
+<net id="414"><net_src comp="146" pin="3"/><net_sink comp="411" pin=0"/></net>
+
+<net id="415"><net_src comp="411" pin="1"/><net_sink comp="153" pin=24"/></net>
+
+<net id="419"><net_src comp="146" pin="3"/><net_sink comp="416" pin=0"/></net>
+
+<net id="420"><net_src comp="416" pin="1"/><net_sink comp="153" pin=25"/></net>
+
+<net id="424"><net_src comp="146" pin="3"/><net_sink comp="421" pin=0"/></net>
+
+<net id="425"><net_src comp="421" pin="1"/><net_sink comp="153" pin=26"/></net>
+
+<net id="429"><net_src comp="146" pin="3"/><net_sink comp="426" pin=0"/></net>
+
+<net id="430"><net_src comp="426" pin="1"/><net_sink comp="153" pin=27"/></net>
+
+<net id="434"><net_src comp="146" pin="3"/><net_sink comp="431" pin=0"/></net>
+
+<net id="435"><net_src comp="431" pin="1"/><net_sink comp="153" pin=28"/></net>
+
+<net id="439"><net_src comp="146" pin="3"/><net_sink comp="436" pin=0"/></net>
+
+<net id="440"><net_src comp="436" pin="1"/><net_sink comp="153" pin=29"/></net>
+
+<net id="444"><net_src comp="146" pin="3"/><net_sink comp="441" pin=0"/></net>
+
+<net id="445"><net_src comp="441" pin="1"/><net_sink comp="153" pin=30"/></net>
+
+<net id="449"><net_src comp="146" pin="3"/><net_sink comp="446" pin=0"/></net>
+
+<net id="450"><net_src comp="446" pin="1"/><net_sink comp="153" pin=31"/></net>
+
+<net id="454"><net_src comp="146" pin="3"/><net_sink comp="451" pin=0"/></net>
+
+<net id="455"><net_src comp="451" pin="1"/><net_sink comp="153" pin=32"/></net>
+
+<net id="459"><net_src comp="146" pin="3"/><net_sink comp="456" pin=0"/></net>
+
+<net id="460"><net_src comp="456" pin="1"/><net_sink comp="153" pin=33"/></net>
+
+<net id="464"><net_src comp="146" pin="3"/><net_sink comp="461" pin=0"/></net>
+
+<net id="465"><net_src comp="461" pin="1"/><net_sink comp="153" pin=34"/></net>
+
+<net id="469"><net_src comp="146" pin="3"/><net_sink comp="466" pin=0"/></net>
+
+<net id="470"><net_src comp="466" pin="1"/><net_sink comp="153" pin=35"/></net>
+
+<net id="474"><net_src comp="146" pin="3"/><net_sink comp="471" pin=0"/></net>
+
+<net id="475"><net_src comp="471" pin="1"/><net_sink comp="153" pin=36"/></net>
+
+<net id="479"><net_src comp="146" pin="3"/><net_sink comp="476" pin=0"/></net>
+
+<net id="480"><net_src comp="476" pin="1"/><net_sink comp="153" pin=37"/></net>
+
+<net id="484"><net_src comp="146" pin="3"/><net_sink comp="481" pin=0"/></net>
+
+<net id="485"><net_src comp="481" pin="1"/><net_sink comp="153" pin=38"/></net>
+
+<net id="489"><net_src comp="146" pin="3"/><net_sink comp="486" pin=0"/></net>
+
+<net id="490"><net_src comp="486" pin="1"/><net_sink comp="153" pin=39"/></net>
+
+<net id="494"><net_src comp="146" pin="3"/><net_sink comp="491" pin=0"/></net>
+
+<net id="495"><net_src comp="491" pin="1"/><net_sink comp="153" pin=40"/></net>
+
+<net id="499"><net_src comp="146" pin="3"/><net_sink comp="496" pin=0"/></net>
+
+<net id="500"><net_src comp="496" pin="1"/><net_sink comp="153" pin=41"/></net>
+
+<net id="504"><net_src comp="146" pin="3"/><net_sink comp="501" pin=0"/></net>
+
+<net id="505"><net_src comp="501" pin="1"/><net_sink comp="153" pin=42"/></net>
+
+<net id="509"><net_src comp="146" pin="3"/><net_sink comp="506" pin=0"/></net>
+
+<net id="510"><net_src comp="506" pin="1"/><net_sink comp="153" pin=43"/></net>
+
+<net id="514"><net_src comp="146" pin="3"/><net_sink comp="511" pin=0"/></net>
+
+<net id="515"><net_src comp="511" pin="1"/><net_sink comp="153" pin=44"/></net>
+
+<net id="519"><net_src comp="146" pin="3"/><net_sink comp="516" pin=0"/></net>
+
+<net id="520"><net_src comp="516" pin="1"/><net_sink comp="153" pin=45"/></net>
+
+<net id="524"><net_src comp="146" pin="3"/><net_sink comp="521" pin=0"/></net>
+
+<net id="525"><net_src comp="521" pin="1"/><net_sink comp="153" pin=46"/></net>
+
+<net id="529"><net_src comp="146" pin="3"/><net_sink comp="526" pin=0"/></net>
+
+<net id="530"><net_src comp="526" pin="1"/><net_sink comp="153" pin=47"/></net>
+
+<net id="534"><net_src comp="146" pin="3"/><net_sink comp="531" pin=0"/></net>
+
+<net id="535"><net_src comp="531" pin="1"/><net_sink comp="153" pin=48"/></net>
+
+<net id="539"><net_src comp="221" pin="3"/><net_sink comp="536" pin=0"/></net>
+
+<net id="540"><net_src comp="536" pin="1"/><net_sink comp="228" pin=1"/></net>
+
+<net id="544"><net_src comp="221" pin="3"/><net_sink comp="541" pin=0"/></net>
+
+<net id="545"><net_src comp="541" pin="1"/><net_sink comp="228" pin=2"/></net>
+
+<net id="549"><net_src comp="221" pin="3"/><net_sink comp="546" pin=0"/></net>
+
+<net id="550"><net_src comp="546" pin="1"/><net_sink comp="228" pin=3"/></net>
+
+<net id="554"><net_src comp="221" pin="3"/><net_sink comp="551" pin=0"/></net>
+
+<net id="555"><net_src comp="551" pin="1"/><net_sink comp="228" pin=4"/></net>
+
+<net id="559"><net_src comp="221" pin="3"/><net_sink comp="556" pin=0"/></net>
+
+<net id="560"><net_src comp="556" pin="1"/><net_sink comp="228" pin=5"/></net>
+
+<net id="564"><net_src comp="221" pin="3"/><net_sink comp="561" pin=0"/></net>
+
+<net id="565"><net_src comp="561" pin="1"/><net_sink comp="228" pin=6"/></net>
+
+<net id="569"><net_src comp="221" pin="3"/><net_sink comp="566" pin=0"/></net>
+
+<net id="570"><net_src comp="566" pin="1"/><net_sink comp="228" pin=7"/></net>
+
+<net id="574"><net_src comp="221" pin="3"/><net_sink comp="571" pin=0"/></net>
+
+<net id="575"><net_src comp="571" pin="1"/><net_sink comp="228" pin=8"/></net>
+
+<net id="579"><net_src comp="221" pin="3"/><net_sink comp="576" pin=0"/></net>
+
+<net id="580"><net_src comp="576" pin="1"/><net_sink comp="228" pin=9"/></net>
+
+<net id="584"><net_src comp="221" pin="3"/><net_sink comp="581" pin=0"/></net>
+
+<net id="585"><net_src comp="581" pin="1"/><net_sink comp="228" pin=10"/></net>
+
+<net id="589"><net_src comp="221" pin="3"/><net_sink comp="586" pin=0"/></net>
+
+<net id="590"><net_src comp="586" pin="1"/><net_sink comp="228" pin=11"/></net>
+
+<net id="594"><net_src comp="221" pin="3"/><net_sink comp="591" pin=0"/></net>
+
+<net id="595"><net_src comp="591" pin="1"/><net_sink comp="228" pin=12"/></net>
+
+<net id="599"><net_src comp="221" pin="3"/><net_sink comp="596" pin=0"/></net>
+
+<net id="600"><net_src comp="596" pin="1"/><net_sink comp="228" pin=13"/></net>
+
+<net id="604"><net_src comp="221" pin="3"/><net_sink comp="601" pin=0"/></net>
+
+<net id="605"><net_src comp="601" pin="1"/><net_sink comp="228" pin=14"/></net>
+
+<net id="609"><net_src comp="221" pin="3"/><net_sink comp="606" pin=0"/></net>
+
+<net id="610"><net_src comp="606" pin="1"/><net_sink comp="228" pin=15"/></net>
+
+<net id="614"><net_src comp="221" pin="3"/><net_sink comp="611" pin=0"/></net>
+
+<net id="615"><net_src comp="611" pin="1"/><net_sink comp="228" pin=16"/></net>
+
+<net id="619"><net_src comp="221" pin="3"/><net_sink comp="616" pin=0"/></net>
+
+<net id="620"><net_src comp="616" pin="1"/><net_sink comp="228" pin=17"/></net>
+
+<net id="624"><net_src comp="221" pin="3"/><net_sink comp="621" pin=0"/></net>
+
+<net id="625"><net_src comp="621" pin="1"/><net_sink comp="228" pin=18"/></net>
+
+<net id="629"><net_src comp="221" pin="3"/><net_sink comp="626" pin=0"/></net>
+
+<net id="630"><net_src comp="626" pin="1"/><net_sink comp="228" pin=19"/></net>
+
+<net id="634"><net_src comp="221" pin="3"/><net_sink comp="631" pin=0"/></net>
+
+<net id="635"><net_src comp="631" pin="1"/><net_sink comp="228" pin=20"/></net>
+
+<net id="639"><net_src comp="221" pin="3"/><net_sink comp="636" pin=0"/></net>
+
+<net id="640"><net_src comp="636" pin="1"/><net_sink comp="228" pin=21"/></net>
+
+<net id="644"><net_src comp="221" pin="3"/><net_sink comp="641" pin=0"/></net>
+
+<net id="645"><net_src comp="641" pin="1"/><net_sink comp="228" pin=22"/></net>
+
+<net id="649"><net_src comp="221" pin="3"/><net_sink comp="646" pin=0"/></net>
+
+<net id="650"><net_src comp="646" pin="1"/><net_sink comp="228" pin=23"/></net>
+
+<net id="654"><net_src comp="221" pin="3"/><net_sink comp="651" pin=0"/></net>
+
+<net id="655"><net_src comp="651" pin="1"/><net_sink comp="228" pin=24"/></net>
+
+<net id="659"><net_src comp="221" pin="3"/><net_sink comp="656" pin=0"/></net>
+
+<net id="660"><net_src comp="656" pin="1"/><net_sink comp="228" pin=25"/></net>
+
+<net id="664"><net_src comp="221" pin="3"/><net_sink comp="661" pin=0"/></net>
+
+<net id="665"><net_src comp="661" pin="1"/><net_sink comp="228" pin=26"/></net>
+
+<net id="669"><net_src comp="221" pin="3"/><net_sink comp="666" pin=0"/></net>
+
+<net id="670"><net_src comp="666" pin="1"/><net_sink comp="228" pin=27"/></net>
+
+<net id="674"><net_src comp="221" pin="3"/><net_sink comp="671" pin=0"/></net>
+
+<net id="675"><net_src comp="671" pin="1"/><net_sink comp="228" pin=28"/></net>
+
+<net id="679"><net_src comp="221" pin="3"/><net_sink comp="676" pin=0"/></net>
+
+<net id="680"><net_src comp="676" pin="1"/><net_sink comp="228" pin=29"/></net>
+
+<net id="684"><net_src comp="221" pin="3"/><net_sink comp="681" pin=0"/></net>
+
+<net id="685"><net_src comp="681" pin="1"/><net_sink comp="228" pin=30"/></net>
+
+<net id="689"><net_src comp="221" pin="3"/><net_sink comp="686" pin=0"/></net>
+
+<net id="690"><net_src comp="686" pin="1"/><net_sink comp="228" pin=31"/></net>
+
+<net id="694"><net_src comp="221" pin="3"/><net_sink comp="691" pin=0"/></net>
+
+<net id="695"><net_src comp="691" pin="1"/><net_sink comp="228" pin=32"/></net>
+
+<net id="699"><net_src comp="221" pin="3"/><net_sink comp="696" pin=0"/></net>
+
+<net id="700"><net_src comp="696" pin="1"/><net_sink comp="228" pin=33"/></net>
+
+<net id="704"><net_src comp="221" pin="3"/><net_sink comp="701" pin=0"/></net>
+
+<net id="705"><net_src comp="701" pin="1"/><net_sink comp="228" pin=34"/></net>
+
+<net id="709"><net_src comp="221" pin="3"/><net_sink comp="706" pin=0"/></net>
+
+<net id="710"><net_src comp="706" pin="1"/><net_sink comp="228" pin=35"/></net>
+
+<net id="714"><net_src comp="221" pin="3"/><net_sink comp="711" pin=0"/></net>
+
+<net id="715"><net_src comp="711" pin="1"/><net_sink comp="228" pin=36"/></net>
+
+<net id="719"><net_src comp="221" pin="3"/><net_sink comp="716" pin=0"/></net>
+
+<net id="720"><net_src comp="716" pin="1"/><net_sink comp="228" pin=37"/></net>
+
+<net id="724"><net_src comp="221" pin="3"/><net_sink comp="721" pin=0"/></net>
+
+<net id="725"><net_src comp="721" pin="1"/><net_sink comp="228" pin=38"/></net>
+
+<net id="729"><net_src comp="221" pin="3"/><net_sink comp="726" pin=0"/></net>
+
+<net id="730"><net_src comp="726" pin="1"/><net_sink comp="228" pin=39"/></net>
+
+<net id="734"><net_src comp="221" pin="3"/><net_sink comp="731" pin=0"/></net>
+
+<net id="735"><net_src comp="731" pin="1"/><net_sink comp="228" pin=40"/></net>
+
+<net id="739"><net_src comp="221" pin="3"/><net_sink comp="736" pin=0"/></net>
+
+<net id="740"><net_src comp="736" pin="1"/><net_sink comp="228" pin=41"/></net>
+
+<net id="744"><net_src comp="221" pin="3"/><net_sink comp="741" pin=0"/></net>
+
+<net id="745"><net_src comp="741" pin="1"/><net_sink comp="228" pin=42"/></net>
+
+<net id="749"><net_src comp="221" pin="3"/><net_sink comp="746" pin=0"/></net>
+
+<net id="750"><net_src comp="746" pin="1"/><net_sink comp="228" pin=43"/></net>
+
+<net id="754"><net_src comp="221" pin="3"/><net_sink comp="751" pin=0"/></net>
+
+<net id="755"><net_src comp="751" pin="1"/><net_sink comp="228" pin=44"/></net>
+
+<net id="759"><net_src comp="221" pin="3"/><net_sink comp="756" pin=0"/></net>
+
+<net id="760"><net_src comp="756" pin="1"/><net_sink comp="228" pin=45"/></net>
+
+<net id="764"><net_src comp="221" pin="3"/><net_sink comp="761" pin=0"/></net>
+
+<net id="765"><net_src comp="761" pin="1"/><net_sink comp="228" pin=46"/></net>
+
+<net id="769"><net_src comp="221" pin="3"/><net_sink comp="766" pin=0"/></net>
+
+<net id="770"><net_src comp="766" pin="1"/><net_sink comp="228" pin=47"/></net>
+
+<net id="774"><net_src comp="221" pin="3"/><net_sink comp="771" pin=0"/></net>
+
+<net id="775"><net_src comp="771" pin="1"/><net_sink comp="228" pin=48"/></net>
+
+<net id="779"><net_src comp="100" pin="2"/><net_sink comp="776" pin=0"/></net>
+
+<net id="780"><net_src comp="776" pin="1"/><net_sink comp="124" pin=3"/></net>
+
+<net id="784"><net_src comp="106" pin="2"/><net_sink comp="781" pin=0"/></net>
+
+<net id="785"><net_src comp="781" pin="1"/><net_sink comp="124" pin=2"/></net>
+
+<net id="789"><net_src comp="92" pin="1"/><net_sink comp="786" pin=0"/></net>
+
+<net id="790"><net_src comp="786" pin="1"/><net_sink comp="124" pin=4"/></net>
+
+<net id="791"><net_src comp="786" pin="1"/><net_sink comp="146" pin=1"/></net>
+
+<net id="795"><net_src comp="96" pin="1"/><net_sink comp="792" pin=0"/></net>
+
+<net id="796"><net_src comp="792" pin="1"/><net_sink comp="135" pin=4"/></net>
+
+<net id="797"><net_src comp="792" pin="1"/><net_sink comp="221" pin=1"/></net>
+
+<net id="801"><net_src comp="112" pin="2"/><net_sink comp="798" pin=0"/></net>
+
+<net id="802"><net_src comp="798" pin="1"/><net_sink comp="135" pin=3"/></net>
+
+<net id="806"><net_src comp="118" pin="2"/><net_sink comp="803" pin=0"/></net>
+
+<net id="807"><net_src comp="803" pin="1"/><net_sink comp="135" pin=2"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+	Port: em_objects_0 | {4 }
+	Port: em_objects_1 | {4 }
+	Port: em_objects_2 | {4 }
+	Port: em_objects_3 | {4 }
+	Port: em_objects_4 | {4 }
+	Port: em_objects_5 | {4 }
+	Port: em_objects_6 | {4 }
+	Port: em_objects_7 | {4 }
+	Port: jet_objects_0 | {6 }
+	Port: jet_objects_1 | {6 }
+	Port: jet_objects_2 | {6 }
+	Port: jet_objects_3 | {6 }
+	Port: jet_objects_4 | {6 }
+	Port: jet_objects_5 | {6 }
+	Port: jet_objects_6 | {6 }
+	Port: jet_objects_7 | {6 }
+	Port: num_em_clusters | {3 4 }
+	Port: num_jet_clusters | {5 6 }
+ - Input state : 
+	Port: cluster_sort_build_em_jet_stream : towers | {1 2 3 4 }
+	Port: cluster_sort_build_em_jet_stream : em_seed_threshold | {1 }
+	Port: cluster_sort_build_em_jet_stream : em_cluster_threshold | {1 }
+	Port: cluster_sort_build_em_jet_stream : jet_seed_threshold | {3 }
+	Port: cluster_sort_build_em_jet_stream : jet_cluster_threshold | {3 }
+  - Chain level:
+	State 1
+		call_ln465 : 1
+	State 2
+	State 3
+	State 4
+		em_top_clusters_et : 1
+		em_top_clusters_et_1 : 1
+		em_top_clusters_et_2 : 1
+		em_top_clusters_et_3 : 1
+		em_top_clusters_et_4 : 1
+		em_top_clusters_et_5 : 1
+		em_top_clusters_et_6 : 1
+		em_top_clusters_et_7 : 1
+		em_top_clusters_isolation_et : 1
+		em_top_clusters_isolation_et_1 : 1
+		em_top_clusters_isolation_et_2 : 1
+		em_top_clusters_isolation_et_3 : 1
+		em_top_clusters_isolation_et_4 : 1
+		em_top_clusters_isolation_et_5 : 1
+		em_top_clusters_isolation_et_6 : 1
+		em_top_clusters_isolation_et_7 : 1
+		em_top_clusters_eta : 1
+		em_top_clusters_eta_1 : 1
+		em_top_clusters_eta_2 : 1
+		em_top_clusters_eta_3 : 1
+		em_top_clusters_eta_4 : 1
+		em_top_clusters_eta_5 : 1
+		em_top_clusters_eta_6 : 1
+		em_top_clusters_eta_7 : 1
+		em_top_clusters_phi : 1
+		em_top_clusters_phi_1 : 1
+		em_top_clusters_phi_2 : 1
+		em_top_clusters_phi_3 : 1
+		em_top_clusters_phi_4 : 1
+		em_top_clusters_phi_5 : 1
+		em_top_clusters_phi_6 : 1
+		em_top_clusters_phi_7 : 1
+		em_top_clusters_window_size : 1
+		em_top_clusters_window_size_1 : 1
+		em_top_clusters_window_size_2 : 1
+		em_top_clusters_window_size_3 : 1
+		em_top_clusters_window_size_4 : 1
+		em_top_clusters_window_size_5 : 1
+		em_top_clusters_window_size_6 : 1
+		em_top_clusters_window_size_7 : 1
+		em_top_clusters_valid : 1
+		em_top_clusters_valid_1 : 1
+		em_top_clusters_valid_2 : 1
+		em_top_clusters_valid_3 : 1
+		em_top_clusters_valid_4 : 1
+		em_top_clusters_valid_5 : 1
+		em_top_clusters_valid_6 : 1
+		em_top_clusters_valid_7 : 1
+		call_ln478 : 2
+	State 5
+	State 6
+		jet_top_clusters_et : 1
+		jet_top_clusters_et_1 : 1
+		jet_top_clusters_et_2 : 1
+		jet_top_clusters_et_3 : 1
+		jet_top_clusters_et_4 : 1
+		jet_top_clusters_et_5 : 1
+		jet_top_clusters_et_6 : 1
+		jet_top_clusters_et_7 : 1
+		jet_top_clusters_isolation_et : 1
+		jet_top_clusters_isolation_et_1 : 1
+		jet_top_clusters_isolation_et_2 : 1
+		jet_top_clusters_isolation_et_3 : 1
+		jet_top_clusters_isolation_et_4 : 1
+		jet_top_clusters_isolation_et_5 : 1
+		jet_top_clusters_isolation_et_6 : 1
+		jet_top_clusters_isolation_et_7 : 1
+		jet_top_clusters_eta : 1
+		jet_top_clusters_eta_1 : 1
+		jet_top_clusters_eta_2 : 1
+		jet_top_clusters_eta_3 : 1
+		jet_top_clusters_eta_4 : 1
+		jet_top_clusters_eta_5 : 1
+		jet_top_clusters_eta_6 : 1
+		jet_top_clusters_eta_7 : 1
+		jet_top_clusters_phi : 1
+		jet_top_clusters_phi_1 : 1
+		jet_top_clusters_phi_2 : 1
+		jet_top_clusters_phi_3 : 1
+		jet_top_clusters_phi_4 : 1
+		jet_top_clusters_phi_5 : 1
+		jet_top_clusters_phi_6 : 1
+		jet_top_clusters_phi_7 : 1
+		jet_top_clusters_window_size : 1
+		jet_top_clusters_window_size_1 : 1
+		jet_top_clusters_window_size_2 : 1
+		jet_top_clusters_window_size_3 : 1
+		jet_top_clusters_window_size_4 : 1
+		jet_top_clusters_window_size_5 : 1
+		jet_top_clusters_window_size_6 : 1
+		jet_top_clusters_window_size_7 : 1
+		jet_top_clusters_valid : 1
+		jet_top_clusters_valid_1 : 1
+		jet_top_clusters_valid_2 : 1
+		jet_top_clusters_valid_3 : 1
+		jet_top_clusters_valid_4 : 1
+		jet_top_clusters_valid_5 : 1
+		jet_top_clusters_valid_6 : 1
+		jet_top_clusters_valid_7 : 1
+		call_ln479 : 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|--------------------------------------------------|---------|---------|---------|
+| Operation|                  Functional Unit                 |  Delay  |    FF   |   LUT   |
+|----------|--------------------------------------------------|---------|---------|---------|
+|          |       grp_produce_em_cluster_stream_fu_124       | 0.974143|   1265  |   3442  |
+|          |       grp_produce_jet_cluster_stream_fu_135      | 0.974143|   1335  |   3659  |
+|   call   | grp_select_top_n_from_stream_fixed_1440_s_fu_146 | 0.584143|   1080  |   1188  |
+|          |      call_ln478_build_trigger_objects_fu_153     |    0    |    0    |   776   |
+|          | grp_select_top_n_from_stream_fixed_1440_1_fu_221 | 0.584143|   1080  |   1188  |
+|          |     call_ln479_build_trigger_objects_2_fu_228    |    0    |    0    |   776   |
+|----------|--------------------------------------------------|---------|---------|---------|
+|          |       em_cluster_threshold_read_read_fu_100      |    0    |    0    |    0    |
+|   read   |        em_seed_threshold_read_read_fu_106        |    0    |    0    |    0    |
+|          |      jet_cluster_threshold_read_read_fu_112      |    0    |    0    |    0    |
+|          |        jet_seed_threshold_read_read_fu_118       |    0    |    0    |    0    |
+|----------|--------------------------------------------------|---------|---------|---------|
+|          |             em_top_clusters_et_fu_296            |    0    |    0    |    0    |
+|          |            em_top_clusters_et_1_fu_301           |    0    |    0    |    0    |
+|          |            em_top_clusters_et_2_fu_306           |    0    |    0    |    0    |
+|          |            em_top_clusters_et_3_fu_311           |    0    |    0    |    0    |
+|          |            em_top_clusters_et_4_fu_316           |    0    |    0    |    0    |
+|          |            em_top_clusters_et_5_fu_321           |    0    |    0    |    0    |
+|          |            em_top_clusters_et_6_fu_326           |    0    |    0    |    0    |
+|          |            em_top_clusters_et_7_fu_331           |    0    |    0    |    0    |
+|          |        em_top_clusters_isolation_et_fu_336       |    0    |    0    |    0    |
+|          |       em_top_clusters_isolation_et_1_fu_341      |    0    |    0    |    0    |
+|          |       em_top_clusters_isolation_et_2_fu_346      |    0    |    0    |    0    |
+|          |       em_top_clusters_isolation_et_3_fu_351      |    0    |    0    |    0    |
+|          |       em_top_clusters_isolation_et_4_fu_356      |    0    |    0    |    0    |
+|          |       em_top_clusters_isolation_et_5_fu_361      |    0    |    0    |    0    |
+|          |       em_top_clusters_isolation_et_6_fu_366      |    0    |    0    |    0    |
+|          |       em_top_clusters_isolation_et_7_fu_371      |    0    |    0    |    0    |
+|          |            em_top_clusters_eta_fu_376            |    0    |    0    |    0    |
+|          |           em_top_clusters_eta_1_fu_381           |    0    |    0    |    0    |
+|          |           em_top_clusters_eta_2_fu_386           |    0    |    0    |    0    |
+|          |           em_top_clusters_eta_3_fu_391           |    0    |    0    |    0    |
+|          |           em_top_clusters_eta_4_fu_396           |    0    |    0    |    0    |
+|          |           em_top_clusters_eta_5_fu_401           |    0    |    0    |    0    |
+|          |           em_top_clusters_eta_6_fu_406           |    0    |    0    |    0    |
+|          |           em_top_clusters_eta_7_fu_411           |    0    |    0    |    0    |
+|          |            em_top_clusters_phi_fu_416            |    0    |    0    |    0    |
+|          |           em_top_clusters_phi_1_fu_421           |    0    |    0    |    0    |
+|          |           em_top_clusters_phi_2_fu_426           |    0    |    0    |    0    |
+|          |           em_top_clusters_phi_3_fu_431           |    0    |    0    |    0    |
+|          |           em_top_clusters_phi_4_fu_436           |    0    |    0    |    0    |
+|          |           em_top_clusters_phi_5_fu_441           |    0    |    0    |    0    |
+|          |           em_top_clusters_phi_6_fu_446           |    0    |    0    |    0    |
+|          |           em_top_clusters_phi_7_fu_451           |    0    |    0    |    0    |
+|          |        em_top_clusters_window_size_fu_456        |    0    |    0    |    0    |
+|          |       em_top_clusters_window_size_1_fu_461       |    0    |    0    |    0    |
+|          |       em_top_clusters_window_size_2_fu_466       |    0    |    0    |    0    |
+|          |       em_top_clusters_window_size_3_fu_471       |    0    |    0    |    0    |
+|          |       em_top_clusters_window_size_4_fu_476       |    0    |    0    |    0    |
+|          |       em_top_clusters_window_size_5_fu_481       |    0    |    0    |    0    |
+|          |       em_top_clusters_window_size_6_fu_486       |    0    |    0    |    0    |
+|          |       em_top_clusters_window_size_7_fu_491       |    0    |    0    |    0    |
+|          |           em_top_clusters_valid_fu_496           |    0    |    0    |    0    |
+|          |          em_top_clusters_valid_1_fu_501          |    0    |    0    |    0    |
+|          |          em_top_clusters_valid_2_fu_506          |    0    |    0    |    0    |
+|          |          em_top_clusters_valid_3_fu_511          |    0    |    0    |    0    |
+|          |          em_top_clusters_valid_4_fu_516          |    0    |    0    |    0    |
+|          |          em_top_clusters_valid_5_fu_521          |    0    |    0    |    0    |
+|          |          em_top_clusters_valid_6_fu_526          |    0    |    0    |    0    |
+|extractvalue|          em_top_clusters_valid_7_fu_531          |    0    |    0    |    0    |
+|          |            jet_top_clusters_et_fu_536            |    0    |    0    |    0    |
+|          |           jet_top_clusters_et_1_fu_541           |    0    |    0    |    0    |
+|          |           jet_top_clusters_et_2_fu_546           |    0    |    0    |    0    |
+|          |           jet_top_clusters_et_3_fu_551           |    0    |    0    |    0    |
+|          |           jet_top_clusters_et_4_fu_556           |    0    |    0    |    0    |
+|          |           jet_top_clusters_et_5_fu_561           |    0    |    0    |    0    |
+|          |           jet_top_clusters_et_6_fu_566           |    0    |    0    |    0    |
+|          |           jet_top_clusters_et_7_fu_571           |    0    |    0    |    0    |
+|          |       jet_top_clusters_isolation_et_fu_576       |    0    |    0    |    0    |
+|          |      jet_top_clusters_isolation_et_1_fu_581      |    0    |    0    |    0    |
+|          |      jet_top_clusters_isolation_et_2_fu_586      |    0    |    0    |    0    |
+|          |      jet_top_clusters_isolation_et_3_fu_591      |    0    |    0    |    0    |
+|          |      jet_top_clusters_isolation_et_4_fu_596      |    0    |    0    |    0    |
+|          |      jet_top_clusters_isolation_et_5_fu_601      |    0    |    0    |    0    |
+|          |      jet_top_clusters_isolation_et_6_fu_606      |    0    |    0    |    0    |
+|          |      jet_top_clusters_isolation_et_7_fu_611      |    0    |    0    |    0    |
+|          |            jet_top_clusters_eta_fu_616           |    0    |    0    |    0    |
+|          |           jet_top_clusters_eta_1_fu_621          |    0    |    0    |    0    |
+|          |           jet_top_clusters_eta_2_fu_626          |    0    |    0    |    0    |
+|          |           jet_top_clusters_eta_3_fu_631          |    0    |    0    |    0    |
+|          |           jet_top_clusters_eta_4_fu_636          |    0    |    0    |    0    |
+|          |           jet_top_clusters_eta_5_fu_641          |    0    |    0    |    0    |
+|          |           jet_top_clusters_eta_6_fu_646          |    0    |    0    |    0    |
+|          |           jet_top_clusters_eta_7_fu_651          |    0    |    0    |    0    |
+|          |            jet_top_clusters_phi_fu_656           |    0    |    0    |    0    |
+|          |           jet_top_clusters_phi_1_fu_661          |    0    |    0    |    0    |
+|          |           jet_top_clusters_phi_2_fu_666          |    0    |    0    |    0    |
+|          |           jet_top_clusters_phi_3_fu_671          |    0    |    0    |    0    |
+|          |           jet_top_clusters_phi_4_fu_676          |    0    |    0    |    0    |
+|          |           jet_top_clusters_phi_5_fu_681          |    0    |    0    |    0    |
+|          |           jet_top_clusters_phi_6_fu_686          |    0    |    0    |    0    |
+|          |           jet_top_clusters_phi_7_fu_691          |    0    |    0    |    0    |
+|          |        jet_top_clusters_window_size_fu_696       |    0    |    0    |    0    |
+|          |       jet_top_clusters_window_size_1_fu_701      |    0    |    0    |    0    |
+|          |       jet_top_clusters_window_size_2_fu_706      |    0    |    0    |    0    |
+|          |       jet_top_clusters_window_size_3_fu_711      |    0    |    0    |    0    |
+|          |       jet_top_clusters_window_size_4_fu_716      |    0    |    0    |    0    |
+|          |       jet_top_clusters_window_size_5_fu_721      |    0    |    0    |    0    |
+|          |       jet_top_clusters_window_size_6_fu_726      |    0    |    0    |    0    |
+|          |       jet_top_clusters_window_size_7_fu_731      |    0    |    0    |    0    |
+|          |           jet_top_clusters_valid_fu_736          |    0    |    0    |    0    |
+|          |          jet_top_clusters_valid_1_fu_741         |    0    |    0    |    0    |
+|          |          jet_top_clusters_valid_2_fu_746         |    0    |    0    |    0    |
+|          |          jet_top_clusters_valid_3_fu_751         |    0    |    0    |    0    |
+|          |          jet_top_clusters_valid_4_fu_756         |    0    |    0    |    0    |
+|          |          jet_top_clusters_valid_5_fu_761         |    0    |    0    |    0    |
+|          |          jet_top_clusters_valid_6_fu_766         |    0    |    0    |    0    |
+|          |          jet_top_clusters_valid_7_fu_771         |    0    |    0    |    0    |
+|----------|--------------------------------------------------|---------|---------|---------|
+|   Total  |                                                  | 3.11657 |   4760  |  11029  |
+|----------|--------------------------------------------------|---------|---------|---------|
+
+Memories:
+N/A
+
+* Register list:
++----------------------------------+--------+
+|                                  |   FF   |
++----------------------------------+--------+
+|     em_cluster_stream_reg_786    |   61   |
+| em_cluster_threshold_read_reg_776|   20   |
+|  em_seed_threshold_read_reg_781  |   12   |
+|    jet_cluster_stream_reg_792    |   61   |
+|jet_cluster_threshold_read_reg_798|   20   |
+|  jet_seed_threshold_read_reg_803 |   12   |
++----------------------------------+--------+
+|               Total              |   186  |
++----------------------------------+--------+
+
+* Multiplexer (MUX) list: 
+|---------------------------------------|------|------|------|--------||---------||---------||---------|
+|                  Comp                 |  Pin | Size |  BW  | S x BW ||  Delay  ||    FF   ||   LUT   |
+|---------------------------------------|------|------|------|--------||---------||---------||---------|
+|  grp_produce_em_cluster_stream_fu_124 |  p2  |   2  |  12  |   24   ||    0    ||    9    |
+|  grp_produce_em_cluster_stream_fu_124 |  p3  |   2  |  20  |   40   ||    0    ||    9    |
+| grp_produce_jet_cluster_stream_fu_135 |  p2  |   2  |  12  |   24   ||    0    ||    9    |
+| grp_produce_jet_cluster_stream_fu_135 |  p3  |   2  |  20  |   40   ||    0    ||    9    |
+|---------------------------------------|------|------|------|--------||---------||---------||---------|
+|                 Total                 |      |      |      |   128  ||  1.548  ||    0    ||    36   |
+|---------------------------------------|------|------|------|--------||---------||---------||---------|
+
+
+
+* Summary:
++-----------+--------+--------+--------+
+|           |  Delay |   FF   |   LUT  |
++-----------+--------+--------+--------+
+|  Function |    3   |  4760  |  11029 |
+|   Memory  |    -   |    -   |    -   |
+|Multiplexer|    1   |    0   |   36   |
+|  Register |    -   |   186  |    -   |
++-----------+--------+--------+--------+
+|   Total   |    4   |  4946  |  11065 |
++-----------+--------+--------+--------+

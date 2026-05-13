@@ -1,0 +1,702 @@
+
+
+================================================================
+== Vitis HLS Report for 'cluster_sort_build_em_jet_stream'
+================================================================
+* Date:           Tue May 12 22:45:54 2026
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        calorimeter
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu13p-fsga2577-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  25.00 ns|  7.274 ns|     6.75 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-------+-------+----------+
+    |  Latency (cycles) |  Latency (absolute) |    Interval   | Pipeline |
+    |   min   |   max   |    min   |    max   |  min  |  max  |   Type   |
+    +---------+---------+----------+----------+-------+-------+----------+
+    |    70562|    70575|  1.764 ms|  1.764 ms|  70561|  70561|  dataflow|
+    +---------+---------+----------+----------+-------+-------+----------+
+
+    + Detail: 
+        * Instance: 
+        +------------------------------------------+---------------------------------------+---------+---------+-----------+----------+-------+-------+-----------------------------------------------+
+        |                                          |                                       |  Latency (cycles) |  Latency (absolute)  |    Interval   |                    Pipeline                   |
+        |                 Instance                 |                 Module                |   min   |   max   |    min    |    max   |  min  |  max  |                      Type                     |
+        +------------------------------------------+---------------------------------------+---------+---------+-----------+----------+-------+-------+-----------------------------------------------+
+        |produce_em_cluster_stream_U0              |produce_em_cluster_stream              |    70562|    70562|   1.764 ms|  1.764 ms|  70561|  70561|  loop auto-rewind stp(delay=0 clock cycles(s))|
+        |produce_jet_cluster_stream_U0             |produce_jet_cluster_stream             |    70562|    70562|   1.764 ms|  1.764 ms|  70561|  70561|  loop auto-rewind stp(delay=0 clock cycles(s))|
+        |select_top_n_from_stream_fixed_1440_U0    |select_top_n_from_stream_fixed_1440_s  |     2881|    17281|  72.025 us|  0.432 ms|   2881|  17281|                                             no|
+        |build_trigger_objects_U0                  |build_trigger_objects                  |        0|        0|       0 ns|      0 ns|      0|      0|                                             no|
+        |select_top_n_from_stream_fixed_1440_1_U0  |select_top_n_from_stream_fixed_1440_1  |     2881|    17281|  72.025 us|  0.432 ms|   2881|  17281|                                             no|
+        |build_trigger_objects_2_U0                |build_trigger_objects_2                |        0|        0|       0 ns|      0 ns|      0|      0|                                             no|
+        +------------------------------------------+---------------------------------------+---------+---------+-----------+----------+-------+-------+-----------------------------------------------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+------+
+|         Name        | BRAM_18K|  DSP  |    FF   |   LUT   | URAM |
++---------------------+---------+-------+---------+---------+------+
+|DSP                  |        -|      -|        -|        -|     -|
+|Expression           |        -|      -|        0|      408|     -|
+|FIFO                 |        0|      -|     3572|     2470|     -|
+|Instance             |        -|      -|     4694|    14539|     -|
+|Memory               |        -|      -|        -|        -|     -|
+|Multiplexer          |        -|      -|        0|      882|     -|
+|Register             |        -|      -|       98|        -|     -|
++---------------------+---------+-------+---------+---------+------+
+|Total                |        0|      0|     8364|    18299|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available SLR        |     1344|   3072|   864000|   432000|   320|
++---------------------+---------+-------+---------+---------+------+
+|Utilization SLR (%)  |        0|      0|       ~0|        4|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available            |     5376|  12288|  3456000|  1728000|  1280|
++---------------------+---------+-------+---------+---------+------+
+|Utilization (%)      |        0|      0|       ~0|        1|     0|
++---------------------+---------+-------+---------+---------+------+
+
++ Detail: 
+    * Instance: 
+    +------------------------------------------+---------------------------------------+---------+----+------+------+-----+
+    |                 Instance                 |                 Module                | BRAM_18K| DSP|  FF  |  LUT | URAM|
+    +------------------------------------------+---------------------------------------+---------+----+------+------+-----+
+    |build_trigger_objects_U0                  |build_trigger_objects                  |        0|   0|   474|   867|    0|
+    |build_trigger_objects_2_U0                |build_trigger_objects_2                |        0|   0|   474|   867|    0|
+    |produce_em_cluster_stream_U0              |produce_em_cluster_stream              |        0|   0|   745|  3554|    0|
+    |produce_jet_cluster_stream_U0             |produce_jet_cluster_stream             |        0|   0|   817|  3769|    0|
+    |select_top_n_from_stream_fixed_1440_1_U0  |select_top_n_from_stream_fixed_1440_1  |        0|   0|  1092|  2741|    0|
+    |select_top_n_from_stream_fixed_1440_U0    |select_top_n_from_stream_fixed_1440_s  |        0|   0|  1092|  2741|    0|
+    +------------------------------------------+---------------------------------------+---------+----+------+------+-----+
+    |Total                                     |                                       |        0|   0|  4694| 14539|    0|
+    +------------------------------------------+---------------------------------------+---------+----+------+------+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +-----------------------------------+---------+-----+----+-----+------+-----+---------+
+    |                Name               | BRAM_18K|  FF | LUT| URAM| Depth| Bits| Size:D*B|
+    +-----------------------------------+---------+-----+----+-----+------+-----+---------+
+    |em_cluster_stream_U                |        0|  218|   0|    -|    64|   61|     3904|
+    |em_top_clusters_et_1_U             |        0|   68|   0|    -|     2|   20|       40|
+    |em_top_clusters_et_2_U             |        0|   68|   0|    -|     2|   20|       40|
+    |em_top_clusters_et_3_U             |        0|   68|   0|    -|     2|   20|       40|
+    |em_top_clusters_et_4_U             |        0|   68|   0|    -|     2|   20|       40|
+    |em_top_clusters_et_5_U             |        0|   68|   0|    -|     2|   20|       40|
+    |em_top_clusters_et_6_U             |        0|   68|   0|    -|     2|   20|       40|
+    |em_top_clusters_et_7_U             |        0|   68|   0|    -|     2|   20|       40|
+    |em_top_clusters_et_U               |        0|   68|   0|    -|     2|   20|       40|
+    |em_top_clusters_eta_1_U            |        0|   20|   0|    -|     2|    6|       12|
+    |em_top_clusters_eta_2_U            |        0|   20|   0|    -|     2|    6|       12|
+    |em_top_clusters_eta_3_U            |        0|   20|   0|    -|     2|    6|       12|
+    |em_top_clusters_eta_4_U            |        0|   20|   0|    -|     2|    6|       12|
+    |em_top_clusters_eta_5_U            |        0|   20|   0|    -|     2|    6|       12|
+    |em_top_clusters_eta_6_U            |        0|   20|   0|    -|     2|    6|       12|
+    |em_top_clusters_eta_7_U            |        0|   20|   0|    -|     2|    6|       12|
+    |em_top_clusters_eta_U              |        0|   20|   0|    -|     2|    6|       12|
+    |em_top_clusters_isolation_et_1_U   |        0|   68|   0|    -|     2|   20|       40|
+    |em_top_clusters_isolation_et_2_U   |        0|   68|   0|    -|     2|   20|       40|
+    |em_top_clusters_isolation_et_3_U   |        0|   68|   0|    -|     2|   20|       40|
+    |em_top_clusters_isolation_et_4_U   |        0|   68|   0|    -|     2|   20|       40|
+    |em_top_clusters_isolation_et_5_U   |        0|   68|   0|    -|     2|   20|       40|
+    |em_top_clusters_isolation_et_6_U   |        0|   68|   0|    -|     2|   20|       40|
+    |em_top_clusters_isolation_et_7_U   |        0|   68|   0|    -|     2|   20|       40|
+    |em_top_clusters_isolation_et_U     |        0|   68|   0|    -|     2|   20|       40|
+    |em_top_clusters_phi_1_U            |        0|   20|   0|    -|     2|    6|       12|
+    |em_top_clusters_phi_2_U            |        0|   20|   0|    -|     2|    6|       12|
+    |em_top_clusters_phi_3_U            |        0|   20|   0|    -|     2|    6|       12|
+    |em_top_clusters_phi_4_U            |        0|   20|   0|    -|     2|    6|       12|
+    |em_top_clusters_phi_5_U            |        0|   20|   0|    -|     2|    6|       12|
+    |em_top_clusters_phi_6_U            |        0|   20|   0|    -|     2|    6|       12|
+    |em_top_clusters_phi_7_U            |        0|   20|   0|    -|     2|    6|       12|
+    |em_top_clusters_phi_U              |        0|   20|   0|    -|     2|    6|       12|
+    |em_top_clusters_valid_1_U          |        0|    8|   0|    -|     2|    1|        2|
+    |em_top_clusters_valid_2_U          |        0|    8|   0|    -|     2|    1|        2|
+    |em_top_clusters_valid_3_U          |        0|    8|   0|    -|     2|    1|        2|
+    |em_top_clusters_valid_4_U          |        0|    8|   0|    -|     2|    1|        2|
+    |em_top_clusters_valid_5_U          |        0|    8|   0|    -|     2|    1|        2|
+    |em_top_clusters_valid_6_U          |        0|    8|   0|    -|     2|    1|        2|
+    |em_top_clusters_valid_7_U          |        0|    8|   0|    -|     2|    1|        2|
+    |em_top_clusters_valid_U            |        0|    8|   0|    -|     2|    1|        2|
+    |em_top_clusters_window_size_1_U    |        0|   12|   0|    -|     2|    4|        8|
+    |em_top_clusters_window_size_2_U    |        0|   12|   0|    -|     2|    4|        8|
+    |em_top_clusters_window_size_3_U    |        0|   12|   0|    -|     2|    4|        8|
+    |em_top_clusters_window_size_4_U    |        0|   12|   0|    -|     2|    4|        8|
+    |em_top_clusters_window_size_5_U    |        0|   12|   0|    -|     2|    4|        8|
+    |em_top_clusters_window_size_6_U    |        0|   12|   0|    -|     2|    4|        8|
+    |em_top_clusters_window_size_7_U    |        0|   12|   0|    -|     2|    4|        8|
+    |em_top_clusters_window_size_U      |        0|   12|   0|    -|     2|    4|        8|
+    |jet_cluster_stream_U               |        0|  218|   0|    -|    64|   61|     3904|
+    |jet_top_clusters_et_1_U            |        0|   68|   0|    -|     2|   20|       40|
+    |jet_top_clusters_et_2_U            |        0|   68|   0|    -|     2|   20|       40|
+    |jet_top_clusters_et_3_U            |        0|   68|   0|    -|     2|   20|       40|
+    |jet_top_clusters_et_4_U            |        0|   68|   0|    -|     2|   20|       40|
+    |jet_top_clusters_et_5_U            |        0|   68|   0|    -|     2|   20|       40|
+    |jet_top_clusters_et_6_U            |        0|   68|   0|    -|     2|   20|       40|
+    |jet_top_clusters_et_7_U            |        0|   68|   0|    -|     2|   20|       40|
+    |jet_top_clusters_et_U              |        0|   68|   0|    -|     2|   20|       40|
+    |jet_top_clusters_eta_1_U           |        0|   20|   0|    -|     2|    6|       12|
+    |jet_top_clusters_eta_2_U           |        0|   20|   0|    -|     2|    6|       12|
+    |jet_top_clusters_eta_3_U           |        0|   20|   0|    -|     2|    6|       12|
+    |jet_top_clusters_eta_4_U           |        0|   20|   0|    -|     2|    6|       12|
+    |jet_top_clusters_eta_5_U           |        0|   20|   0|    -|     2|    6|       12|
+    |jet_top_clusters_eta_6_U           |        0|   20|   0|    -|     2|    6|       12|
+    |jet_top_clusters_eta_7_U           |        0|   20|   0|    -|     2|    6|       12|
+    |jet_top_clusters_eta_U             |        0|   20|   0|    -|     2|    6|       12|
+    |jet_top_clusters_isolation_et_1_U  |        0|   68|   0|    -|     2|   20|       40|
+    |jet_top_clusters_isolation_et_2_U  |        0|   68|   0|    -|     2|   20|       40|
+    |jet_top_clusters_isolation_et_3_U  |        0|   68|   0|    -|     2|   20|       40|
+    |jet_top_clusters_isolation_et_4_U  |        0|   68|   0|    -|     2|   20|       40|
+    |jet_top_clusters_isolation_et_5_U  |        0|   68|   0|    -|     2|   20|       40|
+    |jet_top_clusters_isolation_et_6_U  |        0|   68|   0|    -|     2|   20|       40|
+    |jet_top_clusters_isolation_et_7_U  |        0|   68|   0|    -|     2|   20|       40|
+    |jet_top_clusters_isolation_et_U    |        0|   68|   0|    -|     2|   20|       40|
+    |jet_top_clusters_phi_1_U           |        0|   20|   0|    -|     2|    6|       12|
+    |jet_top_clusters_phi_2_U           |        0|   20|   0|    -|     2|    6|       12|
+    |jet_top_clusters_phi_3_U           |        0|   20|   0|    -|     2|    6|       12|
+    |jet_top_clusters_phi_4_U           |        0|   20|   0|    -|     2|    6|       12|
+    |jet_top_clusters_phi_5_U           |        0|   20|   0|    -|     2|    6|       12|
+    |jet_top_clusters_phi_6_U           |        0|   20|   0|    -|     2|    6|       12|
+    |jet_top_clusters_phi_7_U           |        0|   20|   0|    -|     2|    6|       12|
+    |jet_top_clusters_phi_U             |        0|   20|   0|    -|     2|    6|       12|
+    |jet_top_clusters_valid_1_U         |        0|    8|   0|    -|     2|    1|        2|
+    |jet_top_clusters_valid_2_U         |        0|    8|   0|    -|     2|    1|        2|
+    |jet_top_clusters_valid_3_U         |        0|    8|   0|    -|     2|    1|        2|
+    |jet_top_clusters_valid_4_U         |        0|    8|   0|    -|     2|    1|        2|
+    |jet_top_clusters_valid_5_U         |        0|    8|   0|    -|     2|    1|        2|
+    |jet_top_clusters_valid_6_U         |        0|    8|   0|    -|     2|    1|        2|
+    |jet_top_clusters_valid_7_U         |        0|    8|   0|    -|     2|    1|        2|
+    |jet_top_clusters_valid_U           |        0|    8|   0|    -|     2|    1|        2|
+    |jet_top_clusters_window_size_1_U   |        0|   12|   0|    -|     2|    4|        8|
+    |jet_top_clusters_window_size_2_U   |        0|   12|   0|    -|     2|    4|        8|
+    |jet_top_clusters_window_size_3_U   |        0|   12|   0|    -|     2|    4|        8|
+    |jet_top_clusters_window_size_4_U   |        0|   12|   0|    -|     2|    4|        8|
+    |jet_top_clusters_window_size_5_U   |        0|   12|   0|    -|     2|    4|        8|
+    |jet_top_clusters_window_size_6_U   |        0|   12|   0|    -|     2|    4|        8|
+    |jet_top_clusters_window_size_7_U   |        0|   12|   0|    -|     2|    4|        8|
+    |jet_top_clusters_window_size_U     |        0|   12|   0|    -|     2|    4|        8|
+    +-----------------------------------+---------+-----+----+-----+------+-----+---------+
+    |Total                              |        0| 3572|   0|    0|   320| 1034|     9632|
+    +-----------------------------------+---------+-----+----+-----+------+-----+---------+
+
+    * Expression: 
+    +-------------------------------------------------------+----------+----+---+----+------------+------------+
+    |                     Variable Name                     | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-------------------------------------------------------+----------+----+---+----+------------+------------+
+    |ap_channel_done_em_top_clusters_et                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_et_1                   |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_et_2                   |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_et_3                   |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_et_4                   |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_et_5                   |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_et_6                   |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_et_7                   |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_eta                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_eta_1                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_eta_2                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_eta_3                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_eta_4                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_eta_5                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_eta_6                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_eta_7                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_isolation_et           |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_isolation_et_1         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_isolation_et_2         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_isolation_et_3         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_isolation_et_4         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_isolation_et_5         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_isolation_et_6         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_isolation_et_7         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_phi                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_phi_1                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_phi_2                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_phi_3                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_phi_4                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_phi_5                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_phi_6                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_phi_7                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_valid                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_valid_1                |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_valid_2                |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_valid_3                |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_valid_4                |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_valid_5                |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_valid_6                |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_valid_7                |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_window_size            |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_window_size_1          |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_window_size_2          |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_window_size_3          |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_window_size_4          |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_window_size_5          |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_window_size_6          |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_em_top_clusters_window_size_7          |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_et                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_et_1                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_et_2                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_et_3                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_et_4                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_et_5                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_et_6                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_et_7                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_eta                   |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_eta_1                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_eta_2                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_eta_3                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_eta_4                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_eta_5                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_eta_6                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_eta_7                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_isolation_et          |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_isolation_et_1        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_isolation_et_2        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_isolation_et_3        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_isolation_et_4        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_isolation_et_5        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_isolation_et_6        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_isolation_et_7        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_phi                   |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_phi_1                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_phi_2                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_phi_3                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_phi_4                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_phi_5                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_phi_6                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_phi_7                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_valid                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_valid_1               |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_valid_2               |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_valid_3               |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_valid_4               |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_valid_5               |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_valid_6               |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_valid_7               |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_window_size           |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_window_size_1         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_window_size_2         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_window_size_3         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_window_size_4         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_window_size_5         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_window_size_6         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_jet_top_clusters_window_size_7         |       and|   0|  0|   2|           1|           1|
+    |ap_idle                                                |       and|   0|  0|   2|           1|           1|
+    |ap_sync_continue                                       |       and|   0|  0|   2|           1|           1|
+    |ap_sync_done                                           |       and|   0|  0|   2|           1|           1|
+    |ap_sync_ready                                          |       and|   0|  0|   2|           1|           1|
+    |build_trigger_objects_2_U0_ap_start                    |       and|   0|  0|   2|           1|           1|
+    |build_trigger_objects_U0_ap_start                      |       and|   0|  0|   2|           1|           1|
+    |produce_em_cluster_stream_U0_ap_start                  |       and|   0|  0|   2|           1|           1|
+    |produce_jet_cluster_stream_U0_ap_start                 |       and|   0|  0|   2|           1|           1|
+    |select_top_n_from_stream_fixed_1440_1_U0_ap_continue   |       and|   0|  0|   2|           1|           1|
+    |select_top_n_from_stream_fixed_1440_U0_ap_continue     |       and|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_et               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_et_1             |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_et_2             |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_et_3             |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_et_4             |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_et_5             |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_et_6             |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_et_7             |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_eta              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_eta_1            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_eta_2            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_eta_3            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_eta_4            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_eta_5            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_eta_6            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_eta_7            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_isolation_et     |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_isolation_et_1   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_isolation_et_2   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_isolation_et_3   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_isolation_et_4   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_isolation_et_5   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_isolation_et_6   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_isolation_et_7   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_phi              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_phi_1            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_phi_2            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_phi_3            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_phi_4            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_phi_5            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_phi_6            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_phi_7            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_valid            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_valid_1          |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_valid_2          |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_valid_3          |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_valid_4          |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_valid_5          |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_valid_6          |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_valid_7          |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_window_size      |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_window_size_1    |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_window_size_2    |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_window_size_3    |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_window_size_4    |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_window_size_5    |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_window_size_6    |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_em_top_clusters_window_size_7    |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_et              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_et_1            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_et_2            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_et_3            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_et_4            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_et_5            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_et_6            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_et_7            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_eta             |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_eta_1           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_eta_2           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_eta_3           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_eta_4           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_eta_5           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_eta_6           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_eta_7           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_isolation_et    |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_isolation_et_1  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_isolation_et_2  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_isolation_et_3  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_isolation_et_4  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_isolation_et_5  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_isolation_et_6  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_isolation_et_7  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_phi             |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_phi_1           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_phi_2           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_phi_3           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_phi_4           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_phi_5           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_phi_6           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_phi_7           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_valid           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_valid_1         |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_valid_2         |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_valid_3         |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_valid_4         |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_valid_5         |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_valid_6         |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_valid_7         |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_window_size     |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_window_size_1   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_window_size_2   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_window_size_3   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_window_size_4   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_window_size_5   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_window_size_6   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_jet_top_clusters_window_size_7   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_produce_em_cluster_stream_U0_ap_ready          |        or|   0|  0|   2|           1|           1|
+    |ap_sync_produce_jet_cluster_stream_U0_ap_ready         |        or|   0|  0|   2|           1|           1|
+    +-------------------------------------------------------+----------+----+---+----+------------+------------+
+    |Total                                                  |          |   0|  0| 408|         204|         204|
+    +-------------------------------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------------------------------------------+----+-----------+-----+-----------+
+    |                            Name                           | LUT| Input Size| Bits| Total Bits|
+    +-----------------------------------------------------------+----+-----------+-----+-----------+
+    |ap_sync_reg_channel_write_em_top_clusters_et               |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_et_1             |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_et_2             |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_et_3             |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_et_4             |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_et_5             |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_et_6             |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_et_7             |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_eta              |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_eta_1            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_eta_2            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_eta_3            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_eta_4            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_eta_5            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_eta_6            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_eta_7            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_isolation_et     |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_isolation_et_1   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_isolation_et_2   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_isolation_et_3   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_isolation_et_4   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_isolation_et_5   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_isolation_et_6   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_isolation_et_7   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_phi              |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_phi_1            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_phi_2            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_phi_3            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_phi_4            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_phi_5            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_phi_6            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_phi_7            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_valid            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_valid_1          |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_valid_2          |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_valid_3          |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_valid_4          |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_valid_5          |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_valid_6          |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_valid_7          |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_window_size      |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_window_size_1    |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_window_size_2    |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_window_size_3    |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_window_size_4    |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_window_size_5    |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_window_size_6    |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_em_top_clusters_window_size_7    |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_et              |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_et_1            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_et_2            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_et_3            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_et_4            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_et_5            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_et_6            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_et_7            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_eta             |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_eta_1           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_eta_2           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_eta_3           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_eta_4           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_eta_5           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_eta_6           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_eta_7           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_isolation_et    |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_isolation_et_1  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_isolation_et_2  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_isolation_et_3  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_isolation_et_4  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_isolation_et_5  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_isolation_et_6  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_isolation_et_7  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_phi             |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_phi_1           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_phi_2           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_phi_3           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_phi_4           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_phi_5           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_phi_6           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_phi_7           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_valid           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_valid_1         |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_valid_2         |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_valid_3         |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_valid_4         |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_valid_5         |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_valid_6         |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_valid_7         |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_window_size     |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_window_size_1   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_window_size_2   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_window_size_3   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_window_size_4   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_window_size_5   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_window_size_6   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_jet_top_clusters_window_size_7   |   9|          2|    1|          2|
+    |ap_sync_reg_produce_em_cluster_stream_U0_ap_ready          |   9|          2|    1|          2|
+    |ap_sync_reg_produce_jet_cluster_stream_U0_ap_ready         |   9|          2|    1|          2|
+    +-----------------------------------------------------------+----+-----------+-----+-----------+
+    |Total                                                      | 882|        196|   98|        196|
+    +-----------------------------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------------------------------------+---+----+-----+-----------+
+    |                            Name                           | FF| LUT| Bits| Const Bits|
+    +-----------------------------------------------------------+---+----+-----+-----------+
+    |ap_sync_reg_channel_write_em_top_clusters_et               |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_et_1             |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_et_2             |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_et_3             |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_et_4             |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_et_5             |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_et_6             |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_et_7             |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_eta              |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_eta_1            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_eta_2            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_eta_3            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_eta_4            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_eta_5            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_eta_6            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_eta_7            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_isolation_et     |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_isolation_et_1   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_isolation_et_2   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_isolation_et_3   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_isolation_et_4   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_isolation_et_5   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_isolation_et_6   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_isolation_et_7   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_phi              |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_phi_1            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_phi_2            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_phi_3            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_phi_4            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_phi_5            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_phi_6            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_phi_7            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_valid            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_valid_1          |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_valid_2          |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_valid_3          |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_valid_4          |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_valid_5          |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_valid_6          |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_valid_7          |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_window_size      |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_window_size_1    |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_window_size_2    |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_window_size_3    |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_window_size_4    |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_window_size_5    |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_window_size_6    |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_em_top_clusters_window_size_7    |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_et              |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_et_1            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_et_2            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_et_3            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_et_4            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_et_5            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_et_6            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_et_7            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_eta             |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_eta_1           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_eta_2           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_eta_3           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_eta_4           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_eta_5           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_eta_6           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_eta_7           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_isolation_et    |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_isolation_et_1  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_isolation_et_2  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_isolation_et_3  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_isolation_et_4  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_isolation_et_5  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_isolation_et_6  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_isolation_et_7  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_phi             |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_phi_1           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_phi_2           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_phi_3           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_phi_4           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_phi_5           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_phi_6           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_phi_7           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_valid           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_valid_1         |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_valid_2         |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_valid_3         |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_valid_4         |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_valid_5         |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_valid_6         |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_valid_7         |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_window_size     |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_window_size_1   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_window_size_2   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_window_size_3   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_window_size_4   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_window_size_5   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_window_size_6   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_jet_top_clusters_window_size_7   |  1|   0|    1|          0|
+    |ap_sync_reg_produce_em_cluster_stream_U0_ap_ready          |  1|   0|    1|          0|
+    |ap_sync_reg_produce_jet_cluster_stream_U0_ap_ready         |  1|   0|    1|          0|
+    +-----------------------------------------------------------+---+----+-----+-----------+
+    |Total                                                      | 98|   0|   98|          0|
+    +-----------------------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------------+-----+-----+------------+----------------------------------+--------------+
+|           RTL Ports          | Dir | Bits|  Protocol  |           Source Object          |    C Type    |
++------------------------------+-----+-----+------------+----------------------------------+--------------+
+|towers_Addr_A                 |  out|   32|        bram|                            towers|         array|
+|towers_EN_A                   |  out|    1|        bram|                            towers|         array|
+|towers_Din_A                  |  out|   16|        bram|                            towers|         array|
+|towers_Dout_A                 |   in|   16|        bram|                            towers|         array|
+|towers_WEN_A                  |  out|    2|        bram|                            towers|         array|
+|towers_Addr_B                 |  out|   32|        bram|                            towers|         array|
+|towers_EN_B                   |  out|    1|        bram|                            towers|         array|
+|towers_Din_B                  |  out|   16|        bram|                            towers|         array|
+|towers_Dout_B                 |   in|   16|        bram|                            towers|         array|
+|towers_WEN_B                  |  out|    2|        bram|                            towers|         array|
+|em_seed_threshold             |   in|   12|     ap_none|                 em_seed_threshold|        scalar|
+|em_seed_threshold_ap_vld      |   in|    1|     ap_none|                 em_seed_threshold|        scalar|
+|em_cluster_threshold          |   in|   20|     ap_none|              em_cluster_threshold|        scalar|
+|em_cluster_threshold_ap_vld   |   in|    1|     ap_none|              em_cluster_threshold|        scalar|
+|jet_seed_threshold            |   in|   12|     ap_none|                jet_seed_threshold|        scalar|
+|jet_seed_threshold_ap_vld     |   in|    1|     ap_none|                jet_seed_threshold|        scalar|
+|jet_cluster_threshold         |   in|   20|     ap_none|             jet_cluster_threshold|        scalar|
+|jet_cluster_threshold_ap_vld  |   in|    1|     ap_none|             jet_cluster_threshold|        scalar|
+|em_objects_0                  |  out|   89|      ap_vld|                      em_objects_0|       pointer|
+|em_objects_0_ap_vld           |  out|    1|      ap_vld|                      em_objects_0|       pointer|
+|em_objects_1                  |  out|   89|      ap_vld|                      em_objects_1|       pointer|
+|em_objects_1_ap_vld           |  out|    1|      ap_vld|                      em_objects_1|       pointer|
+|em_objects_2                  |  out|   89|      ap_vld|                      em_objects_2|       pointer|
+|em_objects_2_ap_vld           |  out|    1|      ap_vld|                      em_objects_2|       pointer|
+|em_objects_3                  |  out|   89|      ap_vld|                      em_objects_3|       pointer|
+|em_objects_3_ap_vld           |  out|    1|      ap_vld|                      em_objects_3|       pointer|
+|em_objects_4                  |  out|   89|      ap_vld|                      em_objects_4|       pointer|
+|em_objects_4_ap_vld           |  out|    1|      ap_vld|                      em_objects_4|       pointer|
+|em_objects_5                  |  out|   89|      ap_vld|                      em_objects_5|       pointer|
+|em_objects_5_ap_vld           |  out|    1|      ap_vld|                      em_objects_5|       pointer|
+|em_objects_6                  |  out|   89|      ap_vld|                      em_objects_6|       pointer|
+|em_objects_6_ap_vld           |  out|    1|      ap_vld|                      em_objects_6|       pointer|
+|em_objects_7                  |  out|   89|      ap_vld|                      em_objects_7|       pointer|
+|em_objects_7_ap_vld           |  out|    1|      ap_vld|                      em_objects_7|       pointer|
+|jet_objects_0                 |  out|   89|      ap_vld|                     jet_objects_0|       pointer|
+|jet_objects_0_ap_vld          |  out|    1|      ap_vld|                     jet_objects_0|       pointer|
+|jet_objects_1                 |  out|   89|      ap_vld|                     jet_objects_1|       pointer|
+|jet_objects_1_ap_vld          |  out|    1|      ap_vld|                     jet_objects_1|       pointer|
+|jet_objects_2                 |  out|   89|      ap_vld|                     jet_objects_2|       pointer|
+|jet_objects_2_ap_vld          |  out|    1|      ap_vld|                     jet_objects_2|       pointer|
+|jet_objects_3                 |  out|   89|      ap_vld|                     jet_objects_3|       pointer|
+|jet_objects_3_ap_vld          |  out|    1|      ap_vld|                     jet_objects_3|       pointer|
+|jet_objects_4                 |  out|   89|      ap_vld|                     jet_objects_4|       pointer|
+|jet_objects_4_ap_vld          |  out|    1|      ap_vld|                     jet_objects_4|       pointer|
+|jet_objects_5                 |  out|   89|      ap_vld|                     jet_objects_5|       pointer|
+|jet_objects_5_ap_vld          |  out|    1|      ap_vld|                     jet_objects_5|       pointer|
+|jet_objects_6                 |  out|   89|      ap_vld|                     jet_objects_6|       pointer|
+|jet_objects_6_ap_vld          |  out|    1|      ap_vld|                     jet_objects_6|       pointer|
+|jet_objects_7                 |  out|   89|      ap_vld|                     jet_objects_7|       pointer|
+|jet_objects_7_ap_vld          |  out|    1|      ap_vld|                     jet_objects_7|       pointer|
+|num_em_clusters               |  out|   32|      ap_vld|                   num_em_clusters|       pointer|
+|num_em_clusters_ap_vld        |  out|    1|      ap_vld|                   num_em_clusters|       pointer|
+|num_jet_clusters              |  out|   32|      ap_vld|                  num_jet_clusters|       pointer|
+|num_jet_clusters_ap_vld       |  out|    1|      ap_vld|                  num_jet_clusters|       pointer|
+|ap_clk                        |   in|    1|  ap_ctrl_hs|  cluster_sort_build_em_jet_stream|  return value|
+|ap_rst                        |   in|    1|  ap_ctrl_hs|  cluster_sort_build_em_jet_stream|  return value|
+|ap_start                      |   in|    1|  ap_ctrl_hs|  cluster_sort_build_em_jet_stream|  return value|
+|ap_done                       |  out|    1|  ap_ctrl_hs|  cluster_sort_build_em_jet_stream|  return value|
+|ap_ready                      |  out|    1|  ap_ctrl_hs|  cluster_sort_build_em_jet_stream|  return value|
+|ap_idle                       |  out|    1|  ap_ctrl_hs|  cluster_sort_build_em_jet_stream|  return value|
+|ap_continue                   |   in|    1|  ap_ctrl_hs|  cluster_sort_build_em_jet_stream|  return value|
++------------------------------+-----+-----+------------+----------------------------------+--------------+
+

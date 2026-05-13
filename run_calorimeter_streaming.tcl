@@ -1,9 +1,9 @@
 set PROJECT_NAME "calorimeter"
 set SOLUTION_NAME "solution1"
-set TOP_FUNCTION "calo_trigger_stream_ref"
+set TOP_FUNCTION "calo_trigger_em_jet_stream_ref"
 
 set SRC_FILE "calorimeter.cpp"
-set TB_FILE  "tb_calorimeter.cpp"
+set TB_FILE  "tb_calorimeter_stream.cpp"
 
 set FPGA_PART "xcvu13p-fsga2577-2-e"
 set CLOCK_PERIOD 25

@@ -1,0 +1,110 @@
+{
+  "0": {
+    "basicblocks": 5,
+    "calls": "1",
+    "file": "calorimeter.cpp",
+    "fileloc": 272,
+    "instructions": 41,
+    "loads": {
+      "T": 1
+    },
+    "name": "calo_trigger_em_jet_stream_ref",
+    "stores": {
+      "T": 1
+    },
+    "total_instructions": 4832
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "5 4 2 6 7 3",
+    "file": "calorimeter.cpp",
+    "fileloc": 442,
+    "instructions": 125,
+    "name": "cluster_sort_build_em_jet_stream",
+    "total_instructions": 4790
+  },
+  "2": {
+    "basicblocks": 64,
+    "calls": "",
+    "file": "calorimeter.h",
+    "fileloc": 450,
+    "instructions": 1035,
+    "loads": {
+      "L": 56
+    },
+    "name": "select_top_n_from_stream_fixed<1440>",
+    "stores": {
+      "L": 113
+    },
+    "total_instructions": 1074
+  },
+  "3": {
+    "basicblocks": 41,
+    "calls": "",
+    "file": "calorimeter.cpp",
+    "fileloc": 170,
+    "instructions": 447,
+    "loads": {
+      "L": 48
+    },
+    "name": "build_trigger_objects",
+    "stores": {
+      "L": 40
+    },
+    "total_instructions": 516
+  },
+  "4": {
+    "basicblocks": 9,
+    "calls": "",
+    "file": "calorimeter.cpp",
+    "fileloc": 368,
+    "instructions": 668,
+    "loads": {
+      "L": 52
+    },
+    "name": "produce_jet_cluster_stream",
+    "total_instructions": 765
+  },
+  "5": {
+    "basicblocks": 11,
+    "calls": "",
+    "file": "calorimeter.cpp",
+    "fileloc": 321,
+    "instructions": 624,
+    "loads": {
+      "L": 51
+    },
+    "name": "produce_em_cluster_stream",
+    "total_instructions": 720
+  },
+  "6": {
+    "basicblocks": 64,
+    "calls": "",
+    "file": "calorimeter.h",
+    "fileloc": 450,
+    "instructions": 1035,
+    "loads": {
+      "L": 56
+    },
+    "name": "select_top_n_from_stream_fixed<1440>",
+    "stores": {
+      "L": 113
+    },
+    "total_instructions": 1074
+  },
+  "7": {
+    "basicblocks": 41,
+    "calls": "",
+    "file": "calorimeter.cpp",
+    "fileloc": 170,
+    "instructions": 447,
+    "loads": {
+      "L": 48
+    },
+    "name": "build_trigger_objects",
+    "stores": {
+      "L": 40
+    },
+    "total_instructions": 516
+  }
+}

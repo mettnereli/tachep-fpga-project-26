@@ -1,0 +1,139 @@
+---
+MainSourceFile:  /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp
+Diagnostics:     
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1223_1:  '
+    FileOffset:      1223
+    FilePath:        /opt/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot/etc/ap_int_base.h
+    Replacements:    
+      - FilePath:        /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp
+        Offset:          55194
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1223_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_676_1:  '
+    FileOffset:      676
+    FilePath:        /opt/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot/etc/ap_int_ref.h
+    Replacements:    
+      - FilePath:        /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp
+        Offset:          282588
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_676_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_690_1:  '
+    FileOffset:      690
+    FilePath:        /opt/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot/etc/ap_int_ref.h
+    Replacements:    
+      - FilePath:        /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp
+        Offset:          283052
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_690_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_704_1:  '
+    FileOffset:      704
+    FilePath:        /opt/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot/etc/ap_int_ref.h
+    Replacements:    
+      - FilePath:        /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp
+        Offset:          283517
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_704_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1247_1:  '
+    FileOffset:      1247
+    FilePath:        /opt/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot/etc/ap_fixed_base.h
+    Replacements:    
+      - FilePath:        /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp
+        Offset:          566872
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1247_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_347_1:  '
+    FileOffset:      347
+    FilePath:        /scratch/emettner/tachep-fpga-project-26/calorimeter.h
+    Replacements:    
+      - FilePath:        /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp
+        Offset:          946432
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_347_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_348_2:  '
+    FileOffset:      348
+    FilePath:        /scratch/emettner/tachep-fpga-project-26/calorimeter.h
+    Replacements:    
+      - FilePath:        /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp
+        Offset:          946491
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_348_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_456_1:  '
+    FileOffset:      456
+    FilePath:        /scratch/emettner/tachep-fpga-project-26/calorimeter.h
+    Replacements:    
+      - FilePath:        /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp
+        Offset:          950716
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_456_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_467_2:  '
+    FileOffset:      467
+    FilePath:        /scratch/emettner/tachep-fpga-project-26/calorimeter.h
+    Replacements:    
+      - FilePath:        /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp
+        Offset:          951033
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_467_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_113_1:  '
+    FileOffset:      113
+    FilePath:        calorimeter.cpp
+    Replacements:    
+      - FilePath:        /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp
+        Offset:          954993
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_113_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_174_1:  '
+    FileOffset:      174
+    FilePath:        calorimeter.cpp
+    Replacements:    
+      - FilePath:        /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp
+        Offset:          956507
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_174_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_328_1:  '
+    FileOffset:      328
+    FilePath:        calorimeter.cpp
+    Replacements:    
+      - FilePath:        /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp
+        Offset:          962442
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_328_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_329_2:  '
+    FileOffset:      329
+    FilePath:        calorimeter.cpp
+    Replacements:    
+      - FilePath:        /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp
+        Offset:          962491
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_329_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_375_1:  '
+    FileOffset:      375
+    FilePath:        calorimeter.cpp
+    Replacements:    
+      - FilePath:        /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp
+        Offset:          963973
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_375_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_376_2:  '
+    FileOffset:      376
+    FilePath:        calorimeter.cpp
+    Replacements:    
+      - FilePath:        /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/.autopilot/db/calorimeter.pp.0.cpp
+        Offset:          964022
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_376_2: '
+...

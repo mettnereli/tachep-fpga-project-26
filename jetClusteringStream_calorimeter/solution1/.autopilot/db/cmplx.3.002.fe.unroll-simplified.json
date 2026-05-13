@@ -1,0 +1,95 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "2 3",
+    "file": "calorimeter.cpp",
+    "fileloc": 272,
+    "instructions": 19,
+    "loads": {
+      "L": 1
+    },
+    "name": "calo_trigger_em_jet_stream_ref",
+    "stores": {
+      "T": 1
+    },
+    "total_instructions": 3931
+  },
+  "1": {
+    "basicblocks": 58,
+    "calls": "",
+    "file": "calorimeter.h",
+    "fileloc": 450,
+    "instructions": 301,
+    "loads": {
+      "L": 39
+    },
+    "name": "select_top_n_from_stream_fixed<1440>",
+    "stores": {
+      "L": 71
+    },
+    "total_instructions": 301
+  },
+  "2": {
+    "basicblocks": 5,
+    "calls": "",
+    "file": "calorimeter.cpp",
+    "fileloc": 158,
+    "instructions": 24,
+    "loads": {
+      "L": 1
+    },
+    "name": "compute_ht",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 24
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "6 4 1 1 5 5",
+    "file": "calorimeter.cpp",
+    "fileloc": 442,
+    "instructions": 103,
+    "name": "cluster_sort_build_em_jet_stream",
+    "total_instructions": 3888
+  },
+  "4": {
+    "basicblocks": 260,
+    "calls": "",
+    "file": "calorimeter.cpp",
+    "fileloc": 368,
+    "instructions": 1259,
+    "loads": {
+      "L": 75
+    },
+    "name": "produce_jet_cluster_stream",
+    "total_instructions": 1259
+  },
+  "5": {
+    "basicblocks": 41,
+    "calls": "",
+    "file": "calorimeter.cpp",
+    "fileloc": 170,
+    "instructions": 315,
+    "loads": {
+      "L": 48
+    },
+    "name": "build_trigger_objects",
+    "stores": {
+      "L": 120
+    },
+    "total_instructions": 315
+  },
+  "6": {
+    "basicblocks": 288,
+    "calls": "",
+    "file": "calorimeter.cpp",
+    "fileloc": 321,
+    "instructions": 1294,
+    "loads": {
+      "L": 77
+    },
+    "name": "produce_em_cluster_stream",
+    "total_instructions": 1294
+  }
+}

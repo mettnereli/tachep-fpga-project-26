@@ -1,0 +1,116 @@
+{
+  "0": {
+    "basicblocks": 7,
+    "calls": "6",
+    "file": "calorimeter.cpp",
+    "fileloc": 272,
+    "instructions": 90,
+    "loads": {
+      "T": 1
+    },
+    "name": "calo_trigger_em_jet_stream_ref",
+    "stores": {
+      "T": 1
+    },
+    "total_instructions": 3808
+  },
+  "1": {
+    "basicblocks": 64,
+    "calls": "",
+    "file": "calorimeter.h",
+    "fileloc": 450,
+    "instructions": 870,
+    "loads": {
+      "L": 1
+    },
+    "name": "select_top_n_from_stream_fixed<1440>",
+    "stores": {
+      "L": 113
+    },
+    "total_instructions": 870
+  },
+  "2": {
+    "basicblocks": 41,
+    "calls": "",
+    "file": "calorimeter.cpp",
+    "fileloc": 170,
+    "instructions": 281,
+    "loads": {
+      "L": 48
+    },
+    "name": "build_trigger_objects",
+    "stores": {
+      "L": 40
+    },
+    "total_instructions": 281
+  },
+  "3": {
+    "basicblocks": 13,
+    "calls": "",
+    "file": "calorimeter.cpp",
+    "fileloc": 321,
+    "instructions": 623,
+    "loads": {
+      "L": 51
+    },
+    "name": "produce_em_cluster_stream",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 623
+  },
+  "4": {
+    "basicblocks": 11,
+    "calls": "",
+    "file": "calorimeter.cpp",
+    "fileloc": 368,
+    "instructions": 666,
+    "loads": {
+      "L": 52
+    },
+    "name": "produce_jet_cluster_stream",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 666
+  },
+  "5": {
+    "basicblocks": 41,
+    "calls": "",
+    "file": "calorimeter.cpp",
+    "fileloc": 170,
+    "instructions": 281,
+    "loads": {
+      "L": 48
+    },
+    "name": "build_trigger_objects",
+    "stores": {
+      "L": 40
+    },
+    "total_instructions": 281
+  },
+  "6": {
+    "basicblocks": 1,
+    "calls": "3 4 1 7 2 5",
+    "file": "calorimeter.cpp",
+    "fileloc": 442,
+    "instructions": 127,
+    "name": "cluster_sort_build_em_jet_stream",
+    "total_instructions": 3718
+  },
+  "7": {
+    "basicblocks": 64,
+    "calls": "",
+    "file": "calorimeter.h",
+    "fileloc": 450,
+    "instructions": 870,
+    "loads": {
+      "L": 1
+    },
+    "name": "select_top_n_from_stream_fixed<1440>",
+    "stores": {
+      "L": 113
+    },
+    "total_instructions": 870
+  }
+}

@@ -1,0 +1,414 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./calorimeter.h:159:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="wrap_phi" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./calorimeter.h:172:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="window_sum" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./calorimeter.h:177:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="window_sum" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./calorimeter.h:179:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="window_sum" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./calorimeter.h:198:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="is_local_maximum" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./calorimeter.h:204:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="is_local_maximum" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./calorimeter.h:206:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="is_local_maximum" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./calorimeter.h:238:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="isolation_sum" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./calorimeter.h:243:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="is_em_like" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./calorimeter.h:269:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="is_jet_like" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./calorimeter.h:301:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="find_clusters" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./calorimeter.h:349:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="find_clusters_stream" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./calorimeter.h:453:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="select_top_n_from_stream_fixed" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=top_clusters complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./calorimeter.h:457:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="select_top_n_from_stream_fixed" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./calorimeter.h:468:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="select_top_n_from_stream_fixed" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:70:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cluster_is_better" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:104:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="insert_cluster_into_top_n" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:130:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="select_top_n" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=top_clusters complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:133:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="select_top_n" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:144:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="select_top_n" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:162:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute_ht" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:172:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="build_trigger_objects" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=trigger_objects complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:173:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="build_trigger_objects" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=top_clusters complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:175:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="build_trigger_objects" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:214:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="bram port=grid" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:216:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=seed_threshold bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:217:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=cluster_threshold bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:218:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=ht bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:219:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=num_clusters bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:220:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=return bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:222:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=objects complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:226:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=top_clusters complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:254:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_stream_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="bram port=towers" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:256:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_stream_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=seed_threshold bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:257:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_stream_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=cluster_threshold bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:258:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_stream_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=ht bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:259:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_stream_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=num_clusters bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:260:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_stream_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=return bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:262:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_stream_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=trigger_objects complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/emettner/tachep-fpga-project-26/run_calorimeter_streaming.tcl:33:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="calo_trigger_em_jet_stream_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=calo_trigger_em_jet_stream_ref" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:282:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_em_jet_stream_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="bram port=towers" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:284:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_em_jet_stream_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=em_seed_threshold bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:285:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_em_jet_stream_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=em_cluster_threshold bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:286:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_em_jet_stream_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=jet_seed_threshold bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:287:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_em_jet_stream_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=jet_cluster_threshold bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:288:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_em_jet_stream_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=ht bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:289:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_em_jet_stream_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=num_em_clusters bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:290:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_em_jet_stream_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=num_jet_clusters bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:291:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_em_jet_stream_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=return bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:293:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_em_jet_stream_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=em_objects complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:294:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calo_trigger_em_jet_stream_ref" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=jet_objects complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:330:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="produce_em_cluster_stream" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:377:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="produce_jet_cluster_stream" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:425:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cluster_sort_build_stream" ARG_PragmaIsValid="1" ARG_PragmaType="dataflow" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:429:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cluster_sort_build_stream" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=cluster_stream depth=64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:432:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cluster_sort_build_stream" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=top_clusters complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:451:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cluster_sort_build_em_jet_stream" ARG_PragmaIsValid="1" ARG_PragmaType="dataflow" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:456:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cluster_sort_build_em_jet_stream" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=em_cluster_stream depth=64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:457:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cluster_sort_build_em_jet_stream" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=jet_cluster_stream depth=64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:462:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cluster_sort_build_em_jet_stream" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=em_top_clusters complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="calorimeter.cpp:463:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cluster_sort_build_em_jet_stream" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=jet_top_clusters complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="./calorimeter.h:213:31" msg_body="Inlining function 'wrap_phi(int)' into 'bool is_local_maximum&lt;3&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)'">
+        <args Callee="wrap_phi(int)" Callee-DebugLoc="File ./calorimeter.h Line 158 Column 0" Caller="bool is_local_maximum&lt;3&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Caller-DebugLoc="File ./calorimeter.h Line 197 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="./calorimeter.h:184:27" msg_body="Inlining function 'wrap_phi(int)' into 'ap_uint&lt;20&gt; window_sum&lt;3&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)'">
+        <args Callee="wrap_phi(int)" Callee-DebugLoc="File ./calorimeter.h Line 158 Column 0" Caller="ap_uint&lt;20&gt; window_sum&lt;3&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Caller-DebugLoc="File ./calorimeter.h Line 171 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="./calorimeter.h:184:27" msg_body="Inlining function 'wrap_phi(int)' into 'ap_uint&lt;20&gt; window_sum&lt;5&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)'">
+        <args Callee="wrap_phi(int)" Callee-DebugLoc="File ./calorimeter.h Line 158 Column 0" Caller="ap_uint&lt;20&gt; window_sum&lt;5&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Caller-DebugLoc="File ./calorimeter.h Line 171 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="./calorimeter.h:184:27" msg_body="Inlining function 'wrap_phi(int)' into 'ap_uint&lt;20&gt; window_sum&lt;7&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)'">
+        <args Callee="wrap_phi(int)" Callee-DebugLoc="File ./calorimeter.h Line 158 Column 0" Caller="ap_uint&lt;20&gt; window_sum&lt;7&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Caller-DebugLoc="File ./calorimeter.h Line 171 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="calorimeter.cpp:355:21" msg_body="Inlining function 'is_em_like(ap_uint&lt;20&gt;, ap_uint&lt;20&gt;, ap_uint&lt;20&gt;)' into 'produce_em_cluster_stream(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, hls::stream&lt;Cluster, 0&gt;&amp;)'">
+        <args Callee="is_em_like(ap_uint&lt;20&gt;, ap_uint&lt;20&gt;, ap_uint&lt;20&gt;)" Callee-DebugLoc="File ./calorimeter.h Line 242 Column 0" Caller="produce_em_cluster_stream(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, hls::stream&lt;Cluster, 0&gt;&amp;)" Caller-DebugLoc="File calorimeter.cpp Line 325 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="calorimeter.cpp:349:40" msg_body="Inlining function 'ap_uint&lt;20&gt; window_sum&lt;7&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)' into 'produce_em_cluster_stream(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, hls::stream&lt;Cluster, 0&gt;&amp;)'">
+        <args Callee="ap_uint&lt;20&gt; window_sum&lt;7&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Callee-DebugLoc="File ./calorimeter.h Line 171 Column 0" Caller="produce_em_cluster_stream(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, hls::stream&lt;Cluster, 0&gt;&amp;)" Caller-DebugLoc="File calorimeter.cpp Line 325 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="calorimeter.cpp:348:40" msg_body="Inlining function 'ap_uint&lt;20&gt; window_sum&lt;5&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)' into 'produce_em_cluster_stream(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, hls::stream&lt;Cluster, 0&gt;&amp;)'">
+        <args Callee="ap_uint&lt;20&gt; window_sum&lt;5&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Callee-DebugLoc="File ./calorimeter.h Line 171 Column 0" Caller="produce_em_cluster_stream(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, hls::stream&lt;Cluster, 0&gt;&amp;)" Caller-DebugLoc="File calorimeter.cpp Line 325 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="calorimeter.cpp:347:41" msg_body="Inlining function 'ap_uint&lt;20&gt; window_sum&lt;3&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)' into 'produce_em_cluster_stream(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, hls::stream&lt;Cluster, 0&gt;&amp;)'">
+        <args Callee="ap_uint&lt;20&gt; window_sum&lt;3&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Callee-DebugLoc="File ./calorimeter.h Line 171 Column 0" Caller="produce_em_cluster_stream(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, hls::stream&lt;Cluster, 0&gt;&amp;)" Caller-DebugLoc="File calorimeter.cpp Line 325 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="calorimeter.cpp:345:17" msg_body="Inlining function 'bool is_local_maximum&lt;3&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)' into 'produce_em_cluster_stream(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, hls::stream&lt;Cluster, 0&gt;&amp;)'">
+        <args Callee="bool is_local_maximum&lt;3&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Callee-DebugLoc="File ./calorimeter.h Line 197 Column 0" Caller="produce_em_cluster_stream(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, hls::stream&lt;Cluster, 0&gt;&amp;)" Caller-DebugLoc="File calorimeter.cpp Line 325 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="./calorimeter.h:213:31" msg_body="Inlining function 'wrap_phi(int)' into 'bool is_local_maximum&lt;7&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)'">
+        <args Callee="wrap_phi(int)" Callee-DebugLoc="File ./calorimeter.h Line 158 Column 0" Caller="bool is_local_maximum&lt;7&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Caller-DebugLoc="File ./calorimeter.h Line 197 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="calorimeter.cpp:399:21" msg_body="Inlining function 'is_jet_like(ap_uint&lt;20&gt;, ap_uint&lt;20&gt;)' into 'produce_jet_cluster_stream(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, hls::stream&lt;Cluster, 0&gt;&amp;)'">
+        <args Callee="is_jet_like(ap_uint&lt;20&gt;, ap_uint&lt;20&gt;)" Callee-DebugLoc="File ./calorimeter.h Line 268 Column 0" Caller="produce_jet_cluster_stream(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, hls::stream&lt;Cluster, 0&gt;&amp;)" Caller-DebugLoc="File calorimeter.cpp Line 372 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="calorimeter.cpp:395:40" msg_body="Inlining function 'ap_uint&lt;20&gt; window_sum&lt;7&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)' into 'produce_jet_cluster_stream(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, hls::stream&lt;Cluster, 0&gt;&amp;)'">
+        <args Callee="ap_uint&lt;20&gt; window_sum&lt;7&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Callee-DebugLoc="File ./calorimeter.h Line 171 Column 0" Caller="produce_jet_cluster_stream(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, hls::stream&lt;Cluster, 0&gt;&amp;)" Caller-DebugLoc="File calorimeter.cpp Line 372 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="calorimeter.cpp:394:41" msg_body="Inlining function 'ap_uint&lt;20&gt; window_sum&lt;3&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)' into 'produce_jet_cluster_stream(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, hls::stream&lt;Cluster, 0&gt;&amp;)'">
+        <args Callee="ap_uint&lt;20&gt; window_sum&lt;3&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Callee-DebugLoc="File ./calorimeter.h Line 171 Column 0" Caller="produce_jet_cluster_stream(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, hls::stream&lt;Cluster, 0&gt;&amp;)" Caller-DebugLoc="File calorimeter.cpp Line 372 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="calorimeter.cpp:392:17" msg_body="Inlining function 'bool is_local_maximum&lt;7&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)' into 'produce_jet_cluster_stream(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, hls::stream&lt;Cluster, 0&gt;&amp;)'">
+        <args Callee="bool is_local_maximum&lt;7&gt;(ap_uint&lt;12&gt; const (*) [60], int, int)" Callee-DebugLoc="File ./calorimeter.h Line 197 Column 0" Caller="produce_jet_cluster_stream(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, hls::stream&lt;Cluster, 0&gt;&amp;)" Caller-DebugLoc="File calorimeter.cpp Line 372 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="calorimeter.cpp:111:39" msg_body="Inlining function 'cluster_is_better(Cluster const&amp;, Cluster const&amp;)' into 'insert_cluster_into_top_n(Cluster const&amp;, Cluster*)'">
+        <args Callee="cluster_is_better(Cluster const&amp;, Cluster const&amp;)" Callee-DebugLoc="File calorimeter.cpp Line 69 Column 0" Caller="insert_cluster_into_top_n(Cluster const&amp;, Cluster*)" Caller-DebugLoc="File calorimeter.cpp Line 103 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="./calorimeter.h:476:9" msg_body="Inlining function 'insert_cluster_into_top_n(Cluster const&amp;, Cluster*)' into 'void select_top_n_from_stream_fixed&lt;1440&gt;(hls::stream&lt;Cluster, 0&gt;&amp;, Cluster*, int*)'">
+        <args Callee="insert_cluster_into_top_n(Cluster const&amp;, Cluster*)" Callee-DebugLoc="File calorimeter.cpp Line 103 Column 0" Caller="void select_top_n_from_stream_fixed&lt;1440&gt;(hls::stream&lt;Cluster, 0&gt;&amp;, Cluster*, int*)" Caller-DebugLoc="File ./calorimeter.h Line 452 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="calorimeter.cpp:110:22" msg_body="Loop 'INSERT_POSITION' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="INSERT_POSITION"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="calorimeter.cpp:113:31" msg_body="Loop 'VITIS_LOOP_113_1' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_113_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="./calorimeter.h:203:16" msg_body="Loop 'LOCAL_ETA' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="LOCAL_ETA"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="./calorimeter.h:205:13" msg_body="Loop 'LOCAL_PHI' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="LOCAL_PHI"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="./calorimeter.h:176:14" msg_body="Loop 'WIN_ETA' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="WIN_ETA"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="./calorimeter.h:178:11" msg_body="Loop 'WIN_PHI' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="WIN_PHI"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="calorimeter.cpp:171:0" msg_body="Unrolling loop 'VITIS_LOOP_174_1' (calorimeter.cpp:174:20) in function 'build_trigger_objects' completely with a factor of 8">
+        <args Factor="8" LoopLoc="calorimeter.cpp:174:20" LoopName="VITIS_LOOP_174_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./calorimeter.h:452:0" msg_body="Unrolling loop 'INSERT_POSITION' (calorimeter.cpp:110:22) in function 'select_top_n_from_stream_fixed&lt;1440&gt;' completely with a factor of 8">
+        <args Factor="8" LoopLoc="calorimeter.cpp:110:22" LoopName="INSERT_POSITION"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./calorimeter.h:452:0" msg_body="Unrolling loop 'VITIS_LOOP_456_1' (./calorimeter.h:456:23) in function 'select_top_n_from_stream_fixed&lt;1440&gt;' completely with a factor of 8">
+        <args Factor="8" LoopLoc="./calorimeter.h:456:23" LoopName="VITIS_LOOP_456_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="calorimeter.cpp:372:0" msg_body="Unrolling loop 'LOCAL_ETA' (./calorimeter.h:203:16) in function 'produce_jet_cluster_stream' completely with a factor of 7">
+        <args Factor="7" LoopLoc="./calorimeter.h:203:16" LoopName="LOCAL_ETA"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="calorimeter.cpp:372:0" msg_body="Unrolling loop 'LOCAL_PHI' (./calorimeter.h:205:13) in function 'produce_jet_cluster_stream' completely with a factor of 7">
+        <args Factor="7" LoopLoc="./calorimeter.h:205:13" LoopName="LOCAL_PHI"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="calorimeter.cpp:372:0" msg_body="Unrolling loop 'WIN_ETA' (./calorimeter.h:176:14) in function 'produce_jet_cluster_stream' completely with a factor of 3">
+        <args Factor="3" LoopLoc="./calorimeter.h:176:14" LoopName="WIN_ETA"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="calorimeter.cpp:372:0" msg_body="Unrolling loop 'WIN_PHI' (./calorimeter.h:178:11) in function 'produce_jet_cluster_stream' completely with a factor of 3">
+        <args Factor="3" LoopLoc="./calorimeter.h:178:11" LoopName="WIN_PHI"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="calorimeter.cpp:372:0" msg_body="Unrolling loop 'WIN_ETA' (./calorimeter.h:176:14) in function 'produce_jet_cluster_stream' completely with a factor of 7">
+        <args Factor="7" LoopLoc="./calorimeter.h:176:14" LoopName="WIN_ETA"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="calorimeter.cpp:372:0" msg_body="Unrolling loop 'WIN_PHI' (./calorimeter.h:178:11) in function 'produce_jet_cluster_stream' completely with a factor of 7">
+        <args Factor="7" LoopLoc="./calorimeter.h:178:11" LoopName="WIN_PHI"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="calorimeter.cpp:325:0" msg_body="Unrolling loop 'LOCAL_ETA' (./calorimeter.h:203:16) in function 'produce_em_cluster_stream' completely with a factor of 3">
+        <args Factor="3" LoopLoc="./calorimeter.h:203:16" LoopName="LOCAL_ETA"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="calorimeter.cpp:325:0" msg_body="Unrolling loop 'LOCAL_PHI' (./calorimeter.h:205:13) in function 'produce_em_cluster_stream' completely with a factor of 3">
+        <args Factor="3" LoopLoc="./calorimeter.h:205:13" LoopName="LOCAL_PHI"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="calorimeter.cpp:325:0" msg_body="Unrolling loop 'WIN_ETA' (./calorimeter.h:176:14) in function 'produce_em_cluster_stream' completely with a factor of 3">
+        <args Factor="3" LoopLoc="./calorimeter.h:176:14" LoopName="WIN_ETA"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="calorimeter.cpp:325:0" msg_body="Unrolling loop 'WIN_PHI' (./calorimeter.h:178:11) in function 'produce_em_cluster_stream' completely with a factor of 3">
+        <args Factor="3" LoopLoc="./calorimeter.h:178:11" LoopName="WIN_PHI"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="calorimeter.cpp:325:0" msg_body="Unrolling loop 'WIN_ETA' (./calorimeter.h:176:14) in function 'produce_em_cluster_stream' completely with a factor of 5">
+        <args Factor="5" LoopLoc="./calorimeter.h:176:14" LoopName="WIN_ETA"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="calorimeter.cpp:325:0" msg_body="Unrolling loop 'WIN_PHI' (./calorimeter.h:178:11) in function 'produce_em_cluster_stream' completely with a factor of 5">
+        <args Factor="5" LoopLoc="./calorimeter.h:178:11" LoopName="WIN_PHI"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="calorimeter.cpp:325:0" msg_body="Unrolling loop 'WIN_ETA' (./calorimeter.h:176:14) in function 'produce_em_cluster_stream' completely with a factor of 7">
+        <args Factor="7" LoopLoc="./calorimeter.h:176:14" LoopName="WIN_ETA"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="calorimeter.cpp:325:0" msg_body="Unrolling loop 'WIN_PHI' (./calorimeter.h:178:11) in function 'produce_em_cluster_stream' completely with a factor of 7">
+        <args Factor="7" LoopLoc="./calorimeter.h:178:11" LoopName="WIN_PHI"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="calorimeter.cpp:281:0" msg_body="Inlining function 'compute_ht(ap_uint&lt;12&gt; const (*) [60])' into 'calo_trigger_em_jet_stream_ref(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, TriggerObject*, TriggerObject*, ap_uint&lt;24&gt;*, int*, int*)'">
+        <args Callee="compute_ht(ap_uint&lt;12&gt; const (*) [60])" Callee-DebugLoc="File calorimeter.cpp Line 158 Column 0" Caller="calo_trigger_em_jet_stream_ref(ap_uint&lt;12&gt; const (*) [60], ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, ap_uint&lt;12&gt;, ap_uint&lt;20&gt;, TriggerObject*, TriggerObject*, ap_uint&lt;24&gt;*, int*, int*)" Caller-DebugLoc="File calorimeter.cpp Line 281 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="calorimeter.cpp:459:10" msg_body="Applying array_partition to 'em_top_clusters.et': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="em_top_clusters.et"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="calorimeter.cpp:459:10" msg_body="Applying array_partition to 'em_top_clusters.isolation_et': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="em_top_clusters.isolation_et"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="calorimeter.cpp:459:10" msg_body="Applying array_partition to 'em_top_clusters.eta': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="em_top_clusters.eta"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="calorimeter.cpp:459:10" msg_body="Applying array_partition to 'em_top_clusters.phi': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="em_top_clusters.phi"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="calorimeter.cpp:459:10" msg_body="Applying array_partition to 'em_top_clusters.window_size': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="em_top_clusters.window_size"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="calorimeter.cpp:459:10" msg_body="Applying array_partition to 'em_top_clusters.iso_outer_size': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="em_top_clusters.iso_outer_size"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="calorimeter.cpp:459:10" msg_body="Applying array_partition to 'em_top_clusters.valid': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="em_top_clusters.valid"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="calorimeter.cpp:460:13" msg_body="Applying array_partition to 'jet_top_clusters.et': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="jet_top_clusters.et"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="calorimeter.cpp:460:13" msg_body="Applying array_partition to 'jet_top_clusters.isolation_et': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="jet_top_clusters.isolation_et"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="calorimeter.cpp:460:13" msg_body="Applying array_partition to 'jet_top_clusters.eta': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="jet_top_clusters.eta"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="calorimeter.cpp:460:13" msg_body="Applying array_partition to 'jet_top_clusters.phi': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="jet_top_clusters.phi"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="calorimeter.cpp:460:13" msg_body="Applying array_partition to 'jet_top_clusters.window_size': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="jet_top_clusters.window_size"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="calorimeter.cpp:460:13" msg_body="Applying array_partition to 'jet_top_clusters.iso_outer_size': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="jet_top_clusters.iso_outer_size"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="calorimeter.cpp:460:13" msg_body="Applying array_partition to 'jet_top_clusters.valid': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="jet_top_clusters.valid"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="calorimeter.cpp:281:0" msg_body="Applying array_partition to 'em_objects': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="em_objects"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="calorimeter.cpp:281:0" msg_body="Applying array_partition to 'jet_objects': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="jet_objects"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="calorimeter.cpp:452:23" msg_body="Aggregating fifo (hls::stream) variable 'em_cluster_stream' with compact=bit mode in 61-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="61" HwTyName="fifo (hls::stream)" Name="em_cluster_stream"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="calorimeter.cpp:453:26" msg_body="Aggregating fifo (hls::stream) variable 'jet_cluster_stream' with compact=bit mode in 61-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="61" HwTyName="fifo (hls::stream)" Name="jet_cluster_stream"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="calorimeter.cpp:281:0" msg_body="Aggregating scalar variable 'jet_objects_7' with compact=bit mode in 89-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="89" HwTyName="scalar" Name="jet_objects_7"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="calorimeter.cpp:281:0" msg_body="Aggregating scalar variable 'jet_objects_6' with compact=bit mode in 89-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="89" HwTyName="scalar" Name="jet_objects_6"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="calorimeter.cpp:281:0" msg_body="Aggregating scalar variable 'jet_objects_5' with compact=bit mode in 89-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="89" HwTyName="scalar" Name="jet_objects_5"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="calorimeter.cpp:281:0" msg_body="Aggregating scalar variable 'jet_objects_4' with compact=bit mode in 89-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="89" HwTyName="scalar" Name="jet_objects_4"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="calorimeter.cpp:281:0" msg_body="Aggregating scalar variable 'jet_objects_3' with compact=bit mode in 89-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="89" HwTyName="scalar" Name="jet_objects_3"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="calorimeter.cpp:281:0" msg_body="Aggregating scalar variable 'jet_objects_2' with compact=bit mode in 89-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="89" HwTyName="scalar" Name="jet_objects_2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="calorimeter.cpp:281:0" msg_body="Aggregating scalar variable 'jet_objects_1' with compact=bit mode in 89-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="89" HwTyName="scalar" Name="jet_objects_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="calorimeter.cpp:281:0" msg_body="Aggregating scalar variable 'jet_objects_0' with compact=bit mode in 89-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="89" HwTyName="scalar" Name="jet_objects_0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="calorimeter.cpp:281:0" msg_body="Aggregating scalar variable 'em_objects_7' with compact=bit mode in 89-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="89" HwTyName="scalar" Name="em_objects_7"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="calorimeter.cpp:281:0" msg_body="Aggregating scalar variable 'em_objects_6' with compact=bit mode in 89-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="89" HwTyName="scalar" Name="em_objects_6"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="calorimeter.cpp:281:0" msg_body="Aggregating scalar variable 'em_objects_5' with compact=bit mode in 89-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="89" HwTyName="scalar" Name="em_objects_5"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="calorimeter.cpp:281:0" msg_body="Aggregating scalar variable 'em_objects_4' with compact=bit mode in 89-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="89" HwTyName="scalar" Name="em_objects_4"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="calorimeter.cpp:281:0" msg_body="Aggregating scalar variable 'em_objects_3' with compact=bit mode in 89-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="89" HwTyName="scalar" Name="em_objects_3"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="calorimeter.cpp:281:0" msg_body="Aggregating scalar variable 'em_objects_2' with compact=bit mode in 89-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="89" HwTyName="scalar" Name="em_objects_2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="calorimeter.cpp:281:0" msg_body="Aggregating scalar variable 'em_objects_1' with compact=bit mode in 89-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="89" HwTyName="scalar" Name="em_objects_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="calorimeter.cpp:281:0" msg_body="Aggregating scalar variable 'em_objects_0' with compact=bit mode in 89-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="89" HwTyName="scalar" Name="em_objects_0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="calorimeter.cpp:281:0" msg_body="Aggregating bram variable 'towers' with compact=bit mode in 12-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="12" HwTyName="bram" Name="towers"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-187" msg_severity="WARNING" msg_loc="calorimeter.cpp:113:31" msg_body="Cannot unroll loop 'VITIS_LOOP_113_1' (calorimeter.cpp:113:31) in function 'select_top_n_from_stream_fixed&lt;1440&gt;' as it has a variable trip count">
+        <args LoopLoc="calorimeter.cpp:113:31" LoopName="VITIS_LOOP_113_1"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

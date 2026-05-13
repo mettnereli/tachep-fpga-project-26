@@ -1,0 +1,84 @@
+<design_size title="Design Size Report">
+    <item name="Total Instructions per Compilation Phase">
+        <table>
+            <keys size="4">Phase, Step, Instructions, Description</keys>
+            <column name="Compile/Link">, 3840, After all functions are compiled and linked into a single design</column>
+            <column name="">, , </column>
+            <column name="Unroll/Inline">, , After user unroll and inline pragmas are applied</column>
+            <column name="">(1) unroll, 7166, user unroll pragmas are applied</column>
+            <column name="">(2) simplification, 3931, simplification of applied user unroll pragmas</column>
+            <column name="">(3) inline, 2571, user inline pragmas are applied</column>
+            <column name="">(4) simplification, 2563, simplification of applied user inline pragmas</column>
+            <column name="">, , </column>
+            <column name="Array/Struct">, , After user array partition and struct aggregate/disaggregate pragmas are applied</column>
+            <column name="">(1) array partition, 3728, user array partition pragmas are applied</column>
+            <column name="">(2) simplification, 3116, simplification of applied user array partition &amp; struct aggregate/disaggregate pragmas</column>
+            <column name="">(3) aggregate/disaggregate , 4664, user struct aggregate/disaggregate pragmas are applied</column>
+            <column name="">(4) array reshape, 4270, apply array reshape pragmas</column>
+            <column name="">(5) access patterns, 4832, array access pattern optmizations</column>
+            <column name="">, , </column>
+            <column name="Performance">, , After transformations are applied to meet performance pragma targets</column>
+            <column name="">(1) loop simplification, 4038, loop and instruction simplification</column>
+            <column name="">(2) parallelization, 3730, loops are unrolled or pipelined to meet performance targets</column>
+            <column name="">(3) array partition, 3728, arrays are partitioned to meet performance targets</column>
+            <column name="">(4) simplification, 3728, simplification of design after performance transformations</column>
+            <column name="">, , </column>
+            <column name="HW Transforms">, , After hardware transfomations</column>
+            <column name="">(1) lowering, 3748, initial conversion to HW specific instructions</column>
+            <column name="">(2) optimizations, 3808, high level synthesis optimizations</column>
+        </table>
+    </item>
+    <item name="Instructions per Function for each Compilation Phase">
+        <hiertable>
+            <header size="7" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Array/Struct" col5="Performance" col6="HW Transforms"/>
+            <rows>
+                <row id="0" col0="calo_trigger_em_jet_stream_ref" col1="calorimeter.cpp:272" col2="3840" col3="2563" col4="4832" col5="3728" col6="3808">
+                    <row id="4" col0="compute_ht" col1="calorimeter.cpp:158" col2="93" col3="" col4="" col5="" col6=""/>
+                    <row id="7" col0="cluster_sort_build_em_jet_stream" col1="calorimeter.cpp:442" col2="3718" col3="2528" col4="4790" col5="3692" col6="3718">
+                        <row id="8" col0="produce_em_cluster_stream" col1="calorimeter.cpp:321" col2="1376" col3="577" col4="720" col5="618" col6="623">
+                            <row id="12" col0="is_local_maximum&lt;3&gt;" col1="calorimeter.h:197" col2="107" col3="" col4="" col5="" col6="">
+                                <row id="2" col0="wrap_phi" col1="calorimeter.h:158" col2="12" col3="" col4="" col5="" col6=""/>
+                            </row>
+                            <row id="6" col0="window_sum&lt;3&gt;" col1="calorimeter.h:171" col2="115" col3="" col4="" col5="" col6="">
+                                <row id="2" col0="wrap_phi" col1="calorimeter.h:158" col2="12" col3="" col4="" col5="" col6=""/>
+                            </row>
+                            <row id="15" col0="window_sum&lt;5&gt;" col1="calorimeter.h:171" col2="115" col3="" col4="" col5="" col6="">
+                                <row id="2" col0="wrap_phi" col1="calorimeter.h:158" col2="12" col3="" col4="" col5="" col6=""/>
+                            </row>
+                            <row id="16" col0="window_sum&lt;7&gt;" col1="calorimeter.h:171" col2="115" col3="" col4="" col5="" col6="">
+                                <row id="2" col0="wrap_phi" col1="calorimeter.h:158" col2="12" col3="" col4="" col5="" col6=""/>
+                            </row>
+                            <row id="13" col0="is_em_like" col1="calorimeter.h:242" col2="403" col3="" col4="" col5="" col6=""/>
+                        </row>
+                        <row id="9" col0="produce_jet_cluster_stream" col1="calorimeter.cpp:368" col2="1051" col3="616" col4="765" col5="661" col6="666">
+                            <row id="14" col0="is_local_maximum&lt;7&gt;" col1="calorimeter.h:197" col2="107" col3="" col4="" col5="" col6="">
+                                <row id="2" col0="wrap_phi" col1="calorimeter.h:158" col2="12" col3="" col4="" col5="" col6=""/>
+                            </row>
+                            <row id="6" col0="window_sum&lt;3&gt;" col1="calorimeter.h:171" col2="115" col3="" col4="" col5="" col6="">
+                                <row id="2" col0="wrap_phi" col1="calorimeter.h:158" col2="12" col3="" col4="" col5="" col6=""/>
+                            </row>
+                            <row id="16" col0="window_sum&lt;7&gt;" col1="calorimeter.h:171" col2="115" col3="" col4="" col5="" col6="">
+                                <row id="2" col0="wrap_phi" col1="calorimeter.h:158" col2="12" col3="" col4="" col5="" col6=""/>
+                            </row>
+                            <row id="5" col0="is_jet_like" col1="calorimeter.h:268" col2="329" col3="" col4="" col5="" col6=""/>
+                        </row>
+                        <row id="11" col0="select_top_n_from_stream_fixed&lt;1440&gt;" col1="calorimeter.h:450" col2="716" col2_disp=" 716 (2 calls)" col3="602" col3_disp=" 602 (2 calls)" col4="2148" col4_disp="2,148 (2 calls)" col5="1726" col5_disp="1,726 (2 calls)" col6="1740" col6_disp="1,740 (2 calls)">
+                            <row id="3" col0="insert_cluster_into_top_n" col1="calorimeter.cpp:102" col2="282" col2_disp=" 282 (2 calls)" col3="" col4="" col5="" col6="">
+                                <row id="10" col0="cluster_is_better" col1="calorimeter.cpp:68" col2="192" col2_disp=" 192 (2 calls)" col3="" col4="" col5="" col6=""/>
+                            </row>
+                        </row>
+                        <row id="1" col0="build_trigger_objects" col1="calorimeter.cpp:170" col2="504" col2_disp=" 504 (2 calls)" col3="630" col3_disp=" 630 (2 calls)" col4="1032" col4_disp="1,032 (2 calls)" col5="562" col5_disp=" 562 (2 calls)" col6="562" col6_disp=" 562 (2 calls)"/>
+                    </row>
+                </row>
+            </rows>
+            <notes/>
+        </hiertable>
+    </item>
+    <item name="Design Size Message Settings">
+        <table>
+            <keys size="3">Message Setting, Value, Description</keys>
+            <column name="config_compile -design_size_maximum_warning">100000, Show a warning when total design instructions exceeds this value</column>
+        </table>
+    </item>
+</design_size>
+

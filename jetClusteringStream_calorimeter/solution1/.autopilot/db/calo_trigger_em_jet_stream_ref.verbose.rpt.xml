@@ -1,0 +1,213 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'calo_trigger_em_jet_stream_ref'" level="0">
+<item name = "Date">Tue May 12 22:45:55 2026
+</item>
+<item name = "Version">2024.1 (Build 5069499 on May 21 2024)</item>
+<item name = "Project">calorimeter</item>
+<item name = "Solution">solution1 (Vivado IP Flow Target)</item>
+<item name = "Product family">virtexuplus</item>
+<item name = "Target device">xcvu13p-fsga2577-2-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">25.00 ns, 7.274 ns, 6.75 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">72365, 72378, 1.809 ms, 1.809 ms, 72366, 72379, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_cluster_sort_build_em_jet_stream_fu_205">cluster_sort_build_em_jet_stream, 70562, 70575, 1.764 ms, 1.764 ms, 70561, 70561, dataflow</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- HT_ETA_HT_PHI">1800, 1800, 2, 1, 1, 1800, yes</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 153, -</column>
+<column name="FIFO">-, -, -, -, -</column>
+<column name="Instance">0, -, 8594, 18643, 0</column>
+<column name="Memory">-, -, -, -, -</column>
+<column name="Multiplexer">-, -, 0, 116, -</column>
+<column name="Register">-, -, 144, -, -</column>
+<specialColumn name="Available SLR">1344, 3072, 864000, 432000, 320</specialColumn>
+<specialColumn name="Utilization SLR (%)">0, 0, 1, 4, 0</specialColumn>
+<specialColumn name="Available">5376, 12288, 3456000, 1728000, 1280</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, ~0, 1, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
+<column name="CTRL_s_axi_U">CTRL_s_axi, 0, 0, 230, 344, 0</column>
+<column name="grp_cluster_sort_build_em_jet_stream_fu_205">cluster_sort_build_em_jet_stream, 0, 0, 8364, 18299, 0</column>
+</table>
+</item>
+<item name = "DSP"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="add_ln160_1_fu_349_p2">+, 0, 0, 18, 11, 1</column>
+<column name="add_ln160_fu_280_p2">+, 0, 0, 12, 5, 1</column>
+<column name="add_ln163_5_fu_332_p2">+, 0, 0, 17, 11, 11</column>
+<column name="ht_2_fu_389_p2">+, 0, 0, 30, 23, 23</column>
+<column name="phi_fu_343_p2">+, 0, 0, 13, 6, 1</column>
+<column name="sub_ln163_fu_322_p2">-, 0, 0, 17, 11, 11</column>
+<column name="icmp_ln160_fu_361_p2">icmp, 0, 0, 18, 11, 9</column>
+<column name="icmp_ln161_fu_355_p2">icmp, 0, 0, 13, 6, 4</column>
+<column name="ap_sync_grp_cluster_sort_build_em_jet_stream_fu_205_ap_ready">or, 0, 0, 2, 1, 1</column>
+<column name="eta_fu_294_p3">select, 0, 0, 5, 1, 5</column>
+<column name="select_ln160_fu_286_p3">select, 0, 0, 6, 1, 1</column>
+<column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">26, 5, 1, 5</column>
+<column name="ap_enable_reg_pp0_iter1">9, 2, 1, 2</column>
+<column name="ap_phi_mux_icmp_ln1616_phi_fu_198_p4">9, 2, 1, 2</column>
+<column name="conv4_i4_i4_fu_146">9, 2, 23, 46</column>
+<column name="eta2_fu_138">9, 2, 5, 10</column>
+<column name="icmp_ln1616_reg_194">9, 2, 1, 2</column>
+<column name="indvar_flatten1_fu_134">9, 2, 11, 22</column>
+<column name="phi3_fu_142">9, 2, 6, 12</column>
+<column name="towers_Addr_A">9, 2, 32, 64</column>
+<column name="towers_EN_A">9, 2, 1, 2</column>
+<column name="towers_EN_B">9, 2, 1, 2</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_CS_fsm">4, 0, 4, 0</column>
+<column name="ap_enable_reg_pp0_iter0">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
+<column name="ap_sync_reg_grp_cluster_sort_build_em_jet_stream_fu_205_ap_done">1, 0, 1, 0</column>
+<column name="ap_sync_reg_grp_cluster_sort_build_em_jet_stream_fu_205_ap_ready">1, 0, 1, 0</column>
+<column name="conv4_i4_i4_fu_146">23, 0, 23, 0</column>
+<column name="em_cluster_threshold_read_reg_442">20, 0, 20, 0</column>
+<column name="em_seed_threshold_read_reg_447">12, 0, 12, 0</column>
+<column name="eta2_fu_138">5, 0, 5, 0</column>
+<column name="grp_cluster_sort_build_em_jet_stream_fu_205_ap_start_reg">1, 0, 1, 0</column>
+<column name="icmp_ln160_reg_462">1, 0, 1, 0</column>
+<column name="icmp_ln1616_reg_194">1, 0, 1, 0</column>
+<column name="icmp_ln161_reg_457">1, 0, 1, 0</column>
+<column name="indvar_flatten1_fu_134">11, 0, 11, 0</column>
+<column name="jet_cluster_threshold_read_reg_432">20, 0, 20, 0</column>
+<column name="jet_seed_threshold_read_reg_437">12, 0, 12, 0</column>
+<column name="phi3_fu_142">6, 0, 6, 0</column>
+<column name="zext_ln161_reg_466">23, 0, 24, 1</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="s_axi_CTRL_AWVALID">in, 1, s_axi, CTRL, pointer</column>
+<column name="s_axi_CTRL_AWREADY">out, 1, s_axi, CTRL, pointer</column>
+<column name="s_axi_CTRL_AWADDR">in, 7, s_axi, CTRL, pointer</column>
+<column name="s_axi_CTRL_WVALID">in, 1, s_axi, CTRL, pointer</column>
+<column name="s_axi_CTRL_WREADY">out, 1, s_axi, CTRL, pointer</column>
+<column name="s_axi_CTRL_WDATA">in, 32, s_axi, CTRL, pointer</column>
+<column name="s_axi_CTRL_WSTRB">in, 4, s_axi, CTRL, pointer</column>
+<column name="s_axi_CTRL_ARVALID">in, 1, s_axi, CTRL, pointer</column>
+<column name="s_axi_CTRL_ARREADY">out, 1, s_axi, CTRL, pointer</column>
+<column name="s_axi_CTRL_ARADDR">in, 7, s_axi, CTRL, pointer</column>
+<column name="s_axi_CTRL_RVALID">out, 1, s_axi, CTRL, pointer</column>
+<column name="s_axi_CTRL_RREADY">in, 1, s_axi, CTRL, pointer</column>
+<column name="s_axi_CTRL_RDATA">out, 32, s_axi, CTRL, pointer</column>
+<column name="s_axi_CTRL_RRESP">out, 2, s_axi, CTRL, pointer</column>
+<column name="s_axi_CTRL_BVALID">out, 1, s_axi, CTRL, pointer</column>
+<column name="s_axi_CTRL_BREADY">in, 1, s_axi, CTRL, pointer</column>
+<column name="s_axi_CTRL_BRESP">out, 2, s_axi, CTRL, pointer</column>
+<column name="ap_clk">in, 1, ap_ctrl_hs, calo_trigger_em_jet_stream_ref, return value</column>
+<column name="ap_rst_n">in, 1, ap_ctrl_hs, calo_trigger_em_jet_stream_ref, return value</column>
+<column name="interrupt">out, 1, ap_ctrl_hs, calo_trigger_em_jet_stream_ref, return value</column>
+<column name="towers_Addr_A">out, 32, bram, towers, array</column>
+<column name="towers_EN_A">out, 1, bram, towers, array</column>
+<column name="towers_WEN_A">out, 2, bram, towers, array</column>
+<column name="towers_Din_A">out, 16, bram, towers, array</column>
+<column name="towers_Dout_A">in, 16, bram, towers, array</column>
+<column name="towers_Clk_A">out, 1, bram, towers, array</column>
+<column name="towers_Rst_A">out, 1, bram, towers, array</column>
+<column name="towers_Addr_B">out, 32, bram, towers, array</column>
+<column name="towers_EN_B">out, 1, bram, towers, array</column>
+<column name="towers_WEN_B">out, 2, bram, towers, array</column>
+<column name="towers_Din_B">out, 16, bram, towers, array</column>
+<column name="towers_Dout_B">in, 16, bram, towers, array</column>
+<column name="towers_Clk_B">out, 1, bram, towers, array</column>
+<column name="towers_Rst_B">out, 1, bram, towers, array</column>
+<column name="em_objects_0">out, 89, ap_vld, em_objects_0, pointer</column>
+<column name="em_objects_0_ap_vld">out, 1, ap_vld, em_objects_0, pointer</column>
+<column name="em_objects_1">out, 89, ap_vld, em_objects_1, pointer</column>
+<column name="em_objects_1_ap_vld">out, 1, ap_vld, em_objects_1, pointer</column>
+<column name="em_objects_2">out, 89, ap_vld, em_objects_2, pointer</column>
+<column name="em_objects_2_ap_vld">out, 1, ap_vld, em_objects_2, pointer</column>
+<column name="em_objects_3">out, 89, ap_vld, em_objects_3, pointer</column>
+<column name="em_objects_3_ap_vld">out, 1, ap_vld, em_objects_3, pointer</column>
+<column name="em_objects_4">out, 89, ap_vld, em_objects_4, pointer</column>
+<column name="em_objects_4_ap_vld">out, 1, ap_vld, em_objects_4, pointer</column>
+<column name="em_objects_5">out, 89, ap_vld, em_objects_5, pointer</column>
+<column name="em_objects_5_ap_vld">out, 1, ap_vld, em_objects_5, pointer</column>
+<column name="em_objects_6">out, 89, ap_vld, em_objects_6, pointer</column>
+<column name="em_objects_6_ap_vld">out, 1, ap_vld, em_objects_6, pointer</column>
+<column name="em_objects_7">out, 89, ap_vld, em_objects_7, pointer</column>
+<column name="em_objects_7_ap_vld">out, 1, ap_vld, em_objects_7, pointer</column>
+<column name="jet_objects_0">out, 89, ap_vld, jet_objects_0, pointer</column>
+<column name="jet_objects_0_ap_vld">out, 1, ap_vld, jet_objects_0, pointer</column>
+<column name="jet_objects_1">out, 89, ap_vld, jet_objects_1, pointer</column>
+<column name="jet_objects_1_ap_vld">out, 1, ap_vld, jet_objects_1, pointer</column>
+<column name="jet_objects_2">out, 89, ap_vld, jet_objects_2, pointer</column>
+<column name="jet_objects_2_ap_vld">out, 1, ap_vld, jet_objects_2, pointer</column>
+<column name="jet_objects_3">out, 89, ap_vld, jet_objects_3, pointer</column>
+<column name="jet_objects_3_ap_vld">out, 1, ap_vld, jet_objects_3, pointer</column>
+<column name="jet_objects_4">out, 89, ap_vld, jet_objects_4, pointer</column>
+<column name="jet_objects_4_ap_vld">out, 1, ap_vld, jet_objects_4, pointer</column>
+<column name="jet_objects_5">out, 89, ap_vld, jet_objects_5, pointer</column>
+<column name="jet_objects_5_ap_vld">out, 1, ap_vld, jet_objects_5, pointer</column>
+<column name="jet_objects_6">out, 89, ap_vld, jet_objects_6, pointer</column>
+<column name="jet_objects_6_ap_vld">out, 1, ap_vld, jet_objects_6, pointer</column>
+<column name="jet_objects_7">out, 89, ap_vld, jet_objects_7, pointer</column>
+<column name="jet_objects_7_ap_vld">out, 1, ap_vld, jet_objects_7, pointer</column>
+</table>
+</item>
+</section>
+</profile>

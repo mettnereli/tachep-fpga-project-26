@@ -1,0 +1,10 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+    <sourceFile name="">
+        <directive functionName="calo_trigger_em_jet_stream_ref" label="" functionLabel="">
+            <pragma name="TOP">
+                <option name="name" value="calo_trigger_em_jet_stream_ref"/>
+            </pragma>
+        </directive>
+    </sourceFile>
+</AutoPilot:ProjectResources>
+

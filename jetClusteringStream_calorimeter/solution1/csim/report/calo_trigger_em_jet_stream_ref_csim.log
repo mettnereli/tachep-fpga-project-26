@@ -1,0 +1,21 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch CLANG as the compiler.
+   Compiling ../../../../tb_calorimeter_stream.cpp in debug mode
+   Compiling ../../../../calorimeter.cpp in debug mode
+   Generating csim.exe
+HT = 1028
+Number of EM clusters found = 4
+Number of jet clusters found = 1
+
+EM trigger objects:
+EM Object 0 | ET = 221 | iso = 26 | eta = 5 | phi = 10 | window = 3 | type = 1
+EM Object 1 | ET = 139 | iso = 22 | eta = 10 | phi = 20 | window = 3 | type = 1
+EM Object 2 | ET = 133 | iso = 21 | eta = 18 | phi = 40 | window = 3 | type = 1
+EM Object 3 | ET = 120 | iso = 0 | eta = 12 | phi = 31 | window = 3 | type = 1
+
+Jet trigger objects:
+Jet Object 0 | ET = 336 | iso = 50 | eta = 22 | phi = 15 | window = 7 | type = 2
+Test PASSED
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 1440
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************
