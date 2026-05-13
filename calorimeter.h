@@ -128,6 +128,7 @@ void run_reference_trigger_3x3_iso5(const tower_et_t towers[NETA][NPHI],
 
 
 inline int wrap_phi(int phi) {
+#pragma HLS INLINE
     if (phi < 0) {
         return phi + NPHI;
     } else if (phi >= NPHI) {
@@ -140,15 +141,22 @@ inline int wrap_phi(int phi) {
 /// Build a template to allow for easy switching between different cluster finding algorithms
 template<int W>
 cluster_et_t window_sum(const tower_et_t towers[NETA][NPHI], int eta, int phi) {
+#pragma HLS INLINE
+
     cluster_et_t sum = 0;
     int half_W = W / 2;
-    for (int d_eta = -half_W; d_eta <= half_W; ++d_eta) {
-        for (int d_phi = -half_W; d_phi <= half_W; ++d_phi) {
-            int phi_idx = wrap_phi(phi + d_phi); // Wrap around in phi
-            // eta does not wrap around, so treat out of bounds as zero ET
+    WIN_ETA: for (int i = 0; i < W; ++i) {
+#pragma HLS UNROLL
+        WIN_PHI: for (int j = 0; j < W; ++j) {
+#pragma HLS UNROLL
+            int d_eta = i - half_W;
+            int d_phi = j - half_W;
+
             int eta_idx = eta + d_eta;
+            int phi_idx = wrap_phi(phi + d_phi);
+
             if (eta_idx >= 0 && eta_idx < NETA) {
-                sum += towers[eta_idx][phi_idx];
+                sum += (cluster_et_t)towers[eta_idx][phi_idx];
             }
         }
     }
@@ -159,32 +167,36 @@ cluster_et_t window_sum(const tower_et_t towers[NETA][NPHI], int eta, int phi) {
 // Check if center of window is a local maximum
 template<int W>
 bool is_local_maximum(const tower_et_t towers[NETA][NPHI], int eta, int phi) {
+#pragma HLS INLINE
     tower_et_t center_et = towers[eta][phi];
     int half_W = W / 2;
 
-    for (int d_eta = -half_W; d_eta <= half_W; ++d_eta) {
-        for (int d_phi = -half_W; d_phi <= half_W; ++d_phi) {
+    LOCAL_ETA: for (int i = 0; i < W; ++i) {
+#pragma HLS UNROLL
+        LOCAL_PHI: for (int j = 0; j < W; ++j) {
+#pragma HLS UNROLL
 
-            if (d_eta == 0 && d_phi == 0) {
-                continue;
-            }
+            int d_eta = i - half_W;
+            int d_phi = j - half_W;
 
-            int eta_idx = eta + d_eta;
-            int phi_idx = wrap_phi(phi + d_phi);
+            if (!(d_eta == 0 && d_phi == 0)) {
+                int eta_idx = eta + d_eta;
+                int phi_idx = wrap_phi(phi + d_phi);
 
-            tower_et_t neighbor = towers[eta_idx][phi_idx];
+    
+                tower_et_t neighbor = towers[eta_idx][phi_idx];
 
-            if (neighbor > center_et) {
-                return false;
-            } else if (neighbor == center_et) {
-                if (d_eta < 0 || (d_eta == 0 && d_phi < 0)) {
-                    return false;
+                if (neighbor > center_et) {
+                    is_max = false;
+                } else if (neighbor == center_et) {
+                    if (d_eta < 0 || (d_eta == 0 && d_phi < 0)) {
+                        is_max = false;
+                        }
+                    }
                 }
             }
         }
-    }
-
-    return true;
+    return is_max;
 }
 
 // Now to get isolation energery we can use the same window sum function but with a larger window and subtract the cluster energy
@@ -194,6 +206,7 @@ bool is_local_maximum(const tower_et_t towers[NETA][NPHI], int eta, int phi) {
 
 template<int inner_W, int outer_W>
 cluster_et_t isolation_sum(const tower_et_t towers[NETA][NPHI], int eta, int phi) {
+#pragma HLS INLINE
     return window_sum<outer_W>(towers, eta, phi) - window_sum<inner_W>(towers, eta, phi);
 }
 
@@ -215,8 +228,9 @@ void find_clusters(const tower_et_t towers[NETA][NPHI],
 
     const int HALF_W = (cluster_W > iso_W) ? (cluster_W / 2) : (iso_W / 2);
     //Ignore boundary cells for right now. 
-    for (int eta = HALF_W; eta < NETA - HALF_W; eta++) {
-        for (int phi = HALF_W; phi < NPHI - HALF_W; phi++) {
+    FIND_ETA: for (int eta = HALF_W; eta < NETA - HALF_W; eta++) {
+        FIND_PHI: for (int phi = 0; phi < NPHI; phi++) {
+    #pragma HLS PIPELINE II=1
             tower_et_t seed_et = towers[eta][phi];
 
             if (seed_et < seed_threshold) {

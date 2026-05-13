@@ -67,6 +67,7 @@ void find_clusters_7x7(const tower_et_t towers[NETA][NPHI],
 
 bool cluster_is_better(const Cluster &a, const Cluster &b)
 {
+#pragma HLS INLINE
     if (!a.valid) {
         return false;
     }
@@ -104,8 +105,10 @@ bool cluster_is_better(const Cluster &a, const Cluster &b)
 void select_top_n(const Cluster clusters[MAX_CLUSTERS], 
                   int num_clusters, 
                   Cluster top_clusters[TOP_N]) {
+#pragma HLS ARRAY_PARTITION variable=top_clusters complete dim=1
     // Simple selection sort for top N clusters
-    for (int i = 0; i < TOP_N; i++) {
+    INIT_TOP: for (int i = 0; i < TOP_N; i++) {
+#pragma HLS UNROLL
         top_clusters[i].et = 0;
         top_clusters[i].isolation_et = 0;
         top_clusters[i].eta = 0;
@@ -115,7 +118,8 @@ void select_top_n(const Cluster clusters[MAX_CLUSTERS],
         top_clusters[i].valid = false;
     }
 
-    for (int i = 0; i < MAX_CLUSTERS; ++i) {
+    FIND_CLUSTER: for (int i = 0; i < MAX_CLUSTERS; ++i) {
+#pragma HLS PIPELINE II=1
 	if (i >= num_clusters) {
 		continue;
 	}
@@ -142,8 +146,9 @@ void select_top_n(const Cluster clusters[MAX_CLUSTERS],
 
 ht_t compute_ht(const tower_et_t towers[NETA][NPHI]) {
     ht_t ht = 0;
-    for (int eta = 0; eta < NETA; eta++) {
-        for (int phi = 0; phi < NPHI; phi++) {
+    HT_ETA: for (int eta = 0; eta < NETA; eta++) {
+        HT_PHI: for (int phi = 0; phi < NPHI; phi++) {
+#pragma HLS PIPELINE II=1
             ht += (ht_t) towers[eta][phi];
         }
     }
@@ -153,7 +158,10 @@ ht_t compute_ht(const tower_et_t towers[NETA][NPHI]) {
 
 void build_trigger_objects(const Cluster top_clusters[TOP_N], 
                           TriggerObject trigger_objects[TOP_N]) {
+#pragma HLS ARRAY_PARTITION variable=trigger_objects complete dim=1
+#pragma HLS ARRAY_PARTITION variable=top_clusters complete dim=1
     for (int i = 0; i < TOP_N; ++i) {
+#pragma HLS UNROLL
         trigger_objects[i].et = 0;
         trigger_objects[i].isolation_et = 0;
         trigger_objects[i].eta = 0;
@@ -192,9 +200,21 @@ void calo_trigger_ref(const tower_et_t grid[NETA][NPHI],
                       ht_t *ht,
                       int *num_clusters)
 {
+#pragma HLS INTERFACE bram port=grid
+
+#pragma HLS INTERFACE s_axilite port=seed_threshold bundle=CTRL
+#pragma HLS INTERFACE s_axilite port=cluster_threshold bundle=CTRL
+#pragma HLS INTERFACE s_axilite port=ht bundle=CTRL
+#pragma HLS INTERFACE s_axilite port=num_clusters bundle=CTRL
+#pragma HLS INTERFACE s_axilite port=return bundle=CTRL
+
+#pragma HLS ARRAY_PARTITION variable=objects complete dim=1
+#pragma HLS ARRAY_PARTITION variable=top_clusters complete dim=1
+
     Cluster clusters[MAX_CLUSTERS];
     Cluster top_clusters[TOP_N];
 
+    
     int local_num_clusters = 0;
     ht_t local_ht = 0;
 
