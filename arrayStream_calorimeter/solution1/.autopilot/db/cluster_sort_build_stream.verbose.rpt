@@ -1,0 +1,2023 @@
+
+
+================================================================
+== Vitis HLS Report for 'cluster_sort_build_stream'
+================================================================
+* Date:           Tue May 12 20:42:56 2026
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        calorimeter
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu13p-fsga2577-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  25.00 ns|  5.516 ns|     6.75 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-------+-------+----------+
+    |  Latency (cycles) |  Latency (absolute) |    Interval   | Pipeline |
+    |   min   |   max   |    min   |    max   |  min  |  max  |   Type   |
+    +---------+---------+----------+----------+-------+-------+----------+
+    |    20283|    20283|  0.507 ms|  0.507 ms|  20284|  20284|  dataflow|
+    +---------+---------+----------+----------+-------+-------+----------+
+
+    + Detail: 
+        * Instance: 
+        +------------------------------------+---------------------------------+---------+---------+-----------+----------+-------+-------+---------+
+        |                                    |                                 |  Latency (cycles) |  Latency (absolute)  |    Interval   | Pipeline|
+        |              Instance              |              Module             |   min   |   max   |    min    |    max   |  min  |  max  |   Type  |
+        +------------------------------------+---------------------------------+---------+---------+-----------+----------+-------+-------+---------+
+        |produce_cluster_stream_3x3_iso5_U0  |produce_cluster_stream_3x3_iso5  |    20283|    20283|   0.507 ms|  0.507 ms|  20283|  20283|       no|
+        |select_top_n_from_stream_U0         |select_top_n_from_stream         |     3121|    18721|  78.025 us|  0.468 ms|   3121|  18721|       no|
+        |build_trigger_objects_U0            |build_trigger_objects            |        0|        0|       0 ns|      0 ns|      0|      0|       no|
+        +------------------------------------+---------------------------------+---------+---------+-----------+----------+-------+-------+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+------+
+|         Name        | BRAM_18K|  DSP  |    FF   |   LUT   | URAM |
++---------------------+---------+-------+---------+---------+------+
+|DSP                  |        -|      -|        -|        -|     -|
+|Expression           |        -|      -|        0|      202|     -|
+|FIFO                 |        0|      -|     1786|     1235|     -|
+|Instance             |        -|      -|     1909|     5525|     -|
+|Memory               |        -|      -|        -|        -|     -|
+|Multiplexer          |        -|      -|        0|      432|     -|
+|Register             |        -|      -|       48|        -|     -|
++---------------------+---------+-------+---------+---------+------+
+|Total                |        0|      0|     3743|     7394|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available SLR        |     1344|   3072|   864000|   432000|   320|
++---------------------+---------+-------+---------+---------+------+
+|Utilization SLR (%)  |        0|      0|       ~0|        1|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available            |     5376|  12288|  3456000|  1728000|  1280|
++---------------------+---------+-------+---------+---------+------+
+|Utilization (%)      |        0|      0|       ~0|       ~0|     0|
++---------------------+---------+-------+---------+---------+------+
+
++ Detail: 
+    * Instance: 
+    +------------------------------------+---------------------------------+---------+----+------+------+-----+
+    |              Instance              |              Module             | BRAM_18K| DSP|  FF  |  LUT | URAM|
+    +------------------------------------+---------------------------------+---------+----+------+------+-----+
+    |build_trigger_objects_U0            |build_trigger_objects            |        0|   0|   474|   867|    0|
+    |produce_cluster_stream_3x3_iso5_U0  |produce_cluster_stream_3x3_iso5  |        0|   0|   343|  1917|    0|
+    |select_top_n_from_stream_U0         |select_top_n_from_stream         |        0|   0|  1092|  2741|    0|
+    +------------------------------------+---------------------------------+---------+----+------+------+-----+
+    |Total                               |                                 |        0|   0|  1909|  5525|    0|
+    +------------------------------------+---------------------------------+---------+----+------+------+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +-------------------------------+---------+-----+----+-----+------+-----+---------+
+    |              Name             | BRAM_18K|  FF | LUT| URAM| Depth| Bits| Size:D*B|
+    +-------------------------------+---------+-----+----+-----+------+-----+---------+
+    |cluster_stream_U               |        0|  218|   0|    -|    64|   61|     3904|
+    |top_clusters_et_1_U            |        0|   68|   0|    -|     2|   20|       40|
+    |top_clusters_et_2_U            |        0|   68|   0|    -|     2|   20|       40|
+    |top_clusters_et_3_U            |        0|   68|   0|    -|     2|   20|       40|
+    |top_clusters_et_4_U            |        0|   68|   0|    -|     2|   20|       40|
+    |top_clusters_et_5_U            |        0|   68|   0|    -|     2|   20|       40|
+    |top_clusters_et_6_U            |        0|   68|   0|    -|     2|   20|       40|
+    |top_clusters_et_7_U            |        0|   68|   0|    -|     2|   20|       40|
+    |top_clusters_et_U              |        0|   68|   0|    -|     2|   20|       40|
+    |top_clusters_eta_1_U           |        0|   20|   0|    -|     2|    6|       12|
+    |top_clusters_eta_2_U           |        0|   20|   0|    -|     2|    6|       12|
+    |top_clusters_eta_3_U           |        0|   20|   0|    -|     2|    6|       12|
+    |top_clusters_eta_4_U           |        0|   20|   0|    -|     2|    6|       12|
+    |top_clusters_eta_5_U           |        0|   20|   0|    -|     2|    6|       12|
+    |top_clusters_eta_6_U           |        0|   20|   0|    -|     2|    6|       12|
+    |top_clusters_eta_7_U           |        0|   20|   0|    -|     2|    6|       12|
+    |top_clusters_eta_U             |        0|   20|   0|    -|     2|    6|       12|
+    |top_clusters_isolation_et_1_U  |        0|   68|   0|    -|     2|   20|       40|
+    |top_clusters_isolation_et_2_U  |        0|   68|   0|    -|     2|   20|       40|
+    |top_clusters_isolation_et_3_U  |        0|   68|   0|    -|     2|   20|       40|
+    |top_clusters_isolation_et_4_U  |        0|   68|   0|    -|     2|   20|       40|
+    |top_clusters_isolation_et_5_U  |        0|   68|   0|    -|     2|   20|       40|
+    |top_clusters_isolation_et_6_U  |        0|   68|   0|    -|     2|   20|       40|
+    |top_clusters_isolation_et_7_U  |        0|   68|   0|    -|     2|   20|       40|
+    |top_clusters_isolation_et_U    |        0|   68|   0|    -|     2|   20|       40|
+    |top_clusters_phi_1_U           |        0|   20|   0|    -|     2|    6|       12|
+    |top_clusters_phi_2_U           |        0|   20|   0|    -|     2|    6|       12|
+    |top_clusters_phi_3_U           |        0|   20|   0|    -|     2|    6|       12|
+    |top_clusters_phi_4_U           |        0|   20|   0|    -|     2|    6|       12|
+    |top_clusters_phi_5_U           |        0|   20|   0|    -|     2|    6|       12|
+    |top_clusters_phi_6_U           |        0|   20|   0|    -|     2|    6|       12|
+    |top_clusters_phi_7_U           |        0|   20|   0|    -|     2|    6|       12|
+    |top_clusters_phi_U             |        0|   20|   0|    -|     2|    6|       12|
+    |top_clusters_valid_1_U         |        0|    8|   0|    -|     2|    1|        2|
+    |top_clusters_valid_2_U         |        0|    8|   0|    -|     2|    1|        2|
+    |top_clusters_valid_3_U         |        0|    8|   0|    -|     2|    1|        2|
+    |top_clusters_valid_4_U         |        0|    8|   0|    -|     2|    1|        2|
+    |top_clusters_valid_5_U         |        0|    8|   0|    -|     2|    1|        2|
+    |top_clusters_valid_6_U         |        0|    8|   0|    -|     2|    1|        2|
+    |top_clusters_valid_7_U         |        0|    8|   0|    -|     2|    1|        2|
+    |top_clusters_valid_U           |        0|    8|   0|    -|     2|    1|        2|
+    |top_clusters_window_size_1_U   |        0|   12|   0|    -|     2|    4|        8|
+    |top_clusters_window_size_2_U   |        0|   12|   0|    -|     2|    4|        8|
+    |top_clusters_window_size_3_U   |        0|   12|   0|    -|     2|    4|        8|
+    |top_clusters_window_size_4_U   |        0|   12|   0|    -|     2|    4|        8|
+    |top_clusters_window_size_5_U   |        0|   12|   0|    -|     2|    4|        8|
+    |top_clusters_window_size_6_U   |        0|   12|   0|    -|     2|    4|        8|
+    |top_clusters_window_size_7_U   |        0|   12|   0|    -|     2|    4|        8|
+    |top_clusters_window_size_U     |        0|   12|   0|    -|     2|    4|        8|
+    +-------------------------------+---------+-----+----+-----+------+-----+---------+
+    |Total                          |        0| 1786|   0|    0|   160|  517|     4816|
+    +-------------------------------+---------+-----+----+-----+------+-----+---------+
+
+    * Expression: 
+    +---------------------------------------------------+----------+----+---+----+------------+------------+
+    |                   Variable Name                   | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------------------------------------+----------+----+---+----+------------+------------+
+    |ap_channel_done_top_clusters_et                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_et_1                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_et_2                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_et_3                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_et_4                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_et_5                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_et_6                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_et_7                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_eta                   |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_eta_1                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_eta_2                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_eta_3                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_eta_4                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_eta_5                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_eta_6                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_eta_7                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_isolation_et          |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_isolation_et_1        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_isolation_et_2        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_isolation_et_3        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_isolation_et_4        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_isolation_et_5        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_isolation_et_6        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_isolation_et_7        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_phi                   |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_phi_1                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_phi_2                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_phi_3                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_phi_4                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_phi_5                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_phi_6                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_phi_7                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_valid                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_valid_1               |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_valid_2               |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_valid_3               |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_valid_4               |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_valid_5               |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_valid_6               |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_valid_7               |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_window_size           |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_window_size_1         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_window_size_2         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_window_size_3         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_window_size_4         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_window_size_5         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_window_size_6         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_top_clusters_window_size_7         |       and|   0|  0|   2|           1|           1|
+    |ap_idle                                            |       and|   0|  0|   2|           1|           1|
+    |ap_sync_continue                                   |       and|   0|  0|   2|           1|           1|
+    |ap_sync_done                                       |       and|   0|  0|   2|           1|           1|
+    |build_trigger_objects_U0_ap_start                  |       and|   0|  0|   2|           1|           1|
+    |select_top_n_from_stream_U0_ap_continue            |       and|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_et              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_et_1            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_et_2            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_et_3            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_et_4            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_et_5            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_et_6            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_et_7            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_eta             |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_eta_1           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_eta_2           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_eta_3           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_eta_4           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_eta_5           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_eta_6           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_eta_7           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_isolation_et    |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_isolation_et_1  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_isolation_et_2  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_isolation_et_3  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_isolation_et_4  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_isolation_et_5  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_isolation_et_6  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_isolation_et_7  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_phi             |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_phi_1           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_phi_2           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_phi_3           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_phi_4           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_phi_5           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_phi_6           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_phi_7           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_valid           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_valid_1         |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_valid_2         |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_valid_3         |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_valid_4         |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_valid_5         |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_valid_6         |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_valid_7         |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_window_size     |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_window_size_1   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_window_size_2   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_window_size_3   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_window_size_4   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_window_size_5   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_window_size_6   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_top_clusters_window_size_7   |        or|   0|  0|   2|           1|           1|
+    +---------------------------------------------------+----------+----+---+----+------------+------------+
+    |Total                                              |          |   0|  0| 202|         101|         101|
+    +---------------------------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------------------------------------+----+-----------+-----+-----------+
+    |                          Name                         | LUT| Input Size| Bits| Total Bits|
+    +-------------------------------------------------------+----+-----------+-----+-----------+
+    |ap_sync_reg_channel_write_top_clusters_et              |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_et_1            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_et_2            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_et_3            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_et_4            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_et_5            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_et_6            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_et_7            |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_eta             |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_eta_1           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_eta_2           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_eta_3           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_eta_4           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_eta_5           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_eta_6           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_eta_7           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_isolation_et    |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_isolation_et_1  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_isolation_et_2  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_isolation_et_3  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_isolation_et_4  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_isolation_et_5  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_isolation_et_6  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_isolation_et_7  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_phi             |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_phi_1           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_phi_2           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_phi_3           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_phi_4           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_phi_5           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_phi_6           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_phi_7           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_valid           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_valid_1         |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_valid_2         |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_valid_3         |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_valid_4         |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_valid_5         |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_valid_6         |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_valid_7         |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_window_size     |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_window_size_1   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_window_size_2   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_window_size_3   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_window_size_4   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_window_size_5   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_window_size_6   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_top_clusters_window_size_7   |   9|          2|    1|          2|
+    +-------------------------------------------------------+----+-----------+-----+-----------+
+    |Total                                                  | 432|         96|   48|         96|
+    +-------------------------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------------------------------------+---+----+-----+-----------+
+    |                          Name                         | FF| LUT| Bits| Const Bits|
+    +-------------------------------------------------------+---+----+-----+-----------+
+    |ap_sync_reg_channel_write_top_clusters_et              |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_et_1            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_et_2            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_et_3            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_et_4            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_et_5            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_et_6            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_et_7            |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_eta             |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_eta_1           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_eta_2           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_eta_3           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_eta_4           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_eta_5           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_eta_6           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_eta_7           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_isolation_et    |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_isolation_et_1  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_isolation_et_2  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_isolation_et_3  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_isolation_et_4  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_isolation_et_5  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_isolation_et_6  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_isolation_et_7  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_phi             |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_phi_1           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_phi_2           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_phi_3           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_phi_4           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_phi_5           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_phi_6           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_phi_7           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_valid           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_valid_1         |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_valid_2         |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_valid_3         |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_valid_4         |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_valid_5         |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_valid_6         |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_valid_7         |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_window_size     |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_window_size_1   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_window_size_2   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_window_size_3   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_window_size_4   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_window_size_5   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_window_size_6   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_top_clusters_window_size_7   |  1|   0|    1|          0|
+    +-------------------------------------------------------+---+----+-----+-----------+
+    |Total                                                  | 48|   0|   48|          0|
+    +-------------------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------------+-----+-----+------------+---------------------------+--------------+
+|         RTL Ports        | Dir | Bits|  Protocol  |       Source Object       |    C Type    |
++--------------------------+-----+-----+------------+---------------------------+--------------+
+|towers_Addr_A             |  out|   32|        bram|                     towers|         array|
+|towers_EN_A               |  out|    1|        bram|                     towers|         array|
+|towers_Din_A              |  out|   16|        bram|                     towers|         array|
+|towers_Dout_A             |   in|   16|        bram|                     towers|         array|
+|towers_WEN_A              |  out|    2|        bram|                     towers|         array|
+|towers_Addr_B             |  out|   32|        bram|                     towers|         array|
+|towers_EN_B               |  out|    1|        bram|                     towers|         array|
+|towers_Din_B              |  out|   16|        bram|                     towers|         array|
+|towers_Dout_B             |   in|   16|        bram|                     towers|         array|
+|towers_WEN_B              |  out|    2|        bram|                     towers|         array|
+|seed_threshold            |   in|   12|     ap_none|             seed_threshold|        scalar|
+|seed_threshold_ap_vld     |   in|    1|     ap_none|             seed_threshold|        scalar|
+|cluster_threshold         |   in|   20|     ap_none|          cluster_threshold|        scalar|
+|cluster_threshold_ap_vld  |   in|    1|     ap_none|          cluster_threshold|        scalar|
+|trigger_objects_0         |  out|   89|      ap_vld|          trigger_objects_0|       pointer|
+|trigger_objects_0_ap_vld  |  out|    1|      ap_vld|          trigger_objects_0|       pointer|
+|trigger_objects_1         |  out|   89|      ap_vld|          trigger_objects_1|       pointer|
+|trigger_objects_1_ap_vld  |  out|    1|      ap_vld|          trigger_objects_1|       pointer|
+|trigger_objects_2         |  out|   89|      ap_vld|          trigger_objects_2|       pointer|
+|trigger_objects_2_ap_vld  |  out|    1|      ap_vld|          trigger_objects_2|       pointer|
+|trigger_objects_3         |  out|   89|      ap_vld|          trigger_objects_3|       pointer|
+|trigger_objects_3_ap_vld  |  out|    1|      ap_vld|          trigger_objects_3|       pointer|
+|trigger_objects_4         |  out|   89|      ap_vld|          trigger_objects_4|       pointer|
+|trigger_objects_4_ap_vld  |  out|    1|      ap_vld|          trigger_objects_4|       pointer|
+|trigger_objects_5         |  out|   89|      ap_vld|          trigger_objects_5|       pointer|
+|trigger_objects_5_ap_vld  |  out|    1|      ap_vld|          trigger_objects_5|       pointer|
+|trigger_objects_6         |  out|   89|      ap_vld|          trigger_objects_6|       pointer|
+|trigger_objects_6_ap_vld  |  out|    1|      ap_vld|          trigger_objects_6|       pointer|
+|trigger_objects_7         |  out|   89|      ap_vld|          trigger_objects_7|       pointer|
+|trigger_objects_7_ap_vld  |  out|    1|      ap_vld|          trigger_objects_7|       pointer|
+|num_clusters              |  out|   32|      ap_vld|               num_clusters|       pointer|
+|num_clusters_ap_vld       |  out|    1|      ap_vld|               num_clusters|       pointer|
+|ap_clk                    |   in|    1|  ap_ctrl_hs|  cluster_sort_build_stream|  return value|
+|ap_rst                    |   in|    1|  ap_ctrl_hs|  cluster_sort_build_stream|  return value|
+|ap_start                  |   in|    1|  ap_ctrl_hs|  cluster_sort_build_stream|  return value|
+|ap_done                   |  out|    1|  ap_ctrl_hs|  cluster_sort_build_stream|  return value|
+|ap_ready                  |  out|    1|  ap_ctrl_hs|  cluster_sort_build_stream|  return value|
+|ap_idle                   |  out|    1|  ap_ctrl_hs|  cluster_sort_build_stream|  return value|
+|ap_continue               |   in|    1|  ap_ctrl_hs|  cluster_sort_build_stream|  return value|
++--------------------------+-----+-----+------------+---------------------------+--------------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 2
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 4
+* Pipeline : 0
+* Dataflow Pipeline: 1
+  DF-Pipeline-0: Size = 4, States = { 1 2 3 4 }
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%cluster_threshold_read = read i20 @_ssdm_op_Read.ap_auto.i20, i20 %cluster_threshold"   --->   Operation 5 'read' 'cluster_threshold_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%seed_threshold_read = read i12 @_ssdm_op_Read.ap_auto.i12, i12 %seed_threshold"   --->   Operation 6 'read' 'seed_threshold_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%cluster_stream = alloca i64 1"   --->   Operation 7 'alloca' 'cluster_stream' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO">   --->   Core 77 'FIFO' <Latency = 0> <II = 1> <Delay = 1.13> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 61> <Depth = 64> <FIFO>
+ST_1 : Operation 8 [2/2] (0.00ns)   --->   "%call_ln332 = call void @produce_cluster_stream_3x3_iso5, i12 %towers, i12 %seed_threshold_read, i20 %cluster_threshold_read, i61 %cluster_stream" [calorimeter.cpp:332]   --->   Operation 8 'call' 'call_ln332' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 9 [1/2] (0.00ns)   --->   "%call_ln332 = call void @produce_cluster_stream_3x3_iso5, i12 %towers, i12 %seed_threshold_read, i20 %cluster_threshold_read, i61 %cluster_stream" [calorimeter.cpp:332]   --->   Operation 9 'call' 'call_ln332' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 10 [2/2] (0.00ns)   --->   "%call_ret = call i456 @select_top_n_from_stream, i61 %cluster_stream, i32 %num_clusters" [calorimeter.cpp:333]   --->   Operation 10 'call' 'call_ret' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 4 <SV = 3> <Delay = 3.21>
+ST_4 : Operation 11 [1/1] (0.00ns)   --->   "%specdataflowpipeline_ln323 = specdataflowpipeline void @_ssdm_op_SpecDataflowPipeline, i32 4294967295, i32 0, void @empty_5" [calorimeter.cpp:323]   --->   Operation 11 'specdataflowpipeline' 'specdataflowpipeline_ln323' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 12 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i12 %towers, void @empty_6, i32 0, i32 0, void @empty_5, i32 4294967295, i32 0, void @empty_5, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0, i32 0"   --->   Operation 12 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 13 [1/1] (0.00ns)   --->   "%empty = specchannel i32 @_ssdm_op_SpecChannel, void @cluster_stream_str, i32 1, void @p_str, void @p_str, i32 64, i32 64, i61 %cluster_stream, i61 %cluster_stream"   --->   Operation 13 'specchannel' 'empty' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 14 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i61 %cluster_stream, void @empty_2, i32 0, i32 0, void @empty_5, i32 0, i32 0, void @empty_5, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0, i32 0"   --->   Operation 14 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 15 [1/2] (0.73ns)   --->   "%call_ret = call i456 @select_top_n_from_stream, i61 %cluster_stream, i32 %num_clusters" [calorimeter.cpp:333]   --->   Operation 15 'call' 'call_ret' <Predicate = true> <Delay = 0.73> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 16 [1/1] (0.00ns)   --->   "%top_clusters_et = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 16 'extractvalue' 'top_clusters_et' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 17 [1/1] (0.00ns)   --->   "%top_clusters_et_1 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 17 'extractvalue' 'top_clusters_et_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 18 [1/1] (0.00ns)   --->   "%top_clusters_et_2 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 18 'extractvalue' 'top_clusters_et_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 19 [1/1] (0.00ns)   --->   "%top_clusters_et_3 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 19 'extractvalue' 'top_clusters_et_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 20 [1/1] (0.00ns)   --->   "%top_clusters_et_4 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 20 'extractvalue' 'top_clusters_et_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 21 [1/1] (0.00ns)   --->   "%top_clusters_et_5 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 21 'extractvalue' 'top_clusters_et_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 22 [1/1] (0.00ns)   --->   "%top_clusters_et_6 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 22 'extractvalue' 'top_clusters_et_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 23 [1/1] (0.00ns)   --->   "%top_clusters_et_7 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 23 'extractvalue' 'top_clusters_et_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 24 [1/1] (0.00ns)   --->   "%top_clusters_isolation_et = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 24 'extractvalue' 'top_clusters_isolation_et' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 25 [1/1] (0.00ns)   --->   "%top_clusters_isolation_et_1 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 25 'extractvalue' 'top_clusters_isolation_et_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 26 [1/1] (0.00ns)   --->   "%top_clusters_isolation_et_2 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 26 'extractvalue' 'top_clusters_isolation_et_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 27 [1/1] (0.00ns)   --->   "%top_clusters_isolation_et_3 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 27 'extractvalue' 'top_clusters_isolation_et_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 28 [1/1] (0.00ns)   --->   "%top_clusters_isolation_et_4 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 28 'extractvalue' 'top_clusters_isolation_et_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 29 [1/1] (0.00ns)   --->   "%top_clusters_isolation_et_5 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 29 'extractvalue' 'top_clusters_isolation_et_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 30 [1/1] (0.00ns)   --->   "%top_clusters_isolation_et_6 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 30 'extractvalue' 'top_clusters_isolation_et_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 31 [1/1] (0.00ns)   --->   "%top_clusters_isolation_et_7 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 31 'extractvalue' 'top_clusters_isolation_et_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 32 [1/1] (0.00ns)   --->   "%top_clusters_eta = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 32 'extractvalue' 'top_clusters_eta' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 33 [1/1] (0.00ns)   --->   "%top_clusters_eta_1 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 33 'extractvalue' 'top_clusters_eta_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 34 [1/1] (0.00ns)   --->   "%top_clusters_eta_2 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 34 'extractvalue' 'top_clusters_eta_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 35 [1/1] (0.00ns)   --->   "%top_clusters_eta_3 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 35 'extractvalue' 'top_clusters_eta_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 36 [1/1] (0.00ns)   --->   "%top_clusters_eta_4 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 36 'extractvalue' 'top_clusters_eta_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 37 [1/1] (0.00ns)   --->   "%top_clusters_eta_5 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 37 'extractvalue' 'top_clusters_eta_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 38 [1/1] (0.00ns)   --->   "%top_clusters_eta_6 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 38 'extractvalue' 'top_clusters_eta_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 39 [1/1] (0.00ns)   --->   "%top_clusters_eta_7 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 39 'extractvalue' 'top_clusters_eta_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 40 [1/1] (0.00ns)   --->   "%top_clusters_phi = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 40 'extractvalue' 'top_clusters_phi' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 41 [1/1] (0.00ns)   --->   "%top_clusters_phi_1 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 41 'extractvalue' 'top_clusters_phi_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 42 [1/1] (0.00ns)   --->   "%top_clusters_phi_2 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 42 'extractvalue' 'top_clusters_phi_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 43 [1/1] (0.00ns)   --->   "%top_clusters_phi_3 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 43 'extractvalue' 'top_clusters_phi_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 44 [1/1] (0.00ns)   --->   "%top_clusters_phi_4 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 44 'extractvalue' 'top_clusters_phi_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 45 [1/1] (0.00ns)   --->   "%top_clusters_phi_5 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 45 'extractvalue' 'top_clusters_phi_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 46 [1/1] (0.00ns)   --->   "%top_clusters_phi_6 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 46 'extractvalue' 'top_clusters_phi_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 47 [1/1] (0.00ns)   --->   "%top_clusters_phi_7 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 47 'extractvalue' 'top_clusters_phi_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 48 [1/1] (0.00ns)   --->   "%top_clusters_window_size = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 48 'extractvalue' 'top_clusters_window_size' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 49 [1/1] (0.00ns)   --->   "%top_clusters_window_size_1 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 49 'extractvalue' 'top_clusters_window_size_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 50 [1/1] (0.00ns)   --->   "%top_clusters_window_size_2 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 50 'extractvalue' 'top_clusters_window_size_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 51 [1/1] (0.00ns)   --->   "%top_clusters_window_size_3 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 51 'extractvalue' 'top_clusters_window_size_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 52 [1/1] (0.00ns)   --->   "%top_clusters_window_size_4 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 52 'extractvalue' 'top_clusters_window_size_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 53 [1/1] (0.00ns)   --->   "%top_clusters_window_size_5 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 53 'extractvalue' 'top_clusters_window_size_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 54 [1/1] (0.00ns)   --->   "%top_clusters_window_size_6 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 54 'extractvalue' 'top_clusters_window_size_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 55 [1/1] (0.00ns)   --->   "%top_clusters_window_size_7 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 55 'extractvalue' 'top_clusters_window_size_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 56 [1/1] (0.00ns)   --->   "%top_clusters_valid = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 56 'extractvalue' 'top_clusters_valid' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 57 [1/1] (0.00ns)   --->   "%top_clusters_valid_1 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 57 'extractvalue' 'top_clusters_valid_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 58 [1/1] (0.00ns)   --->   "%top_clusters_valid_2 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 58 'extractvalue' 'top_clusters_valid_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 59 [1/1] (0.00ns)   --->   "%top_clusters_valid_3 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 59 'extractvalue' 'top_clusters_valid_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 60 [1/1] (0.00ns)   --->   "%top_clusters_valid_4 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 60 'extractvalue' 'top_clusters_valid_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 61 [1/1] (0.00ns)   --->   "%top_clusters_valid_5 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 61 'extractvalue' 'top_clusters_valid_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 62 [1/1] (0.00ns)   --->   "%top_clusters_valid_6 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 62 'extractvalue' 'top_clusters_valid_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 63 [1/1] (0.00ns)   --->   "%top_clusters_valid_7 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 63 'extractvalue' 'top_clusters_valid_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 64 [1/1] (2.47ns)   --->   "%call_ln334 = call void @build_trigger_objects, i20 %top_clusters_et, i20 %top_clusters_et_1, i20 %top_clusters_et_2, i20 %top_clusters_et_3, i20 %top_clusters_et_4, i20 %top_clusters_et_5, i20 %top_clusters_et_6, i20 %top_clusters_et_7, i20 %top_clusters_isolation_et, i20 %top_clusters_isolation_et_1, i20 %top_clusters_isolation_et_2, i20 %top_clusters_isolation_et_3, i20 %top_clusters_isolation_et_4, i20 %top_clusters_isolation_et_5, i20 %top_clusters_isolation_et_6, i20 %top_clusters_isolation_et_7, i6 %top_clusters_eta, i6 %top_clusters_eta_1, i6 %top_clusters_eta_2, i6 %top_clusters_eta_3, i6 %top_clusters_eta_4, i6 %top_clusters_eta_5, i6 %top_clusters_eta_6, i6 %top_clusters_eta_7, i6 %top_clusters_phi, i6 %top_clusters_phi_1, i6 %top_clusters_phi_2, i6 %top_clusters_phi_3, i6 %top_clusters_phi_4, i6 %top_clusters_phi_5, i6 %top_clusters_phi_6, i6 %top_clusters_phi_7, i4 %top_clusters_window_size, i4 %top_clusters_window_size_1, i4 %top_clusters_window_size_2, i4 %top_clusters_window_size_3, i4 %top_clusters_window_size_4, i4 %top_clusters_window_size_5, i4 %top_clusters_window_size_6, i4 %top_clusters_window_size_7, i1 %top_clusters_valid, i1 %top_clusters_valid_1, i1 %top_clusters_valid_2, i1 %top_clusters_valid_3, i1 %top_clusters_valid_4, i1 %top_clusters_valid_5, i1 %top_clusters_valid_6, i1 %top_clusters_valid_7, i89 %trigger_objects_0, i89 %trigger_objects_1, i89 %trigger_objects_2, i89 %trigger_objects_3, i89 %trigger_objects_4, i89 %trigger_objects_5, i89 %trigger_objects_6, i89 %trigger_objects_7" [calorimeter.cpp:334]   --->   Operation 64 'call' 'call_ln334' <Predicate = true> <Delay = 2.47> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 65 [1/1] (0.00ns)   --->   "%ret_ln335 = ret" [calorimeter.cpp:335]   --->   Operation 65 'ret' 'ret_ln335' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 0
+- Is one-state seq: 0
+- Is datapath-only: 0
+- Is pipelined: 0
+- Is top level: 0
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
+Port [ towers]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[11]; IO mode=bram:ce=0
+Port [ seed_threshold]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ cluster_threshold]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ trigger_objects_0]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ trigger_objects_1]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ trigger_objects_2]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ trigger_objects_3]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ trigger_objects_4]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ trigger_objects_5]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ trigger_objects_6]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ trigger_objects_7]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ num_clusters]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+cluster_threshold_read      (read                ) [ 00100]
+seed_threshold_read         (read                ) [ 00100]
+cluster_stream              (alloca              ) [ 01111]
+call_ln332                  (call                ) [ 00000]
+specdataflowpipeline_ln323  (specdataflowpipeline) [ 00000]
+specinterface_ln0           (specinterface       ) [ 00000]
+empty                       (specchannel         ) [ 00000]
+specinterface_ln0           (specinterface       ) [ 00000]
+call_ret                    (call                ) [ 00000]
+top_clusters_et             (extractvalue        ) [ 00000]
+top_clusters_et_1           (extractvalue        ) [ 00000]
+top_clusters_et_2           (extractvalue        ) [ 00000]
+top_clusters_et_3           (extractvalue        ) [ 00000]
+top_clusters_et_4           (extractvalue        ) [ 00000]
+top_clusters_et_5           (extractvalue        ) [ 00000]
+top_clusters_et_6           (extractvalue        ) [ 00000]
+top_clusters_et_7           (extractvalue        ) [ 00000]
+top_clusters_isolation_et   (extractvalue        ) [ 00000]
+top_clusters_isolation_et_1 (extractvalue        ) [ 00000]
+top_clusters_isolation_et_2 (extractvalue        ) [ 00000]
+top_clusters_isolation_et_3 (extractvalue        ) [ 00000]
+top_clusters_isolation_et_4 (extractvalue        ) [ 00000]
+top_clusters_isolation_et_5 (extractvalue        ) [ 00000]
+top_clusters_isolation_et_6 (extractvalue        ) [ 00000]
+top_clusters_isolation_et_7 (extractvalue        ) [ 00000]
+top_clusters_eta            (extractvalue        ) [ 00000]
+top_clusters_eta_1          (extractvalue        ) [ 00000]
+top_clusters_eta_2          (extractvalue        ) [ 00000]
+top_clusters_eta_3          (extractvalue        ) [ 00000]
+top_clusters_eta_4          (extractvalue        ) [ 00000]
+top_clusters_eta_5          (extractvalue        ) [ 00000]
+top_clusters_eta_6          (extractvalue        ) [ 00000]
+top_clusters_eta_7          (extractvalue        ) [ 00000]
+top_clusters_phi            (extractvalue        ) [ 00000]
+top_clusters_phi_1          (extractvalue        ) [ 00000]
+top_clusters_phi_2          (extractvalue        ) [ 00000]
+top_clusters_phi_3          (extractvalue        ) [ 00000]
+top_clusters_phi_4          (extractvalue        ) [ 00000]
+top_clusters_phi_5          (extractvalue        ) [ 00000]
+top_clusters_phi_6          (extractvalue        ) [ 00000]
+top_clusters_phi_7          (extractvalue        ) [ 00000]
+top_clusters_window_size    (extractvalue        ) [ 00000]
+top_clusters_window_size_1  (extractvalue        ) [ 00000]
+top_clusters_window_size_2  (extractvalue        ) [ 00000]
+top_clusters_window_size_3  (extractvalue        ) [ 00000]
+top_clusters_window_size_4  (extractvalue        ) [ 00000]
+top_clusters_window_size_5  (extractvalue        ) [ 00000]
+top_clusters_window_size_6  (extractvalue        ) [ 00000]
+top_clusters_window_size_7  (extractvalue        ) [ 00000]
+top_clusters_valid          (extractvalue        ) [ 00000]
+top_clusters_valid_1        (extractvalue        ) [ 00000]
+top_clusters_valid_2        (extractvalue        ) [ 00000]
+top_clusters_valid_3        (extractvalue        ) [ 00000]
+top_clusters_valid_4        (extractvalue        ) [ 00000]
+top_clusters_valid_5        (extractvalue        ) [ 00000]
+top_clusters_valid_6        (extractvalue        ) [ 00000]
+top_clusters_valid_7        (extractvalue        ) [ 00000]
+call_ln334                  (call                ) [ 00000]
+ret_ln335                   (ret                 ) [ 00000]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="towers">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="towers"/><MemPortTyVec>1 1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1000" name="seed_threshold">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="seed_threshold"/></StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1000" name="cluster_threshold">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="cluster_threshold"/></StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1000" name="trigger_objects_0">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="trigger_objects_0"/></StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1000" name="trigger_objects_1">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="trigger_objects_1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1000" name="trigger_objects_2">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="trigger_objects_2"/></StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1000" name="trigger_objects_3">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="trigger_objects_3"/></StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1000" name="trigger_objects_4">
+<pin_list>
+<pin id="15" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="trigger_objects_4"/></StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1000" name="trigger_objects_5">
+<pin_list>
+<pin id="17" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="trigger_objects_5"/></StgValue>
+</bind>
+</comp>
+
+<comp id="18" class="1000" name="trigger_objects_6">
+<pin_list>
+<pin id="19" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="trigger_objects_6"/></StgValue>
+</bind>
+</comp>
+
+<comp id="20" class="1000" name="trigger_objects_7">
+<pin_list>
+<pin id="21" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="trigger_objects_7"/></StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1000" name="num_clusters">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="num_clusters"/></StgValue>
+</bind>
+</comp>
+
+<comp id="24" class="1001" name="const_24">
+<pin_list>
+<pin id="25" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i20"/></StgValue>
+</bind>
+</comp>
+
+<comp id="26" class="1001" name="const_26">
+<pin_list>
+<pin id="27" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i12"/></StgValue>
+</bind>
+</comp>
+
+<comp id="28" class="1001" name="const_28">
+<pin_list>
+<pin id="29" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="30" class="1001" name="const_30">
+<pin_list>
+<pin id="31" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="produce_cluster_stream_3x3_iso5"/></StgValue>
+</bind>
+</comp>
+
+<comp id="32" class="1001" name="const_32">
+<pin_list>
+<pin id="33" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="select_top_n_from_stream"/></StgValue>
+</bind>
+</comp>
+
+<comp id="34" class="1001" name="const_34">
+<pin_list>
+<pin id="35" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecDataflowPipeline"/></StgValue>
+</bind>
+</comp>
+
+<comp id="36" class="1001" name="const_36">
+<pin_list>
+<pin id="37" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="38" class="1001" name="const_38">
+<pin_list>
+<pin id="39" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="40" class="1001" name="const_40">
+<pin_list>
+<pin id="41" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_5"/></StgValue>
+</bind>
+</comp>
+
+<comp id="42" class="1001" name="const_42">
+<pin_list>
+<pin id="43" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
+</bind>
+</comp>
+
+<comp id="44" class="1001" name="const_44">
+<pin_list>
+<pin id="45" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_6"/></StgValue>
+</bind>
+</comp>
+
+<comp id="46" class="1001" name="const_46">
+<pin_list>
+<pin id="47" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecChannel"/></StgValue>
+</bind>
+</comp>
+
+<comp id="48" class="1001" name="const_48">
+<pin_list>
+<pin id="49" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="cluster_stream_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="50" class="1001" name="const_50">
+<pin_list>
+<pin id="51" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="52" class="1001" name="const_52">
+<pin_list>
+<pin id="53" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="54" class="1001" name="const_54">
+<pin_list>
+<pin id="55" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="56" class="1001" name="const_56">
+<pin_list>
+<pin id="57" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_2"/></StgValue>
+</bind>
+</comp>
+
+<comp id="58" class="1001" name="const_58">
+<pin_list>
+<pin id="59" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="build_trigger_objects"/></StgValue>
+</bind>
+</comp>
+
+<comp id="60" class="1004" name="cluster_stream_fu_60">
+<pin_list>
+<pin id="61" dir="0" index="0" bw="1" slack="0"/>
+<pin id="62" dir="1" index="1" bw="61" slack="0"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="cluster_stream/1 "/>
+</bind>
+</comp>
+
+<comp id="64" class="1004" name="cluster_threshold_read_read_fu_64">
+<pin_list>
+<pin id="65" dir="0" index="0" bw="20" slack="0"/>
+<pin id="66" dir="0" index="1" bw="20" slack="0"/>
+<pin id="67" dir="1" index="2" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="cluster_threshold_read/1 "/>
+</bind>
+</comp>
+
+<comp id="70" class="1004" name="seed_threshold_read_read_fu_70">
+<pin_list>
+<pin id="71" dir="0" index="0" bw="12" slack="0"/>
+<pin id="72" dir="0" index="1" bw="12" slack="0"/>
+<pin id="73" dir="1" index="2" bw="12" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="seed_threshold_read/1 "/>
+</bind>
+</comp>
+
+<comp id="76" class="1004" name="grp_produce_cluster_stream_3x3_iso5_fu_76">
+<pin_list>
+<pin id="77" dir="0" index="0" bw="0" slack="0"/>
+<pin id="78" dir="0" index="1" bw="12" slack="0"/>
+<pin id="79" dir="0" index="2" bw="12" slack="0"/>
+<pin id="80" dir="0" index="3" bw="20" slack="0"/>
+<pin id="81" dir="0" index="4" bw="61" slack="0"/>
+<pin id="82" dir="1" index="5" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln332/1 "/>
+</bind>
+</comp>
+
+<comp id="87" class="1004" name="grp_select_top_n_from_stream_fu_87">
+<pin_list>
+<pin id="88" dir="0" index="0" bw="456" slack="0"/>
+<pin id="89" dir="0" index="1" bw="61" slack="2"/>
+<pin id="90" dir="0" index="2" bw="32" slack="0"/>
+<pin id="91" dir="1" index="3" bw="456" slack="0"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ret/3 "/>
+</bind>
+</comp>
+
+<comp id="94" class="1004" name="call_ln334_build_trigger_objects_fu_94">
+<pin_list>
+<pin id="95" dir="0" index="0" bw="0" slack="0"/>
+<pin id="96" dir="0" index="1" bw="20" slack="0"/>
+<pin id="97" dir="0" index="2" bw="20" slack="0"/>
+<pin id="98" dir="0" index="3" bw="20" slack="0"/>
+<pin id="99" dir="0" index="4" bw="20" slack="0"/>
+<pin id="100" dir="0" index="5" bw="20" slack="0"/>
+<pin id="101" dir="0" index="6" bw="20" slack="0"/>
+<pin id="102" dir="0" index="7" bw="20" slack="0"/>
+<pin id="103" dir="0" index="8" bw="20" slack="0"/>
+<pin id="104" dir="0" index="9" bw="20" slack="0"/>
+<pin id="105" dir="0" index="10" bw="20" slack="0"/>
+<pin id="106" dir="0" index="11" bw="20" slack="0"/>
+<pin id="107" dir="0" index="12" bw="20" slack="0"/>
+<pin id="108" dir="0" index="13" bw="20" slack="0"/>
+<pin id="109" dir="0" index="14" bw="20" slack="0"/>
+<pin id="110" dir="0" index="15" bw="20" slack="0"/>
+<pin id="111" dir="0" index="16" bw="20" slack="0"/>
+<pin id="112" dir="0" index="17" bw="6" slack="0"/>
+<pin id="113" dir="0" index="18" bw="6" slack="0"/>
+<pin id="114" dir="0" index="19" bw="6" slack="0"/>
+<pin id="115" dir="0" index="20" bw="6" slack="0"/>
+<pin id="116" dir="0" index="21" bw="6" slack="0"/>
+<pin id="117" dir="0" index="22" bw="6" slack="0"/>
+<pin id="118" dir="0" index="23" bw="6" slack="0"/>
+<pin id="119" dir="0" index="24" bw="6" slack="0"/>
+<pin id="120" dir="0" index="25" bw="6" slack="0"/>
+<pin id="121" dir="0" index="26" bw="6" slack="0"/>
+<pin id="122" dir="0" index="27" bw="6" slack="0"/>
+<pin id="123" dir="0" index="28" bw="6" slack="0"/>
+<pin id="124" dir="0" index="29" bw="6" slack="0"/>
+<pin id="125" dir="0" index="30" bw="6" slack="0"/>
+<pin id="126" dir="0" index="31" bw="6" slack="0"/>
+<pin id="127" dir="0" index="32" bw="6" slack="0"/>
+<pin id="128" dir="0" index="33" bw="4" slack="0"/>
+<pin id="129" dir="0" index="34" bw="4" slack="0"/>
+<pin id="130" dir="0" index="35" bw="4" slack="0"/>
+<pin id="131" dir="0" index="36" bw="4" slack="0"/>
+<pin id="132" dir="0" index="37" bw="4" slack="0"/>
+<pin id="133" dir="0" index="38" bw="4" slack="0"/>
+<pin id="134" dir="0" index="39" bw="4" slack="0"/>
+<pin id="135" dir="0" index="40" bw="4" slack="0"/>
+<pin id="136" dir="0" index="41" bw="1" slack="0"/>
+<pin id="137" dir="0" index="42" bw="1" slack="0"/>
+<pin id="138" dir="0" index="43" bw="1" slack="0"/>
+<pin id="139" dir="0" index="44" bw="1" slack="0"/>
+<pin id="140" dir="0" index="45" bw="1" slack="0"/>
+<pin id="141" dir="0" index="46" bw="1" slack="0"/>
+<pin id="142" dir="0" index="47" bw="1" slack="0"/>
+<pin id="143" dir="0" index="48" bw="1" slack="0"/>
+<pin id="144" dir="0" index="49" bw="89" slack="0"/>
+<pin id="145" dir="0" index="50" bw="89" slack="0"/>
+<pin id="146" dir="0" index="51" bw="89" slack="0"/>
+<pin id="147" dir="0" index="52" bw="89" slack="0"/>
+<pin id="148" dir="0" index="53" bw="89" slack="0"/>
+<pin id="149" dir="0" index="54" bw="89" slack="0"/>
+<pin id="150" dir="0" index="55" bw="89" slack="0"/>
+<pin id="151" dir="0" index="56" bw="89" slack="0"/>
+<pin id="152" dir="1" index="57" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln334/4 "/>
+</bind>
+</comp>
+
+<comp id="162" class="1004" name="top_clusters_et_fu_162">
+<pin_list>
+<pin id="163" dir="0" index="0" bw="456" slack="0"/>
+<pin id="164" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_et/4 "/>
+</bind>
+</comp>
+
+<comp id="167" class="1004" name="top_clusters_et_1_fu_167">
+<pin_list>
+<pin id="168" dir="0" index="0" bw="456" slack="0"/>
+<pin id="169" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_et_1/4 "/>
+</bind>
+</comp>
+
+<comp id="172" class="1004" name="top_clusters_et_2_fu_172">
+<pin_list>
+<pin id="173" dir="0" index="0" bw="456" slack="0"/>
+<pin id="174" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_et_2/4 "/>
+</bind>
+</comp>
+
+<comp id="177" class="1004" name="top_clusters_et_3_fu_177">
+<pin_list>
+<pin id="178" dir="0" index="0" bw="456" slack="0"/>
+<pin id="179" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_et_3/4 "/>
+</bind>
+</comp>
+
+<comp id="182" class="1004" name="top_clusters_et_4_fu_182">
+<pin_list>
+<pin id="183" dir="0" index="0" bw="456" slack="0"/>
+<pin id="184" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_et_4/4 "/>
+</bind>
+</comp>
+
+<comp id="187" class="1004" name="top_clusters_et_5_fu_187">
+<pin_list>
+<pin id="188" dir="0" index="0" bw="456" slack="0"/>
+<pin id="189" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_et_5/4 "/>
+</bind>
+</comp>
+
+<comp id="192" class="1004" name="top_clusters_et_6_fu_192">
+<pin_list>
+<pin id="193" dir="0" index="0" bw="456" slack="0"/>
+<pin id="194" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_et_6/4 "/>
+</bind>
+</comp>
+
+<comp id="197" class="1004" name="top_clusters_et_7_fu_197">
+<pin_list>
+<pin id="198" dir="0" index="0" bw="456" slack="0"/>
+<pin id="199" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_et_7/4 "/>
+</bind>
+</comp>
+
+<comp id="202" class="1004" name="top_clusters_isolation_et_fu_202">
+<pin_list>
+<pin id="203" dir="0" index="0" bw="456" slack="0"/>
+<pin id="204" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_isolation_et/4 "/>
+</bind>
+</comp>
+
+<comp id="207" class="1004" name="top_clusters_isolation_et_1_fu_207">
+<pin_list>
+<pin id="208" dir="0" index="0" bw="456" slack="0"/>
+<pin id="209" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_isolation_et_1/4 "/>
+</bind>
+</comp>
+
+<comp id="212" class="1004" name="top_clusters_isolation_et_2_fu_212">
+<pin_list>
+<pin id="213" dir="0" index="0" bw="456" slack="0"/>
+<pin id="214" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_isolation_et_2/4 "/>
+</bind>
+</comp>
+
+<comp id="217" class="1004" name="top_clusters_isolation_et_3_fu_217">
+<pin_list>
+<pin id="218" dir="0" index="0" bw="456" slack="0"/>
+<pin id="219" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_isolation_et_3/4 "/>
+</bind>
+</comp>
+
+<comp id="222" class="1004" name="top_clusters_isolation_et_4_fu_222">
+<pin_list>
+<pin id="223" dir="0" index="0" bw="456" slack="0"/>
+<pin id="224" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_isolation_et_4/4 "/>
+</bind>
+</comp>
+
+<comp id="227" class="1004" name="top_clusters_isolation_et_5_fu_227">
+<pin_list>
+<pin id="228" dir="0" index="0" bw="456" slack="0"/>
+<pin id="229" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_isolation_et_5/4 "/>
+</bind>
+</comp>
+
+<comp id="232" class="1004" name="top_clusters_isolation_et_6_fu_232">
+<pin_list>
+<pin id="233" dir="0" index="0" bw="456" slack="0"/>
+<pin id="234" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_isolation_et_6/4 "/>
+</bind>
+</comp>
+
+<comp id="237" class="1004" name="top_clusters_isolation_et_7_fu_237">
+<pin_list>
+<pin id="238" dir="0" index="0" bw="456" slack="0"/>
+<pin id="239" dir="1" index="1" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_isolation_et_7/4 "/>
+</bind>
+</comp>
+
+<comp id="242" class="1004" name="top_clusters_eta_fu_242">
+<pin_list>
+<pin id="243" dir="0" index="0" bw="456" slack="0"/>
+<pin id="244" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_eta/4 "/>
+</bind>
+</comp>
+
+<comp id="247" class="1004" name="top_clusters_eta_1_fu_247">
+<pin_list>
+<pin id="248" dir="0" index="0" bw="456" slack="0"/>
+<pin id="249" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_eta_1/4 "/>
+</bind>
+</comp>
+
+<comp id="252" class="1004" name="top_clusters_eta_2_fu_252">
+<pin_list>
+<pin id="253" dir="0" index="0" bw="456" slack="0"/>
+<pin id="254" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_eta_2/4 "/>
+</bind>
+</comp>
+
+<comp id="257" class="1004" name="top_clusters_eta_3_fu_257">
+<pin_list>
+<pin id="258" dir="0" index="0" bw="456" slack="0"/>
+<pin id="259" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_eta_3/4 "/>
+</bind>
+</comp>
+
+<comp id="262" class="1004" name="top_clusters_eta_4_fu_262">
+<pin_list>
+<pin id="263" dir="0" index="0" bw="456" slack="0"/>
+<pin id="264" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_eta_4/4 "/>
+</bind>
+</comp>
+
+<comp id="267" class="1004" name="top_clusters_eta_5_fu_267">
+<pin_list>
+<pin id="268" dir="0" index="0" bw="456" slack="0"/>
+<pin id="269" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_eta_5/4 "/>
+</bind>
+</comp>
+
+<comp id="272" class="1004" name="top_clusters_eta_6_fu_272">
+<pin_list>
+<pin id="273" dir="0" index="0" bw="456" slack="0"/>
+<pin id="274" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_eta_6/4 "/>
+</bind>
+</comp>
+
+<comp id="277" class="1004" name="top_clusters_eta_7_fu_277">
+<pin_list>
+<pin id="278" dir="0" index="0" bw="456" slack="0"/>
+<pin id="279" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_eta_7/4 "/>
+</bind>
+</comp>
+
+<comp id="282" class="1004" name="top_clusters_phi_fu_282">
+<pin_list>
+<pin id="283" dir="0" index="0" bw="456" slack="0"/>
+<pin id="284" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_phi/4 "/>
+</bind>
+</comp>
+
+<comp id="287" class="1004" name="top_clusters_phi_1_fu_287">
+<pin_list>
+<pin id="288" dir="0" index="0" bw="456" slack="0"/>
+<pin id="289" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_phi_1/4 "/>
+</bind>
+</comp>
+
+<comp id="292" class="1004" name="top_clusters_phi_2_fu_292">
+<pin_list>
+<pin id="293" dir="0" index="0" bw="456" slack="0"/>
+<pin id="294" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_phi_2/4 "/>
+</bind>
+</comp>
+
+<comp id="297" class="1004" name="top_clusters_phi_3_fu_297">
+<pin_list>
+<pin id="298" dir="0" index="0" bw="456" slack="0"/>
+<pin id="299" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_phi_3/4 "/>
+</bind>
+</comp>
+
+<comp id="302" class="1004" name="top_clusters_phi_4_fu_302">
+<pin_list>
+<pin id="303" dir="0" index="0" bw="456" slack="0"/>
+<pin id="304" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_phi_4/4 "/>
+</bind>
+</comp>
+
+<comp id="307" class="1004" name="top_clusters_phi_5_fu_307">
+<pin_list>
+<pin id="308" dir="0" index="0" bw="456" slack="0"/>
+<pin id="309" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_phi_5/4 "/>
+</bind>
+</comp>
+
+<comp id="312" class="1004" name="top_clusters_phi_6_fu_312">
+<pin_list>
+<pin id="313" dir="0" index="0" bw="456" slack="0"/>
+<pin id="314" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_phi_6/4 "/>
+</bind>
+</comp>
+
+<comp id="317" class="1004" name="top_clusters_phi_7_fu_317">
+<pin_list>
+<pin id="318" dir="0" index="0" bw="456" slack="0"/>
+<pin id="319" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_phi_7/4 "/>
+</bind>
+</comp>
+
+<comp id="322" class="1004" name="top_clusters_window_size_fu_322">
+<pin_list>
+<pin id="323" dir="0" index="0" bw="456" slack="0"/>
+<pin id="324" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_window_size/4 "/>
+</bind>
+</comp>
+
+<comp id="327" class="1004" name="top_clusters_window_size_1_fu_327">
+<pin_list>
+<pin id="328" dir="0" index="0" bw="456" slack="0"/>
+<pin id="329" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_window_size_1/4 "/>
+</bind>
+</comp>
+
+<comp id="332" class="1004" name="top_clusters_window_size_2_fu_332">
+<pin_list>
+<pin id="333" dir="0" index="0" bw="456" slack="0"/>
+<pin id="334" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_window_size_2/4 "/>
+</bind>
+</comp>
+
+<comp id="337" class="1004" name="top_clusters_window_size_3_fu_337">
+<pin_list>
+<pin id="338" dir="0" index="0" bw="456" slack="0"/>
+<pin id="339" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_window_size_3/4 "/>
+</bind>
+</comp>
+
+<comp id="342" class="1004" name="top_clusters_window_size_4_fu_342">
+<pin_list>
+<pin id="343" dir="0" index="0" bw="456" slack="0"/>
+<pin id="344" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_window_size_4/4 "/>
+</bind>
+</comp>
+
+<comp id="347" class="1004" name="top_clusters_window_size_5_fu_347">
+<pin_list>
+<pin id="348" dir="0" index="0" bw="456" slack="0"/>
+<pin id="349" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_window_size_5/4 "/>
+</bind>
+</comp>
+
+<comp id="352" class="1004" name="top_clusters_window_size_6_fu_352">
+<pin_list>
+<pin id="353" dir="0" index="0" bw="456" slack="0"/>
+<pin id="354" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_window_size_6/4 "/>
+</bind>
+</comp>
+
+<comp id="357" class="1004" name="top_clusters_window_size_7_fu_357">
+<pin_list>
+<pin id="358" dir="0" index="0" bw="456" slack="0"/>
+<pin id="359" dir="1" index="1" bw="4" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_window_size_7/4 "/>
+</bind>
+</comp>
+
+<comp id="362" class="1004" name="top_clusters_valid_fu_362">
+<pin_list>
+<pin id="363" dir="0" index="0" bw="456" slack="0"/>
+<pin id="364" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_valid/4 "/>
+</bind>
+</comp>
+
+<comp id="367" class="1004" name="top_clusters_valid_1_fu_367">
+<pin_list>
+<pin id="368" dir="0" index="0" bw="456" slack="0"/>
+<pin id="369" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_valid_1/4 "/>
+</bind>
+</comp>
+
+<comp id="372" class="1004" name="top_clusters_valid_2_fu_372">
+<pin_list>
+<pin id="373" dir="0" index="0" bw="456" slack="0"/>
+<pin id="374" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_valid_2/4 "/>
+</bind>
+</comp>
+
+<comp id="377" class="1004" name="top_clusters_valid_3_fu_377">
+<pin_list>
+<pin id="378" dir="0" index="0" bw="456" slack="0"/>
+<pin id="379" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_valid_3/4 "/>
+</bind>
+</comp>
+
+<comp id="382" class="1004" name="top_clusters_valid_4_fu_382">
+<pin_list>
+<pin id="383" dir="0" index="0" bw="456" slack="0"/>
+<pin id="384" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_valid_4/4 "/>
+</bind>
+</comp>
+
+<comp id="387" class="1004" name="top_clusters_valid_5_fu_387">
+<pin_list>
+<pin id="388" dir="0" index="0" bw="456" slack="0"/>
+<pin id="389" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_valid_5/4 "/>
+</bind>
+</comp>
+
+<comp id="392" class="1004" name="top_clusters_valid_6_fu_392">
+<pin_list>
+<pin id="393" dir="0" index="0" bw="456" slack="0"/>
+<pin id="394" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_valid_6/4 "/>
+</bind>
+</comp>
+
+<comp id="397" class="1004" name="top_clusters_valid_7_fu_397">
+<pin_list>
+<pin id="398" dir="0" index="0" bw="456" slack="0"/>
+<pin id="399" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="top_clusters_valid_7/4 "/>
+</bind>
+</comp>
+
+<comp id="402" class="1005" name="cluster_threshold_read_reg_402">
+<pin_list>
+<pin id="403" dir="0" index="0" bw="20" slack="1"/>
+<pin id="404" dir="1" index="1" bw="20" slack="1"/>
+</pin_list>
+<bind>
+<opset="cluster_threshold_read "/>
+</bind>
+</comp>
+
+<comp id="407" class="1005" name="seed_threshold_read_reg_407">
+<pin_list>
+<pin id="408" dir="0" index="0" bw="12" slack="1"/>
+<pin id="409" dir="1" index="1" bw="12" slack="1"/>
+</pin_list>
+<bind>
+<opset="seed_threshold_read "/>
+</bind>
+</comp>
+
+<comp id="412" class="1005" name="cluster_stream_reg_412">
+<pin_list>
+<pin id="413" dir="0" index="0" bw="61" slack="0"/>
+<pin id="414" dir="1" index="1" bw="61" slack="0"/>
+</pin_list>
+<bind>
+<opset="cluster_stream "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="63"><net_src comp="28" pin="0"/><net_sink comp="60" pin=0"/></net>
+
+<net id="68"><net_src comp="24" pin="0"/><net_sink comp="64" pin=0"/></net>
+
+<net id="69"><net_src comp="4" pin="0"/><net_sink comp="64" pin=1"/></net>
+
+<net id="74"><net_src comp="26" pin="0"/><net_sink comp="70" pin=0"/></net>
+
+<net id="75"><net_src comp="2" pin="0"/><net_sink comp="70" pin=1"/></net>
+
+<net id="83"><net_src comp="30" pin="0"/><net_sink comp="76" pin=0"/></net>
+
+<net id="84"><net_src comp="0" pin="0"/><net_sink comp="76" pin=1"/></net>
+
+<net id="85"><net_src comp="70" pin="2"/><net_sink comp="76" pin=2"/></net>
+
+<net id="86"><net_src comp="64" pin="2"/><net_sink comp="76" pin=3"/></net>
+
+<net id="92"><net_src comp="32" pin="0"/><net_sink comp="87" pin=0"/></net>
+
+<net id="93"><net_src comp="22" pin="0"/><net_sink comp="87" pin=2"/></net>
+
+<net id="153"><net_src comp="58" pin="0"/><net_sink comp="94" pin=0"/></net>
+
+<net id="154"><net_src comp="6" pin="0"/><net_sink comp="94" pin=49"/></net>
+
+<net id="155"><net_src comp="8" pin="0"/><net_sink comp="94" pin=50"/></net>
+
+<net id="156"><net_src comp="10" pin="0"/><net_sink comp="94" pin=51"/></net>
+
+<net id="157"><net_src comp="12" pin="0"/><net_sink comp="94" pin=52"/></net>
+
+<net id="158"><net_src comp="14" pin="0"/><net_sink comp="94" pin=53"/></net>
+
+<net id="159"><net_src comp="16" pin="0"/><net_sink comp="94" pin=54"/></net>
+
+<net id="160"><net_src comp="18" pin="0"/><net_sink comp="94" pin=55"/></net>
+
+<net id="161"><net_src comp="20" pin="0"/><net_sink comp="94" pin=56"/></net>
+
+<net id="165"><net_src comp="87" pin="3"/><net_sink comp="162" pin=0"/></net>
+
+<net id="166"><net_src comp="162" pin="1"/><net_sink comp="94" pin=1"/></net>
+
+<net id="170"><net_src comp="87" pin="3"/><net_sink comp="167" pin=0"/></net>
+
+<net id="171"><net_src comp="167" pin="1"/><net_sink comp="94" pin=2"/></net>
+
+<net id="175"><net_src comp="87" pin="3"/><net_sink comp="172" pin=0"/></net>
+
+<net id="176"><net_src comp="172" pin="1"/><net_sink comp="94" pin=3"/></net>
+
+<net id="180"><net_src comp="87" pin="3"/><net_sink comp="177" pin=0"/></net>
+
+<net id="181"><net_src comp="177" pin="1"/><net_sink comp="94" pin=4"/></net>
+
+<net id="185"><net_src comp="87" pin="3"/><net_sink comp="182" pin=0"/></net>
+
+<net id="186"><net_src comp="182" pin="1"/><net_sink comp="94" pin=5"/></net>
+
+<net id="190"><net_src comp="87" pin="3"/><net_sink comp="187" pin=0"/></net>
+
+<net id="191"><net_src comp="187" pin="1"/><net_sink comp="94" pin=6"/></net>
+
+<net id="195"><net_src comp="87" pin="3"/><net_sink comp="192" pin=0"/></net>
+
+<net id="196"><net_src comp="192" pin="1"/><net_sink comp="94" pin=7"/></net>
+
+<net id="200"><net_src comp="87" pin="3"/><net_sink comp="197" pin=0"/></net>
+
+<net id="201"><net_src comp="197" pin="1"/><net_sink comp="94" pin=8"/></net>
+
+<net id="205"><net_src comp="87" pin="3"/><net_sink comp="202" pin=0"/></net>
+
+<net id="206"><net_src comp="202" pin="1"/><net_sink comp="94" pin=9"/></net>
+
+<net id="210"><net_src comp="87" pin="3"/><net_sink comp="207" pin=0"/></net>
+
+<net id="211"><net_src comp="207" pin="1"/><net_sink comp="94" pin=10"/></net>
+
+<net id="215"><net_src comp="87" pin="3"/><net_sink comp="212" pin=0"/></net>
+
+<net id="216"><net_src comp="212" pin="1"/><net_sink comp="94" pin=11"/></net>
+
+<net id="220"><net_src comp="87" pin="3"/><net_sink comp="217" pin=0"/></net>
+
+<net id="221"><net_src comp="217" pin="1"/><net_sink comp="94" pin=12"/></net>
+
+<net id="225"><net_src comp="87" pin="3"/><net_sink comp="222" pin=0"/></net>
+
+<net id="226"><net_src comp="222" pin="1"/><net_sink comp="94" pin=13"/></net>
+
+<net id="230"><net_src comp="87" pin="3"/><net_sink comp="227" pin=0"/></net>
+
+<net id="231"><net_src comp="227" pin="1"/><net_sink comp="94" pin=14"/></net>
+
+<net id="235"><net_src comp="87" pin="3"/><net_sink comp="232" pin=0"/></net>
+
+<net id="236"><net_src comp="232" pin="1"/><net_sink comp="94" pin=15"/></net>
+
+<net id="240"><net_src comp="87" pin="3"/><net_sink comp="237" pin=0"/></net>
+
+<net id="241"><net_src comp="237" pin="1"/><net_sink comp="94" pin=16"/></net>
+
+<net id="245"><net_src comp="87" pin="3"/><net_sink comp="242" pin=0"/></net>
+
+<net id="246"><net_src comp="242" pin="1"/><net_sink comp="94" pin=17"/></net>
+
+<net id="250"><net_src comp="87" pin="3"/><net_sink comp="247" pin=0"/></net>
+
+<net id="251"><net_src comp="247" pin="1"/><net_sink comp="94" pin=18"/></net>
+
+<net id="255"><net_src comp="87" pin="3"/><net_sink comp="252" pin=0"/></net>
+
+<net id="256"><net_src comp="252" pin="1"/><net_sink comp="94" pin=19"/></net>
+
+<net id="260"><net_src comp="87" pin="3"/><net_sink comp="257" pin=0"/></net>
+
+<net id="261"><net_src comp="257" pin="1"/><net_sink comp="94" pin=20"/></net>
+
+<net id="265"><net_src comp="87" pin="3"/><net_sink comp="262" pin=0"/></net>
+
+<net id="266"><net_src comp="262" pin="1"/><net_sink comp="94" pin=21"/></net>
+
+<net id="270"><net_src comp="87" pin="3"/><net_sink comp="267" pin=0"/></net>
+
+<net id="271"><net_src comp="267" pin="1"/><net_sink comp="94" pin=22"/></net>
+
+<net id="275"><net_src comp="87" pin="3"/><net_sink comp="272" pin=0"/></net>
+
+<net id="276"><net_src comp="272" pin="1"/><net_sink comp="94" pin=23"/></net>
+
+<net id="280"><net_src comp="87" pin="3"/><net_sink comp="277" pin=0"/></net>
+
+<net id="281"><net_src comp="277" pin="1"/><net_sink comp="94" pin=24"/></net>
+
+<net id="285"><net_src comp="87" pin="3"/><net_sink comp="282" pin=0"/></net>
+
+<net id="286"><net_src comp="282" pin="1"/><net_sink comp="94" pin=25"/></net>
+
+<net id="290"><net_src comp="87" pin="3"/><net_sink comp="287" pin=0"/></net>
+
+<net id="291"><net_src comp="287" pin="1"/><net_sink comp="94" pin=26"/></net>
+
+<net id="295"><net_src comp="87" pin="3"/><net_sink comp="292" pin=0"/></net>
+
+<net id="296"><net_src comp="292" pin="1"/><net_sink comp="94" pin=27"/></net>
+
+<net id="300"><net_src comp="87" pin="3"/><net_sink comp="297" pin=0"/></net>
+
+<net id="301"><net_src comp="297" pin="1"/><net_sink comp="94" pin=28"/></net>
+
+<net id="305"><net_src comp="87" pin="3"/><net_sink comp="302" pin=0"/></net>
+
+<net id="306"><net_src comp="302" pin="1"/><net_sink comp="94" pin=29"/></net>
+
+<net id="310"><net_src comp="87" pin="3"/><net_sink comp="307" pin=0"/></net>
+
+<net id="311"><net_src comp="307" pin="1"/><net_sink comp="94" pin=30"/></net>
+
+<net id="315"><net_src comp="87" pin="3"/><net_sink comp="312" pin=0"/></net>
+
+<net id="316"><net_src comp="312" pin="1"/><net_sink comp="94" pin=31"/></net>
+
+<net id="320"><net_src comp="87" pin="3"/><net_sink comp="317" pin=0"/></net>
+
+<net id="321"><net_src comp="317" pin="1"/><net_sink comp="94" pin=32"/></net>
+
+<net id="325"><net_src comp="87" pin="3"/><net_sink comp="322" pin=0"/></net>
+
+<net id="326"><net_src comp="322" pin="1"/><net_sink comp="94" pin=33"/></net>
+
+<net id="330"><net_src comp="87" pin="3"/><net_sink comp="327" pin=0"/></net>
+
+<net id="331"><net_src comp="327" pin="1"/><net_sink comp="94" pin=34"/></net>
+
+<net id="335"><net_src comp="87" pin="3"/><net_sink comp="332" pin=0"/></net>
+
+<net id="336"><net_src comp="332" pin="1"/><net_sink comp="94" pin=35"/></net>
+
+<net id="340"><net_src comp="87" pin="3"/><net_sink comp="337" pin=0"/></net>
+
+<net id="341"><net_src comp="337" pin="1"/><net_sink comp="94" pin=36"/></net>
+
+<net id="345"><net_src comp="87" pin="3"/><net_sink comp="342" pin=0"/></net>
+
+<net id="346"><net_src comp="342" pin="1"/><net_sink comp="94" pin=37"/></net>
+
+<net id="350"><net_src comp="87" pin="3"/><net_sink comp="347" pin=0"/></net>
+
+<net id="351"><net_src comp="347" pin="1"/><net_sink comp="94" pin=38"/></net>
+
+<net id="355"><net_src comp="87" pin="3"/><net_sink comp="352" pin=0"/></net>
+
+<net id="356"><net_src comp="352" pin="1"/><net_sink comp="94" pin=39"/></net>
+
+<net id="360"><net_src comp="87" pin="3"/><net_sink comp="357" pin=0"/></net>
+
+<net id="361"><net_src comp="357" pin="1"/><net_sink comp="94" pin=40"/></net>
+
+<net id="365"><net_src comp="87" pin="3"/><net_sink comp="362" pin=0"/></net>
+
+<net id="366"><net_src comp="362" pin="1"/><net_sink comp="94" pin=41"/></net>
+
+<net id="370"><net_src comp="87" pin="3"/><net_sink comp="367" pin=0"/></net>
+
+<net id="371"><net_src comp="367" pin="1"/><net_sink comp="94" pin=42"/></net>
+
+<net id="375"><net_src comp="87" pin="3"/><net_sink comp="372" pin=0"/></net>
+
+<net id="376"><net_src comp="372" pin="1"/><net_sink comp="94" pin=43"/></net>
+
+<net id="380"><net_src comp="87" pin="3"/><net_sink comp="377" pin=0"/></net>
+
+<net id="381"><net_src comp="377" pin="1"/><net_sink comp="94" pin=44"/></net>
+
+<net id="385"><net_src comp="87" pin="3"/><net_sink comp="382" pin=0"/></net>
+
+<net id="386"><net_src comp="382" pin="1"/><net_sink comp="94" pin=45"/></net>
+
+<net id="390"><net_src comp="87" pin="3"/><net_sink comp="387" pin=0"/></net>
+
+<net id="391"><net_src comp="387" pin="1"/><net_sink comp="94" pin=46"/></net>
+
+<net id="395"><net_src comp="87" pin="3"/><net_sink comp="392" pin=0"/></net>
+
+<net id="396"><net_src comp="392" pin="1"/><net_sink comp="94" pin=47"/></net>
+
+<net id="400"><net_src comp="87" pin="3"/><net_sink comp="397" pin=0"/></net>
+
+<net id="401"><net_src comp="397" pin="1"/><net_sink comp="94" pin=48"/></net>
+
+<net id="405"><net_src comp="64" pin="2"/><net_sink comp="402" pin=0"/></net>
+
+<net id="406"><net_src comp="402" pin="1"/><net_sink comp="76" pin=3"/></net>
+
+<net id="410"><net_src comp="70" pin="2"/><net_sink comp="407" pin=0"/></net>
+
+<net id="411"><net_src comp="407" pin="1"/><net_sink comp="76" pin=2"/></net>
+
+<net id="415"><net_src comp="60" pin="1"/><net_sink comp="412" pin=0"/></net>
+
+<net id="416"><net_src comp="412" pin="1"/><net_sink comp="76" pin=4"/></net>
+
+<net id="417"><net_src comp="412" pin="1"/><net_sink comp="87" pin=1"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+	Port: towers | {}
+	Port: trigger_objects_0 | {4 }
+	Port: trigger_objects_1 | {4 }
+	Port: trigger_objects_2 | {4 }
+	Port: trigger_objects_3 | {4 }
+	Port: trigger_objects_4 | {4 }
+	Port: trigger_objects_5 | {4 }
+	Port: trigger_objects_6 | {4 }
+	Port: trigger_objects_7 | {4 }
+	Port: num_clusters | {3 4 }
+ - Input state : 
+	Port: cluster_sort_build_stream : towers | {1 2 }
+	Port: cluster_sort_build_stream : seed_threshold | {1 }
+	Port: cluster_sort_build_stream : cluster_threshold | {1 }
+	Port: cluster_sort_build_stream : trigger_objects_0 | {}
+	Port: cluster_sort_build_stream : trigger_objects_1 | {}
+	Port: cluster_sort_build_stream : trigger_objects_2 | {}
+	Port: cluster_sort_build_stream : trigger_objects_3 | {}
+	Port: cluster_sort_build_stream : trigger_objects_4 | {}
+	Port: cluster_sort_build_stream : trigger_objects_5 | {}
+	Port: cluster_sort_build_stream : trigger_objects_6 | {}
+	Port: cluster_sort_build_stream : trigger_objects_7 | {}
+	Port: cluster_sort_build_stream : num_clusters | {}
+  - Chain level:
+	State 1
+		call_ln332 : 1
+	State 2
+	State 3
+	State 4
+		top_clusters_et : 1
+		top_clusters_et_1 : 1
+		top_clusters_et_2 : 1
+		top_clusters_et_3 : 1
+		top_clusters_et_4 : 1
+		top_clusters_et_5 : 1
+		top_clusters_et_6 : 1
+		top_clusters_et_7 : 1
+		top_clusters_isolation_et : 1
+		top_clusters_isolation_et_1 : 1
+		top_clusters_isolation_et_2 : 1
+		top_clusters_isolation_et_3 : 1
+		top_clusters_isolation_et_4 : 1
+		top_clusters_isolation_et_5 : 1
+		top_clusters_isolation_et_6 : 1
+		top_clusters_isolation_et_7 : 1
+		top_clusters_eta : 1
+		top_clusters_eta_1 : 1
+		top_clusters_eta_2 : 1
+		top_clusters_eta_3 : 1
+		top_clusters_eta_4 : 1
+		top_clusters_eta_5 : 1
+		top_clusters_eta_6 : 1
+		top_clusters_eta_7 : 1
+		top_clusters_phi : 1
+		top_clusters_phi_1 : 1
+		top_clusters_phi_2 : 1
+		top_clusters_phi_3 : 1
+		top_clusters_phi_4 : 1
+		top_clusters_phi_5 : 1
+		top_clusters_phi_6 : 1
+		top_clusters_phi_7 : 1
+		top_clusters_window_size : 1
+		top_clusters_window_size_1 : 1
+		top_clusters_window_size_2 : 1
+		top_clusters_window_size_3 : 1
+		top_clusters_window_size_4 : 1
+		top_clusters_window_size_5 : 1
+		top_clusters_window_size_6 : 1
+		top_clusters_window_size_7 : 1
+		top_clusters_valid : 1
+		top_clusters_valid_1 : 1
+		top_clusters_valid_2 : 1
+		top_clusters_valid_3 : 1
+		top_clusters_valid_4 : 1
+		top_clusters_valid_5 : 1
+		top_clusters_valid_6 : 1
+		top_clusters_valid_7 : 1
+		call_ln334 : 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|-------------------------------------------|---------|---------|---------|
+| Operation|              Functional Unit              |  Delay  |    FF   |   LUT   |
+|----------|-------------------------------------------|---------|---------|---------|
+|          | grp_produce_cluster_stream_3x3_iso5_fu_76 | 3.82667 |   683   |   1822  |
+|   call   |     grp_select_top_n_from_stream_fu_87    | 0.584143|   1080  |   1188  |
+|          |   call_ln334_build_trigger_objects_fu_94  |    0    |    0    |   776   |
+|----------|-------------------------------------------|---------|---------|---------|
+|   read   |     cluster_threshold_read_read_fu_64     |    0    |    0    |    0    |
+|          |       seed_threshold_read_read_fu_70      |    0    |    0    |    0    |
+|----------|-------------------------------------------|---------|---------|---------|
+|          |           top_clusters_et_fu_162          |    0    |    0    |    0    |
+|          |          top_clusters_et_1_fu_167         |    0    |    0    |    0    |
+|          |          top_clusters_et_2_fu_172         |    0    |    0    |    0    |
+|          |          top_clusters_et_3_fu_177         |    0    |    0    |    0    |
+|          |          top_clusters_et_4_fu_182         |    0    |    0    |    0    |
+|          |          top_clusters_et_5_fu_187         |    0    |    0    |    0    |
+|          |          top_clusters_et_6_fu_192         |    0    |    0    |    0    |
+|          |          top_clusters_et_7_fu_197         |    0    |    0    |    0    |
+|          |      top_clusters_isolation_et_fu_202     |    0    |    0    |    0    |
+|          |     top_clusters_isolation_et_1_fu_207    |    0    |    0    |    0    |
+|          |     top_clusters_isolation_et_2_fu_212    |    0    |    0    |    0    |
+|          |     top_clusters_isolation_et_3_fu_217    |    0    |    0    |    0    |
+|          |     top_clusters_isolation_et_4_fu_222    |    0    |    0    |    0    |
+|          |     top_clusters_isolation_et_5_fu_227    |    0    |    0    |    0    |
+|          |     top_clusters_isolation_et_6_fu_232    |    0    |    0    |    0    |
+|          |     top_clusters_isolation_et_7_fu_237    |    0    |    0    |    0    |
+|          |          top_clusters_eta_fu_242          |    0    |    0    |    0    |
+|          |         top_clusters_eta_1_fu_247         |    0    |    0    |    0    |
+|          |         top_clusters_eta_2_fu_252         |    0    |    0    |    0    |
+|          |         top_clusters_eta_3_fu_257         |    0    |    0    |    0    |
+|          |         top_clusters_eta_4_fu_262         |    0    |    0    |    0    |
+|          |         top_clusters_eta_5_fu_267         |    0    |    0    |    0    |
+|          |         top_clusters_eta_6_fu_272         |    0    |    0    |    0    |
+|extractvalue|         top_clusters_eta_7_fu_277         |    0    |    0    |    0    |
+|          |          top_clusters_phi_fu_282          |    0    |    0    |    0    |
+|          |         top_clusters_phi_1_fu_287         |    0    |    0    |    0    |
+|          |         top_clusters_phi_2_fu_292         |    0    |    0    |    0    |
+|          |         top_clusters_phi_3_fu_297         |    0    |    0    |    0    |
+|          |         top_clusters_phi_4_fu_302         |    0    |    0    |    0    |
+|          |         top_clusters_phi_5_fu_307         |    0    |    0    |    0    |
+|          |         top_clusters_phi_6_fu_312         |    0    |    0    |    0    |
+|          |         top_clusters_phi_7_fu_317         |    0    |    0    |    0    |
+|          |      top_clusters_window_size_fu_322      |    0    |    0    |    0    |
+|          |     top_clusters_window_size_1_fu_327     |    0    |    0    |    0    |
+|          |     top_clusters_window_size_2_fu_332     |    0    |    0    |    0    |
+|          |     top_clusters_window_size_3_fu_337     |    0    |    0    |    0    |
+|          |     top_clusters_window_size_4_fu_342     |    0    |    0    |    0    |
+|          |     top_clusters_window_size_5_fu_347     |    0    |    0    |    0    |
+|          |     top_clusters_window_size_6_fu_352     |    0    |    0    |    0    |
+|          |     top_clusters_window_size_7_fu_357     |    0    |    0    |    0    |
+|          |         top_clusters_valid_fu_362         |    0    |    0    |    0    |
+|          |        top_clusters_valid_1_fu_367        |    0    |    0    |    0    |
+|          |        top_clusters_valid_2_fu_372        |    0    |    0    |    0    |
+|          |        top_clusters_valid_3_fu_377        |    0    |    0    |    0    |
+|          |        top_clusters_valid_4_fu_382        |    0    |    0    |    0    |
+|          |        top_clusters_valid_5_fu_387        |    0    |    0    |    0    |
+|          |        top_clusters_valid_6_fu_392        |    0    |    0    |    0    |
+|          |        top_clusters_valid_7_fu_397        |    0    |    0    |    0    |
+|----------|-------------------------------------------|---------|---------|---------|
+|   Total  |                                           | 4.41081 |   1763  |   3786  |
+|----------|-------------------------------------------|---------|---------|---------|
+
+Memories:
+N/A
+
+* Register list:
++------------------------------+--------+
+|                              |   FF   |
++------------------------------+--------+
+|    cluster_stream_reg_412    |   61   |
+|cluster_threshold_read_reg_402|   20   |
+|  seed_threshold_read_reg_407 |   12   |
++------------------------------+--------+
+|             Total            |   93   |
++------------------------------+--------+
+
+* Multiplexer (MUX) list: 
+|-------------------------------------------|------|------|------|--------||---------||---------||---------|
+|                    Comp                   |  Pin | Size |  BW  | S x BW ||  Delay  ||    FF   ||   LUT   |
+|-------------------------------------------|------|------|------|--------||---------||---------||---------|
+| grp_produce_cluster_stream_3x3_iso5_fu_76 |  p2  |   2  |  12  |   24   ||    0    ||    9    |
+| grp_produce_cluster_stream_3x3_iso5_fu_76 |  p3  |   2  |  20  |   40   ||    0    ||    9    |
+|-------------------------------------------|------|------|------|--------||---------||---------||---------|
+|                   Total                   |      |      |      |   64   ||  0.774  ||    0    ||    18   |
+|-------------------------------------------|------|------|------|--------||---------||---------||---------|
+
+
+
+* Summary:
++-----------+--------+--------+--------+
+|           |  Delay |   FF   |   LUT  |
++-----------+--------+--------+--------+
+|  Function |    4   |  1763  |  3786  |
+|   Memory  |    -   |    -   |    -   |
+|Multiplexer|    0   |    0   |   18   |
+|  Register |    -   |   93   |    -   |
++-----------+--------+--------+--------+
+|   Total   |    5   |  1856  |  3804  |
++-----------+--------+--------+--------+

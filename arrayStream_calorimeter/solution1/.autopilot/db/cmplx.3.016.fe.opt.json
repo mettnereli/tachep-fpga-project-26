@@ -1,0 +1,80 @@
+{
+  "0": {
+    "basicblocks": 7,
+    "calls": "3",
+    "file": "calorimeter.cpp",
+    "fileloc": 248,
+    "instructions": 65,
+    "loads": {
+      "T": 1
+    },
+    "name": "calo_trigger_stream_ref",
+    "stores": {
+      "T": 1
+    },
+    "total_instructions": 1631
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "4",
+    "file": "calorimeter.cpp",
+    "fileloc": 275,
+    "instructions": 2,
+    "name": "produce_cluster_stream_3x3_iso5",
+    "total_instructions": 350
+  },
+  "2": {
+    "basicblocks": 41,
+    "calls": "",
+    "file": "calorimeter.cpp",
+    "fileloc": 170,
+    "instructions": 281,
+    "loads": {
+      "L": 48
+    },
+    "name": "build_trigger_objects",
+    "stores": {
+      "L": 40
+    },
+    "total_instructions": 281
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "1 5 2",
+    "file": "calorimeter.cpp",
+    "fileloc": 317,
+    "instructions": 65,
+    "name": "cluster_sort_build_stream",
+    "total_instructions": 1566
+  },
+  "4": {
+    "basicblocks": 11,
+    "calls": "",
+    "file": "calorimeter.h",
+    "fileloc": 281,
+    "instructions": 348,
+    "loads": {
+      "L": 26
+    },
+    "name": "find_clusters_stream<3, 5>",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 348
+  },
+  "5": {
+    "basicblocks": 64,
+    "calls": "",
+    "file": "calorimeter.cpp",
+    "fileloc": 282,
+    "instructions": 870,
+    "loads": {
+      "L": 1
+    },
+    "name": "select_top_n_from_stream",
+    "stores": {
+      "L": 113
+    },
+    "total_instructions": 870
+  }
+}

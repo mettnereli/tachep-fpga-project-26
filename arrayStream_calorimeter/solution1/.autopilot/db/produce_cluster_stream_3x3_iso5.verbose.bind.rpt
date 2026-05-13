@@ -1,0 +1,401 @@
+
+
+================================================================
+== Vitis HLS Report for 'produce_cluster_stream_3x3_iso5'
+================================================================
+* Date:           Tue May 12 20:42:44 2026
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        calorimeter
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu13p-fsga2577-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  25.00 ns|  5.516 ns|     6.75 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-------+-------+---------+
+    |  Latency (cycles) |  Latency (absolute) |    Interval   | Pipeline|
+    |   min   |   max   |    min   |    max   |  min  |  max  |   Type  |
+    +---------+---------+----------+----------+-------+-------+---------+
+    |    20283|    20283|  0.507 ms|  0.507 ms|  20283|  20283|       no|
+    +---------+---------+----------+----------+-------+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        +--------------------------------------+----------------------------+---------+---------+----------+----------+-------+-------+-----------------------------------------------+
+        |                                      |                            |  Latency (cycles) |  Latency (absolute) |    Interval   |                    Pipeline                   |
+        |               Instance               |           Module           |   min   |   max   |    min   |    max   |  min  |  max  |                      Type                     |
+        +--------------------------------------+----------------------------+---------+---------+----------+----------+-------+-------+-----------------------------------------------+
+        |grp_find_clusters_stream_3_5_s_fu_38  |find_clusters_stream_3_5_s  |    20282|    20282|  0.507 ms|  0.507 ms|  20281|  20281|  loop auto-rewind stp(delay=0 clock cycles(s))|
+        +--------------------------------------+----------------------------+---------+---------+----------+----------+-------+-------+-----------------------------------------------+
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%cluster_threshold_read = read i20 @_ssdm_op_Read.ap_auto.i20, i20 %cluster_threshold" [calorimeter.cpp:279]   --->   Operation 3 'read' 'cluster_threshold_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%seed_threshold_read = read i12 @_ssdm_op_Read.ap_auto.i12, i12 %seed_threshold" [calorimeter.cpp:279]   --->   Operation 4 'read' 'seed_threshold_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [2/2] (0.00ns)   --->   "%call_ln279 = call void @find_clusters_stream<3, 5>, i12 %towers, i12 %seed_threshold_read, i20 %cluster_threshold_read, i61 %cluster_stream" [calorimeter.cpp:279]   --->   Operation 5 'call' 'call_ln279' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 2 <SV = 1> <Delay = 1.50>
+ST_2 : Operation 6 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i61 %cluster_stream, void @empty_2, i32 0, i32 0, void @empty_5, i32 0, i32 0, void @empty_5, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0, i32 0"   --->   Operation 6 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 7 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i12 %towers, void @empty_6, i32 0, i32 0, void @empty_5, i32 4294967295, i32 0, void @empty_5, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0, i32 0"   --->   Operation 7 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 8 [1/2] (1.50ns)   --->   "%call_ln279 = call void @find_clusters_stream<3, 5>, i12 %towers, i12 %seed_threshold_read, i20 %cluster_threshold_read, i61 %cluster_stream" [calorimeter.cpp:279]   --->   Operation 8 'call' 'call_ln279' <Predicate = true> <Delay = 1.50> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%ret_ln280 = ret" [calorimeter.cpp:280]   --->   Operation 9 'ret' 'ret_ln280' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 0
+- Is one-state seq: 0
+- Is datapath-only: 0
+- Is pipelined: 0
+- Is top level: 0
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
+Port [ towers]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[11]; IO mode=bram:ce=0
+Port [ seed_threshold]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ cluster_threshold]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ cluster_stream]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=3; pingpong=0; private_global=0; IO mode=ap_fifo:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+cluster_threshold_read (read         ) [ 001]
+seed_threshold_read    (read         ) [ 001]
+specinterface_ln0      (specinterface) [ 000]
+specinterface_ln0      (specinterface) [ 000]
+call_ln279             (call         ) [ 000]
+ret_ln280              (ret          ) [ 000]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="towers">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="towers"/><MemPortTyVec>1 1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1000" name="seed_threshold">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="seed_threshold"/></StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1000" name="cluster_threshold">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="cluster_threshold"/></StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1000" name="cluster_stream">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="cluster_stream"/></StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1001" name="const_8">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i20"/></StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1001" name="const_10">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i12"/></StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1001" name="const_12">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="find_clusters_stream<3, 5>"/></StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1001" name="const_14">
+<pin_list>
+<pin id="15" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1001" name="const_16">
+<pin_list>
+<pin id="17" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_2"/></StgValue>
+</bind>
+</comp>
+
+<comp id="18" class="1001" name="const_18">
+<pin_list>
+<pin id="19" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="20" class="1001" name="const_20">
+<pin_list>
+<pin id="21" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_5"/></StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1001" name="const_22">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="24" class="1001" name="const_24">
+<pin_list>
+<pin id="25" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_6"/></StgValue>
+</bind>
+</comp>
+
+<comp id="26" class="1004" name="cluster_threshold_read_read_fu_26">
+<pin_list>
+<pin id="27" dir="0" index="0" bw="20" slack="0"/>
+<pin id="28" dir="0" index="1" bw="20" slack="0"/>
+<pin id="29" dir="1" index="2" bw="20" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="cluster_threshold_read/1 "/>
+</bind>
+</comp>
+
+<comp id="32" class="1004" name="seed_threshold_read_read_fu_32">
+<pin_list>
+<pin id="33" dir="0" index="0" bw="12" slack="0"/>
+<pin id="34" dir="0" index="1" bw="12" slack="0"/>
+<pin id="35" dir="1" index="2" bw="12" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="seed_threshold_read/1 "/>
+</bind>
+</comp>
+
+<comp id="38" class="1004" name="grp_find_clusters_stream_3_5_s_fu_38">
+<pin_list>
+<pin id="39" dir="0" index="0" bw="0" slack="0"/>
+<pin id="40" dir="0" index="1" bw="12" slack="0"/>
+<pin id="41" dir="0" index="2" bw="12" slack="0"/>
+<pin id="42" dir="0" index="3" bw="20" slack="0"/>
+<pin id="43" dir="0" index="4" bw="61" slack="0"/>
+<pin id="44" dir="1" index="5" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln279/1 "/>
+</bind>
+</comp>
+
+<comp id="50" class="1005" name="cluster_threshold_read_reg_50">
+<pin_list>
+<pin id="51" dir="0" index="0" bw="20" slack="1"/>
+<pin id="52" dir="1" index="1" bw="20" slack="1"/>
+</pin_list>
+<bind>
+<opset="cluster_threshold_read "/>
+</bind>
+</comp>
+
+<comp id="55" class="1005" name="seed_threshold_read_reg_55">
+<pin_list>
+<pin id="56" dir="0" index="0" bw="12" slack="1"/>
+<pin id="57" dir="1" index="1" bw="12" slack="1"/>
+</pin_list>
+<bind>
+<opset="seed_threshold_read "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="30"><net_src comp="8" pin="0"/><net_sink comp="26" pin=0"/></net>
+
+<net id="31"><net_src comp="4" pin="0"/><net_sink comp="26" pin=1"/></net>
+
+<net id="36"><net_src comp="10" pin="0"/><net_sink comp="32" pin=0"/></net>
+
+<net id="37"><net_src comp="2" pin="0"/><net_sink comp="32" pin=1"/></net>
+
+<net id="45"><net_src comp="12" pin="0"/><net_sink comp="38" pin=0"/></net>
+
+<net id="46"><net_src comp="0" pin="0"/><net_sink comp="38" pin=1"/></net>
+
+<net id="47"><net_src comp="32" pin="2"/><net_sink comp="38" pin=2"/></net>
+
+<net id="48"><net_src comp="26" pin="2"/><net_sink comp="38" pin=3"/></net>
+
+<net id="49"><net_src comp="6" pin="0"/><net_sink comp="38" pin=4"/></net>
+
+<net id="53"><net_src comp="26" pin="2"/><net_sink comp="50" pin=0"/></net>
+
+<net id="54"><net_src comp="50" pin="1"/><net_sink comp="38" pin=3"/></net>
+
+<net id="58"><net_src comp="32" pin="2"/><net_sink comp="55" pin=0"/></net>
+
+<net id="59"><net_src comp="55" pin="1"/><net_sink comp="38" pin=2"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+	Port: cluster_stream | {1 2 }
+ - Input state : 
+	Port: produce_cluster_stream_3x3_iso5 : towers | {1 2 }
+	Port: produce_cluster_stream_3x3_iso5 : seed_threshold | {1 }
+	Port: produce_cluster_stream_3x3_iso5 : cluster_threshold | {1 }
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|--------------------------------------|---------|---------|---------|
+| Operation|            Functional Unit           |  Delay  |    FF   |   LUT   |
+|----------|--------------------------------------|---------|---------|---------|
+|   call   | grp_find_clusters_stream_3_5_s_fu_38 | 3.05267 |   651   |   1804  |
+|----------|--------------------------------------|---------|---------|---------|
+|   read   |   cluster_threshold_read_read_fu_26  |    0    |    0    |    0    |
+|          |    seed_threshold_read_read_fu_32    |    0    |    0    |    0    |
+|----------|--------------------------------------|---------|---------|---------|
+|   Total  |                                      | 3.05267 |   651   |   1804  |
+|----------|--------------------------------------|---------|---------|---------|
+
+Memories:
+N/A
+
+* Register list:
++-----------------------------+--------+
+|                             |   FF   |
++-----------------------------+--------+
+|cluster_threshold_read_reg_50|   20   |
+|  seed_threshold_read_reg_55 |   12   |
++-----------------------------+--------+
+|            Total            |   32   |
++-----------------------------+--------+
+
+* Multiplexer (MUX) list: 
+|--------------------------------------|------|------|------|--------||---------||---------||---------|
+|                 Comp                 |  Pin | Size |  BW  | S x BW ||  Delay  ||    FF   ||   LUT   |
+|--------------------------------------|------|------|------|--------||---------||---------||---------|
+| grp_find_clusters_stream_3_5_s_fu_38 |  p2  |   2  |  12  |   24   ||    0    ||    9    |
+| grp_find_clusters_stream_3_5_s_fu_38 |  p3  |   2  |  20  |   40   ||    0    ||    9    |
+|--------------------------------------|------|------|------|--------||---------||---------||---------|
+|                 Total                |      |      |      |   64   ||  0.774  ||    0    ||    18   |
+|--------------------------------------|------|------|------|--------||---------||---------||---------|
+
+
+
+* Summary:
++-----------+--------+--------+--------+
+|           |  Delay |   FF   |   LUT  |
++-----------+--------+--------+--------+
+|  Function |    3   |   651  |  1804  |
+|   Memory  |    -   |    -   |    -   |
+|Multiplexer|    0   |    0   |   18   |
+|  Register |    -   |   32   |    -   |
++-----------+--------+--------+--------+
+|   Total   |    3   |   683  |  1822  |
++-----------+--------+--------+--------+

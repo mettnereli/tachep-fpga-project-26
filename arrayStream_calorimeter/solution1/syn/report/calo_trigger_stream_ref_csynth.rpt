@@ -1,0 +1,223 @@
+
+
+================================================================
+== Vitis HLS Report for 'calo_trigger_stream_ref'
+================================================================
+* Date:           Tue May 12 20:42:56 2026
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        calorimeter
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu13p-fsga2577-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  25.00 ns|  5.516 ns|     6.75 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-------+-------+---------+
+    |  Latency (cycles) |  Latency (absolute) |    Interval   | Pipeline|
+    |   min   |   max   |    min   |    max   |  min  |  max  |   Type  |
+    +---------+---------+----------+----------+-------+-------+---------+
+    |    22086|    22086|  0.552 ms|  0.552 ms|  22087|  22087|       no|
+    +---------+---------+----------+----------+-------+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        +--------------------------------------+---------------------------+---------+---------+----------+----------+-------+-------+----------+
+        |                                      |                           |  Latency (cycles) |  Latency (absolute) |    Interval   | Pipeline |
+        |               Instance               |           Module          |   min   |   max   |    min   |    max   |  min  |  max  |   Type   |
+        +--------------------------------------+---------------------------+---------+---------+----------+----------+-------+-------+----------+
+        |grp_cluster_sort_build_stream_fu_165  |cluster_sort_build_stream  |    20283|    20283|  0.507 ms|  0.507 ms|  20284|  20284|  dataflow|
+        +--------------------------------------+---------------------------+---------+---------+----------+----------+-------+-------+----------+
+
+        * Loop: 
+        +-----------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                 |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |    Loop Name    |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- HT_ETA_HT_PHI  |     1800|     1800|         2|          1|          1|  1800|       yes|
+        +-----------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+------+
+|         Name        | BRAM_18K|  DSP  |    FF   |   LUT   | URAM |
++---------------------+---------+-------+---------+---------+------+
+|DSP                  |        -|      -|        -|        -|     -|
+|Expression           |        -|      -|        0|      153|     -|
+|FIFO                 |        -|      -|        -|        -|     -|
+|Instance             |        0|      -|     3891|     7610|     0|
+|Memory               |        -|      -|        -|        -|     -|
+|Multiplexer          |        -|      -|        0|      116|     -|
+|Register             |        -|      -|      112|        -|     -|
++---------------------+---------+-------+---------+---------+------+
+|Total                |        0|      0|     4003|     7879|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available SLR        |     1344|   3072|   864000|   432000|   320|
++---------------------+---------+-------+---------+---------+------+
+|Utilization SLR (%)  |        0|      0|       ~0|        1|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available            |     5376|  12288|  3456000|  1728000|  1280|
++---------------------+---------+-------+---------+---------+------+
+|Utilization (%)      |        0|      0|       ~0|       ~0|     0|
++---------------------+---------+-------+---------+---------+------+
+
++ Detail: 
+    * Instance: 
+    +--------------------------------------+---------------------------+---------+----+------+------+-----+
+    |               Instance               |           Module          | BRAM_18K| DSP|  FF  |  LUT | URAM|
+    +--------------------------------------+---------------------------+---------+----+------+------+-----+
+    |CTRL_s_axi_U                          |CTRL_s_axi                 |        0|   0|   148|   216|    0|
+    |grp_cluster_sort_build_stream_fu_165  |cluster_sort_build_stream  |        0|   0|  3743|  7394|    0|
+    +--------------------------------------+---------------------------+---------+----+------+------+-----+
+    |Total                                 |                           |        0|   0|  3891|  7610|    0|
+    +--------------------------------------+---------------------------+---------+----+------+------+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-------------------------------------------------------+----------+----+---+----+------------+------------+
+    |                     Variable Name                     | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-------------------------------------------------------+----------+----+---+----+------------+------------+
+    |add_ln160_1_fu_289_p2                                  |         +|   0|  0|  18|          11|           1|
+    |add_ln160_fu_220_p2                                    |         +|   0|  0|  12|           5|           1|
+    |add_ln163_1_fu_272_p2                                  |         +|   0|  0|  17|          11|          11|
+    |ht_2_fu_329_p2                                         |         +|   0|  0|  30|          23|          23|
+    |phi_fu_283_p2                                          |         +|   0|  0|  13|           6|           1|
+    |sub_ln163_fu_262_p2                                    |         -|   0|  0|  17|          11|          11|
+    |icmp_ln160_fu_301_p2                                   |      icmp|   0|  0|  18|          11|           9|
+    |icmp_ln161_fu_295_p2                                   |      icmp|   0|  0|  13|           6|           4|
+    |ap_sync_grp_cluster_sort_build_stream_fu_165_ap_ready  |        or|   0|  0|   2|           1|           1|
+    |eta_fu_234_p3                                          |    select|   0|  0|   5|           1|           5|
+    |select_ln160_fu_226_p3                                 |    select|   0|  0|   6|           1|           1|
+    |ap_enable_pp0                                          |       xor|   0|  0|   2|           1|           2|
+    +-------------------------------------------------------+----------+----+---+----+------------+------------+
+    |Total                                                  |          |   0|  0| 153|          88|          70|
+    +-------------------------------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------------------------------+----+-----------+-----+-----------+
+    |                 Name                 | LUT| Input Size| Bits| Total Bits|
+    +--------------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                             |  26|          5|    1|          5|
+    |ap_enable_reg_pp0_iter1               |   9|          2|    1|          2|
+    |ap_phi_mux_icmp_ln1616_phi_fu_158_p4  |   9|          2|    1|          2|
+    |conv4_i4_i4_fu_118                    |   9|          2|   23|         46|
+    |eta2_fu_110                           |   9|          2|    5|         10|
+    |icmp_ln1616_reg_154                   |   9|          2|    1|          2|
+    |indvar_flatten1_fu_106                |   9|          2|   11|         22|
+    |phi3_fu_114                           |   9|          2|    6|         12|
+    |towers_Addr_A                         |   9|          2|   32|         64|
+    |towers_EN_A                           |   9|          2|    1|          2|
+    |towers_EN_B                           |   9|          2|    1|          2|
+    +--------------------------------------+----+-----------+-----+-----------+
+    |Total                                 | 116|         25|   83|        169|
+    +--------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------------------------------------+----+----+-----+-----------+
+    |                            Name                           | FF | LUT| Bits| Const Bits|
+    +-----------------------------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                                                  |   4|   0|    4|          0|
+    |ap_enable_reg_pp0_iter0                                    |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1                                    |   1|   0|    1|          0|
+    |ap_sync_reg_grp_cluster_sort_build_stream_fu_165_ap_done   |   1|   0|    1|          0|
+    |ap_sync_reg_grp_cluster_sort_build_stream_fu_165_ap_ready  |   1|   0|    1|          0|
+    |cluster_threshold_read_reg_372                             |  20|   0|   20|          0|
+    |conv4_i4_i4_fu_118                                         |  23|   0|   23|          0|
+    |eta2_fu_110                                                |   5|   0|    5|          0|
+    |grp_cluster_sort_build_stream_fu_165_ap_start_reg          |   1|   0|    1|          0|
+    |icmp_ln160_reg_392                                         |   1|   0|    1|          0|
+    |icmp_ln1616_reg_154                                        |   1|   0|    1|          0|
+    |icmp_ln161_reg_387                                         |   1|   0|    1|          0|
+    |indvar_flatten1_fu_106                                     |  11|   0|   11|          0|
+    |phi3_fu_114                                                |   6|   0|    6|          0|
+    |seed_threshold_read_reg_377                                |  12|   0|   12|          0|
+    |zext_ln161_reg_396                                         |  23|   0|   24|          1|
+    +-----------------------------------------------------------+----+----+-----+-----------+
+    |Total                                                      | 112|   0|  113|          1|
+    +-----------------------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------------+-----+-----+------------+-------------------------+--------------+
+|         RTL Ports        | Dir | Bits|  Protocol  |      Source Object      |    C Type    |
++--------------------------+-----+-----+------------+-------------------------+--------------+
+|s_axi_CTRL_AWVALID        |   in|    1|       s_axi|                     CTRL|       pointer|
+|s_axi_CTRL_AWREADY        |  out|    1|       s_axi|                     CTRL|       pointer|
+|s_axi_CTRL_AWADDR         |   in|    6|       s_axi|                     CTRL|       pointer|
+|s_axi_CTRL_WVALID         |   in|    1|       s_axi|                     CTRL|       pointer|
+|s_axi_CTRL_WREADY         |  out|    1|       s_axi|                     CTRL|       pointer|
+|s_axi_CTRL_WDATA          |   in|   32|       s_axi|                     CTRL|       pointer|
+|s_axi_CTRL_WSTRB          |   in|    4|       s_axi|                     CTRL|       pointer|
+|s_axi_CTRL_ARVALID        |   in|    1|       s_axi|                     CTRL|       pointer|
+|s_axi_CTRL_ARREADY        |  out|    1|       s_axi|                     CTRL|       pointer|
+|s_axi_CTRL_ARADDR         |   in|    6|       s_axi|                     CTRL|       pointer|
+|s_axi_CTRL_RVALID         |  out|    1|       s_axi|                     CTRL|       pointer|
+|s_axi_CTRL_RREADY         |   in|    1|       s_axi|                     CTRL|       pointer|
+|s_axi_CTRL_RDATA          |  out|   32|       s_axi|                     CTRL|       pointer|
+|s_axi_CTRL_RRESP          |  out|    2|       s_axi|                     CTRL|       pointer|
+|s_axi_CTRL_BVALID         |  out|    1|       s_axi|                     CTRL|       pointer|
+|s_axi_CTRL_BREADY         |   in|    1|       s_axi|                     CTRL|       pointer|
+|s_axi_CTRL_BRESP          |  out|    2|       s_axi|                     CTRL|       pointer|
+|ap_clk                    |   in|    1|  ap_ctrl_hs|  calo_trigger_stream_ref|  return value|
+|ap_rst_n                  |   in|    1|  ap_ctrl_hs|  calo_trigger_stream_ref|  return value|
+|interrupt                 |  out|    1|  ap_ctrl_hs|  calo_trigger_stream_ref|  return value|
+|towers_Addr_A             |  out|   32|        bram|                   towers|         array|
+|towers_EN_A               |  out|    1|        bram|                   towers|         array|
+|towers_WEN_A              |  out|    2|        bram|                   towers|         array|
+|towers_Din_A              |  out|   16|        bram|                   towers|         array|
+|towers_Dout_A             |   in|   16|        bram|                   towers|         array|
+|towers_Clk_A              |  out|    1|        bram|                   towers|         array|
+|towers_Rst_A              |  out|    1|        bram|                   towers|         array|
+|towers_Addr_B             |  out|   32|        bram|                   towers|         array|
+|towers_EN_B               |  out|    1|        bram|                   towers|         array|
+|towers_WEN_B              |  out|    2|        bram|                   towers|         array|
+|towers_Din_B              |  out|   16|        bram|                   towers|         array|
+|towers_Dout_B             |   in|   16|        bram|                   towers|         array|
+|towers_Clk_B              |  out|    1|        bram|                   towers|         array|
+|towers_Rst_B              |  out|    1|        bram|                   towers|         array|
+|trigger_objects_0         |  out|   89|      ap_vld|        trigger_objects_0|       pointer|
+|trigger_objects_0_ap_vld  |  out|    1|      ap_vld|        trigger_objects_0|       pointer|
+|trigger_objects_1         |  out|   89|      ap_vld|        trigger_objects_1|       pointer|
+|trigger_objects_1_ap_vld  |  out|    1|      ap_vld|        trigger_objects_1|       pointer|
+|trigger_objects_2         |  out|   89|      ap_vld|        trigger_objects_2|       pointer|
+|trigger_objects_2_ap_vld  |  out|    1|      ap_vld|        trigger_objects_2|       pointer|
+|trigger_objects_3         |  out|   89|      ap_vld|        trigger_objects_3|       pointer|
+|trigger_objects_3_ap_vld  |  out|    1|      ap_vld|        trigger_objects_3|       pointer|
+|trigger_objects_4         |  out|   89|      ap_vld|        trigger_objects_4|       pointer|
+|trigger_objects_4_ap_vld  |  out|    1|      ap_vld|        trigger_objects_4|       pointer|
+|trigger_objects_5         |  out|   89|      ap_vld|        trigger_objects_5|       pointer|
+|trigger_objects_5_ap_vld  |  out|    1|      ap_vld|        trigger_objects_5|       pointer|
+|trigger_objects_6         |  out|   89|      ap_vld|        trigger_objects_6|       pointer|
+|trigger_objects_6_ap_vld  |  out|    1|      ap_vld|        trigger_objects_6|       pointer|
+|trigger_objects_7         |  out|   89|      ap_vld|        trigger_objects_7|       pointer|
+|trigger_objects_7_ap_vld  |  out|    1|      ap_vld|        trigger_objects_7|       pointer|
++--------------------------+-----+-----+------------+-------------------------+--------------+
+

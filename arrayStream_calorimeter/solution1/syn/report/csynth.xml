@@ -1,0 +1,1860 @@
+<profile>
+    <ReportVersion>
+        <Version>2024.1</Version>
+    </ReportVersion>
+    <UserAssignments>
+        <unit>ns</unit>
+        <ProductFamily>virtexuplus</ProductFamily>
+        <Part>xcvu13p-fsga2577-2-e</Part>
+        <TopModelName>calo_trigger_stream_ref</TopModelName>
+        <TargetClockPeriod>25.00</TargetClockPeriod>
+        <ClockUncertainty>6.75</ClockUncertainty>
+        <FlowTarget>vivado</FlowTarget>
+    </UserAssignments>
+    <PerformanceEstimates>
+        <PipelineType>no</PipelineType>
+        <SummaryOfTimingAnalysis>
+            <unit>ns</unit>
+            <EstimatedClockPeriod>5.516</EstimatedClockPeriod>
+        </SummaryOfTimingAnalysis>
+        <SummaryOfOverallLatency>
+            <unit>clock cycles</unit>
+            <Best-caseLatency>22086</Best-caseLatency>
+            <Average-caseLatency>22086</Average-caseLatency>
+            <Worst-caseLatency>22086</Worst-caseLatency>
+            <Best-caseRealTimeLatency>0.552 ms</Best-caseRealTimeLatency>
+            <Average-caseRealTimeLatency>0.552 ms</Average-caseRealTimeLatency>
+            <Worst-caseRealTimeLatency>0.552 ms</Worst-caseRealTimeLatency>
+            <Interval-min>22087</Interval-min>
+            <Interval-max>22087</Interval-max>
+        </SummaryOfOverallLatency>
+        <SummaryOfLoopLatency>
+            <HT_ETA_HT_PHI>
+                <Slack>18.25</Slack>
+                <TripCount>1800</TripCount>
+                <Latency>1800</Latency>
+                <AbsoluteTimeLatency>45000</AbsoluteTimeLatency>
+                <PipelineII>1</PipelineII>
+                <PipelineDepth>2</PipelineDepth>
+                <InstanceList/>
+            </HT_ETA_HT_PHI>
+        </SummaryOfLoopLatency>
+        <SummaryOfViolations>
+            <IssueType>-</IssueType>
+            <ViolationType>-</ViolationType>
+            <SourceLocation>calorimeter.cpp:248</SourceLocation>
+            <SummaryOfLoopViolations>
+                <HT_ETA_HT_PHI>
+                    <Name>HT_ETA_HT_PHI</Name>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>calorimeter.cpp:161~calorimeter.cpp:264</SourceLocation>
+                </HT_ETA_HT_PHI>
+            </SummaryOfLoopViolations>
+        </SummaryOfViolations>
+    </PerformanceEstimates>
+    <AreaEstimates>
+        <Resources>
+            <BRAM_18K>0</BRAM_18K>
+            <FF>4003</FF>
+            <LUT>7879</LUT>
+            <URAM>0</URAM>
+            <DSP>0</DSP>
+        </Resources>
+        <AvailableResources>
+            <BRAM_18K>5376</BRAM_18K>
+            <DSP>12288</DSP>
+            <FF>3456000</FF>
+            <LUT>1728000</LUT>
+            <URAM>1280</URAM>
+        </AvailableResources>
+    </AreaEstimates>
+    <InterfaceSummary>
+        <RtlPorts>
+            <name>s_axi_CTRL_AWVALID</name>
+            <Object>CTRL</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_CTRL_AWREADY</name>
+            <Object>CTRL</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_CTRL_AWADDR</name>
+            <Object>CTRL</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>6</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_CTRL_WVALID</name>
+            <Object>CTRL</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_CTRL_WREADY</name>
+            <Object>CTRL</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_CTRL_WDATA</name>
+            <Object>CTRL</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_CTRL_WSTRB</name>
+            <Object>CTRL</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_CTRL_ARVALID</name>
+            <Object>CTRL</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_CTRL_ARREADY</name>
+            <Object>CTRL</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_CTRL_ARADDR</name>
+            <Object>CTRL</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>6</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_CTRL_RVALID</name>
+            <Object>CTRL</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_CTRL_RREADY</name>
+            <Object>CTRL</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_CTRL_RDATA</name>
+            <Object>CTRL</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_CTRL_RRESP</name>
+            <Object>CTRL</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_CTRL_BVALID</name>
+            <Object>CTRL</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_CTRL_BREADY</name>
+            <Object>CTRL</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_CTRL_BRESP</name>
+            <Object>CTRL</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_clk</name>
+            <Object>calo_trigger_stream_ref</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_rst_n</name>
+            <Object>calo_trigger_stream_ref</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>interrupt</name>
+            <Object>calo_trigger_stream_ref</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>towers_Addr_A</name>
+            <Object>towers</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>address</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>towers_EN_A</name>
+            <Object>towers</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>towers_WEN_A</name>
+            <Object>towers</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>towers_Din_A</name>
+            <Object>towers</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>16</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>towers_Dout_A</name>
+            <Object>towers</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>16</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>towers_Clk_A</name>
+            <Object>towers</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>towers_Rst_A</name>
+            <Object>towers</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>towers_Addr_B</name>
+            <Object>towers</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>address</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>towers_EN_B</name>
+            <Object>towers</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>towers_WEN_B</name>
+            <Object>towers</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>towers_Din_B</name>
+            <Object>towers</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>16</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>towers_Dout_B</name>
+            <Object>towers</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>16</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>towers_Clk_B</name>
+            <Object>towers</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>towers_Rst_B</name>
+            <Object>towers</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>trigger_objects_0</name>
+            <Object>trigger_objects_0</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>89</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>trigger_objects_0_ap_vld</name>
+            <Object>trigger_objects_0</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>trigger_objects_1</name>
+            <Object>trigger_objects_1</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>89</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>trigger_objects_1_ap_vld</name>
+            <Object>trigger_objects_1</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>trigger_objects_2</name>
+            <Object>trigger_objects_2</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>89</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>trigger_objects_2_ap_vld</name>
+            <Object>trigger_objects_2</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>trigger_objects_3</name>
+            <Object>trigger_objects_3</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>89</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>trigger_objects_3_ap_vld</name>
+            <Object>trigger_objects_3</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>trigger_objects_4</name>
+            <Object>trigger_objects_4</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>89</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>trigger_objects_4_ap_vld</name>
+            <Object>trigger_objects_4</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>trigger_objects_5</name>
+            <Object>trigger_objects_5</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>89</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>trigger_objects_5_ap_vld</name>
+            <Object>trigger_objects_5</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>trigger_objects_6</name>
+            <Object>trigger_objects_6</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>89</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>trigger_objects_6_ap_vld</name>
+            <Object>trigger_objects_6</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>trigger_objects_7</name>
+            <Object>trigger_objects_7</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>89</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>trigger_objects_7_ap_vld</name>
+            <Object>trigger_objects_7</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+    </InterfaceSummary>
+    <RTLDesignHierarchy>
+        <TopModule MAX_DEPTH="5">
+            <ModuleName>calo_trigger_stream_ref</ModuleName>
+            <InstancesList>
+                <Instance>
+                    <InstName>grp_cluster_sort_build_stream_fu_165</InstName>
+                    <ModuleName>cluster_sort_build_stream</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>165</ID>
+                    <InstancesList>
+                        <Instance>
+                            <InstName>produce_cluster_stream_3x3_iso5_U0</InstName>
+                            <ModuleName>produce_cluster_stream_3x3_iso5</ModuleName>
+                            <IsCompInst>true</IsCompInst>
+                            <ID>76</ID>
+                            <InstancesList>
+                                <Instance>
+                                    <InstName>grp_find_clusters_stream_3_5_s_fu_38</InstName>
+                                    <ModuleName>find_clusters_stream_3_5_s</ModuleName>
+                                    <IsCompInst>true</IsCompInst>
+                                    <ID>38</ID>
+                                    <BindInstances>icmp_ln288_fu_382_p2 add_ln288_1_fu_388_p2 icmp_ln289_fu_400_p2 select_ln288_fu_406_p3 add_ln288_fu_414_p2 add_ln288_2_fu_420_p2 select_ln288_1_fu_426_p3 select_ln288_2_fu_434_p3 sub_ln301_fu_462_p2 empty_fu_468_p2 sub_ln196_fu_494_p2 sub_ln196_1_fu_669_p2 empty_57_fu_755_p2 sub_ln167_fu_780_p2 empty_58_fu_1246_p2 sub_ln167_1_fu_1271_p2 add_ln301_fu_504_p2 add_ln196_fu_572_p2 add_ln196_1_fu_675_p2 add_ln167_fu_927_p2 add_ln167_2_fu_1277_p2 icmp_ln303_fu_581_p2 add_ln193_fu_519_p2 add_ln141_fu_533_p2 phi_idx_fu_539_p3 add_ln196_2_fu_551_p2 is_max_fu_786_p2 icmp_ln200_fu_685_p2 grp_fu_358_p2 xor_ln198_1_fu_792_p2 phi_fu_586_p2 icmp_ln142_fu_591_p2 add_ln143_fu_597_p2 phi_idx_2_fu_606_p3 add_ln196_3_fu_618_p2 add_ln196_4_fu_633_p2 add_ln196_5_fu_797_p2 add_ln167_6_fu_1035_p2 add_ln167_7_fu_1282_p2 add_ln196_6_fu_642_p2 add_ln196_7_fu_691_p2 add_ln167_9_fu_936_p2 add_ln167_13_fu_1287_p2 grp_fu_358_p2 xor_ln198_2_fu_806_p2 icmp_ln198_2_fu_812_p2 xor_ln198_3_fu_818_p2 icmp_ln198_3_fu_824_p2 xor_ln198_4_fu_830_p2 and_ln198_fu_836_p2 icmp_ln198_4_fu_701_p2 and_ln198_1_fu_841_p2 and_ln198_2_fu_846_p2 icmp_ln198_5_fu_707_p2 and_ln198_4_fu_852_p2 and_ln198_5_fu_858_p2 and_ln198_6_fu_864_p2 and_ln198_3_fu_869_p2 icmp_ln198_6_fu_945_p2 xor_ln198_fu_875_p2 cluster_et_fu_729_p2 add_ln167_1_fu_739_p2 cluster_et_1_fu_749_p2 add_ln167_4_fu_979_p2 add_ln167_5_fu_989_p2 cluster_et_3_fu_1009_p2 icmp_ln307_fu_1019_p2 add_ln164_1_fu_881_p2 add_ln141_1_fu_894_p2 phi_idx_3_fu_899_p3 add_ln167_18_fu_911_p2 add_ln164_fu_1052_p2 icmp_ln142_1_fu_1057_p2 add_ln143_1_fu_1063_p2 phi_idx_4_fu_1072_p3 add_ln167_19_fu_1084_p2 add_ln167_20_fu_1108_p2 add_ln167_21_fu_1145_p2 add_ln167_22_fu_1163_p2 add_ln167_23_fu_1297_p2 add_ln167_24_fu_1117_p2 add_ln167_25_fu_1154_p2 add_ln167_26_fu_1176_p2 add_ln167_27_fu_1302_p2 sum_fu_1094_p2 add_ln167_8_fu_1129_p2 sum_11_fu_1139_p2 add_ln167_11_fu_1210_p2 add_ln167_12_fu_1220_p2 add_ln219_fu_1240_p2 add_ln219_1_fu_1320_p2 add_ln219_3_fu_1342_p2 add_ln219_4_fu_1375_p2 add_ln219_5_fu_1385_p2 add_ln219_6_fu_1395_p2 or_ln307_fu_922_p2 or_ln307_1_fu_1024_p2 or_ln307_2_fu_1030_p2 candidate_et_fu_1411_p3 candidate_valid_fu_1417_p2 empty_59_fu_1426_p3</BindInstances>
+                                </Instance>
+                            </InstancesList>
+                        </Instance>
+                        <Instance>
+                            <InstName>select_top_n_from_stream_U0</InstName>
+                            <ModuleName>select_top_n_from_stream</ModuleName>
+                            <IsCompInst>true</IsCompInst>
+                            <ID>87</ID>
+                            <BindInstances>icmp_ln299_fu_1363_p2 i_2_fu_1369_p2 local_num_clusters_1_fu_1436_p2 xor_ln111_fu_1442_p2 icmp_ln79_fu_1448_p2 or_ln111_fu_1454_p2 icmp_ln83_fu_1460_p2 icmp_ln87_fu_1466_p2 icmp_ln91_fu_1472_p2 xor_ln91_7_fu_1478_p2 icmp_ln95_fu_1484_p2 and_ln91_fu_1490_p2 xor_ln91_fu_1496_p2 or_ln91_fu_1502_p2 and_ln91_8_fu_1508_p2 xor_ln91_6_fu_1514_p2 grp_fu_746_p2 xor_ln111_1_fu_1524_p2 grp_fu_746_p2 or_ln111_1_fu_1530_p2 icmp_ln83_1_fu_1539_p2 icmp_ln87_1_fu_1545_p2 icmp_ln91_1_fu_1551_p2 xor_ln91_8_fu_1557_p2 icmp_ln95_1_fu_1563_p2 and_ln91_1_fu_1569_p2 xor_ln91_1_fu_1575_p2 or_ln91_1_fu_1581_p2 select_ln91_fu_1587_p3 grp_fu_763_p2 xor_ln111_2_fu_1595_p2 grp_fu_763_p2 or_ln111_2_fu_1601_p2 icmp_ln83_2_fu_1610_p2 icmp_ln87_2_fu_1616_p2 icmp_ln91_2_fu_1622_p2 xor_ln91_9_fu_1628_p2 icmp_ln95_2_fu_1634_p2 and_ln91_2_fu_1640_p2 xor_ln91_2_fu_1646_p2 or_ln91_2_fu_1652_p2 select_ln91_1_fu_1658_p3 grp_fu_780_p2 xor_ln111_3_fu_1666_p2 grp_fu_780_p2 or_ln111_3_fu_1672_p2 icmp_ln83_3_fu_1681_p2 icmp_ln87_3_fu_1687_p2 icmp_ln91_3_fu_1693_p2 xor_ln91_10_fu_1699_p2 icmp_ln95_3_fu_1705_p2 and_ln91_3_fu_1711_p2 xor_ln91_3_fu_1717_p2 or_ln91_3_fu_1723_p2 select_ln91_2_fu_1729_p3 grp_fu_797_p2 xor_ln111_4_fu_1737_p2 grp_fu_797_p2 or_ln111_4_fu_1743_p2 icmp_ln83_4_fu_1752_p2 icmp_ln87_4_fu_1758_p2 icmp_ln91_4_fu_1764_p2 xor_ln91_11_fu_1770_p2 icmp_ln95_4_fu_1776_p2 and_ln91_4_fu_1782_p2 xor_ln91_4_fu_1788_p2 or_ln91_4_fu_1794_p2 select_ln91_3_fu_1800_p3 grp_fu_814_p2 xor_ln111_5_fu_1808_p2 grp_fu_814_p2 or_ln111_5_fu_1814_p2 icmp_ln83_5_fu_1823_p2 icmp_ln87_5_fu_1829_p2 icmp_ln91_5_fu_1835_p2 xor_ln91_12_fu_1841_p2 icmp_ln95_5_fu_1847_p2 and_ln91_5_fu_1853_p2 xor_ln91_5_fu_1859_p2 or_ln91_5_fu_1865_p2 select_ln91_4_fu_1871_p3 grp_fu_831_p2 xor_ln111_6_fu_1879_p2 grp_fu_831_p2 or_ln111_6_fu_1885_p2 icmp_ln83_6_fu_1894_p2 icmp_ln87_6_fu_1900_p2 icmp_ln91_6_fu_1906_p2 xor_ln91_13_fu_1912_p2 icmp_ln95_6_fu_1918_p2 and_ln91_6_fu_1924_p2 xor_ln111_7_fu_1936_p2 icmp_ln79_13_fu_1942_p2 or_ln111_7_fu_1948_p2 icmp_ln83_7_fu_1954_p2 icmp_ln87_7_fu_1963_p2 icmp_ln91_7_fu_1972_p2 xor_ln91_14_fu_1978_p2 icmp_ln95_7_fu_1984_p2 and_ln91_7_fu_1990_p2 icmp_ln113_fu_2491_p2 add_ln114_fu_2539_p2 sparsemux_15_3_20_1_1_U7 sparsemux_15_3_20_1_1_U8 sparsemux_15_3_6_1_1_U9 sparsemux_15_3_6_1_1_U10 sparsemux_15_3_4_1_1_U11 sparsemux_15_3_1_1_1_U12</BindInstances>
+                        </Instance>
+                        <Instance>
+                            <InstName>build_trigger_objects_U0</InstName>
+                            <ModuleName>build_trigger_objects</ModuleName>
+                            <IsCompInst>true</IsCompInst>
+                            <ID>94</ID>
+                            <BindInstances>icmp_ln196_fu_480_p2 select_ln196_fu_486_p3 trigger_objects_0_new_0_fu_522_p3 icmp_ln196_1_fu_531_p2 select_ln196_1_fu_537_p3 trigger_objects_1_new_0_fu_573_p3 icmp_ln196_2_fu_582_p2 select_ln196_2_fu_588_p3 trigger_objects_2_new_0_fu_624_p3 icmp_ln196_3_fu_633_p2 select_ln196_3_fu_639_p3 trigger_objects_3_new_0_fu_675_p3 icmp_ln196_4_fu_684_p2 select_ln196_4_fu_690_p3 trigger_objects_4_new_0_fu_726_p3 icmp_ln196_5_fu_735_p2 select_ln196_5_fu_741_p3 trigger_objects_5_new_0_fu_777_p3 icmp_ln196_6_fu_786_p2 select_ln196_6_fu_792_p3 trigger_objects_6_new_0_fu_828_p3 icmp_ln196_7_fu_837_p2 select_ln196_7_fu_843_p3 trigger_objects_7_new_0_fu_879_p3</BindInstances>
+                        </Instance>
+                    </InstancesList>
+                    <BindInstances>cluster_stream_U top_clusters_et_U top_clusters_et_1_U top_clusters_et_2_U top_clusters_et_3_U top_clusters_et_4_U top_clusters_et_5_U top_clusters_et_6_U top_clusters_et_7_U top_clusters_isolation_et_U top_clusters_isolation_et_1_U top_clusters_isolation_et_2_U top_clusters_isolation_et_3_U top_clusters_isolation_et_4_U top_clusters_isolation_et_5_U top_clusters_isolation_et_6_U top_clusters_isolation_et_7_U top_clusters_eta_U top_clusters_eta_1_U top_clusters_eta_2_U top_clusters_eta_3_U top_clusters_eta_4_U top_clusters_eta_5_U top_clusters_eta_6_U top_clusters_eta_7_U top_clusters_phi_U top_clusters_phi_1_U top_clusters_phi_2_U top_clusters_phi_3_U top_clusters_phi_4_U top_clusters_phi_5_U top_clusters_phi_6_U top_clusters_phi_7_U top_clusters_window_size_U top_clusters_window_size_1_U top_clusters_window_size_2_U top_clusters_window_size_3_U top_clusters_window_size_4_U top_clusters_window_size_5_U top_clusters_window_size_6_U top_clusters_window_size_7_U top_clusters_valid_U top_clusters_valid_1_U top_clusters_valid_2_U top_clusters_valid_3_U top_clusters_valid_4_U top_clusters_valid_5_U top_clusters_valid_6_U top_clusters_valid_7_U</BindInstances>
+                </Instance>
+            </InstancesList>
+            <BindInstances>add_ln160_fu_220_p2 select_ln160_fu_226_p3 eta_fu_234_p3 ht_2_fu_329_p2 phi_fu_283_p2 add_ln160_1_fu_289_p2 icmp_ln161_fu_295_p2 icmp_ln160_fu_301_p2 CTRL_s_axi_U</BindInstances>
+        </TopModule>
+    </RTLDesignHierarchy>
+    <ModuleInformation>
+        <Module>
+            <Name>find_clusters_stream_3_5_s</Name>
+            <Loops>
+                <VITIS_LOOP_288_1_VITIS_LOOP_289_2/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>25.00</TargetClockPeriod>
+                    <ClockUncertainty>6.75</ClockUncertainty>
+                    <EstimatedClockPeriod>5.516</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>20282</Best-caseLatency>
+                    <Average-caseLatency>20282</Average-caseLatency>
+                    <Worst-caseLatency>20282</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.507 ms</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.507 ms</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.507 ms</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>20281</PipelineInitiationInterval>
+                    <PipelineType>loop auto-rewind (delay=0 clock cycles(s))</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_288_1_VITIS_LOOP_289_2>
+                        <Name>VITIS_LOOP_288_1_VITIS_LOOP_289_2</Name>
+                        <Slack>18.25</Slack>
+                        <TripCount>1560</TripCount>
+                        <Latency>20280</Latency>
+                        <AbsoluteTimeLatency>0.507 ms</AbsoluteTimeLatency>
+                        <PipelineII>13</PipelineII>
+                        <PipelineDepth>14</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </VITIS_LOOP_288_1_VITIS_LOOP_289_2>
+                </SummaryOfLoopLatency>
+                <SummaryOfViolations>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>./calorimeter.h:164~./calorimeter.h:219~./calorimeter.h:310</SourceLocation>
+                    <SummaryOfLoopViolations>
+                        <VITIS_LOOP_288_1_VITIS_LOOP_289_2>
+                            <Name>VITIS_LOOP_288_1_VITIS_LOOP_289_2</Name>
+                            <IssueType>II Violation</IssueType>
+                            <ViolationType>Resource Limitation</ViolationType>
+                            <SourceLocation>./calorimeter.h:288</SourceLocation>
+                        </VITIS_LOOP_288_1_VITIS_LOOP_289_2>
+                    </SummaryOfLoopViolations>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>338</FF>
+                    <AVAIL_FF>3456000</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>1874</LUT>
+                    <AVAIL_LUT>1728000</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>5376</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>12288</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>1280</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln288_fu_382_p2" SOURCE="./calorimeter.h:288" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln288" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln288_1_fu_388_p2" SOURCE="./calorimeter.h:288" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln288_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln289_fu_400_p2" SOURCE="./calorimeter.h:289" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln289" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="select" PRAGMA="" RTLNAME="select_ln288_fu_406_p3" SOURCE="./calorimeter.h:288" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln288" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln288_fu_414_p2" SOURCE="./calorimeter.h:288" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln288" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln288_2_fu_420_p2" SOURCE="./calorimeter.h:288" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln288_2" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="select" PRAGMA="" RTLNAME="select_ln288_1_fu_426_p3" SOURCE="./calorimeter.h:288" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln288_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="select" PRAGMA="" RTLNAME="select_ln288_2_fu_434_p3" SOURCE="./calorimeter.h:288" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln288_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln301_fu_462_p2" SOURCE="./calorimeter.h:301" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln301" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="empty_fu_468_p2" SOURCE="./calorimeter.h:288" STORAGESUBTYPE="" URAM="0" VARIABLE="empty" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln196_fu_494_p2" SOURCE="./calorimeter.h:196" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln196" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln196_1_fu_669_p2" SOURCE="./calorimeter.h:196" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln196_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="empty_57_fu_755_p2" SOURCE="./calorimeter.h:288" STORAGESUBTYPE="" URAM="0" VARIABLE="empty_57" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln167_fu_780_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln167" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="empty_58_fu_1246_p2" SOURCE="./calorimeter.h:288" STORAGESUBTYPE="" URAM="0" VARIABLE="empty_58" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln167_1_fu_1271_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln167_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln301_fu_504_p2" SOURCE="./calorimeter.h:301" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln301" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln196_fu_572_p2" SOURCE="./calorimeter.h:196" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln196" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln196_1_fu_675_p2" SOURCE="./calorimeter.h:196" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln196_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_fu_927_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_2_fu_1277_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167_2" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln303_fu_581_p2" SOURCE="./calorimeter.h:303" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln303" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln193_fu_519_p2" SOURCE="./calorimeter.h:193" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln193" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln141_fu_533_p2" SOURCE="./calorimeter.h:141" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln141" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="select" PRAGMA="" RTLNAME="phi_idx_fu_539_p3" SOURCE="./calorimeter.h:140" STORAGESUBTYPE="" URAM="0" VARIABLE="phi_idx" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln196_2_fu_551_p2" SOURCE="./calorimeter.h:196" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln196_2" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="setlt" PRAGMA="" RTLNAME="is_max_fu_786_p2" SOURCE="./calorimeter.h:198" STORAGESUBTYPE="" URAM="0" VARIABLE="is_max" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setne" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="setne" PRAGMA="" RTLNAME="icmp_ln200_fu_685_p2" SOURCE="./calorimeter.h:200" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln200" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="setlt" PRAGMA="" RTLNAME="grp_fu_358_p2" SOURCE="./calorimeter.h:198" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln198" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln198_1_fu_792_p2" SOURCE="./calorimeter.h:198" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln198_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="phi_fu_586_p2" SOURCE="./calorimeter.h:193" STORAGESUBTYPE="" URAM="0" VARIABLE="phi" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="setgt" PRAGMA="" RTLNAME="icmp_ln142_fu_591_p2" SOURCE="./calorimeter.h:142" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln142" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln143_fu_597_p2" SOURCE="./calorimeter.h:143" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln143" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="select" PRAGMA="" RTLNAME="phi_idx_2_fu_606_p3" SOURCE="./calorimeter.h:142" STORAGESUBTYPE="" URAM="0" VARIABLE="phi_idx_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln196_3_fu_618_p2" SOURCE="./calorimeter.h:196" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln196_3" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln196_4_fu_633_p2" SOURCE="./calorimeter.h:196" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln196_4" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln196_5_fu_797_p2" SOURCE="./calorimeter.h:196" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln196_5" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_6_fu_1035_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167_6" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_7_fu_1282_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167_7" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln196_6_fu_642_p2" SOURCE="./calorimeter.h:196" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln196_6" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln196_7_fu_691_p2" SOURCE="./calorimeter.h:196" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln196_7" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_9_fu_936_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167_9" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_13_fu_1287_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167_13" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="setlt" PRAGMA="" RTLNAME="grp_fu_358_p2" SOURCE="./calorimeter.h:198" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln198_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln198_2_fu_806_p2" SOURCE="./calorimeter.h:198" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln198_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln198_2_fu_812_p2" SOURCE="./calorimeter.h:198" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln198_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln198_3_fu_818_p2" SOURCE="./calorimeter.h:198" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln198_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln198_3_fu_824_p2" SOURCE="./calorimeter.h:198" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln198_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln198_4_fu_830_p2" SOURCE="./calorimeter.h:198" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln198_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="and" PRAGMA="" RTLNAME="and_ln198_fu_836_p2" SOURCE="./calorimeter.h:198" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln198" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln198_4_fu_701_p2" SOURCE="./calorimeter.h:198" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln198_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="and" PRAGMA="" RTLNAME="and_ln198_1_fu_841_p2" SOURCE="./calorimeter.h:198" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln198_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="and" PRAGMA="" RTLNAME="and_ln198_2_fu_846_p2" SOURCE="./calorimeter.h:198" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln198_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln198_5_fu_707_p2" SOURCE="./calorimeter.h:198" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln198_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="and" PRAGMA="" RTLNAME="and_ln198_4_fu_852_p2" SOURCE="./calorimeter.h:198" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln198_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="and" PRAGMA="" RTLNAME="and_ln198_5_fu_858_p2" SOURCE="./calorimeter.h:198" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln198_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="and" PRAGMA="" RTLNAME="and_ln198_6_fu_864_p2" SOURCE="./calorimeter.h:198" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln198_6" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="and" PRAGMA="" RTLNAME="and_ln198_3_fu_869_p2" SOURCE="./calorimeter.h:198" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln198_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="setgt" PRAGMA="" RTLNAME="icmp_ln198_6_fu_945_p2" SOURCE="./calorimeter.h:198" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln198_6" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln198_fu_875_p2" SOURCE="./calorimeter.h:198" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln198" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="cluster_et_fu_729_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="cluster_et" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_1_fu_739_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="cluster_et_1_fu_749_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="cluster_et_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_4_fu_979_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167_4" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_5_fu_989_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167_5" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="cluster_et_3_fu_1009_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="cluster_et_3" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln307_fu_1019_p2" SOURCE="./calorimeter.h:307" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln307" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln164_1_fu_881_p2" SOURCE="./calorimeter.h:164" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln164_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln141_1_fu_894_p2" SOURCE="./calorimeter.h:141" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln141_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="select" PRAGMA="" RTLNAME="phi_idx_3_fu_899_p3" SOURCE="./calorimeter.h:140" STORAGESUBTYPE="" URAM="0" VARIABLE="phi_idx_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_18_fu_911_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167_18" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln164_fu_1052_p2" SOURCE="./calorimeter.h:164" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln164" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="setgt" PRAGMA="" RTLNAME="icmp_ln142_1_fu_1057_p2" SOURCE="./calorimeter.h:142" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln142_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln143_1_fu_1063_p2" SOURCE="./calorimeter.h:143" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln143_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="select" PRAGMA="" RTLNAME="phi_idx_4_fu_1072_p3" SOURCE="./calorimeter.h:142" STORAGESUBTYPE="" URAM="0" VARIABLE="phi_idx_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_19_fu_1084_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167_19" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_20_fu_1108_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167_20" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_21_fu_1145_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167_21" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_22_fu_1163_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167_22" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_23_fu_1297_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167_23" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_24_fu_1117_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167_24" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_25_fu_1154_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167_25" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_26_fu_1176_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167_26" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_27_fu_1302_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167_27" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="sum_fu_1094_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="sum" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_8_fu_1129_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167_8" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="sum_11_fu_1139_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="sum_11" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_11_fu_1210_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167_11" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_12_fu_1220_p2" SOURCE="./calorimeter.h:167" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln167_12" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln219_fu_1240_p2" SOURCE="./calorimeter.h:219" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln219" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln219_1_fu_1320_p2" SOURCE="./calorimeter.h:219" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln219_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln219_3_fu_1342_p2" SOURCE="./calorimeter.h:219" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln219_3" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln219_4_fu_1375_p2" SOURCE="./calorimeter.h:219" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln219_4" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln219_5_fu_1385_p2" SOURCE="./calorimeter.h:219" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln219_5" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln219_6_fu_1395_p2" SOURCE="./calorimeter.h:219" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln219_6" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="or" PRAGMA="" RTLNAME="or_ln307_fu_922_p2" SOURCE="./calorimeter.h:307" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln307" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="or" PRAGMA="" RTLNAME="or_ln307_1_fu_1024_p2" SOURCE="./calorimeter.h:307" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln307_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="or" PRAGMA="" RTLNAME="or_ln307_2_fu_1030_p2" SOURCE="./calorimeter.h:307" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln307_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="select" PRAGMA="" RTLNAME="candidate_et_fu_1411_p3" SOURCE="./calorimeter.h:307" STORAGESUBTYPE="" URAM="0" VARIABLE="candidate_et" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="xor" PRAGMA="" RTLNAME="candidate_valid_fu_1417_p2" SOURCE="./calorimeter.h:307" STORAGESUBTYPE="" URAM="0" VARIABLE="candidate_valid" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="VITIS_LOOP_288_1_VITIS_LOOP_289_2" OPTYPE="select" PRAGMA="" RTLNAME="empty_59_fu_1426_p3" SOURCE="./calorimeter.h:307" STORAGESUBTYPE="" URAM="0" VARIABLE="empty_59" VISIBLE="false"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>produce_cluster_stream_3x3_iso5</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>25.00</TargetClockPeriod>
+                    <ClockUncertainty>6.75</ClockUncertainty>
+                    <EstimatedClockPeriod>5.516</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>20283</Best-caseLatency>
+                    <Average-caseLatency>20283</Average-caseLatency>
+                    <Worst-caseLatency>20283</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.507 ms</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.507 ms</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.507 ms</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>20283</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfViolations>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>calorimeter.cpp:279</SourceLocation>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>343</FF>
+                    <AVAIL_FF>3456000</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>1917</LUT>
+                    <AVAIL_LUT>1728000</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>5376</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>12288</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>1280</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+        </Module>
+        <Module>
+            <Name>select_top_n_from_stream</Name>
+            <Loops>
+                <VITIS_LOOP_299_2>
+                    <VITIS_LOOP_113_1/>
+                </VITIS_LOOP_299_2>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>25.00</TargetClockPeriod>
+                    <ClockUncertainty>6.75</ClockUncertainty>
+                    <EstimatedClockPeriod>3.402</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>3121</Best-caseLatency>
+                    <Average-caseLatency>7801</Average-caseLatency>
+                    <Worst-caseLatency>18721</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>78.025 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.195 ms</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.468 ms</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>3121 ~ 18721</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_299_2>
+                        <Name>VITIS_LOOP_299_2</Name>
+                        <Slack>18.25</Slack>
+                        <TripCount>1560</TripCount>
+                        <Latency>3120 ~ 18720</Latency>
+                        <AbsoluteTimeLatency>78.000 us ~ 0.468 ms</AbsoluteTimeLatency>
+                        <IterationLatency>
+                            <range>
+                                <min>2</min>
+                                <max>12</max>
+                            </range>
+                        </IterationLatency>
+                        <PipelineDepth>2 ~ 12</PipelineDepth>
+                        <PipelineType>no</PipelineType>
+                        <InstanceList/>
+                        <VITIS_LOOP_113_1>
+                            <Name>VITIS_LOOP_113_1</Name>
+                            <Slack>18.25</Slack>
+                            <TripCount>
+                                <range>
+                                    <min>0</min>
+                                    <max>7</max>
+                                </range>
+                            </TripCount>
+                            <Latency>0 ~ 7</Latency>
+                            <AbsoluteTimeLatency>0 ns ~ 0.175 us</AbsoluteTimeLatency>
+                            <IterationLatency>1</IterationLatency>
+                            <PipelineDepth>1</PipelineDepth>
+                            <PipelineType>no</PipelineType>
+                            <InstanceList/>
+                        </VITIS_LOOP_113_1>
+                    </VITIS_LOOP_299_2>
+                </SummaryOfLoopLatency>
+                <SummaryOfViolations>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>calorimeter.cpp:299</SourceLocation>
+                    <SummaryOfLoopViolations>
+                        <VITIS_LOOP_299_2>
+                            <Name>VITIS_LOOP_299_2</Name>
+                            <IssueType>-</IssueType>
+                            <ViolationType>-</ViolationType>
+                            <SourceLocation>calorimeter.cpp:299</SourceLocation>
+                            <VITIS_LOOP_113_1>
+                                <Name>VITIS_LOOP_113_1</Name>
+                                <IssueType>-</IssueType>
+                                <ViolationType>-</ViolationType>
+                                <SourceLocation>calorimeter.cpp:114~calorimeter.cpp:310</SourceLocation>
+                            </VITIS_LOOP_113_1>
+                        </VITIS_LOOP_299_2>
+                    </SummaryOfLoopViolations>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>1092</FF>
+                    <AVAIL_FF>3456000</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>2741</LUT>
+                    <AVAIL_LUT>1728000</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>5376</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>12288</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>1280</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln299_fu_1363_p2" SOURCE="calorimeter.cpp:299" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln299" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="add" PRAGMA="" RTLNAME="i_2_fu_1369_p2" SOURCE="calorimeter.cpp:299" STORAGESUBTYPE="" URAM="0" VARIABLE="i_2" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="add" PRAGMA="" RTLNAME="local_num_clusters_1_fu_1436_p2" SOURCE="calorimeter.cpp:308" STORAGESUBTYPE="" URAM="0" VARIABLE="local_num_clusters_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln111_fu_1442_p2" SOURCE="calorimeter.cpp:111" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln111" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setgt" PRAGMA="" RTLNAME="icmp_ln79_fu_1448_p2" SOURCE="calorimeter.cpp:79" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln79" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="or" PRAGMA="" RTLNAME="or_ln111_fu_1454_p2" SOURCE="calorimeter.cpp:111" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln111" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln83_fu_1460_p2" SOURCE="calorimeter.cpp:83" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln83" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln87_fu_1466_p2" SOURCE="calorimeter.cpp:87" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln87" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln91_fu_1472_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln91" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln91_7_fu_1478_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln91_7" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln95_fu_1484_p2" SOURCE="calorimeter.cpp:95" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln95" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="and" PRAGMA="" RTLNAME="and_ln91_fu_1490_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln91" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln91_fu_1496_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln91" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="or" PRAGMA="" RTLNAME="or_ln91_fu_1502_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln91" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="and" PRAGMA="" RTLNAME="and_ln91_8_fu_1508_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln91_8" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln91_6_fu_1514_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln91_6" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setgt" PRAGMA="" RTLNAME="grp_fu_746_p2" SOURCE="calorimeter.cpp:79" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln79_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln111_1_fu_1524_p2" SOURCE="calorimeter.cpp:111" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln111_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setgt" PRAGMA="" RTLNAME="grp_fu_746_p2" SOURCE="calorimeter.cpp:79" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln79_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="or" PRAGMA="" RTLNAME="or_ln111_1_fu_1530_p2" SOURCE="calorimeter.cpp:111" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln111_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln83_1_fu_1539_p2" SOURCE="calorimeter.cpp:83" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln83_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln87_1_fu_1545_p2" SOURCE="calorimeter.cpp:87" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln87_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln91_1_fu_1551_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln91_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln91_8_fu_1557_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln91_8" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln95_1_fu_1563_p2" SOURCE="calorimeter.cpp:95" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln95_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="and" PRAGMA="" RTLNAME="and_ln91_1_fu_1569_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln91_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln91_1_fu_1575_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln91_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="or" PRAGMA="" RTLNAME="or_ln91_1_fu_1581_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln91_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="select" PRAGMA="" RTLNAME="select_ln91_fu_1587_p3" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln91" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setgt" PRAGMA="" RTLNAME="grp_fu_763_p2" SOURCE="calorimeter.cpp:79" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln79_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln111_2_fu_1595_p2" SOURCE="calorimeter.cpp:111" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln111_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setgt" PRAGMA="" RTLNAME="grp_fu_763_p2" SOURCE="calorimeter.cpp:79" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln79_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="or" PRAGMA="" RTLNAME="or_ln111_2_fu_1601_p2" SOURCE="calorimeter.cpp:111" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln111_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln83_2_fu_1610_p2" SOURCE="calorimeter.cpp:83" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln83_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln87_2_fu_1616_p2" SOURCE="calorimeter.cpp:87" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln87_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln91_2_fu_1622_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln91_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln91_9_fu_1628_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln91_9" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln95_2_fu_1634_p2" SOURCE="calorimeter.cpp:95" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln95_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="and" PRAGMA="" RTLNAME="and_ln91_2_fu_1640_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln91_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln91_2_fu_1646_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln91_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="or" PRAGMA="" RTLNAME="or_ln91_2_fu_1652_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln91_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="select" PRAGMA="" RTLNAME="select_ln91_1_fu_1658_p3" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln91_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setgt" PRAGMA="" RTLNAME="grp_fu_780_p2" SOURCE="calorimeter.cpp:79" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln79_6" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln111_3_fu_1666_p2" SOURCE="calorimeter.cpp:111" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln111_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setgt" PRAGMA="" RTLNAME="grp_fu_780_p2" SOURCE="calorimeter.cpp:79" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln79_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="or" PRAGMA="" RTLNAME="or_ln111_3_fu_1672_p2" SOURCE="calorimeter.cpp:111" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln111_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln83_3_fu_1681_p2" SOURCE="calorimeter.cpp:83" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln83_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln87_3_fu_1687_p2" SOURCE="calorimeter.cpp:87" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln87_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln91_3_fu_1693_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln91_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln91_10_fu_1699_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln91_10" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln95_3_fu_1705_p2" SOURCE="calorimeter.cpp:95" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln95_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="and" PRAGMA="" RTLNAME="and_ln91_3_fu_1711_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln91_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln91_3_fu_1717_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln91_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="or" PRAGMA="" RTLNAME="or_ln91_3_fu_1723_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln91_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="select" PRAGMA="" RTLNAME="select_ln91_2_fu_1729_p3" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln91_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setgt" PRAGMA="" RTLNAME="grp_fu_797_p2" SOURCE="calorimeter.cpp:79" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln79_8" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln111_4_fu_1737_p2" SOURCE="calorimeter.cpp:111" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln111_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setgt" PRAGMA="" RTLNAME="grp_fu_797_p2" SOURCE="calorimeter.cpp:79" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln79_7" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="or" PRAGMA="" RTLNAME="or_ln111_4_fu_1743_p2" SOURCE="calorimeter.cpp:111" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln111_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln83_4_fu_1752_p2" SOURCE="calorimeter.cpp:83" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln83_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln87_4_fu_1758_p2" SOURCE="calorimeter.cpp:87" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln87_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln91_4_fu_1764_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln91_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln91_11_fu_1770_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln91_11" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln95_4_fu_1776_p2" SOURCE="calorimeter.cpp:95" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln95_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="and" PRAGMA="" RTLNAME="and_ln91_4_fu_1782_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln91_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln91_4_fu_1788_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln91_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="or" PRAGMA="" RTLNAME="or_ln91_4_fu_1794_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln91_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="select" PRAGMA="" RTLNAME="select_ln91_3_fu_1800_p3" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln91_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setgt" PRAGMA="" RTLNAME="grp_fu_814_p2" SOURCE="calorimeter.cpp:79" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln79_10" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln111_5_fu_1808_p2" SOURCE="calorimeter.cpp:111" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln111_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setgt" PRAGMA="" RTLNAME="grp_fu_814_p2" SOURCE="calorimeter.cpp:79" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln79_9" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="or" PRAGMA="" RTLNAME="or_ln111_5_fu_1814_p2" SOURCE="calorimeter.cpp:111" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln111_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln83_5_fu_1823_p2" SOURCE="calorimeter.cpp:83" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln83_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln87_5_fu_1829_p2" SOURCE="calorimeter.cpp:87" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln87_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln91_5_fu_1835_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln91_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln91_12_fu_1841_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln91_12" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln95_5_fu_1847_p2" SOURCE="calorimeter.cpp:95" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln95_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="and" PRAGMA="" RTLNAME="and_ln91_5_fu_1853_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln91_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln91_5_fu_1859_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln91_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="or" PRAGMA="" RTLNAME="or_ln91_5_fu_1865_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln91_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="select" PRAGMA="" RTLNAME="select_ln91_4_fu_1871_p3" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln91_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setgt" PRAGMA="" RTLNAME="grp_fu_831_p2" SOURCE="calorimeter.cpp:79" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln79_12" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln111_6_fu_1879_p2" SOURCE="calorimeter.cpp:111" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln111_6" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setgt" PRAGMA="" RTLNAME="grp_fu_831_p2" SOURCE="calorimeter.cpp:79" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln79_11" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="or" PRAGMA="" RTLNAME="or_ln111_6_fu_1885_p2" SOURCE="calorimeter.cpp:111" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln111_6" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln83_6_fu_1894_p2" SOURCE="calorimeter.cpp:83" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln83_6" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln87_6_fu_1900_p2" SOURCE="calorimeter.cpp:87" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln87_6" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln91_6_fu_1906_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln91_6" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln91_13_fu_1912_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln91_13" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln95_6_fu_1918_p2" SOURCE="calorimeter.cpp:95" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln95_6" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="and" PRAGMA="" RTLNAME="and_ln91_6_fu_1924_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln91_6" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln111_7_fu_1936_p2" SOURCE="calorimeter.cpp:111" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln111_7" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setgt" PRAGMA="" RTLNAME="icmp_ln79_13_fu_1942_p2" SOURCE="calorimeter.cpp:79" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln79_13" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="or" PRAGMA="" RTLNAME="or_ln111_7_fu_1948_p2" SOURCE="calorimeter.cpp:111" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln111_7" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln83_7_fu_1954_p2" SOURCE="calorimeter.cpp:83" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln83_7" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln87_7_fu_1963_p2" SOURCE="calorimeter.cpp:87" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln87_7" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln91_7_fu_1972_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln91_7" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln91_14_fu_1978_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln91_14" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln95_7_fu_1984_p2" SOURCE="calorimeter.cpp:95" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln95_7" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_299_2" OPTYPE="and" PRAGMA="" RTLNAME="and_ln91_7_fu_1990_p2" SOURCE="calorimeter.cpp:91" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln91_7" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_113_1" OPTYPE="setgt" PRAGMA="" RTLNAME="icmp_ln113_fu_2491_p2" SOURCE="calorimeter.cpp:113" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln113" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_113_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln114_fu_2539_p2" SOURCE="calorimeter.cpp:114" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln114" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sparsemux" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_113_1" OPTYPE="sparsemux" PRAGMA="" RTLNAME="sparsemux_15_3_20_1_1_U7" SOURCE="calorimeter.cpp:114" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_6" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sparsemux" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_113_1" OPTYPE="sparsemux" PRAGMA="" RTLNAME="sparsemux_15_3_20_1_1_U8" SOURCE="calorimeter.cpp:114" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_7" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sparsemux" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_113_1" OPTYPE="sparsemux" PRAGMA="" RTLNAME="sparsemux_15_3_6_1_1_U9" SOURCE="calorimeter.cpp:114" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_8" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sparsemux" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_113_1" OPTYPE="sparsemux" PRAGMA="" RTLNAME="sparsemux_15_3_6_1_1_U10" SOURCE="calorimeter.cpp:114" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_9" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sparsemux" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_113_1" OPTYPE="sparsemux" PRAGMA="" RTLNAME="sparsemux_15_3_4_1_1_U11" SOURCE="calorimeter.cpp:114" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_s" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sparsemux" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_113_1" OPTYPE="sparsemux" PRAGMA="" RTLNAME="sparsemux_15_3_1_1_1_U12" SOURCE="calorimeter.cpp:114" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_1" VISIBLE="false"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>build_trigger_objects</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>25.00</TargetClockPeriod>
+                    <ClockUncertainty>6.75</ClockUncertainty>
+                    <EstimatedClockPeriod>2.478</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>0</Best-caseLatency>
+                    <Average-caseLatency>0</Average-caseLatency>
+                    <Worst-caseLatency>0</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0 ns</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0 ns</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>0</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfViolations>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>calorimeter.cpp:196</SourceLocation>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>474</FF>
+                    <AVAIL_FF>3456000</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>867</LUT>
+                    <AVAIL_LUT>1728000</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>5376</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>12288</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>1280</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln196_fu_480_p2" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln196" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln196_fu_486_p3" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln196" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="trigger_objects_0_new_0_fu_522_p3" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="trigger_objects_0_new_0" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln196_1_fu_531_p2" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln196_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln196_1_fu_537_p3" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln196_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="trigger_objects_1_new_0_fu_573_p3" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="trigger_objects_1_new_0" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln196_2_fu_582_p2" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln196_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln196_2_fu_588_p3" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln196_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="trigger_objects_2_new_0_fu_624_p3" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="trigger_objects_2_new_0" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln196_3_fu_633_p2" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln196_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln196_3_fu_639_p3" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln196_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="trigger_objects_3_new_0_fu_675_p3" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="trigger_objects_3_new_0" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln196_4_fu_684_p2" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln196_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln196_4_fu_690_p3" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln196_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="trigger_objects_4_new_0_fu_726_p3" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="trigger_objects_4_new_0" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln196_5_fu_735_p2" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln196_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln196_5_fu_741_p3" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln196_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="trigger_objects_5_new_0_fu_777_p3" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="trigger_objects_5_new_0" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln196_6_fu_786_p2" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln196_6" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln196_6_fu_792_p3" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln196_6" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="trigger_objects_6_new_0_fu_828_p3" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="trigger_objects_6_new_0" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln196_7_fu_837_p2" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln196_7" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln196_7_fu_843_p3" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln196_7" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="trigger_objects_7_new_0_fu_879_p3" SOURCE="calorimeter.cpp:196" STORAGESUBTYPE="" URAM="0" VARIABLE="trigger_objects_7_new_0" VISIBLE="false"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>cluster_sort_build_stream</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>25.00</TargetClockPeriod>
+                    <ClockUncertainty>6.75</ClockUncertainty>
+                    <EstimatedClockPeriod>5.516</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>20283</Best-caseLatency>
+                    <Average-caseLatency>20283</Average-caseLatency>
+                    <Worst-caseLatency>20283</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.507 ms</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.507 ms</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.507 ms</Worst-caseRealTimeLatency>
+                    <DataflowPipelineThroughput>20284</DataflowPipelineThroughput>
+                    <PipelineInitiationInterval>20284</PipelineInitiationInterval>
+                    <PipelineType>dataflow</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfViolations>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>calorimeter.cpp:323</SourceLocation>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>5376</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <FF>3743</FF>
+                    <AVAIL_FF>3456000</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>7394</LUT>
+                    <AVAIL_LUT>1728000</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>12288</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>1280</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="memory" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="cluster_stream_U" SOURCE=":0" STORAGESIZE="61 64 1" STORAGESUBTYPE="stream" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="cluster_stream" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_et_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="20 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_et" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_et_1_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="20 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_et_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_et_2_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="20 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_et_2" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_et_3_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="20 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_et_3" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_et_4_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="20 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_et_4" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_et_5_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="20 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_et_5" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_et_6_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="20 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_et_6" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_et_7_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="20 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_et_7" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_isolation_et_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="20 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_isolation_et" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_isolation_et_1_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="20 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_isolation_et_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_isolation_et_2_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="20 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_isolation_et_2" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_isolation_et_3_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="20 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_isolation_et_3" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_isolation_et_4_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="20 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_isolation_et_4" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_isolation_et_5_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="20 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_isolation_et_5" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_isolation_et_6_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="20 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_isolation_et_6" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_isolation_et_7_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="20 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_isolation_et_7" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_eta_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="6 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_eta" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_eta_1_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="6 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_eta_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_eta_2_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="6 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_eta_2" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_eta_3_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="6 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_eta_3" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_eta_4_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="6 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_eta_4" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_eta_5_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="6 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_eta_5" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_eta_6_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="6 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_eta_6" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_eta_7_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="6 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_eta_7" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_phi_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="6 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_phi" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_phi_1_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="6 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_phi_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_phi_2_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="6 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_phi_2" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_phi_3_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="6 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_phi_3" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_phi_4_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="6 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_phi_4" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_phi_5_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="6 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_phi_5" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_phi_6_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="6 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_phi_6" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_phi_7_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="6 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_phi_7" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_window_size_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="4 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_window_size" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_window_size_1_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="4 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_window_size_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_window_size_2_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="4 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_window_size_2" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_window_size_3_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="4 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_window_size_3" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_window_size_4_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="4 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_window_size_4" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_window_size_5_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="4 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_window_size_5" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_window_size_6_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="4 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_window_size_6" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_window_size_7_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="4 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_window_size_7" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_valid_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="1 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_valid" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_valid_1_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="1 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_valid_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_valid_2_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="1 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_valid_2" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_valid_3_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="1 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_valid_3" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_valid_4_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="1 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_valid_4" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_valid_5_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="1 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_valid_5" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_valid_6_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="1 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_valid_6" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="top_clusters_valid_7_U" SOURCE="calorimeter.cpp:333" STORAGESIZE="1 2 1" STORAGESUBTYPE="task level" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="top_clusters_valid_7" VISIBLE="true"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>calo_trigger_stream_ref</Name>
+            <Loops>
+                <HT_ETA_HT_PHI/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>25.00</TargetClockPeriod>
+                    <ClockUncertainty>6.75</ClockUncertainty>
+                    <EstimatedClockPeriod>5.516</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>22086</Best-caseLatency>
+                    <Average-caseLatency>22086</Average-caseLatency>
+                    <Worst-caseLatency>22086</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.552 ms</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.552 ms</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.552 ms</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>22087</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <HT_ETA_HT_PHI>
+                        <Name>HT_ETA_HT_PHI</Name>
+                        <Slack>18.25</Slack>
+                        <TripCount>1800</TripCount>
+                        <Latency>1800</Latency>
+                        <AbsoluteTimeLatency>45.000 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>2</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </HT_ETA_HT_PHI>
+                </SummaryOfLoopLatency>
+                <SummaryOfViolations>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>calorimeter.cpp:248</SourceLocation>
+                    <SummaryOfLoopViolations>
+                        <HT_ETA_HT_PHI>
+                            <Name>HT_ETA_HT_PHI</Name>
+                            <IssueType>-</IssueType>
+                            <ViolationType>-</ViolationType>
+                            <SourceLocation>calorimeter.cpp:161~calorimeter.cpp:264</SourceLocation>
+                        </HT_ETA_HT_PHI>
+                    </SummaryOfLoopViolations>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>5376</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <FF>4003</FF>
+                    <AVAIL_FF>3456000</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>7879</LUT>
+                    <AVAIL_LUT>1728000</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>1280</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>12288</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="HT_ETA_HT_PHI" OPTYPE="add" PRAGMA="" RTLNAME="add_ln160_fu_220_p2" SOURCE="calorimeter.cpp:160" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln160" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="HT_ETA_HT_PHI" OPTYPE="select" PRAGMA="" RTLNAME="select_ln160_fu_226_p3" SOURCE="calorimeter.cpp:160" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln160" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="HT_ETA_HT_PHI" OPTYPE="select" PRAGMA="" RTLNAME="eta_fu_234_p3" SOURCE="calorimeter.cpp:160" STORAGESUBTYPE="" URAM="0" VARIABLE="eta" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="HT_ETA_HT_PHI" OPTYPE="add" PRAGMA="" RTLNAME="ht_2_fu_329_p2" SOURCE="calorimeter.cpp:163" STORAGESUBTYPE="" URAM="0" VARIABLE="ht_2" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="HT_ETA_HT_PHI" OPTYPE="add" PRAGMA="" RTLNAME="phi_fu_283_p2" SOURCE="calorimeter.cpp:161" STORAGESUBTYPE="" URAM="0" VARIABLE="phi" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="HT_ETA_HT_PHI" OPTYPE="add" PRAGMA="" RTLNAME="add_ln160_1_fu_289_p2" SOURCE="calorimeter.cpp:160" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln160_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="HT_ETA_HT_PHI" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln161_fu_295_p2" SOURCE="calorimeter.cpp:161" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln161" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="HT_ETA_HT_PHI" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln160_fu_301_p2" SOURCE="calorimeter.cpp:160" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln160" VISIBLE="false"/>
+                <BindNode BINDTYPE="adapter" BRAM="0" BUNDLEDNAME="CTRL" DISPNAME="bind_adapter " DSP="0" ID="" IMPL="" LATENCY="" LOOP="" OPTYPE="" PRAGMA="" RTLNAME="CTRL_s_axi_U" SOURCE="" STORAGESIZE="" STORAGESUBTYPE="s_axilite" STORAGEUSAGE="interface" URAM="0" VARIABLE=""/>
+            </BindNodes>
+        </Module>
+    </ModuleInformation>
+    <FIFOInformation>
+        <FIFOInst>
+            <Name>cluster_stream_U</Name>
+            <ParentInst>grp_cluster_sort_build_stream_fu_165</ParentInst>
+            <StaticDepth>64</StaticDepth>
+            <RuntimeDepth>mOutPtr</RuntimeDepth>
+            <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+            </InterfaceList>
+        </FIFOInst>
+    </FIFOInformation>
+    <UserConfigCommands/>
+    <Args>
+        <Arg ArgName="towers" index="0" direction="in" srcType="ap_uint&lt;12&gt; const *" srcSize="16">
+            <hwRefs>
+                <hwRef type="interface" interface="towers_PORTA" name="" usage="data" direction="in"/>
+                <hwRef type="interface" interface="towers_PORTB" name="" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="seed_threshold" index="1" direction="in" srcType="ap_uint&lt;12&gt;" srcSize="16">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_CTRL" name="seed_threshold" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="cluster_threshold" index="2" direction="in" srcType="ap_uint&lt;20&gt;" srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_CTRL" name="cluster_threshold" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="trigger_objects" index="3" direction="out" srcType="TriggerObject*" srcSize="160">
+            <hwRefs>
+                <hwRef type="port" interface="trigger_objects_0" name="trigger_objects_0" usage="data" direction="out"/>
+                <hwRef type="port" interface="trigger_objects_0_ap_vld" name="trigger_objects_0_ap_vld" usage="control" direction="out"/>
+                <hwRef type="port" interface="trigger_objects_1" name="trigger_objects_1" usage="data" direction="out"/>
+                <hwRef type="port" interface="trigger_objects_1_ap_vld" name="trigger_objects_1_ap_vld" usage="control" direction="out"/>
+                <hwRef type="port" interface="trigger_objects_2" name="trigger_objects_2" usage="data" direction="out"/>
+                <hwRef type="port" interface="trigger_objects_2_ap_vld" name="trigger_objects_2_ap_vld" usage="control" direction="out"/>
+                <hwRef type="port" interface="trigger_objects_3" name="trigger_objects_3" usage="data" direction="out"/>
+                <hwRef type="port" interface="trigger_objects_3_ap_vld" name="trigger_objects_3_ap_vld" usage="control" direction="out"/>
+                <hwRef type="port" interface="trigger_objects_4" name="trigger_objects_4" usage="data" direction="out"/>
+                <hwRef type="port" interface="trigger_objects_4_ap_vld" name="trigger_objects_4_ap_vld" usage="control" direction="out"/>
+                <hwRef type="port" interface="trigger_objects_5" name="trigger_objects_5" usage="data" direction="out"/>
+                <hwRef type="port" interface="trigger_objects_5_ap_vld" name="trigger_objects_5_ap_vld" usage="control" direction="out"/>
+                <hwRef type="port" interface="trigger_objects_6" name="trigger_objects_6" usage="data" direction="out"/>
+                <hwRef type="port" interface="trigger_objects_6_ap_vld" name="trigger_objects_6_ap_vld" usage="control" direction="out"/>
+                <hwRef type="port" interface="trigger_objects_7" name="trigger_objects_7" usage="data" direction="out"/>
+                <hwRef type="port" interface="trigger_objects_7_ap_vld" name="trigger_objects_7_ap_vld" usage="control" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="ht" index="4" direction="out" srcType="ap_uint&lt;24&gt;*" srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_CTRL" name="ht" usage="data" direction="out"/>
+                <hwRef type="register" interface="s_axi_CTRL" name="ht_ctrl" usage="control" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="num_clusters" index="5" direction="out" srcType="int*" srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_CTRL" name="num_clusters" usage="data" direction="out"/>
+                <hwRef type="register" interface="s_axi_CTRL" name="num_clusters_ctrl" usage="control" direction="out"/>
+            </hwRefs>
+        </Arg>
+    </Args>
+    <Interfaces>
+        <Interface InterfaceName="s_axi_CTRL" type="axi4lite" busTypeName="aximm" mode="slave" dataWidth="32" addrWidth="6" portPrefix="s_axi_CTRL_" paramPrefix="C_S_AXI_CTRL_">
+            <ports>
+                <port>s_axi_CTRL_ARADDR</port>
+                <port>s_axi_CTRL_ARREADY</port>
+                <port>s_axi_CTRL_ARVALID</port>
+                <port>s_axi_CTRL_AWADDR</port>
+                <port>s_axi_CTRL_AWREADY</port>
+                <port>s_axi_CTRL_AWVALID</port>
+                <port>s_axi_CTRL_BREADY</port>
+                <port>s_axi_CTRL_BRESP</port>
+                <port>s_axi_CTRL_BVALID</port>
+                <port>s_axi_CTRL_RDATA</port>
+                <port>s_axi_CTRL_RREADY</port>
+                <port>s_axi_CTRL_RRESP</port>
+                <port>s_axi_CTRL_RVALID</port>
+                <port>s_axi_CTRL_WDATA</port>
+                <port>s_axi_CTRL_WREADY</port>
+                <port>s_axi_CTRL_WSTRB</port>
+                <port>s_axi_CTRL_WVALID</port>
+            </ports>
+            <registers>
+                <register offset="0x00" name="CTRL" access="RW" description="Control signals" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="AP_START" access="RW" description="Control signal Register for 'ap_start'."/>
+                        <field offset="1" width="1" name="AP_DONE" access="R" description="Control signal Register for 'ap_done'."/>
+                        <field offset="2" width="1" name="AP_IDLE" access="R" description="Control signal Register for 'ap_idle'."/>
+                        <field offset="3" width="1" name="AP_READY" access="R" description="Control signal Register for 'ap_ready'."/>
+                        <field offset="4" width="3" name="RESERVED_1" access="R" description="Reserved.  0s on read."/>
+                        <field offset="7" width="1" name="AUTO_RESTART" access="RW" description="Control signal Register for 'auto_restart'."/>
+                        <field offset="8" width="1" name="RESERVED_2" access="R" description="Reserved.  0s on read."/>
+                        <field offset="9" width="1" name="INTERRUPT" access="R" description="Control signal Register for 'interrupt'."/>
+                        <field offset="10" width="22" name="RESERVED_3" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x04" name="GIER" access="RW" description="Global Interrupt Enable Register" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="Enable" access="RW" description="Master enable for the device interrupt output to the system interrupt controller: 0 = Disabled, 1 = Enabled"/>
+                        <field offset="1" width="31" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x08" name="IP_IER" access="RW" description="IP Interrupt Enable Register" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="CHAN0_INT_EN" access="RW" description="Enable Channel 0 (ap_done) Interrupt.  0 = Disabled, 1 = Enabled."/>
+                        <field offset="1" width="1" name="CHAN1_INT_EN" access="RW" description="Enable Channel 1 (ap_ready) Interrupt.  0 = Disabled, 1 = Enabled."/>
+                        <field offset="2" width="30" name="RESERVED_0" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x0c" name="IP_ISR" access="RW" description="IP Interrupt Status Register" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="CHAN0_INT_ST" access="RTOW" description="Channel 0 (ap_done) Interrupt Status. 0 = No Channel 0 interrupt, 1 = Channel 0 interrupt."/>
+                        <field offset="1" width="1" name="CHAN1_INT_ST" access="RTOW" description="Channel 1 (ap_ready) Interrupt Status. 0 = No Channel 1 interrupt, 1 = Channel 1 interrupt."/>
+                        <field offset="2" width="30" name="RESERVED_0" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x10" name="seed_threshold" access="W" description="Data signal of seed_threshold" range="32">
+                    <fields>
+                        <field offset="0" width="12" name="seed_threshold" access="W" description="Bit 11 to 0 of seed_threshold"/>
+                        <field offset="12" width="20" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x18" name="cluster_threshold" access="W" description="Data signal of cluster_threshold" range="32">
+                    <fields>
+                        <field offset="0" width="20" name="cluster_threshold" access="W" description="Bit 19 to 0 of cluster_threshold"/>
+                        <field offset="20" width="12" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x20" name="ht" access="R" description="Data signal of ht" range="32">
+                    <fields>
+                        <field offset="0" width="24" name="ht" access="R" description="Bit 23 to 0 of ht"/>
+                        <field offset="24" width="8" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x24" name="ht_ctrl" access="R" description="Control signal of ht" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="ht_ap_vld" access="R" description="Control signal ht_ap_vld"/>
+                        <field offset="1" width="31" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x30" name="num_clusters" access="R" description="Data signal of num_clusters" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="num_clusters" access="R" description="Bit 31 to 0 of num_clusters"/>
+                    </fields>
+                </register>
+                <register offset="0x34" name="num_clusters_ctrl" access="R" description="Control signal of num_clusters" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="num_clusters_ap_vld" access="R" description="Control signal num_clusters_ap_vld"/>
+                        <field offset="1" width="31" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+            </registers>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="16" argName="seed_threshold"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="24" argName="cluster_threshold"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="32" argName="ht"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="48" argName="num_clusters"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
+            <busParams>
+                <busParam busParamName="ASSOCIATED_BUSIF">s_axi_CTRL</busParam>
+                <busParam busParamName="ASSOCIATED_RESET">ap_rst_n</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_clk">CLK</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_clk</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_rst_n" type="reset" busTypeName="reset" mode="slave">
+            <busParams>
+                <busParam busParamName="POLARITY">ACTIVE_LOW</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_rst_n">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_rst_n</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="interrupt" type="interrupt" busTypeName="interrupt" mode="master" dataWidth="1">
+            <busParams>
+                <busParam busParamName="SENSITIVITY">LEVEL_HIGH</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="interrupt">INTERRUPT</portMap>
+            </portMaps>
+            <ports>
+                <port>interrupt</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="towers_PORTA" type="bram" busTypeName="bram" mode="master" direction="inout" dataWidth="12" addrWidth="32" portPrefix="towers_">
+            <busParams>
+                <busParam busParamName="MASTER_TYPE">BRAM_CTRL</busParam>
+                <busParam busParamName="MEM_SIZE">3600</busParam>
+                <busParam busParamName="MEM_WIDTH">12</busParam>
+                <busParam busParamName="MEM_ADDRESS_MODE">BYTE_ADDRESS</busParam>
+                <busParam busParamName="READ_LATENCY">1</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="towers_Addr_A">ADDR</portMap>
+                <portMap portMapName="towers_EN_A">EN</portMap>
+                <portMap portMapName="towers_WEN_A">WE</portMap>
+                <portMap portMapName="towers_Din_A">DIN</portMap>
+                <portMap portMapName="towers_Dout_A">DOUT</portMap>
+                <portMap portMapName="towers_Clk_A">CLK</portMap>
+                <portMap portMapName="towers_Rst_A">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>towers_Addr_A</port>
+                <port>towers_Clk_A</port>
+                <port>towers_Din_A</port>
+                <port>towers_Dout_A</port>
+                <port>towers_EN_A</port>
+                <port>towers_Rst_A</port>
+                <port>towers_WEN_A</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="bram" register_option="0" argName="towers"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="towers_PORTB" type="bram" busTypeName="bram" mode="master" direction="inout" dataWidth="12" addrWidth="32" portPrefix="towers_">
+            <busParams>
+                <busParam busParamName="MASTER_TYPE">BRAM_CTRL</busParam>
+                <busParam busParamName="MEM_SIZE">3600</busParam>
+                <busParam busParamName="MEM_WIDTH">12</busParam>
+                <busParam busParamName="MEM_ADDRESS_MODE">BYTE_ADDRESS</busParam>
+                <busParam busParamName="READ_LATENCY">1</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="towers_Addr_B">ADDR</portMap>
+                <portMap portMapName="towers_EN_B">EN</portMap>
+                <portMap portMapName="towers_WEN_B">WE</portMap>
+                <portMap portMapName="towers_Din_B">DIN</portMap>
+                <portMap portMapName="towers_Dout_B">DOUT</portMap>
+                <portMap portMapName="towers_Clk_B">CLK</portMap>
+                <portMap portMapName="towers_Rst_B">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>towers_Addr_B</port>
+                <port>towers_Clk_B</port>
+                <port>towers_Din_B</port>
+                <port>towers_Dout_B</port>
+                <port>towers_EN_B</port>
+                <port>towers_Rst_B</port>
+                <port>towers_WEN_B</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="bram" register_option="0" argName="towers"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="trigger_objects_0" type="data" busTypeName="data" protocol="ap_vld" mode="master" dataWidth="89">
+            <portMaps>
+                <portMap portMapName="trigger_objects_0">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>trigger_objects_0</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="trigger_objects"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="trigger_objects_1" type="data" busTypeName="data" protocol="ap_vld" mode="master" dataWidth="89">
+            <portMaps>
+                <portMap portMapName="trigger_objects_1">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>trigger_objects_1</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="trigger_objects"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="trigger_objects_2" type="data" busTypeName="data" protocol="ap_vld" mode="master" dataWidth="89">
+            <portMaps>
+                <portMap portMapName="trigger_objects_2">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>trigger_objects_2</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="trigger_objects"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="trigger_objects_3" type="data" busTypeName="data" protocol="ap_vld" mode="master" dataWidth="89">
+            <portMaps>
+                <portMap portMapName="trigger_objects_3">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>trigger_objects_3</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="trigger_objects"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="trigger_objects_4" type="data" busTypeName="data" protocol="ap_vld" mode="master" dataWidth="89">
+            <portMaps>
+                <portMap portMapName="trigger_objects_4">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>trigger_objects_4</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="trigger_objects"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="trigger_objects_5" type="data" busTypeName="data" protocol="ap_vld" mode="master" dataWidth="89">
+            <portMaps>
+                <portMap portMapName="trigger_objects_5">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>trigger_objects_5</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="trigger_objects"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="trigger_objects_6" type="data" busTypeName="data" protocol="ap_vld" mode="master" dataWidth="89">
+            <portMaps>
+                <portMap portMapName="trigger_objects_6">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>trigger_objects_6</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="trigger_objects"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="trigger_objects_7" type="data" busTypeName="data" protocol="ap_vld" mode="master" dataWidth="89">
+            <portMaps>
+                <portMap portMapName="trigger_objects_7">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>trigger_objects_7</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="trigger_objects"/>
+            </constraints>
+        </Interface>
+    </Interfaces>
+    <ReportHWInterface>
+        <section name="HW Interfaces" level="0">
+            <item name="S_AXILITE Interfaces">
+                <table>
+                    <keys size="5">Interface, Data Width, Address Width, Offset, Register</keys>
+                    <column name="s_axi_CTRL">32, 6, 16, 0</column>
+                </table>
+            </item>
+            <item name="S_AXILITE Registers">
+                <table>
+                    <keys size="7">Interface, Register, Offset, Width, Access, Description, Bit Fields</keys>
+                    <column name="s_axi_CTRL">CTRL, 0x00, 32, RW, Control signals, 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT</column>
+                    <column name="s_axi_CTRL">GIER, 0x04, 32, RW, Global Interrupt Enable Register, 0=Enable</column>
+                    <column name="s_axi_CTRL">IP_IER, 0x08, 32, RW, IP Interrupt Enable Register, 0=CHAN0_INT_EN 1=CHAN1_INT_EN</column>
+                    <column name="s_axi_CTRL">IP_ISR, 0x0c, 32, RW, IP Interrupt Status Register, 0=CHAN0_INT_ST 1=CHAN1_INT_ST</column>
+                    <column name="s_axi_CTRL">seed_threshold, 0x10, 32, W, Data signal of seed_threshold, </column>
+                    <column name="s_axi_CTRL">cluster_threshold, 0x18, 32, W, Data signal of cluster_threshold, </column>
+                    <column name="s_axi_CTRL">ht, 0x20, 32, R, Data signal of ht, </column>
+                    <column name="s_axi_CTRL">ht_ctrl, 0x24, 32, R, Control signal of ht, 0=ht_ap_vld</column>
+                    <column name="s_axi_CTRL">num_clusters, 0x30, 32, R, Data signal of num_clusters, </column>
+                    <column name="s_axi_CTRL">num_clusters_ctrl, 0x34, 32, R, Control signal of num_clusters, 0=num_clusters_ap_vld</column>
+                </table>
+            </item>
+            <item name="BRAM">
+                <table>
+                    <keys size="3">Interface, Data Width, Address Width</keys>
+                    <column name="towers_PORTA">12, 32</column>
+                    <column name="towers_PORTB">12, 32</column>
+                </table>
+            </item>
+            <item name="Other Ports">
+                <table>
+                    <keys size="4">Port, Mode, Direction, Bitwidth</keys>
+                    <column name="trigger_objects_0">ap_vld, out, 89</column>
+                    <column name="trigger_objects_1">ap_vld, out, 89</column>
+                    <column name="trigger_objects_2">ap_vld, out, 89</column>
+                    <column name="trigger_objects_3">ap_vld, out, 89</column>
+                    <column name="trigger_objects_4">ap_vld, out, 89</column>
+                    <column name="trigger_objects_5">ap_vld, out, 89</column>
+                    <column name="trigger_objects_6">ap_vld, out, 89</column>
+                    <column name="trigger_objects_7">ap_vld, out, 89</column>
+                </table>
+            </item>
+            <item name="TOP LEVEL CONTROL">
+                <table>
+                    <keys size="3">Interface, Type, Ports</keys>
+                    <column name="ap_clk">clock, ap_clk</column>
+                    <column name="ap_rst_n">reset, ap_rst_n</column>
+                    <column name="interrupt">interrupt, interrupt</column>
+                    <column name="ap_ctrl">ap_ctrl_hs, </column>
+                </table>
+            </item>
+        </section>
+    </ReportHWInterface>
+    <ReportSWInterface>
+        <section name="SW I/O Information" level="0">
+            <item name="Top Function Arguments">
+                <table>
+                    <keys size="3">Argument, Direction, Datatype</keys>
+                    <column name="towers">in, ap_uint&lt;12&gt; const *</column>
+                    <column name="seed_threshold">in, ap_uint&lt;12&gt;</column>
+                    <column name="cluster_threshold">in, ap_uint&lt;20&gt;</column>
+                    <column name="trigger_objects">out, TriggerObject*</column>
+                    <column name="ht">out, ap_uint&lt;24&gt;*</column>
+                    <column name="num_clusters">out, int*</column>
+                </table>
+            </item>
+            <item name="SW-to-HW Mapping">
+                <table>
+                    <keys size="4">Argument, HW Interface, HW Type, HW Info</keys>
+                    <column name="towers">towers_PORTA, interface, </column>
+                    <column name="towers">towers_PORTB, interface, </column>
+                    <column name="seed_threshold">s_axi_CTRL, register, name=seed_threshold offset=0x10 range=32</column>
+                    <column name="cluster_threshold">s_axi_CTRL, register, name=cluster_threshold offset=0x18 range=32</column>
+                    <column name="trigger_objects">trigger_objects_0, port, </column>
+                    <column name="trigger_objects">trigger_objects_0_ap_vld, port, </column>
+                    <column name="trigger_objects">trigger_objects_1, port, </column>
+                    <column name="trigger_objects">trigger_objects_1_ap_vld, port, </column>
+                    <column name="trigger_objects">trigger_objects_2, port, </column>
+                    <column name="trigger_objects">trigger_objects_2_ap_vld, port, </column>
+                    <column name="trigger_objects">trigger_objects_3, port, </column>
+                    <column name="trigger_objects">trigger_objects_3_ap_vld, port, </column>
+                    <column name="trigger_objects">trigger_objects_4, port, </column>
+                    <column name="trigger_objects">trigger_objects_4_ap_vld, port, </column>
+                    <column name="trigger_objects">trigger_objects_5, port, </column>
+                    <column name="trigger_objects">trigger_objects_5_ap_vld, port, </column>
+                    <column name="trigger_objects">trigger_objects_6, port, </column>
+                    <column name="trigger_objects">trigger_objects_6_ap_vld, port, </column>
+                    <column name="trigger_objects">trigger_objects_7, port, </column>
+                    <column name="trigger_objects">trigger_objects_7_ap_vld, port, </column>
+                    <column name="ht">s_axi_CTRL, register, name=ht offset=0x20 range=32</column>
+                    <column name="ht">s_axi_CTRL, register, name=ht_ctrl offset=0x24 range=32</column>
+                    <column name="num_clusters">s_axi_CTRL, register, name=num_clusters offset=0x30 range=32</column>
+                    <column name="num_clusters">s_axi_CTRL, register, name=num_clusters_ctrl offset=0x34 range=32</column>
+                </table>
+            </item>
+        </section>
+    </ReportSWInterface>
+    <ResolutionUrl key="ZZZ">docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&amp;url=ug1448-hls-guidance&amp;resourceid=ZZZ.html</ResolutionUrl>
+    <PragmaReport>
+        <Pragma type="inline" location="./calorimeter.h:139" status="valid" parentFunction="wrap_phi" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="./calorimeter.h:152" status="valid" parentFunction="window_sum" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="./calorimeter.h:157" status="valid" parentFunction="window_sum" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="./calorimeter.h:159" status="valid" parentFunction="window_sum" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="./calorimeter.h:178" status="valid" parentFunction="is_local_maximum" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="./calorimeter.h:184" status="valid" parentFunction="is_local_maximum" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="./calorimeter.h:186" status="valid" parentFunction="is_local_maximum" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="./calorimeter.h:218" status="valid" parentFunction="isolation_sum" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="./calorimeter.h:242" status="valid" parentFunction="find_clusters" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="pipeline" location="./calorimeter.h:290" status="valid" parentFunction="find_clusters_stream" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="inline" location="calorimeter.cpp:70" status="valid" parentFunction="cluster_is_better" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="calorimeter.cpp:104" status="valid" parentFunction="insert_cluster_into_top_n" variable="" isDirective="0" options=""/>
+        <Pragma type="array_partition" location="calorimeter.cpp:130" status="valid" parentFunction="select_top_n" variable="top_clusters" isDirective="0" options="variable=top_clusters complete dim=1"/>
+        <Pragma type="unroll" location="calorimeter.cpp:133" status="valid" parentFunction="select_top_n" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="calorimeter.cpp:144" status="valid" parentFunction="select_top_n" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="pipeline" location="calorimeter.cpp:162" status="valid" parentFunction="compute_ht" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="array_partition" location="calorimeter.cpp:172" status="valid" parentFunction="build_trigger_objects" variable="trigger_objects" isDirective="0" options="variable=trigger_objects complete dim=1"/>
+        <Pragma type="array_partition" location="calorimeter.cpp:173" status="valid" parentFunction="build_trigger_objects" variable="top_clusters" isDirective="0" options="variable=top_clusters complete dim=1"/>
+        <Pragma type="unroll" location="calorimeter.cpp:175" status="valid" parentFunction="build_trigger_objects" variable="" isDirective="0" options=""/>
+        <Pragma type="interface" location="calorimeter.cpp:214" status="valid" parentFunction="calo_trigger_ref" variable="grid" isDirective="0" options="bram port=grid"/>
+        <Pragma type="interface" location="calorimeter.cpp:216" status="valid" parentFunction="calo_trigger_ref" variable="seed_threshold" isDirective="0" options="s_axilite port=seed_threshold bundle=CTRL"/>
+        <Pragma type="interface" location="calorimeter.cpp:217" status="valid" parentFunction="calo_trigger_ref" variable="cluster_threshold" isDirective="0" options="s_axilite port=cluster_threshold bundle=CTRL"/>
+        <Pragma type="interface" location="calorimeter.cpp:218" status="valid" parentFunction="calo_trigger_ref" variable="ht" isDirective="0" options="s_axilite port=ht bundle=CTRL"/>
+        <Pragma type="interface" location="calorimeter.cpp:219" status="valid" parentFunction="calo_trigger_ref" variable="num_clusters" isDirective="0" options="s_axilite port=num_clusters bundle=CTRL"/>
+        <Pragma type="interface" location="calorimeter.cpp:220" status="valid" parentFunction="calo_trigger_ref" variable="return" isDirective="0" options="s_axilite port=return bundle=CTRL"/>
+        <Pragma type="array_partition" location="calorimeter.cpp:222" status="valid" parentFunction="calo_trigger_ref" variable="objects" isDirective="0" options="variable=objects complete dim=1"/>
+        <Pragma type="array_partition" location="calorimeter.cpp:226" status="valid" parentFunction="calo_trigger_ref" variable="top_clusters" isDirective="0" options="variable=top_clusters complete dim=1"/>
+        <Pragma type="interface" location="calorimeter.cpp:254" status="valid" parentFunction="calo_trigger_stream_ref" variable="towers" isDirective="0" options="bram port=towers"/>
+        <Pragma type="interface" location="calorimeter.cpp:256" status="valid" parentFunction="calo_trigger_stream_ref" variable="seed_threshold" isDirective="0" options="s_axilite port=seed_threshold bundle=CTRL"/>
+        <Pragma type="interface" location="calorimeter.cpp:257" status="valid" parentFunction="calo_trigger_stream_ref" variable="cluster_threshold" isDirective="0" options="s_axilite port=cluster_threshold bundle=CTRL"/>
+        <Pragma type="interface" location="calorimeter.cpp:258" status="valid" parentFunction="calo_trigger_stream_ref" variable="ht" isDirective="0" options="s_axilite port=ht bundle=CTRL"/>
+        <Pragma type="interface" location="calorimeter.cpp:259" status="valid" parentFunction="calo_trigger_stream_ref" variable="num_clusters" isDirective="0" options="s_axilite port=num_clusters bundle=CTRL"/>
+        <Pragma type="interface" location="calorimeter.cpp:260" status="valid" parentFunction="calo_trigger_stream_ref" variable="return" isDirective="0" options="s_axilite port=return bundle=CTRL"/>
+        <Pragma type="array_partition" location="calorimeter.cpp:262" status="valid" parentFunction="calo_trigger_stream_ref" variable="trigger_objects" isDirective="0" options="variable=trigger_objects complete dim=1"/>
+        <Pragma type="array_partition" location="calorimeter.cpp:285" status="valid" parentFunction="select_top_n_from_stream" variable="top_clusters" isDirective="0" options="variable=top_clusters complete dim=1"/>
+        <Pragma type="unroll" location="calorimeter.cpp:289" status="valid" parentFunction="select_top_n_from_stream" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="calorimeter.cpp:300" status="valid" parentFunction="select_top_n_from_stream" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="dataflow" location="calorimeter.cpp:323" status="valid" parentFunction="cluster_sort_build_stream" variable="" isDirective="0" options=""/>
+        <Pragma type="stream" location="calorimeter.cpp:327" status="valid" parentFunction="cluster_sort_build_stream" variable="cluster_stream" isDirective="0" options="variable=cluster_stream depth=64"/>
+        <Pragma type="array_partition" location="calorimeter.cpp:330" status="valid" parentFunction="cluster_sort_build_stream" variable="top_clusters" isDirective="0" options="variable=top_clusters complete dim=1"/>
+    </PragmaReport>
+</profile>
+

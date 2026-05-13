@@ -1,0 +1,80 @@
+<pragmas>
+<pragma file="/opt/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot/etc/ap_common.h" line="523" pragmaType="inline" parentfunction="_ZN8ssdm_intILi6ELb0EEC2EDq6_j" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<20, false>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<24, false>& ap_int_base<24, false>::operator+=<24, false>(ap_int_base<24, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
+<pragma file="./calorimeter.h" line="152" pragmaType="inline" parentfunction="window_sum" off="0" region="0" recursive="0"/>
+<pragma file="./calorimeter.h" line="157" pragmaType="unroll" parentfunction="window_sum" factor="-1" skip_exit_check="0"/>
+<pragma file="./calorimeter.h" line="159" pragmaType="unroll" parentfunction="window_sum" factor="-1" skip_exit_check="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<20, false>::RType<20, false>::minus operator-<20, false, 20, false>(ap_int_base<20, false> const&, ap_int_base<20, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<20>::ap_uint<21>(ap_int<21> const&)" off="0" region="0" recursive="0"/>
+<pragma file="./calorimeter.h" line="218" pragmaType="inline" parentfunction="isolation_sum" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="write" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
+<pragma file="/opt/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot/etc/ap_common.h" line="523" pragmaType="inline" parentfunction="_ZN8ssdm_intILi4ELb0EEC2EDq4_j" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<6, false>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
+<pragma file="calorimeter.cpp" line="175" pragmaType="unroll" parentfunction="build_trigger_objects" factor="-1" skip_exit_check="0"/>
+<pragma file="calorimeter.cpp" line="172" pragmaType="array_partition" parentfunction="build_trigger_objects" dim="1" factor="0" mode="complete" dynamic="0" variable="trigger_objects"/>
+<pragma file="calorimeter.cpp" line="173" pragmaType="array_partition" parentfunction="build_trigger_objects" dim="1" factor="0" mode="complete" dynamic="0" variable="top_clusters"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<20, false>::ap_int_base<12, false>(ap_int_base<12, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="bool ap_int_base<12, false>::operator><12, false>(ap_int_base<12, false> const&) const" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="bool ap_int_base<12, false>::operator==<12, false>(ap_int_base<12, false> const&) const" off="0" region="0" recursive="0"/>
+<pragma file="./calorimeter.h" line="178" pragmaType="inline" parentfunction="is_local_maximum" off="0" region="0" recursive="0"/>
+<pragma file="./calorimeter.h" line="184" pragmaType="unroll" parentfunction="is_local_maximum" factor="-1" skip_exit_check="0"/>
+<pragma file="./calorimeter.h" line="186" pragmaType="unroll" parentfunction="is_local_maximum" factor="-1" skip_exit_check="0"/>
+<pragma file="./calorimeter.h" line="152" pragmaType="inline" parentfunction="window_sum" off="0" region="0" recursive="0"/>
+<pragma file="./calorimeter.h" line="157" pragmaType="unroll" parentfunction="window_sum" factor="-1" skip_exit_check="0"/>
+<pragma file="./calorimeter.h" line="159" pragmaType="unroll" parentfunction="window_sum" factor="-1" skip_exit_check="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="bool ap_int_base<20, false>::operator>=<20, false>(ap_int_base<20, false> const&) const" off="0" region="0" recursive="0"/>
+<pragma file="./calorimeter.h" line="139" pragmaType="inline" parentfunction="wrap_phi" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<20>::ap_uint<12>(ap_uint<12> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/opt/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot/etc/ap_common.h" line="515" pragmaType="inline" parentfunction="ssdm_int<32, true>::ssdm_int(int)" off="0" region="0" recursive="0"/>
+<pragma file="calorimeter.cpp" line="162" pragmaType="pipeline" parentfunction="compute_ht" off="0" ii="1" rewind="0" style=""/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="bool operator==<4, false>(ap_int_base<4, false> const&, int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, true>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="bool ap_int_base<4, false>::operator==<32, true>(ap_int_base<32, true> const&) const" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<21, true>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int<21>::ap_int<21, true>(ap_int_base<21, true> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/opt/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot/etc/ap_common.h" line="515" pragmaType="inline" parentfunction="_ZN8ssdm_intILi21ELb1EEC2EDq21_i" off="0" region="0" recursive="0"/>
+<pragma file="./calorimeter.h" line="290" pragmaType="pipeline" parentfunction="find_clusters_stream" off="0" ii="1" rewind="0" style=""/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="bool ap_int_base<12, false>::operator>=<12, false>(ap_int_base<12, false> const&) const" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<20, false>::ap_int_base<21, true>(ap_int_base<21, true> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<20, false>& ap_int_base<20, false>::operator+=<20, false>(ap_int_base<20, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<21, true>::ap_int_base<20, false>(ap_int_base<20, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="calorimeter.cpp" line="300" pragmaType="pipeline" parentfunction="select_top_n_from_stream" off="0" ii="1" rewind="0" style=""/>
+<pragma file="calorimeter.cpp" line="289" pragmaType="unroll" parentfunction="select_top_n_from_stream" factor="-1" skip_exit_check="0"/>
+<pragma file="calorimeter.cpp" line="285" pragmaType="array_partition" parentfunction="select_top_n_from_stream" dim="1" factor="0" mode="complete" dynamic="0" variable="top_clusters"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="checkOverflowCsim" off="0" region="0" recursive="0"/>
+<pragma file="calorimeter.cpp" line="254" pragmaType="interface" parentfunction="calo_trigger_stream_ref" mode="ap_memory" port="towers" storage_type="-1" impl="-1" latency="-1" name="" depth="-1"/>
+<pragma file="calorimeter.cpp" line="256" pragmaType="interface" parentfunction="calo_trigger_stream_ref" mode="s_axilite" port="seed_threshold" bundle="CTRL" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="calorimeter.cpp" line="257" pragmaType="interface" parentfunction="calo_trigger_stream_ref" mode="s_axilite" port="cluster_threshold" bundle="CTRL" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="calorimeter.cpp" line="258" pragmaType="interface" parentfunction="calo_trigger_stream_ref" mode="s_axilite" port="ht" bundle="CTRL" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="calorimeter.cpp" line="259" pragmaType="interface" parentfunction="calo_trigger_stream_ref" mode="s_axilite" port="num_clusters" bundle="CTRL" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="calorimeter.cpp" line="260" pragmaType="interface" parentfunction="calo_trigger_stream_ref" mode="s_axilite" port="" bundle="CTRL" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="calorimeter.cpp" line="262" pragmaType="array_partition" parentfunction="calo_trigger_stream_ref" dim="1" factor="0" mode="complete" dynamic="0" variable="trigger_objects"/>
+<pragma file="calorimeter.cpp" line="323" pragmaType="dataflow" parentfunction="cluster_sort_build_stream" disable_start_propagation="0"/>
+<pragma file="calorimeter.cpp" line="327" pragmaType="stream" parentfunction="cluster_sort_build_stream" depth="64" type="fifo" variable="cluster_stream"/>
+<pragma file="calorimeter.cpp" line="330" pragmaType="array_partition" parentfunction="cluster_sort_build_stream" dim="1" factor="0" mode="complete" dynamic="0" variable="top_clusters"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<20>::ap_uint(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<6>::ap_uint(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<4>::ap_uint(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="bool ap_int_base<20, false>::operator<<20, false>(ap_int_base<20, false> const&) const" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="bool ap_int_base<6, false>::operator<<6, false>(ap_int_base<6, false> const&) const" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="bool ap_int_base<6, false>::operator><6, false>(ap_int_base<6, false> const&) const" off="0" region="0" recursive="0"/>
+<pragma file="calorimeter.cpp" line="104" pragmaType="inline" parentfunction="insert_cluster_into_top_n" off="0" region="0" recursive="0"/>
+<pragma file="calorimeter.cpp" line="70" pragmaType="inline" parentfunction="cluster_is_better" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="bool ap_int_base<20, false>::operator><20, false>(ap_int_base<20, false> const&) const" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<4, false>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
+<pragma file="/opt/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot/etc/ap_common.h" line="523" pragmaType="inline" parentfunction="_ZN8ssdm_intILi24ELb0EEC2EDq24_j" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<24, false>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="hls::stream<Cluster, 0>::stream()" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<24>::ap_uint<12>(ap_uint<12> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="checkOverflowCsim" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<24, false>::ap_int_base<12, false>(ap_int_base<12, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/opt/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot/etc/ap_common.h" line="523" pragmaType="inline" parentfunction="_ZN8ssdm_intILi20ELb0EEC2EDq20_j" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<24>::ap_uint(int)" off="0" region="0" recursive="0"/>
+</pragmas>

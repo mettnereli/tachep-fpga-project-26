@@ -1,0 +1,570 @@
+
+
+================================================================
+== Vitis HLS Report for 'find_clusters_stream_3_5_s'
+================================================================
+* Date:           Tue May 12 20:42:43 2026
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        calorimeter
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu13p-fsga2577-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  25.00 ns|  5.516 ns|     6.75 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-------+-------+-----------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute) |    Interval   |                    Pipeline                   |
+    |   min   |   max   |    min   |    max   |  min  |  max  |                      Type                     |
+    +---------+---------+----------+----------+-------+-------+-----------------------------------------------+
+    |    20282|    20282|  0.507 ms|  0.507 ms|  20281|  20281|  loop auto-rewind stp(delay=0 clock cycles(s))|
+    +---------+---------+----------+----------+-------+-------+-----------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                                     |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |              Loop Name              |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_288_1_VITIS_LOOP_289_2  |    20280|    20280|        14|         13|          1|  1560|       yes|
+        +-------------------------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 13, depth = 14
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 14
+* Pipeline : 1
+  Pipeline-0 : II = 13, D = 14, States = { 1 2 3 4 5 6 7 8 9 10 11 12 13 14 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 4.75>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%phi_idx_1 = alloca i32 1" [./calorimeter.h:164->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 17 'alloca' 'phi_idx_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%eta = alloca i32 1" [./calorimeter.h:288]   --->   Operation 18 'alloca' 'eta' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%indvar_flatten = alloca i32 1"   --->   Operation 19 'alloca' 'indvar_flatten' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i12 %towers, void @empty_6, i32 0, i32 0, void @empty_5, i32 4294967295, i32 0, void @empty_5, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0, i32 0"   --->   Operation 20 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i61 %cluster_stream, void @empty_2, i32 0, i32 0, void @empty_5, i32 0, i32 0, void @empty_5, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0, i32 0"   --->   Operation 21 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%cluster_threshold_read = read i20 @_ssdm_op_Read.ap_auto.i20, i20 %cluster_threshold" [./calorimeter.h:288]   --->   Operation 22 'read' 'cluster_threshold_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%seed_threshold_read = read i12 @_ssdm_op_Read.ap_auto.i12, i12 %seed_threshold" [./calorimeter.h:288]   --->   Operation 23 'read' 'seed_threshold_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.38ns)   --->   "%store_ln0 = store i11 0, i11 %indvar_flatten"   --->   Operation 24 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 25 [1/1] (0.38ns)   --->   "%store_ln288 = store i5 2, i5 %eta" [./calorimeter.h:288]   --->   Operation 25 'store' 'store_ln288' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 26 [1/1] (0.38ns)   --->   "%store_ln164 = store i6 0, i6 %phi_idx_1" [./calorimeter.h:164->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 26 'store' 'store_ln164' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%br_ln288 = br void %for.body4" [./calorimeter.h:288]   --->   Operation 27 'br' 'br_ln288' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%indvar_flatten_load = load i11 %indvar_flatten" [./calorimeter.h:288]   --->   Operation 28 'load' 'indvar_flatten_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.73ns)   --->   "%icmp_ln288 = icmp_eq  i11 %indvar_flatten_load, i11 1560" [./calorimeter.h:288]   --->   Operation 29 'icmp' 'icmp_ln288' <Predicate = true> <Delay = 0.73> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 30 [1/1] (0.73ns)   --->   "%add_ln288_1 = add i11 %indvar_flatten_load, i11 1" [./calorimeter.h:288]   --->   Operation 30 'add' 'add_ln288_1' <Predicate = true> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%br_ln288 = br i1 %icmp_ln288, void %for.inc22, void %for.end24" [./calorimeter.h:288]   --->   Operation 31 'br' 'br_ln288' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%phi_idx_1_load = load i6 %phi_idx_1" [./calorimeter.h:289]   --->   Operation 32 'load' 'phi_idx_1_load' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%eta_load = load i5 %eta" [./calorimeter.h:288]   --->   Operation 33 'load' 'eta_load' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.70ns)   --->   "%icmp_ln289 = icmp_eq  i6 %phi_idx_1_load, i6 60" [./calorimeter.h:289]   --->   Operation 34 'icmp' 'icmp_ln289' <Predicate = (!icmp_ln288)> <Delay = 0.70> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 35 [1/1] (0.29ns)   --->   "%select_ln288 = select i1 %icmp_ln289, i6 0, i6 %phi_idx_1_load" [./calorimeter.h:288]   --->   Operation 35 'select' 'select_ln288' <Predicate = (!icmp_ln288)> <Delay = 0.29> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 36 [1/1] (0.70ns)   --->   "%add_ln288 = add i5 %eta_load, i5 2" [./calorimeter.h:288]   --->   Operation 36 'add' 'add_ln288' <Predicate = (!icmp_ln288)> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 37 [1/1] (0.70ns)   --->   "%add_ln288_2 = add i5 %eta_load, i5 1" [./calorimeter.h:288]   --->   Operation 37 'add' 'add_ln288_2' <Predicate = (!icmp_ln288)> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 38 [1/1] (0.27ns)   --->   "%select_ln288_1 = select i1 %icmp_ln289, i5 %add_ln288, i5 %add_ln288_2" [./calorimeter.h:288]   --->   Operation 38 'select' 'select_ln288_1' <Predicate = (!icmp_ln288)> <Delay = 0.27> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.27> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 39 [1/1] (0.27ns)   --->   "%select_ln288_2 = select i1 %icmp_ln289, i5 %add_ln288_2, i5 %eta_load" [./calorimeter.h:288]   --->   Operation 39 'select' 'select_ln288_2' <Predicate = (!icmp_ln288)> <Delay = 0.27> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.27> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%p_shl1 = bitconcatenate i11 @_ssdm_op_BitConcatenate.i11.i5.i6, i5 %select_ln288_2, i6 0" [./calorimeter.h:301]   --->   Operation 40 'bitconcatenate' 'p_shl1' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%tmp = bitconcatenate i7 @_ssdm_op_BitConcatenate.i7.i5.i2, i5 %select_ln288_2, i2 0" [./calorimeter.h:301]   --->   Operation 41 'bitconcatenate' 'tmp' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%zext_ln301 = zext i7 %tmp" [./calorimeter.h:301]   --->   Operation 42 'zext' 'zext_ln301' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.73ns)   --->   "%sub_ln301 = sub i11 %p_shl1, i11 %zext_ln301" [./calorimeter.h:301]   --->   Operation 43 'sub' 'sub_ln301' <Predicate = (!icmp_ln288)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 44 [1/1] (0.70ns)   --->   "%empty = add i5 %select_ln288_2, i5 31" [./calorimeter.h:288]   --->   Operation 44 'add' 'empty' <Predicate = (!icmp_ln288)> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%p_shl2 = bitconcatenate i11 @_ssdm_op_BitConcatenate.i11.i5.i6, i5 %empty, i6 0" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 45 'bitconcatenate' 'p_shl2' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%tmp_1 = bitconcatenate i7 @_ssdm_op_BitConcatenate.i7.i5.i2, i5 %empty, i2 0" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 46 'bitconcatenate' 'tmp_1' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%zext_ln196 = zext i7 %tmp_1" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 47 'zext' 'zext_ln196' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_1 : Operation 48 [1/1] (0.73ns)   --->   "%sub_ln196 = sub i11 %p_shl2, i11 %zext_ln196" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 48 'sub' 'sub_ln196' <Predicate = (!icmp_ln288)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%zext_ln301_1 = zext i6 %select_ln288" [./calorimeter.h:301]   --->   Operation 49 'zext' 'zext_ln301_1' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_1 : Operation 50 [1/1] (0.73ns)   --->   "%add_ln301 = add i11 %sub_ln301, i11 %zext_ln301_1" [./calorimeter.h:301]   --->   Operation 50 'add' 'add_ln301' <Predicate = (!icmp_ln288)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%zext_ln301_2 = zext i11 %add_ln301" [./calorimeter.h:301]   --->   Operation 51 'zext' 'zext_ln301_2' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_1 : Operation 52 [1/1] (0.00ns)   --->   "%towers_addr = getelementptr i12 %towers, i64 0, i64 %zext_ln301_2" [./calorimeter.h:301]   --->   Operation 52 'getelementptr' 'towers_addr' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_1 : Operation 53 [1/1] (0.00ns)   --->   "%zext_ln289 = zext i6 %select_ln288" [./calorimeter.h:289]   --->   Operation 53 'zext' 'zext_ln289' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_1 : Operation 54 [2/2] (1.20ns)   --->   "%seed_et = load i11 %towers_addr" [./calorimeter.h:301]   --->   Operation 54 'load' 'seed_et' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_1 : Operation 55 [1/1] (0.70ns)   --->   "%add_ln193 = add i7 %zext_ln289, i7 127" [./calorimeter.h:193->./calorimeter.h:303]   --->   Operation 55 'add' 'add_ln193' <Predicate = (!icmp_ln288)> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 56 [1/1] (0.00ns)   --->   "%tmp_5 = bitselect i1 @_ssdm_op_BitSelect.i1.i7.i32, i7 %add_ln193, i32 6" [./calorimeter.h:140->./calorimeter.h:193->./calorimeter.h:303]   --->   Operation 56 'bitselect' 'tmp_5' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_1 : Operation 57 [1/1] (0.70ns)   --->   "%add_ln141 = add i7 %zext_ln289, i7 59" [./calorimeter.h:141->./calorimeter.h:193->./calorimeter.h:303]   --->   Operation 57 'add' 'add_ln141' <Predicate = (!icmp_ln288)> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 58 [1/1] (0.30ns)   --->   "%phi_idx = select i1 %tmp_5, i7 %add_ln141, i7 %add_ln193" [./calorimeter.h:140->./calorimeter.h:193->./calorimeter.h:303]   --->   Operation 58 'select' 'phi_idx' <Predicate = (!icmp_ln288)> <Delay = 0.30> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.30> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 59 [1/1] (0.00ns)   --->   "%zext_ln196_4 = zext i7 %phi_idx" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 59 'zext' 'zext_ln196_4' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_1 : Operation 60 [1/1] (0.73ns)   --->   "%add_ln196_2 = add i11 %sub_ln196, i11 %zext_ln196_4" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 60 'add' 'add_ln196_2' <Predicate = (!icmp_ln288)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 61 [1/1] (0.00ns)   --->   "%zext_ln196_5 = zext i11 %add_ln196_2" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 61 'zext' 'zext_ln196_5' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_1 : Operation 62 [1/1] (0.00ns)   --->   "%towers_addr_1 = getelementptr i12 %towers, i64 0, i64 %zext_ln196_5" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 62 'getelementptr' 'towers_addr_1' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_1 : Operation 63 [2/2] (1.20ns)   --->   "%neighbor = load i11 %towers_addr_1" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 63 'load' 'neighbor' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_1 : Operation 64 [1/1] (0.38ns)   --->   "%store_ln288 = store i11 %add_ln288_1, i11 %indvar_flatten" [./calorimeter.h:288]   --->   Operation 64 'store' 'store_ln288' <Predicate = (!icmp_ln288)> <Delay = 0.38>
+ST_1 : Operation 65 [1/1] (0.38ns)   --->   "%store_ln288 = store i5 %select_ln288_2, i5 %eta" [./calorimeter.h:288]   --->   Operation 65 'store' 'store_ln288' <Predicate = (!icmp_ln288)> <Delay = 0.38>
+ST_1 : Operation 317 [1/1] (0.38ns)   --->   "%ret_ln317 = ret" [./calorimeter.h:317]   --->   Operation 317 'ret' 'ret_ln317' <Predicate = (icmp_ln288)> <Delay = 0.38>
+
+State 2 <SV = 1> <Delay = 3.65>
+ST_2 : Operation 66 [1/1] (0.73ns)   --->   "%add_ln196 = add i11 %sub_ln196, i11 %zext_ln301_1" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 66 'add' 'add_ln196' <Predicate = (!icmp_ln288)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 67 [1/1] (0.00ns)   --->   "%zext_ln196_2 = zext i11 %add_ln196" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 67 'zext' 'zext_ln196_2' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_2 : Operation 68 [1/1] (0.00ns)   --->   "%towers_addr_2 = getelementptr i12 %towers, i64 0, i64 %zext_ln196_2" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 68 'getelementptr' 'towers_addr_2' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_2 : Operation 69 [1/2] (1.20ns)   --->   "%seed_et = load i11 %towers_addr" [./calorimeter.h:301]   --->   Operation 69 'load' 'seed_et' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_2 : Operation 70 [1/1] (0.74ns)   --->   "%icmp_ln303 = icmp_ult  i12 %seed_et, i12 %seed_threshold_read" [./calorimeter.h:303]   --->   Operation 70 'icmp' 'icmp_ln303' <Predicate = (!icmp_ln288)> <Delay = 0.74> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 71 [1/2] (1.20ns)   --->   "%neighbor = load i11 %towers_addr_1" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 71 'load' 'neighbor' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_2 : Operation 72 [2/2] (1.20ns)   --->   "%neighbor_1 = load i11 %towers_addr_2" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 72 'load' 'neighbor_1' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_2 : Operation 73 [1/1] (0.70ns)   --->   "%phi = add i6 %select_ln288, i6 1" [./calorimeter.h:193->./calorimeter.h:303]   --->   Operation 73 'add' 'phi' <Predicate = (!icmp_ln288)> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 74 [1/1] (0.70ns)   --->   "%icmp_ln142 = icmp_ugt  i6 %phi, i6 59" [./calorimeter.h:142->./calorimeter.h:193->./calorimeter.h:303]   --->   Operation 74 'icmp' 'icmp_ln142' <Predicate = (!icmp_ln288)> <Delay = 0.70> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 75 [1/1] (0.70ns)   --->   "%add_ln143 = add i7 %zext_ln289, i7 69" [./calorimeter.h:143->./calorimeter.h:193->./calorimeter.h:303]   --->   Operation 75 'add' 'add_ln143' <Predicate = (!icmp_ln288)> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 76 [1/1] (0.00ns)   --->   "%zext_ln142 = zext i6 %phi" [./calorimeter.h:142->./calorimeter.h:193->./calorimeter.h:303]   --->   Operation 76 'zext' 'zext_ln142' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_2 : Operation 77 [1/1] (0.30ns)   --->   "%phi_idx_2 = select i1 %icmp_ln142, i7 %add_ln143, i7 %zext_ln142" [./calorimeter.h:142->./calorimeter.h:193->./calorimeter.h:303]   --->   Operation 77 'select' 'phi_idx_2' <Predicate = (!icmp_ln288)> <Delay = 0.30> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.30> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 78 [1/1] (0.00ns)   --->   "%sext_ln196 = sext i7 %phi_idx_2" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 78 'sext' 'sext_ln196' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_2 : Operation 79 [1/1] (0.73ns)   --->   "%add_ln196_3 = add i11 %sub_ln196, i11 %sext_ln196" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 79 'add' 'add_ln196_3' <Predicate = (!icmp_ln288)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 80 [1/1] (0.00ns)   --->   "%zext_ln196_6 = zext i11 %add_ln196_3" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 80 'zext' 'zext_ln196_6' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_2 : Operation 81 [1/1] (0.00ns)   --->   "%towers_addr_3 = getelementptr i12 %towers, i64 0, i64 %zext_ln196_6" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 81 'getelementptr' 'towers_addr_3' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_2 : Operation 82 [2/2] (1.20ns)   --->   "%neighbor_2 = load i11 %towers_addr_3" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 82 'load' 'neighbor_2' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_2 : Operation 83 [1/1] (0.38ns)   --->   "%store_ln164 = store i6 %phi, i6 %phi_idx_1" [./calorimeter.h:164->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 83 'store' 'store_ln164' <Predicate = (!icmp_ln288)> <Delay = 0.38>
+
+State 3 <SV = 2> <Delay = 1.93>
+ST_3 : Operation 84 [1/2] (1.20ns)   --->   "%neighbor_1 = load i11 %towers_addr_2" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 84 'load' 'neighbor_1' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_3 : Operation 85 [1/1] (0.73ns)   --->   "%add_ln196_4 = add i11 %sub_ln301, i11 %sext_ln196" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 85 'add' 'add_ln196_4' <Predicate = (!icmp_ln288)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 86 [1/1] (0.00ns)   --->   "%zext_ln196_7 = zext i11 %add_ln196_4" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 86 'zext' 'zext_ln196_7' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_3 : Operation 87 [1/1] (0.00ns)   --->   "%towers_addr_5 = getelementptr i12 %towers, i64 0, i64 %zext_ln196_7" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 87 'getelementptr' 'towers_addr_5' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_3 : Operation 88 [1/2] (1.20ns)   --->   "%neighbor_2 = load i11 %towers_addr_3" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 88 'load' 'neighbor_2' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_3 : Operation 89 [1/1] (0.73ns)   --->   "%add_ln196_6 = add i11 %sub_ln301, i11 %zext_ln196_4" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 89 'add' 'add_ln196_6' <Predicate = (!icmp_ln288)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 90 [1/1] (0.00ns)   --->   "%zext_ln196_9 = zext i11 %add_ln196_6" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 90 'zext' 'zext_ln196_9' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_3 : Operation 91 [1/1] (0.00ns)   --->   "%towers_addr_4 = getelementptr i12 %towers, i64 0, i64 %zext_ln196_9" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 91 'getelementptr' 'towers_addr_4' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_3 : Operation 92 [2/2] (1.20ns)   --->   "%neighbor_3 = load i11 %towers_addr_4" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 92 'load' 'neighbor_3' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_3 : Operation 93 [2/2] (1.20ns)   --->   "%neighbor_4 = load i11 %towers_addr_5" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 93 'load' 'neighbor_4' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+
+State 4 <SV = 3> <Delay = 2.70>
+ST_4 : Operation 94 [1/1] (0.00ns)   --->   "%p_shl3 = bitconcatenate i11 @_ssdm_op_BitConcatenate.i11.i5.i6, i5 %select_ln288_1, i6 0" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 94 'bitconcatenate' 'p_shl3' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_4 : Operation 95 [1/1] (0.00ns)   --->   "%tmp_2 = bitconcatenate i7 @_ssdm_op_BitConcatenate.i7.i5.i2, i5 %select_ln288_1, i2 0" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 95 'bitconcatenate' 'tmp_2' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_4 : Operation 96 [1/1] (0.00ns)   --->   "%zext_ln196_1 = zext i7 %tmp_2" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 96 'zext' 'zext_ln196_1' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_4 : Operation 97 [1/1] (0.73ns)   --->   "%sub_ln196_1 = sub i11 %p_shl3, i11 %zext_ln196_1" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 97 'sub' 'sub_ln196_1' <Predicate = (!icmp_ln288)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 98 [1/1] (0.73ns)   --->   "%add_ln196_1 = add i11 %sub_ln196_1, i11 %zext_ln301_1" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 98 'add' 'add_ln196_1' <Predicate = (!icmp_ln288)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 99 [1/1] (0.00ns)   --->   "%zext_ln196_3 = zext i11 %add_ln196_1" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 99 'zext' 'zext_ln196_3' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_4 : Operation 100 [1/1] (0.00ns)   --->   "%towers_addr_7 = getelementptr i12 %towers, i64 0, i64 %zext_ln196_3" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 100 'getelementptr' 'towers_addr_7' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_4 : Operation 101 [1/1] (0.74ns)   --->   "%icmp_ln200 = icmp_ne  i12 %neighbor_1, i12 %seed_et" [./calorimeter.h:200->./calorimeter.h:303]   --->   Operation 101 'icmp' 'icmp_ln200' <Predicate = (!icmp_ln288)> <Delay = 0.74> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 102 [1/1] (0.74ns)   --->   "%icmp_ln198 = icmp_ult  i12 %seed_et, i12 %neighbor_1" [./calorimeter.h:198->./calorimeter.h:303]   --->   Operation 102 'icmp' 'icmp_ln198' <Predicate = (!icmp_ln288)> <Delay = 0.74> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 103 [1/1] (0.73ns)   --->   "%add_ln196_7 = add i11 %sub_ln196_1, i11 %zext_ln196_4" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 103 'add' 'add_ln196_7' <Predicate = (!icmp_ln288)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 104 [1/1] (0.00ns)   --->   "%zext_ln196_10 = zext i11 %add_ln196_7" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 104 'zext' 'zext_ln196_10' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_4 : Operation 105 [1/1] (0.00ns)   --->   "%towers_addr_6 = getelementptr i12 %towers, i64 0, i64 %zext_ln196_10" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 105 'getelementptr' 'towers_addr_6' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_4 : Operation 106 [1/2] (1.20ns)   --->   "%neighbor_3 = load i11 %towers_addr_4" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 106 'load' 'neighbor_3' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_4 : Operation 107 [1/2] (1.20ns)   --->   "%neighbor_4 = load i11 %towers_addr_5" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 107 'load' 'neighbor_4' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_4 : Operation 108 [2/2] (1.20ns)   --->   "%neighbor_5 = load i11 %towers_addr_6" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 108 'load' 'neighbor_5' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_4 : Operation 109 [2/2] (1.20ns)   --->   "%neighbor_6 = load i11 %towers_addr_7" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 109 'load' 'neighbor_6' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_4 : Operation 110 [1/1] (0.74ns)   --->   "%icmp_ln198_4 = icmp_ult  i12 %neighbor_2, i12 %seed_et" [./calorimeter.h:198->./calorimeter.h:303]   --->   Operation 110 'icmp' 'icmp_ln198_4' <Predicate = (!icmp_ln288)> <Delay = 0.74> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 111 [1/1] (0.74ns)   --->   "%icmp_ln198_5 = icmp_ult  i12 %neighbor_3, i12 %seed_et" [./calorimeter.h:198->./calorimeter.h:303]   --->   Operation 111 'icmp' 'icmp_ln198_5' <Predicate = (!icmp_ln288)> <Delay = 0.74> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 112 [1/1] (0.00ns)   --->   "%zext_ln305 = zext i12 %neighbor_1" [./calorimeter.h:305]   --->   Operation 112 'zext' 'zext_ln305' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_4 : Operation 113 [1/1] (0.00ns)   --->   "%zext_ln163 = zext i12 %neighbor_2" [./calorimeter.h:163->./calorimeter.h:305]   --->   Operation 113 'zext' 'zext_ln163' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_4 : Operation 114 [1/1] (0.00ns)   --->   "%zext_ln305_1 = zext i12 %neighbor_3" [./calorimeter.h:305]   --->   Operation 114 'zext' 'zext_ln305_1' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_4 : Operation 115 [1/1] (0.00ns)   --->   "%zext_ln305_2 = zext i12 %seed_et" [./calorimeter.h:305]   --->   Operation 115 'zext' 'zext_ln305_2' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_4 : Operation 116 [1/1] (0.74ns)   --->   "%cluster_et = add i13 %zext_ln305, i13 %zext_ln305_2" [./calorimeter.h:167->./calorimeter.h:305]   --->   Operation 116 'add' 'cluster_et' <Predicate = (!icmp_ln288)> <Delay = 0.74> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 117 [1/1] (0.00ns)   --->   "%zext_ln167_2 = zext i13 %cluster_et" [./calorimeter.h:167->./calorimeter.h:305]   --->   Operation 117 'zext' 'zext_ln167_2' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_4 : Operation 118 [1/1] (0.74ns)   --->   "%add_ln167_1 = add i13 %zext_ln163, i13 %zext_ln305_1" [./calorimeter.h:167->./calorimeter.h:305]   --->   Operation 118 'add' 'add_ln167_1' <Predicate = (!icmp_ln288)> <Delay = 0.74> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 119 [1/1] (0.00ns)   --->   "%zext_ln167_10 = zext i13 %add_ln167_1" [./calorimeter.h:167->./calorimeter.h:305]   --->   Operation 119 'zext' 'zext_ln167_10' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_4 : Operation 120 [1/1] (0.75ns)   --->   "%cluster_et_1 = add i14 %zext_ln167_10, i14 %zext_ln167_2" [./calorimeter.h:167->./calorimeter.h:305]   --->   Operation 120 'add' 'cluster_et_1' <Predicate = (!icmp_ln288)> <Delay = 0.75> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.75> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 5 <SV = 4> <Delay = 3.38>
+ST_5 : Operation 121 [1/1] (0.70ns)   --->   "%empty_57 = add i5 %select_ln288_2, i5 30" [./calorimeter.h:288]   --->   Operation 121 'add' 'empty_57' <Predicate = (!icmp_ln288)> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 122 [1/1] (0.00ns)   --->   "%p_shl4 = bitconcatenate i11 @_ssdm_op_BitConcatenate.i11.i5.i6, i5 %empty_57, i6 0" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 122 'bitconcatenate' 'p_shl4' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_5 : Operation 123 [1/1] (0.00ns)   --->   "%tmp_3 = bitconcatenate i7 @_ssdm_op_BitConcatenate.i7.i5.i2, i5 %empty_57, i2 0" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 123 'bitconcatenate' 'tmp_3' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_5 : Operation 124 [1/1] (0.00ns)   --->   "%zext_ln167_6 = zext i7 %tmp_3" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 124 'zext' 'zext_ln167_6' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_5 : Operation 125 [1/1] (0.73ns)   --->   "%sub_ln167 = sub i11 %p_shl4, i11 %zext_ln167_6" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 125 'sub' 'sub_ln167' <Predicate = (!icmp_ln288)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 126 [1/1] (0.74ns)   --->   "%is_max = icmp_ult  i12 %neighbor, i12 %seed_et" [./calorimeter.h:198->./calorimeter.h:303]   --->   Operation 126 'icmp' 'is_max' <Predicate = (!icmp_ln288)> <Delay = 0.74> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 127 [1/1] (0.00ns) (grouped into LUT with out node or_ln307)   --->   "%xor_ln198_1 = xor i1 %icmp_ln198, i1 1" [./calorimeter.h:198->./calorimeter.h:303]   --->   Operation 127 'xor' 'xor_ln198_1' <Predicate = (!icmp_ln288)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 128 [1/1] (0.73ns)   --->   "%add_ln196_5 = add i11 %sub_ln196_1, i11 %sext_ln196" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 128 'add' 'add_ln196_5' <Predicate = (!icmp_ln288)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 129 [1/1] (0.00ns)   --->   "%zext_ln196_8 = zext i11 %add_ln196_5" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 129 'zext' 'zext_ln196_8' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_5 : Operation 130 [1/1] (0.00ns)   --->   "%towers_addr_8 = getelementptr i12 %towers, i64 0, i64 %zext_ln196_8" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 130 'getelementptr' 'towers_addr_8' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_5 : Operation 131 [1/1] (0.74ns)   --->   "%icmp_ln198_1 = icmp_ult  i12 %seed_et, i12 %neighbor_4" [./calorimeter.h:198->./calorimeter.h:303]   --->   Operation 131 'icmp' 'icmp_ln198_1' <Predicate = (!icmp_ln288)> <Delay = 0.74> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 132 [1/1] (0.00ns) (grouped into LUT with out node and_ln198_6)   --->   "%xor_ln198_2 = xor i1 %icmp_ln198_1, i1 1" [./calorimeter.h:198->./calorimeter.h:303]   --->   Operation 132 'xor' 'xor_ln198_2' <Predicate = (!icmp_ln288)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 133 [1/2] (1.20ns)   --->   "%neighbor_5 = load i11 %towers_addr_6" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 133 'load' 'neighbor_5' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_5 : Operation 134 [1/1] (0.74ns)   --->   "%icmp_ln198_2 = icmp_ult  i12 %seed_et, i12 %neighbor_5" [./calorimeter.h:198->./calorimeter.h:303]   --->   Operation 134 'icmp' 'icmp_ln198_2' <Predicate = (!icmp_ln288)> <Delay = 0.74> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 135 [1/1] (0.00ns) (grouped into LUT with out node and_ln198_6)   --->   "%xor_ln198_3 = xor i1 %icmp_ln198_2, i1 1" [./calorimeter.h:198->./calorimeter.h:303]   --->   Operation 135 'xor' 'xor_ln198_3' <Predicate = (!icmp_ln288)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 136 [1/2] (1.20ns)   --->   "%neighbor_6 = load i11 %towers_addr_7" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 136 'load' 'neighbor_6' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_5 : Operation 137 [1/1] (0.74ns)   --->   "%icmp_ln198_3 = icmp_ult  i12 %seed_et, i12 %neighbor_6" [./calorimeter.h:198->./calorimeter.h:303]   --->   Operation 137 'icmp' 'icmp_ln198_3' <Predicate = (!icmp_ln288)> <Delay = 0.74> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 138 [1/1] (0.00ns) (grouped into LUT with out node and_ln198_6)   --->   "%xor_ln198_4 = xor i1 %icmp_ln198_3, i1 1" [./calorimeter.h:198->./calorimeter.h:303]   --->   Operation 138 'xor' 'xor_ln198_4' <Predicate = (!icmp_ln288)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 139 [1/1] (0.00ns) (grouped into LUT with out node or_ln307)   --->   "%and_ln198 = and i1 %is_max, i1 %icmp_ln200" [./calorimeter.h:198->./calorimeter.h:303]   --->   Operation 139 'and' 'and_ln198' <Predicate = (!icmp_ln288)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 140 [1/1] (0.00ns) (grouped into LUT with out node or_ln307)   --->   "%and_ln198_1 = and i1 %icmp_ln198_4, i1 %xor_ln198_1" [./calorimeter.h:198->./calorimeter.h:303]   --->   Operation 140 'and' 'and_ln198_1' <Predicate = (!icmp_ln288)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 141 [1/1] (0.00ns) (grouped into LUT with out node or_ln307)   --->   "%and_ln198_2 = and i1 %and_ln198_1, i1 %and_ln198" [./calorimeter.h:198->./calorimeter.h:303]   --->   Operation 141 'and' 'and_ln198_2' <Predicate = (!icmp_ln288)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 142 [1/1] (0.00ns) (grouped into LUT with out node and_ln198_6)   --->   "%and_ln198_4 = and i1 %xor_ln198_3, i1 %xor_ln198_4" [./calorimeter.h:198->./calorimeter.h:303]   --->   Operation 142 'and' 'and_ln198_4' <Predicate = (!icmp_ln288)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 143 [1/1] (0.00ns) (grouped into LUT with out node and_ln198_6)   --->   "%and_ln198_5 = and i1 %and_ln198_4, i1 %xor_ln198_2" [./calorimeter.h:198->./calorimeter.h:303]   --->   Operation 143 'and' 'and_ln198_5' <Predicate = (!icmp_ln288)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 144 [1/1] (0.12ns) (out node of the LUT)   --->   "%and_ln198_6 = and i1 %and_ln198_5, i1 %icmp_ln198_5" [./calorimeter.h:198->./calorimeter.h:303]   --->   Operation 144 'and' 'and_ln198_6' <Predicate = (!icmp_ln288)> <Delay = 0.12> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 145 [1/1] (0.00ns) (grouped into LUT with out node or_ln307)   --->   "%and_ln198_3 = and i1 %and_ln198_6, i1 %and_ln198_2" [./calorimeter.h:198->./calorimeter.h:303]   --->   Operation 145 'and' 'and_ln198_3' <Predicate = (!icmp_ln288)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 146 [2/2] (1.20ns)   --->   "%neighbor_7 = load i11 %towers_addr_8" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 146 'load' 'neighbor_7' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_5 : Operation 147 [1/1] (0.00ns) (grouped into LUT with out node or_ln307)   --->   "%xor_ln198 = xor i1 %and_ln198_3, i1 1" [./calorimeter.h:198->./calorimeter.h:303]   --->   Operation 147 'xor' 'xor_ln198' <Predicate = (!icmp_ln288)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 148 [1/1] (0.70ns)   --->   "%add_ln164_1 = add i7 %zext_ln289, i7 126" [./calorimeter.h:164->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 148 'add' 'add_ln164_1' <Predicate = (!icmp_ln288)> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 149 [1/1] (0.00ns)   --->   "%tmp_6 = bitselect i1 @_ssdm_op_BitSelect.i1.i7.i32, i7 %add_ln164_1, i32 6" [./calorimeter.h:140->./calorimeter.h:164->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 149 'bitselect' 'tmp_6' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_5 : Operation 150 [1/1] (0.70ns)   --->   "%add_ln141_1 = add i7 %zext_ln289, i7 58" [./calorimeter.h:141->./calorimeter.h:164->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 150 'add' 'add_ln141_1' <Predicate = (!icmp_ln288)> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 151 [1/1] (0.30ns)   --->   "%phi_idx_3 = select i1 %tmp_6, i7 %add_ln141_1, i7 %add_ln164_1" [./calorimeter.h:140->./calorimeter.h:164->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 151 'select' 'phi_idx_3' <Predicate = (!icmp_ln288)> <Delay = 0.30> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.30> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_5 : Operation 152 [1/1] (0.00ns)   --->   "%zext_ln167_29 = zext i7 %phi_idx_3" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 152 'zext' 'zext_ln167_29' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_5 : Operation 153 [1/1] (0.73ns)   --->   "%add_ln167_18 = add i11 %sub_ln167, i11 %zext_ln167_29" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 153 'add' 'add_ln167_18' <Predicate = (!icmp_ln288)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 154 [1/1] (0.00ns)   --->   "%zext_ln167_30 = zext i11 %add_ln167_18" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 154 'zext' 'zext_ln167_30' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_5 : Operation 155 [1/1] (0.00ns)   --->   "%towers_addr_10 = getelementptr i12 %towers, i64 0, i64 %zext_ln167_30" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 155 'getelementptr' 'towers_addr_10' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_5 : Operation 156 [2/2] (1.20ns)   --->   "%sum_5 = load i11 %towers_addr_10" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 156 'load' 'sum_5' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_5 : Operation 157 [1/1] (0.12ns) (out node of the LUT)   --->   "%or_ln307 = or i1 %icmp_ln303, i1 %xor_ln198" [./calorimeter.h:307]   --->   Operation 157 'or' 'or_ln307' <Predicate = (!icmp_ln288)> <Delay = 0.12> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+
+State 6 <SV = 5> <Delay = 5.10>
+ST_6 : Operation 158 [1/1] (0.73ns)   --->   "%add_ln167 = add i11 %sub_ln167, i11 %zext_ln301_1" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 158 'add' 'add_ln167' <Predicate = (!icmp_ln288)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 159 [1/1] (0.00ns)   --->   "%zext_ln167_23 = zext i11 %add_ln167" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 159 'zext' 'zext_ln167_23' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_6 : Operation 160 [1/1] (0.00ns)   --->   "%towers_addr_9 = getelementptr i12 %towers, i64 0, i64 %zext_ln167_23" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 160 'getelementptr' 'towers_addr_9' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_6 : Operation 161 [1/1] (0.73ns)   --->   "%add_ln167_9 = add i11 %sub_ln167, i11 %zext_ln196_4" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 161 'add' 'add_ln167_9' <Predicate = (!icmp_ln288)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 162 [1/1] (0.00ns)   --->   "%zext_ln167_27 = zext i11 %add_ln167_9" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 162 'zext' 'zext_ln167_27' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_6 : Operation 163 [1/1] (0.00ns)   --->   "%towers_addr_11 = getelementptr i12 %towers, i64 0, i64 %zext_ln167_27" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 163 'getelementptr' 'towers_addr_11' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_6 : Operation 164 [1/2] (1.20ns)   --->   "%neighbor_7 = load i11 %towers_addr_8" [./calorimeter.h:196->./calorimeter.h:303]   --->   Operation 164 'load' 'neighbor_7' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_6 : Operation 165 [1/1] (0.74ns)   --->   "%icmp_ln198_6 = icmp_ugt  i12 %neighbor_7, i12 %seed_et" [./calorimeter.h:198->./calorimeter.h:303]   --->   Operation 165 'icmp' 'icmp_ln198_6' <Predicate = (!icmp_ln288)> <Delay = 0.74> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 166 [1/1] (0.00ns)   --->   "%zext_ln167 = zext i12 %neighbor" [./calorimeter.h:167->./calorimeter.h:305]   --->   Operation 166 'zext' 'zext_ln167' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_6 : Operation 167 [1/1] (0.00ns)   --->   "%zext_ln305_3 = zext i12 %neighbor_4" [./calorimeter.h:305]   --->   Operation 167 'zext' 'zext_ln305_3' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_6 : Operation 168 [1/1] (0.00ns)   --->   "%zext_ln167_1 = zext i12 %neighbor_5" [./calorimeter.h:167->./calorimeter.h:305]   --->   Operation 168 'zext' 'zext_ln167_1' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_6 : Operation 169 [1/1] (0.00ns)   --->   "%zext_ln167_4 = zext i12 %neighbor_6" [./calorimeter.h:167->./calorimeter.h:305]   --->   Operation 169 'zext' 'zext_ln167_4' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_6 : Operation 170 [1/1] (0.00ns)   --->   "%zext_ln167_3 = zext i14 %cluster_et_1" [./calorimeter.h:167->./calorimeter.h:305]   --->   Operation 170 'zext' 'zext_ln167_3' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_6 : Operation 171 [1/1] (0.00ns)   --->   "%zext_ln167_11 = zext i12 %neighbor_7" [./calorimeter.h:167->./calorimeter.h:305]   --->   Operation 171 'zext' 'zext_ln167_11' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_6 : Operation 172 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln167_3 = add i15 %zext_ln167_3, i15 %zext_ln305_3" [./calorimeter.h:167->./calorimeter.h:305]   --->   Operation 172 'add' 'add_ln167_3' <Predicate = (!icmp_ln288)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.33> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 173 [1/1] (0.74ns)   --->   "%add_ln167_4 = add i13 %zext_ln167_4, i13 %zext_ln167_11" [./calorimeter.h:167->./calorimeter.h:305]   --->   Operation 173 'add' 'add_ln167_4' <Predicate = (!icmp_ln288)> <Delay = 0.74> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 174 [1/1] (0.00ns)   --->   "%zext_ln167_12 = zext i13 %add_ln167_4" [./calorimeter.h:167->./calorimeter.h:305]   --->   Operation 174 'zext' 'zext_ln167_12' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_6 : Operation 175 [1/1] (0.75ns)   --->   "%add_ln167_5 = add i14 %zext_ln167_12, i14 %zext_ln167_1" [./calorimeter.h:167->./calorimeter.h:305]   --->   Operation 175 'add' 'add_ln167_5' <Predicate = (!icmp_ln288)> <Delay = 0.75> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.75> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 176 [1/1] (0.00ns)   --->   "%zext_ln167_13 = zext i14 %add_ln167_5" [./calorimeter.h:167->./calorimeter.h:305]   --->   Operation 176 'zext' 'zext_ln167_13' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_6 : Operation 177 [1/1] (0.69ns) (root node of TernaryAdder)   --->   "%cluster_et_2 = add i15 %zext_ln167_13, i15 %add_ln167_3" [./calorimeter.h:167->./calorimeter.h:305]   --->   Operation 177 'add' 'cluster_et_2' <Predicate = (!icmp_ln288)> <Delay = 0.69> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.33> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 178 [1/1] (0.00ns)   --->   "%zext_ln167_5 = zext i15 %cluster_et_2" [./calorimeter.h:167->./calorimeter.h:305]   --->   Operation 178 'zext' 'zext_ln167_5' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_6 : Operation 179 [1/1] (0.77ns)   --->   "%cluster_et_3 = add i16 %zext_ln167_5, i16 %zext_ln167" [./calorimeter.h:167->./calorimeter.h:305]   --->   Operation 179 'add' 'cluster_et_3' <Predicate = (!icmp_ln288)> <Delay = 0.77> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 180 [1/1] (0.00ns)   --->   "%zext_ln305_4 = zext i16 %cluster_et_3" [./calorimeter.h:305]   --->   Operation 180 'zext' 'zext_ln305_4' <Predicate = (!icmp_ln288)> <Delay = 0.00>
+ST_6 : Operation 181 [1/1] (0.80ns)   --->   "%icmp_ln307 = icmp_ult  i20 %zext_ln305_4, i20 %cluster_threshold_read" [./calorimeter.h:307]   --->   Operation 181 'icmp' 'icmp_ln307' <Predicate = (!icmp_ln288)> <Delay = 0.80> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 182 [1/2] (1.20ns)   --->   "%sum_5 = load i11 %towers_addr_10" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 182 'load' 'sum_5' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_6 : Operation 183 [2/2] (1.20ns)   --->   "%towers_load = load i11 %towers_addr_11" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 183 'load' 'towers_load' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_6 : Operation 184 [2/2] (1.20ns)   --->   "%towers_load_1 = load i11 %towers_addr_9" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 184 'load' 'towers_load_1' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_6 : Operation 185 [1/1] (0.00ns) (grouped into LUT with out node or_ln307_2)   --->   "%or_ln307_1 = or i1 %icmp_ln198_6, i1 %icmp_ln307" [./calorimeter.h:307]   --->   Operation 185 'or' 'or_ln307_1' <Predicate = (!icmp_ln288)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 186 [1/1] (0.12ns) (out node of the LUT)   --->   "%or_ln307_2 = or i1 %or_ln307_1, i1 %or_ln307" [./calorimeter.h:307]   --->   Operation 186 'or' 'or_ln307_2' <Predicate = (!icmp_ln288)> <Delay = 0.12> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+
+State 7 <SV = 6> <Delay = 3.65>
+ST_7 : Operation 187 [1/1] (0.73ns)   --->   "%add_ln167_6 = add i11 %sub_ln167, i11 %sext_ln196" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 187 'add' 'add_ln167_6' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 188 [1/1] (0.00ns)   --->   "%zext_ln167_25 = zext i11 %add_ln167_6" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 188 'zext' 'zext_ln167_25' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_7 : Operation 189 [1/1] (0.00ns)   --->   "%towers_addr_13 = getelementptr i12 %towers, i64 0, i64 %zext_ln167_25" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 189 'getelementptr' 'towers_addr_13' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_7 : Operation 190 [1/1] (0.00ns)   --->   "%zext_ln154 = zext i12 %sum_5" [./calorimeter.h:154->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 190 'zext' 'zext_ln154' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_7 : Operation 191 [1/2] (1.20ns)   --->   "%towers_load = load i11 %towers_addr_11" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 191 'load' 'towers_load' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_7 : Operation 192 [1/1] (0.00ns)   --->   "%zext_ln154_1 = zext i12 %towers_load" [./calorimeter.h:154->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 192 'zext' 'zext_ln154_1' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_7 : Operation 193 [1/2] (1.20ns)   --->   "%towers_load_1 = load i11 %towers_addr_9" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 193 'load' 'towers_load_1' <Predicate = (!icmp_ln288)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_7 : Operation 194 [2/2] (1.20ns)   --->   "%towers_load_2 = load i11 %towers_addr_13" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 194 'load' 'towers_load_2' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_7 : Operation 195 [1/1] (0.70ns)   --->   "%add_ln164 = add i6 %select_ln288, i6 2" [./calorimeter.h:164->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 195 'add' 'add_ln164' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 196 [1/1] (0.70ns)   --->   "%icmp_ln142_1 = icmp_ugt  i6 %add_ln164, i6 59" [./calorimeter.h:142->./calorimeter.h:164->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 196 'icmp' 'icmp_ln142_1' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.70> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 197 [1/1] (0.70ns)   --->   "%add_ln143_1 = add i7 %zext_ln289, i7 70" [./calorimeter.h:143->./calorimeter.h:164->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 197 'add' 'add_ln143_1' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 198 [1/1] (0.00ns)   --->   "%zext_ln142_1 = zext i6 %add_ln164" [./calorimeter.h:142->./calorimeter.h:164->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 198 'zext' 'zext_ln142_1' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_7 : Operation 199 [1/1] (0.30ns)   --->   "%phi_idx_4 = select i1 %icmp_ln142_1, i7 %add_ln143_1, i7 %zext_ln142_1" [./calorimeter.h:142->./calorimeter.h:164->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 199 'select' 'phi_idx_4' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.30> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.30> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 200 [1/1] (0.00ns)   --->   "%sext_ln167 = sext i7 %phi_idx_4" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 200 'sext' 'sext_ln167' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_7 : Operation 201 [1/1] (0.73ns)   --->   "%add_ln167_19 = add i11 %sub_ln167, i11 %sext_ln167" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 201 'add' 'add_ln167_19' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 202 [1/1] (0.00ns)   --->   "%zext_ln167_31 = zext i11 %add_ln167_19" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 202 'zext' 'zext_ln167_31' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_7 : Operation 203 [1/1] (0.00ns)   --->   "%towers_addr_14 = getelementptr i12 %towers, i64 0, i64 %zext_ln167_31" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 203 'getelementptr' 'towers_addr_14' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_7 : Operation 204 [2/2] (1.20ns)   --->   "%towers_load_3 = load i11 %towers_addr_14" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 204 'load' 'towers_load_3' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_7 : Operation 205 [1/1] (0.74ns)   --->   "%sum = add i13 %zext_ln154_1, i13 %zext_ln154" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 205 'add' 'sum' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.74> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 8 <SV = 7> <Delay = 2.70>
+ST_8 : Operation 206 [1/1] (0.00ns)   --->   "%zext_ln164 = zext i12 %towers_load_1" [./calorimeter.h:164->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 206 'zext' 'zext_ln164' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_8 : Operation 207 [1/2] (1.20ns)   --->   "%towers_load_2 = load i11 %towers_addr_13" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 207 'load' 'towers_load_2' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_8 : Operation 208 [1/1] (0.00ns)   --->   "%zext_ln154_2 = zext i12 %towers_load_2" [./calorimeter.h:154->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 208 'zext' 'zext_ln154_2' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_8 : Operation 209 [1/1] (0.73ns)   --->   "%add_ln167_20 = add i11 %sub_ln196, i11 %sext_ln167" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 209 'add' 'add_ln167_20' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 210 [1/1] (0.00ns)   --->   "%zext_ln167_32 = zext i11 %add_ln167_20" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 210 'zext' 'zext_ln167_32' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_8 : Operation 211 [1/1] (0.00ns)   --->   "%towers_addr_16 = getelementptr i12 %towers, i64 0, i64 %zext_ln167_32" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 211 'getelementptr' 'towers_addr_16' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_8 : Operation 212 [1/2] (1.20ns)   --->   "%towers_load_3 = load i11 %towers_addr_14" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 212 'load' 'towers_load_3' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_8 : Operation 213 [1/1] (0.73ns)   --->   "%add_ln167_24 = add i11 %sub_ln196, i11 %zext_ln167_29" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 213 'add' 'add_ln167_24' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 214 [1/1] (0.00ns)   --->   "%zext_ln167_36 = zext i11 %add_ln167_24" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 214 'zext' 'zext_ln167_36' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_8 : Operation 215 [1/1] (0.00ns)   --->   "%towers_addr_15 = getelementptr i12 %towers, i64 0, i64 %zext_ln167_36" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 215 'getelementptr' 'towers_addr_15' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_8 : Operation 216 [2/2] (1.20ns)   --->   "%towers_load_4 = load i11 %towers_addr_15" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 216 'load' 'towers_load_4' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_8 : Operation 217 [2/2] (1.20ns)   --->   "%towers_load_5 = load i11 %towers_addr_16" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 217 'load' 'towers_load_5' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_8 : Operation 218 [1/1] (0.00ns)   --->   "%zext_ln167_7 = zext i13 %sum" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 218 'zext' 'zext_ln167_7' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_8 : Operation 219 [1/1] (0.74ns)   --->   "%add_ln167_8 = add i13 %zext_ln164, i13 %zext_ln154_2" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 219 'add' 'add_ln167_8' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.74> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 220 [1/1] (0.00ns)   --->   "%zext_ln167_19 = zext i13 %add_ln167_8" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 220 'zext' 'zext_ln167_19' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_8 : Operation 221 [1/1] (0.75ns)   --->   "%sum_11 = add i14 %zext_ln167_19, i14 %zext_ln167_7" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 221 'add' 'sum_11' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.75> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.75> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 9 <SV = 8> <Delay = 1.93>
+ST_9 : Operation 222 [1/1] (0.73ns)   --->   "%add_ln167_21 = add i11 %sub_ln301, i11 %sext_ln167" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 222 'add' 'add_ln167_21' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 223 [1/1] (0.00ns)   --->   "%zext_ln167_33 = zext i11 %add_ln167_21" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 223 'zext' 'zext_ln167_33' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_9 : Operation 224 [1/1] (0.00ns)   --->   "%towers_addr_18 = getelementptr i12 %towers, i64 0, i64 %zext_ln167_33" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 224 'getelementptr' 'towers_addr_18' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_9 : Operation 225 [1/1] (0.73ns)   --->   "%add_ln167_25 = add i11 %sub_ln301, i11 %zext_ln167_29" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 225 'add' 'add_ln167_25' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 226 [1/1] (0.00ns)   --->   "%zext_ln167_37 = zext i11 %add_ln167_25" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 226 'zext' 'zext_ln167_37' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_9 : Operation 227 [1/1] (0.00ns)   --->   "%towers_addr_17 = getelementptr i12 %towers, i64 0, i64 %zext_ln167_37" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 227 'getelementptr' 'towers_addr_17' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_9 : Operation 228 [1/2] (1.20ns)   --->   "%towers_load_4 = load i11 %towers_addr_15" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 228 'load' 'towers_load_4' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_9 : Operation 229 [1/2] (1.20ns)   --->   "%towers_load_5 = load i11 %towers_addr_16" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 229 'load' 'towers_load_5' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_9 : Operation 230 [2/2] (1.20ns)   --->   "%towers_load_6 = load i11 %towers_addr_17" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 230 'load' 'towers_load_6' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_9 : Operation 231 [2/2] (1.20ns)   --->   "%towers_load_7 = load i11 %towers_addr_18" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 231 'load' 'towers_load_7' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+
+State 10 <SV = 9> <Delay = 4.17>
+ST_10 : Operation 232 [1/1] (0.73ns)   --->   "%add_ln167_22 = add i11 %sub_ln196_1, i11 %sext_ln167" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 232 'add' 'add_ln167_22' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 233 [1/1] (0.00ns)   --->   "%zext_ln167_34 = zext i11 %add_ln167_22" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 233 'zext' 'zext_ln167_34' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_10 : Operation 234 [1/1] (0.00ns)   --->   "%towers_addr_20 = getelementptr i12 %towers, i64 0, i64 %zext_ln167_34" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 234 'getelementptr' 'towers_addr_20' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_10 : Operation 235 [1/1] (0.00ns)   --->   "%zext_ln154_3 = zext i12 %towers_load_3" [./calorimeter.h:154->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 235 'zext' 'zext_ln154_3' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_10 : Operation 236 [1/1] (0.73ns)   --->   "%add_ln167_26 = add i11 %sub_ln196_1, i11 %zext_ln167_29" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 236 'add' 'add_ln167_26' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 237 [1/1] (0.00ns)   --->   "%zext_ln167_38 = zext i11 %add_ln167_26" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 237 'zext' 'zext_ln167_38' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_10 : Operation 238 [1/1] (0.00ns)   --->   "%towers_addr_19 = getelementptr i12 %towers, i64 0, i64 %zext_ln167_38" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 238 'getelementptr' 'towers_addr_19' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_10 : Operation 239 [1/1] (0.00ns)   --->   "%zext_ln154_4 = zext i12 %towers_load_4" [./calorimeter.h:154->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 239 'zext' 'zext_ln154_4' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_10 : Operation 240 [1/1] (0.00ns)   --->   "%zext_ln163_1 = zext i12 %towers_load_5" [./calorimeter.h:163->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 240 'zext' 'zext_ln163_1' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_10 : Operation 241 [1/2] (1.20ns)   --->   "%towers_load_6 = load i11 %towers_addr_17" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 241 'load' 'towers_load_6' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_10 : Operation 242 [1/1] (0.00ns)   --->   "%zext_ln154_5 = zext i12 %towers_load_6" [./calorimeter.h:154->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 242 'zext' 'zext_ln154_5' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_10 : Operation 243 [1/2] (1.20ns)   --->   "%towers_load_7 = load i11 %towers_addr_18" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 243 'load' 'towers_load_7' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_10 : Operation 244 [1/1] (0.00ns)   --->   "%zext_ln154_6 = zext i12 %towers_load_7" [./calorimeter.h:154->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 244 'zext' 'zext_ln154_6' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_10 : Operation 245 [2/2] (1.20ns)   --->   "%towers_load_8 = load i11 %towers_addr_19" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 245 'load' 'towers_load_8' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_10 : Operation 246 [2/2] (1.20ns)   --->   "%towers_load_9 = load i11 %towers_addr_20" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 246 'load' 'towers_load_9' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_10 : Operation 247 [1/1] (0.00ns)   --->   "%zext_ln167_8 = zext i14 %sum_11" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 247 'zext' 'zext_ln167_8' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_10 : Operation 248 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln167_10 = add i15 %zext_ln167_8, i15 %zext_ln154_3" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 248 'add' 'add_ln167_10' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.33> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_10 : Operation 249 [1/1] (0.74ns)   --->   "%add_ln167_11 = add i13 %zext_ln163_1, i13 %zext_ln154_5" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 249 'add' 'add_ln167_11' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.74> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 250 [1/1] (0.00ns)   --->   "%zext_ln167_20 = zext i13 %add_ln167_11" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 250 'zext' 'zext_ln167_20' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_10 : Operation 251 [1/1] (0.75ns)   --->   "%add_ln167_12 = add i14 %zext_ln167_20, i14 %zext_ln154_4" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 251 'add' 'add_ln167_12' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.75> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.75> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 252 [1/1] (0.00ns)   --->   "%zext_ln167_21 = zext i14 %add_ln167_12" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 252 'zext' 'zext_ln167_21' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_10 : Operation 253 [1/1] (0.69ns) (root node of TernaryAdder)   --->   "%sum_12 = add i15 %zext_ln167_21, i15 %add_ln167_10" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 253 'add' 'sum_12' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.69> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.33> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_10 : Operation 254 [1/1] (0.00ns)   --->   "%zext_ln167_9 = zext i15 %sum_12" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 254 'zext' 'zext_ln167_9' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_10 : Operation 255 [1/1] (0.77ns)   --->   "%add_ln219 = add i16 %zext_ln167_9, i16 %zext_ln154_6" [./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 255 'add' 'add_ln219' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.77> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 11 <SV = 10> <Delay = 3.38>
+ST_11 : Operation 256 [1/1] (0.70ns)   --->   "%empty_58 = add i5 %select_ln288_2, i5 2" [./calorimeter.h:288]   --->   Operation 256 'add' 'empty_58' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 257 [1/1] (0.00ns)   --->   "%p_shl = bitconcatenate i11 @_ssdm_op_BitConcatenate.i11.i5.i6, i5 %empty_58, i6 0" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 257 'bitconcatenate' 'p_shl' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_11 : Operation 258 [1/1] (0.00ns)   --->   "%tmp_4 = bitconcatenate i7 @_ssdm_op_BitConcatenate.i7.i5.i2, i5 %empty_58, i2 0" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 258 'bitconcatenate' 'tmp_4' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_11 : Operation 259 [1/1] (0.00ns)   --->   "%zext_ln167_22 = zext i7 %tmp_4" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 259 'zext' 'zext_ln167_22' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_11 : Operation 260 [1/1] (0.73ns)   --->   "%sub_ln167_1 = sub i11 %p_shl, i11 %zext_ln167_22" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 260 'sub' 'sub_ln167_1' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 261 [1/1] (0.73ns)   --->   "%add_ln167_2 = add i11 %sub_ln167_1, i11 %zext_ln301_1" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 261 'add' 'add_ln167_2' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 262 [1/1] (0.73ns)   --->   "%add_ln167_7 = add i11 %sub_ln167_1, i11 %sext_ln196" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 262 'add' 'add_ln167_7' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 263 [1/1] (0.73ns)   --->   "%add_ln167_13 = add i11 %sub_ln167_1, i11 %zext_ln196_4" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 263 'add' 'add_ln167_13' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 264 [1/1] (0.00ns)   --->   "%zext_ln167_28 = zext i11 %add_ln167_13" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 264 'zext' 'zext_ln167_28' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_11 : Operation 265 [1/1] (0.00ns)   --->   "%towers_addr_22 = getelementptr i12 %towers, i64 0, i64 %zext_ln167_28" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 265 'getelementptr' 'towers_addr_22' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_11 : Operation 266 [1/1] (0.73ns)   --->   "%add_ln167_23 = add i11 %sub_ln167_1, i11 %sext_ln167" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 266 'add' 'add_ln167_23' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 267 [1/1] (0.73ns)   --->   "%add_ln167_27 = add i11 %sub_ln167_1, i11 %zext_ln167_29" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 267 'add' 'add_ln167_27' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 268 [1/1] (0.00ns)   --->   "%zext_ln167_39 = zext i11 %add_ln167_27" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 268 'zext' 'zext_ln167_39' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_11 : Operation 269 [1/1] (0.00ns)   --->   "%towers_addr_21 = getelementptr i12 %towers, i64 0, i64 %zext_ln167_39" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 269 'getelementptr' 'towers_addr_21' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_11 : Operation 270 [1/2] (1.20ns)   --->   "%towers_load_8 = load i11 %towers_addr_19" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 270 'load' 'towers_load_8' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_11 : Operation 271 [1/1] (0.00ns)   --->   "%zext_ln154_7 = zext i12 %towers_load_8" [./calorimeter.h:154->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 271 'zext' 'zext_ln154_7' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_11 : Operation 272 [1/2] (1.20ns)   --->   "%towers_load_9 = load i11 %towers_addr_20" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 272 'load' 'towers_load_9' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_11 : Operation 273 [1/1] (0.00ns)   --->   "%zext_ln167_14 = zext i12 %towers_load_9" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 273 'zext' 'zext_ln167_14' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_11 : Operation 274 [2/2] (1.20ns)   --->   "%towers_load_10 = load i11 %towers_addr_21" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 274 'load' 'towers_load_10' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_11 : Operation 275 [2/2] (1.20ns)   --->   "%towers_load_11 = load i11 %towers_addr_22" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 275 'load' 'towers_load_11' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_11 : Operation 276 [1/1] (0.74ns)   --->   "%add_ln219_1 = add i13 %zext_ln154_7, i13 %zext_ln167_14" [./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 276 'add' 'add_ln219_1' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.74> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 12 <SV = 11> <Delay = 1.94>
+ST_12 : Operation 277 [1/1] (0.00ns)   --->   "%zext_ln167_24 = zext i11 %add_ln167_2" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 277 'zext' 'zext_ln167_24' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_12 : Operation 278 [1/1] (0.00ns)   --->   "%towers_addr_12 = getelementptr i12 %towers, i64 0, i64 %zext_ln167_24" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 278 'getelementptr' 'towers_addr_12' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_12 : Operation 279 [1/1] (0.00ns)   --->   "%zext_ln167_26 = zext i11 %add_ln167_7" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 279 'zext' 'zext_ln167_26' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_12 : Operation 280 [1/1] (0.00ns)   --->   "%towers_addr_23 = getelementptr i12 %towers, i64 0, i64 %zext_ln167_26" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 280 'getelementptr' 'towers_addr_23' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_12 : Operation 281 [1/2] (1.20ns)   --->   "%towers_load_10 = load i11 %towers_addr_21" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 281 'load' 'towers_load_10' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_12 : Operation 282 [1/1] (0.00ns)   --->   "%zext_ln167_15 = zext i12 %towers_load_10" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 282 'zext' 'zext_ln167_15' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_12 : Operation 283 [1/2] (1.20ns)   --->   "%towers_load_11 = load i11 %towers_addr_22" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 283 'load' 'towers_load_11' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_12 : Operation 284 [1/1] (0.00ns)   --->   "%zext_ln167_16 = zext i12 %towers_load_11" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 284 'zext' 'zext_ln167_16' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_12 : Operation 285 [2/2] (1.20ns)   --->   "%towers_load_12 = load i11 %towers_addr_12" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 285 'load' 'towers_load_12' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_12 : Operation 286 [2/2] (1.20ns)   --->   "%towers_load_13 = load i11 %towers_addr_23" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 286 'load' 'towers_load_13' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_12 : Operation 287 [1/1] (0.74ns)   --->   "%add_ln219_3 = add i13 %zext_ln167_15, i13 %zext_ln167_16" [./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 287 'add' 'add_ln219_3' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.74> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 13 <SV = 12> <Delay = 1.20>
+ST_13 : Operation 288 [1/1] (0.00ns)   --->   "%zext_ln167_35 = zext i11 %add_ln167_23" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 288 'zext' 'zext_ln167_35' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_13 : Operation 289 [1/1] (0.00ns)   --->   "%towers_addr_24 = getelementptr i12 %towers, i64 0, i64 %zext_ln167_35" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 289 'getelementptr' 'towers_addr_24' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 0.00>
+ST_13 : Operation 290 [1/2] (1.20ns)   --->   "%towers_load_12 = load i11 %towers_addr_12" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 290 'load' 'towers_load_12' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_13 : Operation 291 [1/2] (1.20ns)   --->   "%towers_load_13 = load i11 %towers_addr_23" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 291 'load' 'towers_load_13' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_13 : Operation 292 [2/2] (1.20ns)   --->   "%towers_load_14 = load i11 %towers_addr_24" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 292 'load' 'towers_load_14' <Predicate = (!icmp_ln288 & !or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+
+State 14 <SV = 13> <Delay = 5.51>
+ST_14 : Operation 293 [1/1] (0.00ns)   --->   "%specloopname_ln0 = specloopname void @_ssdm_op_SpecLoopName, void @VITIS_LOOP_288_1_VITIS_LOOP_289_2_str"   --->   Operation 293 'specloopname' 'specloopname_ln0' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 294 [1/1] (0.00ns)   --->   "%speclooptripcount_ln0 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 1560, i64 1560, i64 1560"   --->   Operation 294 'speclooptripcount' 'speclooptripcount_ln0' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 295 [1/1] (0.00ns)   --->   "%specpipeline_ln290 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_5" [./calorimeter.h:290]   --->   Operation 295 'specpipeline' 'specpipeline_ln290' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 296 [1/1] (0.00ns)   --->   "%zext_ln167_17 = zext i12 %towers_load_12" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 296 'zext' 'zext_ln167_17' <Predicate = (!or_ln307_2)> <Delay = 0.00>
+ST_14 : Operation 297 [1/1] (0.00ns)   --->   "%zext_ln167_18 = zext i12 %towers_load_13" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 297 'zext' 'zext_ln167_18' <Predicate = (!or_ln307_2)> <Delay = 0.00>
+ST_14 : Operation 298 [1/2] (1.20ns)   --->   "%towers_load_14 = load i11 %towers_addr_24" [./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 298 'load' 'towers_load_14' <Predicate = (!or_ln307_2)> <Delay = 1.20> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.20> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 12> <Depth = 1800> <RAM>
+ST_14 : Operation 299 [1/1] (0.00ns)   --->   "%zext_ln151 = zext i12 %towers_load_14" [./calorimeter.h:151->./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 299 'zext' 'zext_ln151' <Predicate = (!or_ln307_2)> <Delay = 0.00>
+ST_14 : Operation 300 [1/1] (0.00ns)   --->   "%zext_ln219 = zext i13 %add_ln219_1" [./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 300 'zext' 'zext_ln219' <Predicate = (!or_ln307_2)> <Delay = 0.00>
+ST_14 : Operation 301 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln219_2 = add i16 %zext_ln219, i16 %add_ln219" [./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 301 'add' 'add_ln219_2' <Predicate = (!or_ln307_2)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.33> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_14 : Operation 302 [1/1] (0.00ns)   --->   "%zext_ln219_1 = zext i13 %add_ln219_3" [./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 302 'zext' 'zext_ln219_1' <Predicate = (!or_ln307_2)> <Delay = 0.00>
+ST_14 : Operation 303 [1/1] (0.74ns)   --->   "%add_ln219_4 = add i13 %zext_ln167_18, i13 %zext_ln151" [./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 303 'add' 'add_ln219_4' <Predicate = (!or_ln307_2)> <Delay = 0.74> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 304 [1/1] (0.00ns)   --->   "%zext_ln219_2 = zext i13 %add_ln219_4" [./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 304 'zext' 'zext_ln219_2' <Predicate = (!or_ln307_2)> <Delay = 0.00>
+ST_14 : Operation 305 [1/1] (0.75ns)   --->   "%add_ln219_5 = add i14 %zext_ln219_2, i14 %zext_ln167_17" [./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 305 'add' 'add_ln219_5' <Predicate = (!or_ln307_2)> <Delay = 0.75> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.75> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 306 [1/1] (0.00ns)   --->   "%zext_ln219_3 = zext i14 %add_ln219_5" [./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 306 'zext' 'zext_ln219_3' <Predicate = (!or_ln307_2)> <Delay = 0.00>
+ST_14 : Operation 307 [1/1] (0.76ns)   --->   "%add_ln219_6 = add i15 %zext_ln219_3, i15 %zext_ln219_1" [./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 307 'add' 'add_ln219_6' <Predicate = (!or_ln307_2)> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 308 [1/1] (0.00ns)   --->   "%zext_ln219_4 = zext i15 %add_ln219_6" [./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 308 'zext' 'zext_ln219_4' <Predicate = (!or_ln307_2)> <Delay = 0.00>
+ST_14 : Operation 309 [1/1] (0.67ns) (root node of TernaryAdder)   --->   "%candidate_isolation_et = add i16 %zext_ln219_4, i16 %add_ln219_2" [./calorimeter.h:219->./calorimeter.h:310]   --->   Operation 309 'add' 'candidate_isolation_et' <Predicate = (!or_ln307_2)> <Delay = 0.67> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.33> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_14 : Operation 310 [1/1] (0.24ns)   --->   "%candidate_et = select i1 %or_ln307_2, i16 0, i16 %cluster_et_3" [./calorimeter.h:307]   --->   Operation 310 'select' 'candidate_et' <Predicate = true> <Delay = 0.24> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_14 : Operation 311 [1/1] (0.12ns)   --->   "%candidate_valid = xor i1 %or_ln307_2, i1 1" [./calorimeter.h:307]   --->   Operation 311 'xor' 'candidate_valid' <Predicate = true> <Delay = 0.12> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 312 [1/1] (0.00ns)   --->   "%zext_ln292 = zext i16 %candidate_et" [./calorimeter.h:292]   --->   Operation 312 'zext' 'zext_ln292' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 313 [1/1] (0.24ns)   --->   "%empty_59 = select i1 %or_ln307_2, i16 0, i16 %candidate_isolation_et" [./calorimeter.h:307]   --->   Operation 313 'select' 'empty_59' <Predicate = true> <Delay = 0.24> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_14 : Operation 314 [1/1] (0.00ns)   --->   "%or_ln314_s = bitconcatenate i61 @_ssdm_op_BitConcatenate.i61.i1.i8.i6.i1.i5.i4.i16.i20, i1 %candidate_valid, i8 83, i6 %select_ln288, i1 0, i5 %select_ln288_2, i4 0, i16 %empty_59, i20 %zext_ln292" [./calorimeter.h:314]   --->   Operation 314 'bitconcatenate' 'or_ln314_s' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 315 [1/1] (1.13ns)   --->   "%write_ln314 = write void @_ssdm_op_Write.ap_fifo.volatile.i61P0A, i61 %cluster_stream, i61 %or_ln314_s" [./calorimeter.h:314]   --->   Operation 315 'write' 'write_ln314' <Predicate = true> <Delay = 1.13> <CoreInst = "FIFO">   --->   Core 77 'FIFO' <Latency = 0> <II = 1> <Delay = 1.13> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 61> <Depth = 64> <FIFO>
+ST_14 : Operation 316 [1/1] (0.00ns)   --->   "%br_ln289 = br void %for.body4" [./calorimeter.h:289]   --->   Operation 316 'br' 'br_ln289' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 25.000ns, clock uncertainty: 6.750ns.
+
+ <State 1>: 4.752ns
+The critical path consists of the following:
+	'store' operation 0 bit ('store_ln288', ./calorimeter.h:288) of constant 2 on local variable 'eta', ./calorimeter.h:288 [13]  (0.387 ns)
+	'load' operation 5 bit ('eta_load', ./calorimeter.h:288) on local variable 'eta', ./calorimeter.h:288 [23]  (0.000 ns)
+	'add' operation 5 bit ('add_ln288_2', ./calorimeter.h:288) [29]  (0.707 ns)
+	'select' operation 5 bit ('select_ln288_2', ./calorimeter.h:288) [31]  (0.278 ns)
+	'add' operation 5 bit ('empty', ./calorimeter.h:288) [36]  (0.707 ns)
+	'sub' operation 11 bit ('sub_ln196', ./calorimeter.h:196->./calorimeter.h:303) [40]  (0.735 ns)
+	'add' operation 11 bit ('add_ln196_2', ./calorimeter.h:196->./calorimeter.h:303) [80]  (0.735 ns)
+	'getelementptr' operation 11 bit ('towers_addr_1', ./calorimeter.h:196->./calorimeter.h:303) [82]  (0.000 ns)
+	'load' operation 12 bit ('neighbor', ./calorimeter.h:196->./calorimeter.h:303) on array 'towers' [83]  (1.203 ns)
+
+ <State 2>: 3.659ns
+The critical path consists of the following:
+	'add' operation 6 bit ('phi', ./calorimeter.h:193->./calorimeter.h:303) [89]  (0.706 ns)
+	'icmp' operation 1 bit ('icmp_ln142', ./calorimeter.h:142->./calorimeter.h:193->./calorimeter.h:303) [90]  (0.706 ns)
+	'select' operation 7 bit ('phi_idx', ./calorimeter.h:142->./calorimeter.h:193->./calorimeter.h:303) [93]  (0.308 ns)
+	'add' operation 11 bit ('add_ln196_3', ./calorimeter.h:196->./calorimeter.h:303) [95]  (0.735 ns)
+	'getelementptr' operation 11 bit ('towers_addr_3', ./calorimeter.h:196->./calorimeter.h:303) [97]  (0.000 ns)
+	'load' operation 12 bit ('neighbor', ./calorimeter.h:196->./calorimeter.h:303) on array 'towers' [110]  (1.203 ns)
+
+ <State 3>: 1.938ns
+The critical path consists of the following:
+	'add' operation 11 bit ('add_ln196_6', ./calorimeter.h:196->./calorimeter.h:303) [111]  (0.735 ns)
+	'getelementptr' operation 11 bit ('towers_addr_4', ./calorimeter.h:196->./calorimeter.h:303) [113]  (0.000 ns)
+	'load' operation 12 bit ('neighbor', ./calorimeter.h:196->./calorimeter.h:303) on array 'towers' [123]  (1.203 ns)
+
+ <State 4>: 2.703ns
+The critical path consists of the following:
+	'load' operation 12 bit ('neighbor', ./calorimeter.h:196->./calorimeter.h:303) on array 'towers' [123]  (1.203 ns)
+	'add' operation 13 bit ('add_ln167_1', ./calorimeter.h:167->./calorimeter.h:305) [155]  (0.745 ns)
+	'add' operation 14 bit ('sum', ./calorimeter.h:167->./calorimeter.h:305) [157]  (0.755 ns)
+
+ <State 5>: 3.380ns
+The critical path consists of the following:
+	'add' operation 5 bit ('empty_57', ./calorimeter.h:288) [45]  (0.707 ns)
+	'sub' operation 11 bit ('sub_ln167', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) [49]  (0.735 ns)
+	'add' operation 11 bit ('add_ln167_18', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) [175]  (0.735 ns)
+	'getelementptr' operation 11 bit ('towers_addr_10', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) [177]  (0.000 ns)
+	'load' operation 12 bit ('sum', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) on array 'towers' [178]  (1.203 ns)
+
+ <State 6>: 5.104ns
+The critical path consists of the following:
+	'load' operation 12 bit ('neighbor', ./calorimeter.h:196->./calorimeter.h:303) on array 'towers' [142]  (1.203 ns)
+	'add' operation 13 bit ('add_ln167_4', ./calorimeter.h:167->./calorimeter.h:305) [161]  (0.745 ns)
+	'add' operation 14 bit ('add_ln167_5', ./calorimeter.h:167->./calorimeter.h:305) [163]  (0.755 ns)
+	'add' operation 15 bit ('sum', ./calorimeter.h:167->./calorimeter.h:305) [165]  (0.695 ns)
+	'add' operation 16 bit ('cluster_et', ./calorimeter.h:167->./calorimeter.h:305) [167]  (0.775 ns)
+	'icmp' operation 1 bit ('icmp_ln307', ./calorimeter.h:307) [169]  (0.809 ns)
+	'or' operation 1 bit ('or_ln307_1', ./calorimeter.h:307) [270]  (0.000 ns)
+	'or' operation 1 bit ('or_ln307_2', ./calorimeter.h:307) [271]  (0.122 ns)
+
+ <State 7>: 3.659ns
+The critical path consists of the following:
+	'add' operation 6 bit ('add_ln164', ./calorimeter.h:164->./calorimeter.h:219->./calorimeter.h:310) [186]  (0.706 ns)
+	'icmp' operation 1 bit ('icmp_ln142_1', ./calorimeter.h:142->./calorimeter.h:164->./calorimeter.h:219->./calorimeter.h:310) [187]  (0.706 ns)
+	'select' operation 7 bit ('phi_idx', ./calorimeter.h:142->./calorimeter.h:164->./calorimeter.h:219->./calorimeter.h:310) [190]  (0.308 ns)
+	'add' operation 11 bit ('add_ln167_19', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) [192]  (0.735 ns)
+	'getelementptr' operation 11 bit ('towers_addr_14', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) [194]  (0.000 ns)
+	'load' operation 12 bit ('towers_load_3', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) on array 'towers' [207]  (1.203 ns)
+
+ <State 8>: 2.703ns
+The critical path consists of the following:
+	'load' operation 12 bit ('towers_load_2', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) on array 'towers' [184]  (1.203 ns)
+	'add' operation 13 bit ('add_ln167_8', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) [245]  (0.745 ns)
+	'add' operation 14 bit ('sum_11', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) [247]  (0.755 ns)
+
+ <State 9>: 1.938ns
+The critical path consists of the following:
+	'add' operation 11 bit ('add_ln167_25', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) [212]  (0.735 ns)
+	'getelementptr' operation 11 bit ('towers_addr_17', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) [214]  (0.000 ns)
+	'load' operation 12 bit ('towers_load_6', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) on array 'towers' [225]  (1.203 ns)
+
+ <State 10>: 4.173ns
+The critical path consists of the following:
+	'load' operation 12 bit ('towers_load_6', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) on array 'towers' [225]  (1.203 ns)
+	'add' operation 13 bit ('add_ln167_11', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) [250]  (0.745 ns)
+	'add' operation 14 bit ('add_ln167_12', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) [252]  (0.755 ns)
+	'add' operation 15 bit ('sum_12', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) [254]  (0.695 ns)
+	'add' operation 16 bit ('add_ln219', ./calorimeter.h:219->./calorimeter.h:310) [256]  (0.775 ns)
+
+ <State 11>: 3.380ns
+The critical path consists of the following:
+	'add' operation 5 bit ('empty_58', ./calorimeter.h:288) [50]  (0.707 ns)
+	'sub' operation 11 bit ('sub_ln167_1', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) [54]  (0.735 ns)
+	'add' operation 11 bit ('add_ln167_27', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) [218]  (0.735 ns)
+	'getelementptr' operation 11 bit ('towers_addr_21', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) [220]  (0.000 ns)
+	'load' operation 12 bit ('towers_load_10', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) on array 'towers' [233]  (1.203 ns)
+
+ <State 12>: 1.948ns
+The critical path consists of the following:
+	'load' operation 12 bit ('towers_load_10', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) on array 'towers' [233]  (1.203 ns)
+	'add' operation 13 bit ('add_ln219_3', ./calorimeter.h:219->./calorimeter.h:310) [260]  (0.745 ns)
+
+ <State 13>: 1.203ns
+The critical path consists of the following:
+	'load' operation 12 bit ('towers_load_12', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) on array 'towers' [237]  (1.203 ns)
+
+ <State 14>: 5.516ns
+The critical path consists of the following:
+	'load' operation 12 bit ('towers_load_14', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) on array 'towers' [241]  (1.203 ns)
+	'add' operation 13 bit ('add_ln219_4', ./calorimeter.h:219->./calorimeter.h:310) [262]  (0.745 ns)
+	'add' operation 14 bit ('add_ln219_5', ./calorimeter.h:219->./calorimeter.h:310) [264]  (0.755 ns)
+	'add' operation 15 bit ('add_ln219_6', ./calorimeter.h:219->./calorimeter.h:310) [266]  (0.765 ns)
+	'add' operation 16 bit ('candidate.isolation_et', ./calorimeter.h:219->./calorimeter.h:310) [268]  (0.675 ns)
+	'select' operation 16 bit ('empty_59', ./calorimeter.h:307) [275]  (0.243 ns)
+	fifo write operation ('write_ln314', ./calorimeter.h:314) on port 'cluster_stream' (./calorimeter.h:314) [277]  (1.130 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

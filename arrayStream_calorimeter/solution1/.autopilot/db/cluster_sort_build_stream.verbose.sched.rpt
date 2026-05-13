@@ -1,0 +1,188 @@
+
+
+================================================================
+== Vitis HLS Report for 'cluster_sort_build_stream'
+================================================================
+* Date:           Tue May 12 20:42:46 2026
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        calorimeter
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu13p-fsga2577-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  25.00 ns|  5.516 ns|     6.75 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-------+-------+----------+
+    |  Latency (cycles) |  Latency (absolute) |    Interval   | Pipeline |
+    |   min   |   max   |    min   |    max   |  min  |  max  |   Type   |
+    +---------+---------+----------+----------+-------+-------+----------+
+    |    20283|    20283|  0.507 ms|  0.507 ms|  20284|  20284|  dataflow|
+    +---------+---------+----------+----------+-------+-------+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 4
+* Pipeline : 0
+* Dataflow Pipeline: 1
+  DF-Pipeline-0: Size = 4, States = { 1 2 3 4 }
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%cluster_threshold_read = read i20 @_ssdm_op_Read.ap_auto.i20, i20 %cluster_threshold"   --->   Operation 5 'read' 'cluster_threshold_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%seed_threshold_read = read i12 @_ssdm_op_Read.ap_auto.i12, i12 %seed_threshold"   --->   Operation 6 'read' 'seed_threshold_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%cluster_stream = alloca i64 1"   --->   Operation 7 'alloca' 'cluster_stream' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO">   --->   Core 77 'FIFO' <Latency = 0> <II = 1> <Delay = 1.13> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 61> <Depth = 64> <FIFO>
+ST_1 : Operation 8 [2/2] (0.00ns)   --->   "%call_ln332 = call void @produce_cluster_stream_3x3_iso5, i12 %towers, i12 %seed_threshold_read, i20 %cluster_threshold_read, i61 %cluster_stream" [calorimeter.cpp:332]   --->   Operation 8 'call' 'call_ln332' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 9 [1/2] (0.00ns)   --->   "%call_ln332 = call void @produce_cluster_stream_3x3_iso5, i12 %towers, i12 %seed_threshold_read, i20 %cluster_threshold_read, i61 %cluster_stream" [calorimeter.cpp:332]   --->   Operation 9 'call' 'call_ln332' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 10 [2/2] (0.00ns)   --->   "%call_ret = call i456 @select_top_n_from_stream, i61 %cluster_stream, i32 %num_clusters" [calorimeter.cpp:333]   --->   Operation 10 'call' 'call_ret' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 4 <SV = 3> <Delay = 3.21>
+ST_4 : Operation 11 [1/1] (0.00ns)   --->   "%specdataflowpipeline_ln323 = specdataflowpipeline void @_ssdm_op_SpecDataflowPipeline, i32 4294967295, i32 0, void @empty_5" [calorimeter.cpp:323]   --->   Operation 11 'specdataflowpipeline' 'specdataflowpipeline_ln323' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 12 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i12 %towers, void @empty_6, i32 0, i32 0, void @empty_5, i32 4294967295, i32 0, void @empty_5, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0, i32 0"   --->   Operation 12 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 13 [1/1] (0.00ns)   --->   "%empty = specchannel i32 @_ssdm_op_SpecChannel, void @cluster_stream_str, i32 1, void @p_str, void @p_str, i32 64, i32 64, i61 %cluster_stream, i61 %cluster_stream"   --->   Operation 13 'specchannel' 'empty' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 14 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i61 %cluster_stream, void @empty_2, i32 0, i32 0, void @empty_5, i32 0, i32 0, void @empty_5, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0, i32 0"   --->   Operation 14 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 15 [1/2] (0.73ns)   --->   "%call_ret = call i456 @select_top_n_from_stream, i61 %cluster_stream, i32 %num_clusters" [calorimeter.cpp:333]   --->   Operation 15 'call' 'call_ret' <Predicate = true> <Delay = 0.73> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 16 [1/1] (0.00ns)   --->   "%top_clusters_et = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 16 'extractvalue' 'top_clusters_et' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 17 [1/1] (0.00ns)   --->   "%top_clusters_et_1 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 17 'extractvalue' 'top_clusters_et_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 18 [1/1] (0.00ns)   --->   "%top_clusters_et_2 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 18 'extractvalue' 'top_clusters_et_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 19 [1/1] (0.00ns)   --->   "%top_clusters_et_3 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 19 'extractvalue' 'top_clusters_et_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 20 [1/1] (0.00ns)   --->   "%top_clusters_et_4 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 20 'extractvalue' 'top_clusters_et_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 21 [1/1] (0.00ns)   --->   "%top_clusters_et_5 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 21 'extractvalue' 'top_clusters_et_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 22 [1/1] (0.00ns)   --->   "%top_clusters_et_6 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 22 'extractvalue' 'top_clusters_et_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 23 [1/1] (0.00ns)   --->   "%top_clusters_et_7 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 23 'extractvalue' 'top_clusters_et_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 24 [1/1] (0.00ns)   --->   "%top_clusters_isolation_et = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 24 'extractvalue' 'top_clusters_isolation_et' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 25 [1/1] (0.00ns)   --->   "%top_clusters_isolation_et_1 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 25 'extractvalue' 'top_clusters_isolation_et_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 26 [1/1] (0.00ns)   --->   "%top_clusters_isolation_et_2 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 26 'extractvalue' 'top_clusters_isolation_et_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 27 [1/1] (0.00ns)   --->   "%top_clusters_isolation_et_3 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 27 'extractvalue' 'top_clusters_isolation_et_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 28 [1/1] (0.00ns)   --->   "%top_clusters_isolation_et_4 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 28 'extractvalue' 'top_clusters_isolation_et_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 29 [1/1] (0.00ns)   --->   "%top_clusters_isolation_et_5 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 29 'extractvalue' 'top_clusters_isolation_et_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 30 [1/1] (0.00ns)   --->   "%top_clusters_isolation_et_6 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 30 'extractvalue' 'top_clusters_isolation_et_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 31 [1/1] (0.00ns)   --->   "%top_clusters_isolation_et_7 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 31 'extractvalue' 'top_clusters_isolation_et_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 20> <Depth = 2> <FIFO>
+ST_4 : Operation 32 [1/1] (0.00ns)   --->   "%top_clusters_eta = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 32 'extractvalue' 'top_clusters_eta' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 33 [1/1] (0.00ns)   --->   "%top_clusters_eta_1 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 33 'extractvalue' 'top_clusters_eta_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 34 [1/1] (0.00ns)   --->   "%top_clusters_eta_2 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 34 'extractvalue' 'top_clusters_eta_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 35 [1/1] (0.00ns)   --->   "%top_clusters_eta_3 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 35 'extractvalue' 'top_clusters_eta_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 36 [1/1] (0.00ns)   --->   "%top_clusters_eta_4 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 36 'extractvalue' 'top_clusters_eta_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 37 [1/1] (0.00ns)   --->   "%top_clusters_eta_5 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 37 'extractvalue' 'top_clusters_eta_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 38 [1/1] (0.00ns)   --->   "%top_clusters_eta_6 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 38 'extractvalue' 'top_clusters_eta_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 39 [1/1] (0.00ns)   --->   "%top_clusters_eta_7 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 39 'extractvalue' 'top_clusters_eta_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 40 [1/1] (0.00ns)   --->   "%top_clusters_phi = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 40 'extractvalue' 'top_clusters_phi' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 41 [1/1] (0.00ns)   --->   "%top_clusters_phi_1 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 41 'extractvalue' 'top_clusters_phi_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 42 [1/1] (0.00ns)   --->   "%top_clusters_phi_2 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 42 'extractvalue' 'top_clusters_phi_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 43 [1/1] (0.00ns)   --->   "%top_clusters_phi_3 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 43 'extractvalue' 'top_clusters_phi_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 44 [1/1] (0.00ns)   --->   "%top_clusters_phi_4 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 44 'extractvalue' 'top_clusters_phi_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 45 [1/1] (0.00ns)   --->   "%top_clusters_phi_5 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 45 'extractvalue' 'top_clusters_phi_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 46 [1/1] (0.00ns)   --->   "%top_clusters_phi_6 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 46 'extractvalue' 'top_clusters_phi_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 47 [1/1] (0.00ns)   --->   "%top_clusters_phi_7 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 47 'extractvalue' 'top_clusters_phi_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 6> <Depth = 2> <FIFO>
+ST_4 : Operation 48 [1/1] (0.00ns)   --->   "%top_clusters_window_size = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 48 'extractvalue' 'top_clusters_window_size' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 49 [1/1] (0.00ns)   --->   "%top_clusters_window_size_1 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 49 'extractvalue' 'top_clusters_window_size_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 50 [1/1] (0.00ns)   --->   "%top_clusters_window_size_2 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 50 'extractvalue' 'top_clusters_window_size_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 51 [1/1] (0.00ns)   --->   "%top_clusters_window_size_3 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 51 'extractvalue' 'top_clusters_window_size_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 52 [1/1] (0.00ns)   --->   "%top_clusters_window_size_4 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 52 'extractvalue' 'top_clusters_window_size_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 53 [1/1] (0.00ns)   --->   "%top_clusters_window_size_5 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 53 'extractvalue' 'top_clusters_window_size_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 54 [1/1] (0.00ns)   --->   "%top_clusters_window_size_6 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 54 'extractvalue' 'top_clusters_window_size_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 55 [1/1] (0.00ns)   --->   "%top_clusters_window_size_7 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 55 'extractvalue' 'top_clusters_window_size_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_4 : Operation 56 [1/1] (0.00ns)   --->   "%top_clusters_valid = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 56 'extractvalue' 'top_clusters_valid' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 57 [1/1] (0.00ns)   --->   "%top_clusters_valid_1 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 57 'extractvalue' 'top_clusters_valid_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 58 [1/1] (0.00ns)   --->   "%top_clusters_valid_2 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 58 'extractvalue' 'top_clusters_valid_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 59 [1/1] (0.00ns)   --->   "%top_clusters_valid_3 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 59 'extractvalue' 'top_clusters_valid_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 60 [1/1] (0.00ns)   --->   "%top_clusters_valid_4 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 60 'extractvalue' 'top_clusters_valid_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 61 [1/1] (0.00ns)   --->   "%top_clusters_valid_5 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 61 'extractvalue' 'top_clusters_valid_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 62 [1/1] (0.00ns)   --->   "%top_clusters_valid_6 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 62 'extractvalue' 'top_clusters_valid_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 63 [1/1] (0.00ns)   --->   "%top_clusters_valid_7 = extractvalue i456 %call_ret" [calorimeter.cpp:333]   --->   Operation 63 'extractvalue' 'top_clusters_valid_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
+ST_4 : Operation 64 [1/1] (2.47ns)   --->   "%call_ln334 = call void @build_trigger_objects, i20 %top_clusters_et, i20 %top_clusters_et_1, i20 %top_clusters_et_2, i20 %top_clusters_et_3, i20 %top_clusters_et_4, i20 %top_clusters_et_5, i20 %top_clusters_et_6, i20 %top_clusters_et_7, i20 %top_clusters_isolation_et, i20 %top_clusters_isolation_et_1, i20 %top_clusters_isolation_et_2, i20 %top_clusters_isolation_et_3, i20 %top_clusters_isolation_et_4, i20 %top_clusters_isolation_et_5, i20 %top_clusters_isolation_et_6, i20 %top_clusters_isolation_et_7, i6 %top_clusters_eta, i6 %top_clusters_eta_1, i6 %top_clusters_eta_2, i6 %top_clusters_eta_3, i6 %top_clusters_eta_4, i6 %top_clusters_eta_5, i6 %top_clusters_eta_6, i6 %top_clusters_eta_7, i6 %top_clusters_phi, i6 %top_clusters_phi_1, i6 %top_clusters_phi_2, i6 %top_clusters_phi_3, i6 %top_clusters_phi_4, i6 %top_clusters_phi_5, i6 %top_clusters_phi_6, i6 %top_clusters_phi_7, i4 %top_clusters_window_size, i4 %top_clusters_window_size_1, i4 %top_clusters_window_size_2, i4 %top_clusters_window_size_3, i4 %top_clusters_window_size_4, i4 %top_clusters_window_size_5, i4 %top_clusters_window_size_6, i4 %top_clusters_window_size_7, i1 %top_clusters_valid, i1 %top_clusters_valid_1, i1 %top_clusters_valid_2, i1 %top_clusters_valid_3, i1 %top_clusters_valid_4, i1 %top_clusters_valid_5, i1 %top_clusters_valid_6, i1 %top_clusters_valid_7, i89 %trigger_objects_0, i89 %trigger_objects_1, i89 %trigger_objects_2, i89 %trigger_objects_3, i89 %trigger_objects_4, i89 %trigger_objects_5, i89 %trigger_objects_6, i89 %trigger_objects_7" [calorimeter.cpp:334]   --->   Operation 64 'call' 'call_ln334' <Predicate = true> <Delay = 2.47> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 65 [1/1] (0.00ns)   --->   "%ret_ln335 = ret" [calorimeter.cpp:335]   --->   Operation 65 'ret' 'ret_ln335' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 25.000ns, clock uncertainty: 6.750ns.
+
+ <State 1>: 0.000ns
+The critical path consists of the following:
+
+ <State 2>: 0.000ns
+The critical path consists of the following:
+
+ <State 3>: 0.000ns
+The critical path consists of the following:
+
+ <State 4>: 3.213ns
+The critical path consists of the following:
+	'call' operation 456 bit ('call_ret', calorimeter.cpp:333) to 'select_top_n_from_stream' [21]  (0.735 ns)
+	'call' operation 0 bit ('call_ln334', calorimeter.cpp:334) to 'build_trigger_objects' [70]  (2.478 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -1,0 +1,312 @@
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2024.1 (64-bit)
+Tool Version Limit: 2024.05
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+==============================================================
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xcvu13p-fsga2577-2-e 
+INFO: [HLS 200-1611] Setting target device to 'xcvu13p-fsga2577-2-e'
+INFO: [HLS 200-1510] Running: create_clock -period 25 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 25ns.
+INFO: [HLS 200-1510] Running: csim_design 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-2161] Finished Command csim_design Elapsed time: 00:00:11; Allocated memory: 0.164 MB.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.16 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.18 seconds; current allocated memory: 325.223 MB.
+INFO: [HLS 200-10] Analyzing design file 'calorimeter.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 7.75 seconds. CPU system time: 1.22 seconds. Elapsed time: 9.1 seconds; current allocated memory: 327.723 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 1,605 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 2,328 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,392 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,003 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 998 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,583 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,277 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 2,026 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,804 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 2,087 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,740 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,584 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,583 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,583 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,594 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,631 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details: /scratch/emettner/tachep-fpga-project-26/calorimeter/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 214-131] Inlining function 'wrap_phi(int)' into 'bool is_local_maximum<3>(ap_uint<12> const (*) [60], int, int)' (./calorimeter.h:193:31)
+INFO: [HLS 214-131] Inlining function 'wrap_phi(int)' into 'ap_uint<20> window_sum<3>(ap_uint<12> const (*) [60], int, int)' (./calorimeter.h:164:27)
+INFO: [HLS 214-131] Inlining function 'wrap_phi(int)' into 'ap_uint<20> window_sum<5>(ap_uint<12> const (*) [60], int, int)' (./calorimeter.h:164:27)
+INFO: [HLS 214-131] Inlining function 'ap_uint<20> window_sum<5>(ap_uint<12> const (*) [60], int, int)' into 'ap_uint<20> isolation_sum<3, 5>(ap_uint<12> const (*) [60], int, int)' (./calorimeter.h:219:9)
+INFO: [HLS 214-131] Inlining function 'ap_uint<20> window_sum<3>(ap_uint<12> const (*) [60], int, int)' into 'ap_uint<20> isolation_sum<3, 5>(ap_uint<12> const (*) [60], int, int)' (./calorimeter.h:219:49)
+INFO: [HLS 214-131] Inlining function 'ap_uint<20> isolation_sum<3, 5>(ap_uint<12> const (*) [60], int, int)' into 'void find_clusters_stream<3, 5>(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, hls::stream<Cluster, 0>&)' (./calorimeter.h:310:46)
+INFO: [HLS 214-131] Inlining function 'ap_uint<20> window_sum<3>(ap_uint<12> const (*) [60], int, int)' into 'void find_clusters_stream<3, 5>(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, hls::stream<Cluster, 0>&)' (./calorimeter.h:305:43)
+INFO: [HLS 214-131] Inlining function 'bool is_local_maximum<3>(ap_uint<12> const (*) [60], int, int)' into 'void find_clusters_stream<3, 5>(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, hls::stream<Cluster, 0>&)' (./calorimeter.h:303:46)
+INFO: [HLS 214-131] Inlining function 'cluster_is_better(Cluster const&, Cluster const&)' into 'insert_cluster_into_top_n(Cluster const&, Cluster*)' (calorimeter.cpp:111:39)
+INFO: [HLS 214-131] Inlining function 'insert_cluster_into_top_n(Cluster const&, Cluster*)' into 'select_top_n_from_stream(hls::stream<Cluster, 0>&, Cluster*, int*)' (calorimeter.cpp:310:9)
+INFO: [HLS 214-291] Loop 'INSERT_POSITION' is marked as complete unroll implied by the pipeline pragma (calorimeter.cpp:110:22)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_113_1' is marked as complete unroll implied by the pipeline pragma (calorimeter.cpp:113:31)
+INFO: [HLS 214-291] Loop 'LOCAL_ETA' is marked as complete unroll implied by the pipeline pragma (./calorimeter.h:183:16)
+INFO: [HLS 214-291] Loop 'LOCAL_PHI' is marked as complete unroll implied by the pipeline pragma (./calorimeter.h:185:13)
+INFO: [HLS 214-291] Loop 'WIN_ETA' is marked as complete unroll implied by the pipeline pragma (./calorimeter.h:156:14)
+INFO: [HLS 214-291] Loop 'WIN_PHI' is marked as complete unroll implied by the pipeline pragma (./calorimeter.h:158:11)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_174_1' (calorimeter.cpp:174:20) in function 'build_trigger_objects' completely with a factor of 8 (calorimeter.cpp:171:0)
+INFO: [HLS 214-186] Unrolling loop 'INSERT_POSITION' (calorimeter.cpp:110:22) in function 'select_top_n_from_stream' completely with a factor of 8 (calorimeter.cpp:284:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_288_1' (calorimeter.cpp:288:23) in function 'select_top_n_from_stream' completely with a factor of 8 (calorimeter.cpp:284:0)
+INFO: [HLS 214-186] Unrolling loop 'LOCAL_ETA' (./calorimeter.h:183:16) in function 'find_clusters_stream<3, 5>' completely with a factor of 3 (./calorimeter.h:284:0)
+INFO: [HLS 214-186] Unrolling loop 'LOCAL_PHI' (./calorimeter.h:185:13) in function 'find_clusters_stream<3, 5>' completely with a factor of 3 (./calorimeter.h:284:0)
+INFO: [HLS 214-186] Unrolling loop 'WIN_ETA' (./calorimeter.h:156:14) in function 'find_clusters_stream<3, 5>' completely with a factor of 3 (./calorimeter.h:284:0)
+INFO: [HLS 214-186] Unrolling loop 'WIN_PHI' (./calorimeter.h:158:11) in function 'find_clusters_stream<3, 5>' completely with a factor of 3 (./calorimeter.h:284:0)
+INFO: [HLS 214-186] Unrolling loop 'WIN_ETA' (./calorimeter.h:156:14) in function 'find_clusters_stream<3, 5>' completely with a factor of 5 (./calorimeter.h:284:0)
+INFO: [HLS 214-186] Unrolling loop 'WIN_PHI' (./calorimeter.h:158:11) in function 'find_clusters_stream<3, 5>' completely with a factor of 5 (./calorimeter.h:284:0)
+INFO: [HLS 214-178] Inlining function 'compute_ht(ap_uint<12> const (*) [60])' into 'calo_trigger_stream_ref(ap_uint<12> const (*) [60], ap_uint<12>, ap_uint<20>, TriggerObject*, ap_uint<24>*, int*)' (calorimeter.cpp:253:0)
+INFO: [HLS 214-248] Applying array_partition to 'top_clusters.et': Complete partitioning on dimension 1. (calorimeter.cpp:329:10)
+INFO: [HLS 214-248] Applying array_partition to 'top_clusters.isolation_et': Complete partitioning on dimension 1. (calorimeter.cpp:329:10)
+INFO: [HLS 214-248] Applying array_partition to 'top_clusters.eta': Complete partitioning on dimension 1. (calorimeter.cpp:329:10)
+INFO: [HLS 214-248] Applying array_partition to 'top_clusters.phi': Complete partitioning on dimension 1. (calorimeter.cpp:329:10)
+INFO: [HLS 214-248] Applying array_partition to 'top_clusters.window_size': Complete partitioning on dimension 1. (calorimeter.cpp:329:10)
+INFO: [HLS 214-248] Applying array_partition to 'top_clusters.iso_outer_size': Complete partitioning on dimension 1. (calorimeter.cpp:329:10)
+INFO: [HLS 214-248] Applying array_partition to 'top_clusters.valid': Complete partitioning on dimension 1. (calorimeter.cpp:329:10)
+INFO: [HLS 214-248] Applying array_partition to 'trigger_objects': Complete partitioning on dimension 1. (calorimeter.cpp:253:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'cluster_stream' with compact=bit mode in 61-bits (calorimeter.cpp:325:23)
+INFO: [HLS 214-241] Aggregating scalar variable 'trigger_objects_7' with compact=bit mode in 89-bits (calorimeter.cpp:253:0)
+INFO: [HLS 214-241] Aggregating scalar variable 'trigger_objects_6' with compact=bit mode in 89-bits (calorimeter.cpp:253:0)
+INFO: [HLS 214-241] Aggregating scalar variable 'trigger_objects_5' with compact=bit mode in 89-bits (calorimeter.cpp:253:0)
+INFO: [HLS 214-241] Aggregating scalar variable 'trigger_objects_4' with compact=bit mode in 89-bits (calorimeter.cpp:253:0)
+INFO: [HLS 214-241] Aggregating scalar variable 'trigger_objects_3' with compact=bit mode in 89-bits (calorimeter.cpp:253:0)
+INFO: [HLS 214-241] Aggregating scalar variable 'trigger_objects_2' with compact=bit mode in 89-bits (calorimeter.cpp:253:0)
+INFO: [HLS 214-241] Aggregating scalar variable 'trigger_objects_1' with compact=bit mode in 89-bits (calorimeter.cpp:253:0)
+INFO: [HLS 214-241] Aggregating scalar variable 'trigger_objects_0' with compact=bit mode in 89-bits (calorimeter.cpp:253:0)
+INFO: [HLS 214-241] Aggregating bram variable 'towers' with compact=bit mode in 12-bits (calorimeter.cpp:253:0)
+WARNING: [HLS 214-187] Cannot unroll loop 'VITIS_LOOP_113_1' (calorimeter.cpp:113:31) in function 'select_top_n_from_stream' as it has a variable trip count (calorimeter.cpp:113:31)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 6.88 seconds. CPU system time: 1.03 seconds. Elapsed time: 10.2 seconds; current allocated memory: 337.824 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 337.824 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.14 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.15 seconds; current allocated memory: 339.117 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.15 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 341.707 MB.
+WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 1560 for loop 'VITIS_LOOP_299_2' (calorimeter.cpp:286:6) in function 'select_top_n_from_stream'.
+INFO: [XFORM 203-712] Applying dataflow to function 'cluster_sort_build_stream' (calorimeter.cpp:323:1), detected/extracted 3 process function(s): 
+	 'produce_cluster_stream_3x3_iso5'
+	 'select_top_n_from_stream'
+	 'build_trigger_objects'.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (./calorimeter.h:290:9) to (./calorimeter.h:289:27) in function 'find_clusters_stream<3, 5>'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (calorimeter.cpp:184:30) to (calorimeter.cpp:204:1) in function 'build_trigger_objects'... converting 17 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'find_clusters_stream<3, 5>' (./calorimeter.h:138:27)...28 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.79 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.82 seconds; current allocated memory: 368.043 MB.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_288_1'(./calorimeter.h:288:23) and 'VITIS_LOOP_289_2'(./calorimeter.h:289:27) in function 'find_clusters_stream<3, 5>' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'HT_ETA'(calorimeter.cpp:160:13) and 'HT_PHI'(calorimeter.cpp:161:17) in function 'calo_trigger_stream_ref' into perfectly nested loops.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_288_1' (./calorimeter.h:288:23) in function 'find_clusters_stream<3, 5>'.
+INFO: [XFORM 203-541] Flattening a loop nest 'HT_ETA' (calorimeter.cpp:160:13) in function 'calo_trigger_stream_ref'.
+WARNING: [HLS 200-1450] Process select_top_n_from_stream has both a successor and writes an output to its caller (see the GUI dataflow viewer). This may lead to lower throughput. Consider copying this output via a successor process.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.54 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.62 seconds; current allocated memory: 409.938 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'calo_trigger_stream_ref' ...
+WARNING: [SYN 201-103] Legalizing function name 'find_clusters_stream<3, 5>' to 'find_clusters_stream_3_5_s'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'find_clusters_stream_3_5_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_288_1_VITIS_LOOP_289_2'.
+WARNING: [HLS 200-885] The II Violation in module 'find_clusters_stream_3_5_s' (loop 'VITIS_LOOP_288_1_VITIS_LOOP_289_2'): Unable to schedule 'load' operation 12 bit ('neighbor', ./calorimeter.h:196->./calorimeter.h:303) on array 'towers' due to limited memory ports (II = 1). Please consider using a memory core with more ports or partitioning the array 'towers'.
+WARNING: [HLS 200-885] The II Violation in module 'find_clusters_stream_3_5_s' (loop 'VITIS_LOOP_288_1_VITIS_LOOP_289_2'): Unable to schedule 'load' operation 12 bit ('neighbor', ./calorimeter.h:196->./calorimeter.h:303) on array 'towers' due to limited memory ports (II = 2). Please consider using a memory core with more ports or partitioning the array 'towers'.
+WARNING: [HLS 200-885] The II Violation in module 'find_clusters_stream_3_5_s' (loop 'VITIS_LOOP_288_1_VITIS_LOOP_289_2'): Unable to schedule 'load' operation 12 bit ('neighbor', ./calorimeter.h:196->./calorimeter.h:303) on array 'towers' due to limited memory ports (II = 3). Please consider using a memory core with more ports or partitioning the array 'towers'.
+WARNING: [HLS 200-885] The II Violation in module 'find_clusters_stream_3_5_s' (loop 'VITIS_LOOP_288_1_VITIS_LOOP_289_2'): Unable to schedule 'load' operation 12 bit ('neighbor', ./calorimeter.h:196->./calorimeter.h:303) on array 'towers' due to limited memory ports (II = 4). Please consider using a memory core with more ports or partitioning the array 'towers'.
+WARNING: [HLS 200-885] The II Violation in module 'find_clusters_stream_3_5_s' (loop 'VITIS_LOOP_288_1_VITIS_LOOP_289_2'): Unable to schedule 'load' operation 12 bit ('towers_load_11', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) on array 'towers' due to limited memory ports (II = 11). Please consider using a memory core with more ports or partitioning the array 'towers'.
+WARNING: [HLS 200-885] The II Violation in module 'find_clusters_stream_3_5_s' (loop 'VITIS_LOOP_288_1_VITIS_LOOP_289_2'): Unable to schedule 'load' operation 12 bit ('towers_load_13', ./calorimeter.h:167->./calorimeter.h:219->./calorimeter.h:310) on array 'towers' due to limited memory ports (II = 12). Please consider using a memory core with more ports or partitioning the array 'towers'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 13, Depth = 14, loop 'VITIS_LOOP_288_1_VITIS_LOOP_289_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1.14 seconds. CPU system time: 0.04 seconds. Elapsed time: 1.24 seconds; current allocated memory: 414.113 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.1 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.14 seconds; current allocated memory: 414.113 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'produce_cluster_stream_3x3_iso5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.1 seconds; current allocated memory: 414.113 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 414.113 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'select_top_n_from_stream' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for loop 'VITIS_LOOP_299_2': contains subloop(s) that are not unrolled or flattened.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1.14 seconds. CPU system time: 0.03 seconds. Elapsed time: 1.24 seconds; current allocated memory: 429.922 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.41 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.44 seconds; current allocated memory: 429.922 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'build_trigger_objects' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.42 seconds. CPU system time: 0.04 seconds. Elapsed time: 0.49 seconds; current allocated memory: 429.922 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.07 seconds; current allocated memory: 429.922 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'cluster_sort_build_stream' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 429.922 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 429.922 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'calo_trigger_stream_ref' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'HT_ETA_HT_PHI'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'HT_ETA_HT_PHI'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.14 seconds; current allocated memory: 429.922 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 429.922 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'find_clusters_stream_3_5_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'find_clusters_stream_3_5_s' pipeline 'VITIS_LOOP_288_1_VITIS_LOOP_289_2' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'find_clusters_stream_3_5_s/towers_WEN_A' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'find_clusters_stream_3_5_s/towers_Din_A' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'find_clusters_stream_3_5_s/towers_WEN_B' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'find_clusters_stream_3_5_s/towers_Din_B' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'find_clusters_stream_3_5_s'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.16 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.22 seconds; current allocated memory: 429.922 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'produce_cluster_stream_3x3_iso5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Setting dangling out port 'produce_cluster_stream_3x3_iso5/towers_WEN_A' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'produce_cluster_stream_3x3_iso5/towers_Din_A' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'produce_cluster_stream_3x3_iso5/towers_WEN_B' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'produce_cluster_stream_3x3_iso5/towers_Din_B' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'produce_cluster_stream_3x3_iso5'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.27 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.35 seconds; current allocated memory: 429.922 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'select_top_n_from_stream' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_15_3_1_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_15_3_20_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_15_3_4_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_15_3_6_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'select_top_n_from_stream'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 5.51 seconds. CPU system time: 0.05 seconds. Elapsed time: 5.6 seconds; current allocated memory: 452.879 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'build_trigger_objects' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'build_trigger_objects'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 2 seconds. CPU system time: 0.14 seconds. Elapsed time: 2.32 seconds; current allocated memory: 473.992 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'cluster_sort_build_stream' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'cluster_sort_build_stream'.
+INFO: [RTMG 210-285] Implementing FIFO 'cluster_stream_U(calo_trigger_stream_ref_fifo_w61_d64_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_et_U(calo_trigger_stream_ref_fifo_w20_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_et_1_U(calo_trigger_stream_ref_fifo_w20_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_et_2_U(calo_trigger_stream_ref_fifo_w20_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_et_3_U(calo_trigger_stream_ref_fifo_w20_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_et_4_U(calo_trigger_stream_ref_fifo_w20_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_et_5_U(calo_trigger_stream_ref_fifo_w20_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_et_6_U(calo_trigger_stream_ref_fifo_w20_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_et_7_U(calo_trigger_stream_ref_fifo_w20_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_isolation_et_U(calo_trigger_stream_ref_fifo_w20_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_isolation_et_1_U(calo_trigger_stream_ref_fifo_w20_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_isolation_et_2_U(calo_trigger_stream_ref_fifo_w20_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_isolation_et_3_U(calo_trigger_stream_ref_fifo_w20_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_isolation_et_4_U(calo_trigger_stream_ref_fifo_w20_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_isolation_et_5_U(calo_trigger_stream_ref_fifo_w20_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_isolation_et_6_U(calo_trigger_stream_ref_fifo_w20_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_isolation_et_7_U(calo_trigger_stream_ref_fifo_w20_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_eta_U(calo_trigger_stream_ref_fifo_w6_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_eta_1_U(calo_trigger_stream_ref_fifo_w6_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_eta_2_U(calo_trigger_stream_ref_fifo_w6_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_eta_3_U(calo_trigger_stream_ref_fifo_w6_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_eta_4_U(calo_trigger_stream_ref_fifo_w6_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_eta_5_U(calo_trigger_stream_ref_fifo_w6_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_eta_6_U(calo_trigger_stream_ref_fifo_w6_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_eta_7_U(calo_trigger_stream_ref_fifo_w6_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_phi_U(calo_trigger_stream_ref_fifo_w6_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_phi_1_U(calo_trigger_stream_ref_fifo_w6_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_phi_2_U(calo_trigger_stream_ref_fifo_w6_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_phi_3_U(calo_trigger_stream_ref_fifo_w6_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_phi_4_U(calo_trigger_stream_ref_fifo_w6_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_phi_5_U(calo_trigger_stream_ref_fifo_w6_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_phi_6_U(calo_trigger_stream_ref_fifo_w6_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_phi_7_U(calo_trigger_stream_ref_fifo_w6_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_window_size_U(calo_trigger_stream_ref_fifo_w4_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_window_size_1_U(calo_trigger_stream_ref_fifo_w4_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_window_size_2_U(calo_trigger_stream_ref_fifo_w4_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_window_size_3_U(calo_trigger_stream_ref_fifo_w4_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_window_size_4_U(calo_trigger_stream_ref_fifo_w4_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_window_size_5_U(calo_trigger_stream_ref_fifo_w4_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_window_size_6_U(calo_trigger_stream_ref_fifo_w4_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_window_size_7_U(calo_trigger_stream_ref_fifo_w4_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_valid_U(calo_trigger_stream_ref_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_valid_1_U(calo_trigger_stream_ref_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_valid_2_U(calo_trigger_stream_ref_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_valid_3_U(calo_trigger_stream_ref_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_valid_4_U(calo_trigger_stream_ref_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_valid_5_U(calo_trigger_stream_ref_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_valid_6_U(calo_trigger_stream_ref_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'top_clusters_valid_7_U(calo_trigger_stream_ref_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_select_top_n_from_stream_U0_U(calo_trigger_stream_ref_start_for_select_top_n_from_stream_U0)' using Shift Registers.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.34 seconds. CPU system time: 0.04 seconds. Elapsed time: 0.66 seconds; current allocated memory: 478.641 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'calo_trigger_stream_ref' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'calo_trigger_stream_ref/towers' to 'bram'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'calo_trigger_stream_ref/seed_threshold' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'calo_trigger_stream_ref/cluster_threshold' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'calo_trigger_stream_ref/trigger_objects_0' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'calo_trigger_stream_ref/trigger_objects_1' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'calo_trigger_stream_ref/trigger_objects_2' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'calo_trigger_stream_ref/trigger_objects_3' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'calo_trigger_stream_ref/trigger_objects_4' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'calo_trigger_stream_ref/trigger_objects_5' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'calo_trigger_stream_ref/trigger_objects_6' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'calo_trigger_stream_ref/trigger_objects_7' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'calo_trigger_stream_ref/ht' to 's_axilite & ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'calo_trigger_stream_ref/num_clusters' to 's_axilite & ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'calo_trigger_stream_ref' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'seed_threshold', 'cluster_threshold', 'ht', 'num_clusters' and 'return' to AXI-Lite port CTRL.
+WARNING: [RTGEN 206-101] Setting dangling out port 'calo_trigger_stream_ref/towers_WEN_A' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'calo_trigger_stream_ref/towers_Din_A' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'calo_trigger_stream_ref/towers_WEN_B' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'calo_trigger_stream_ref/towers_Din_B' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'calo_trigger_stream_ref'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.26 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.41 seconds; current allocated memory: 481.465 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.47 seconds. CPU system time: 0.1 seconds. Elapsed time: 0.58 seconds; current allocated memory: 484.574 MB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 1.58 seconds. CPU system time: 0.05 seconds. Elapsed time: 1.62 seconds; current allocated memory: 494.844 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for calo_trigger_stream_ref.
+INFO: [VLOG 209-307] Generating Verilog RTL for calo_trigger_stream_ref.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 181.29 MHz
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 00:00:37; Allocated memory: 170.336 MB.
