@@ -26,6 +26,11 @@
 #define JET_SCAN_RADIUS (JET_ISO_W / 2)
 #define JET_SCAN_CELLS ((NETA - 2 * JET_SCAN_RADIUS) * NPHI)
 
+// Tower-stream front end 
+#define TOWER_STREAM_WIN 7
+#define TOWER_STREAM_RADIUS (TOWER_STREAM_WIN / 2)
+#define TOWER_STREAM_SCAN_CELLS ((NETA - 2 * TOWER_STREAM_RADIUS) * NPHI)
+
 
 // Old names for EM-only streaming implementation (ignore)
 #define CLUSTER_W_STREAM EM_CLUSTER_W
@@ -36,7 +41,7 @@
 // Shape cuts. EM requires smaller clusters and less isolation energy, while jets can be larger and less isolated.
 #define EM_ISO_DEN 6 // Denominator for EM isolation cut (isolation_et < cluster_et / EM_ISO_DEN)
 #define EM_RING_DEN 6 // Denominator for EM ring cut (ring_et < cluster_et / EM_RING_DEN)
-#define JET_RING_DEN 6 // Denominator for jet ring cut (ring_et < cluster_et / JET_RING_DEN)    
+#define JET_RING_DEN 6 // Denominator for jet ring cut (ring_et < cluster_et / JET_RING_DEN) 
 // Data types
 
 //Each tower's transverse energy (ET) is represented as a 12-bit unsigned integer
@@ -165,6 +170,73 @@ inline int wrap_phi(int phi) {
     return phi;
 }
 
+inline void init_cluster(Cluster &candidate, int eta, int phi, int window_size,int iso_outer_size)
+{
+#pragma HLS INLINE
+
+    candidate.et = 0;
+    candidate.isolation_et = 0;
+    candidate.eta = eta;
+    candidate.phi = phi;
+    candidate.window_size = window_size;
+    candidate.iso_outer_size = iso_outer_size;
+    candidate.valid = false;
+}
+
+inline void clear_top_clusters(Cluster top_clusters[TOP_N])
+{
+#pragma HLS INLINE
+
+    for (int i = 0; i < TOP_N; i++) {
+#pragma HLS UNROLL
+        init_cluster(top_clusters[i], 0, 0, 0, 0);
+    }
+}
+
+inline void set_valid_cluster(Cluster &candidate, cluster_et_t et, cluster_et_t isolation_et, int eta, int phi, int window_size, int iso_outer_size)
+{
+#pragma HLS INLINE
+    candidate.et = et;
+    candidate.isolation_et = isolation_et;
+    candidate.eta = eta;
+    candidate.phi = phi;
+    candidate.window_size = window_size;
+    candidate.iso_outer_size = iso_outer_size;
+    candidate.valid = true;
+}
+
+inline void init_trigger_object(TriggerObject &obj)
+{
+#pragma HLS INLINE
+
+    obj.et = 0;
+    obj.isolation_et = 0;
+    obj.eta = 0;
+    obj.phi = 0;
+    obj.window_size = 0;
+    obj.type = TRIG_NONE;
+    obj.valid = false;
+}
+
+inline void make_trigger_object_from_cluster(const Cluster &cluster, TriggerObject &obj)
+{
+#pragma HLS INLINE
+
+    obj.et = cluster.et;
+    obj.isolation_et = cluster.isolation_et;
+    obj.eta = cluster.eta;
+    obj.phi = cluster.phi;
+    obj.window_size = cluster.window_size;
+    obj.valid = cluster.valid;
+
+    if (!cluster.valid) {
+        obj.type = TRIG_NONE;
+    } else if (cluster.window_size == EM_CLUSTER_W) {
+        obj.type = TRIG_EM;
+    } else {
+        obj.type = TRIG_JET;
+    }
+}
 
 /// Build a template to allow for easy switching between different cluster finding algorithms
 template<int W>
@@ -186,6 +258,24 @@ cluster_et_t window_sum(const tower_et_t towers[NETA][NPHI], int eta, int phi) {
             if (eta_idx >= 0 && eta_idx < NETA) {
                 sum += (cluster_et_t)towers[eta_idx][phi_idx];
             }
+        }
+    }
+    return sum;
+}
+
+
+// Window summer but for a 7x7 window instead of the full array
+template<int W>
+cluster_et_t local_window_sum_7x7(const tower_et_t window[TOWER_STREAM_WIN][TOWER_STREAM_WIN]) {
+#pragma HLS INLINE
+
+    cluster_et_t sum = 0;
+    const int OFFSET = (TOWER_STREAM_WIN - W) / 2;
+    for (int i = 0; i < W; i++) {
+#pragma HLS UNROLL
+        for (int j = 0; j < W; j++) {
+#pragma HLS UNROLL
+            sum += (cluster_et_t)window[i + OFFSET][j + OFFSET];
         }
     }
     return sum;
@@ -227,6 +317,46 @@ bool is_local_maximum(const tower_et_t towers[NETA][NPHI], int eta, int phi) {
         }
     return is_max;
 }
+
+
+template<int W>
+bool local_is_maximum_7x7(const tower_et_t window[TOWER_STREAM_WIN][TOWER_STREAM_WIN]) {
+#pragma HLS INLINE
+    const int OFFSET = (TOWER_STREAM_WIN - W) / 2;
+    const int CENTER = TOWER_STREAM_RADIUS;
+
+    tower_et_t center_et = window[CENTER][CENTER];
+    bool is_max = true;
+
+
+    for (int i = 0; i < W; i++) {
+#pragma HLS UNROLL
+        for (int j = 0; j < W; j++) {
+#pragma HLS UNROLL
+
+            int local_eta = i + OFFSET;
+            int local_phi = j + OFFSET;
+
+            int d_eta = local_eta - CENTER;
+            int d_phi = local_phi - CENTER;
+
+            if (!(d_eta == 0 && d_phi == 0)) {
+                tower_et_t neighbor = window[local_eta][local_phi];
+
+                if (neighbor > center_et) {
+                    is_max = false;
+                } else if (neighbor == center_et) {
+                    if (d_eta < 0 || (d_eta == 0 && d_phi < 0)) {
+                        is_max = false;
+                    }
+                }
+            }
+        }
+
+    }
+    return is_max;
+}
+
 
 // Now to get isolation energery we can use the same window sum function but with a larger window and subtract the cluster energy
 // For example, for a 5x5 isolation window around a 3x3 cluster, we can do:
@@ -280,6 +410,69 @@ inline bool is_jet_like(cluster_et_t core3_et, cluster_et_t sum7_et) {
     return true;
 }
 
+inline Cluster make_em_candidate_from_window(
+    const tower_et_t window[TOWER_STREAM_WIN][TOWER_STREAM_WIN],
+    int center_eta,
+    int center_phi,
+    tower_et_t seed_threshold,
+    cluster_et_t cluster_threshold)
+{
+#pragma HLS INLINE
+
+    Cluster candidate;
+    init_cluster(candidate, center_eta, center_phi, EM_CLUSTER_W, EM_ISO_W);
+
+    tower_et_t seed_et = window[TOWER_STREAM_RADIUS][TOWER_STREAM_RADIUS];
+
+    if (seed_et >= seed_threshold &&
+        local_is_maximum_7x7<EM_CLUSTER_W>(window)) {
+
+        cluster_et_t core3_et = local_window_sum_7x7<3>(window);
+        cluster_et_t sum5_et  = local_window_sum_7x7<5>(window);
+        cluster_et_t sum7_et  = local_window_sum_7x7<7>(window);
+
+        cluster_et_t iso5_et  = sum5_et - core3_et;
+        cluster_et_t ring7_et = sum7_et - core3_et;
+
+        if (core3_et >= cluster_threshold && is_em_like(core3_et, iso5_et, ring7_et)) {
+            set_valid_cluster(candidate, core3_et, iso5_et, center_eta, center_phi, EM_CLUSTER_W, EM_ISO_W);
+        }
+    }
+
+    return candidate;
+}
+
+inline Cluster make_jet_candidate_from_window(
+    const tower_et_t window[TOWER_STREAM_WIN][TOWER_STREAM_WIN],
+    int center_eta,
+    int center_phi,
+    tower_et_t seed_threshold,
+    cluster_et_t cluster_threshold)
+{
+#pragma HLS INLINE
+
+    Cluster candidate;
+    init_cluster(candidate, center_eta, center_phi, JET_CLUSTER_W, JET_ISO_W);
+
+    tower_et_t seed_et = window[TOWER_STREAM_RADIUS][TOWER_STREAM_RADIUS];
+
+    if (seed_et >= seed_threshold &&
+        local_is_maximum_7x7<JET_CLUSTER_W>(window)) {
+
+        cluster_et_t core3_et = local_window_sum_7x7<3>(window);
+        cluster_et_t sum7_et  = local_window_sum_7x7<7>(window);
+        cluster_et_t ring7_et = sum7_et - core3_et;
+
+        if (sum7_et >= cluster_threshold && is_jet_like(core3_et, sum7_et)) {
+            set_valid_cluster(candidate, sum7_et, ring7_et, center_eta, center_phi, JET_CLUSTER_W, JET_ISO_W);
+        }
+    }
+
+    return candidate;
+}
+
+
+
 // Now we need to implement the main cluster finding function using these templates.
 // We want to find the cluster using a given size, and the isolation size.
 // If no isolation desired, we can set the isolation size to be the same as the cluster size, which will result in zero isolation energy.
@@ -290,9 +483,6 @@ void find_clusters(const tower_et_t towers[NETA][NPHI],
                     Cluster clusters[MAX_CLUSTERS],
                     int &num_clusters) {
     num_clusters = 0;
-
-    const int CLUSTER_HALF_W = cluster_W / 2;
-    const int ISO_HALF_W = iso_W / 2;
 
     const int HALF_W = (cluster_W > iso_W) ? (cluster_W / 2) : (iso_W / 2);
     //Ignore boundary cells for right now. 
@@ -322,13 +512,7 @@ void find_clusters(const tower_et_t towers[NETA][NPHI],
 
             // Store cluster information
             if (num_clusters < MAX_CLUSTERS) {
-                clusters[num_clusters].et = cluster_et;
-                clusters[num_clusters].isolation_et = isolation_et;
-                clusters[num_clusters].eta = eta;
-                clusters[num_clusters].phi = phi;
-                clusters[num_clusters].window_size = cluster_W;
-                clusters[num_clusters].iso_outer_size = iso_W;
-                clusters[num_clusters].valid = true;
+                set_valid_cluster(clusters[num_clusters], cluster_et, isolation_et, eta, phi, cluster_W, iso_W);
                 num_clusters++;
             }
         }
@@ -349,13 +533,7 @@ void find_clusters_stream(const tower_et_t towers[NETA][NPHI],
     #pragma HLS PIPELINE II=1
             
             Cluster candidate;
-            candidate.et = 0;
-            candidate.isolation_et = 0;
-            candidate.eta = eta;
-            candidate.phi = phi;
-            candidate.window_size = cluster_W;
-            candidate.iso_outer_size = iso_W;
-            candidate.valid = false;    
+            init_cluster(candidate, eta, phi, cluster_W, iso_W); 
 
             tower_et_t seed_et = towers[eta][phi];
 
@@ -365,9 +543,7 @@ void find_clusters_stream(const tower_et_t towers[NETA][NPHI],
 
                 if (cluster_et >= cluster_threshold) {
                     // Calculate isolation energy
-                    candidate.et = cluster_et;
-                    candidate.isolation_et = isolation_sum<cluster_W, iso_W>(towers, eta, phi);
-                    candidate.valid = true;
+                    set_valid_cluster(candidate, cluster_et, isolation_sum<cluster_W, iso_W>(towers, eta, phi), eta, phi, cluster_W, iso_W);
                 }
             }
             cluster_stream.write(candidate);
@@ -441,6 +617,40 @@ void cluster_sort_build_em_jet_stream(const tower_et_t towers[NETA][NPHI],
 
 
 
+void produce_em_jet_cluster_stream_from_towers(
+    hls::stream<tower_et_t> &tower_in,
+    tower_et_t em_seed_threshold,
+    cluster_et_t em_cluster_threshold,
+    tower_et_t jet_seed_threshold,
+    cluster_et_t jet_cluster_threshold,
+    hls::stream<Cluster> &em_cluster_stream,
+    hls::stream<Cluster> &jet_cluster_stream,
+    ht_t *ht);
+
+void cluster_sort_build_tower_stream(
+    hls::stream<tower_et_t> &tower_in,
+    tower_et_t em_seed_threshold,
+    cluster_et_t em_cluster_threshold,
+    tower_et_t jet_seed_threshold,
+    cluster_et_t jet_cluster_threshold,
+    TriggerObject em_objects[TOP_N],
+    TriggerObject jet_objects[TOP_N],
+    ht_t *ht,
+    int *num_em_clusters,
+    int *num_jet_clusters);
+
+void calo_trigger_tower_stream_ref(
+    hls::stream<tower_et_t> &tower_in,
+    tower_et_t em_seed_threshold,
+    cluster_et_t em_cluster_threshold,
+    tower_et_t jet_seed_threshold,
+    cluster_et_t jet_cluster_threshold,
+    TriggerObject em_objects[TOP_N],
+    TriggerObject jet_objects[TOP_N],
+    ht_t *ht,
+    int *num_em_clusters,
+    int *num_jet_clusters);
+
 
 
 
@@ -452,17 +662,8 @@ void select_top_n_from_stream_fixed(hls::stream<Cluster> &cluster_stream,
                             int *num_clusters) {
 #pragma HLS ARRAY_PARTITION variable=top_clusters complete dim=1
     int local_num_clusters = 0;
-
-    for (int i = 0; i < TOP_N; i++) {
-#pragma HLS UNROLL
-        top_clusters[i].et = 0;
-        top_clusters[i].isolation_et = 0;
-        top_clusters[i].eta = 0;
-        top_clusters[i].phi = 0;
-        top_clusters[i].window_size = 0;
-        top_clusters[i].iso_outer_size = 0;
-        top_clusters[i].valid = false;
-    }
+    
+    clear_top_clusters(top_clusters);
 
     for (int i = 0; i < NUM_CANDIDATES; i++){
 #pragma HLS PIPELINE II=1

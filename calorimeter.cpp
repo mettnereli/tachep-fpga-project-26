@@ -129,29 +129,14 @@ void select_top_n(const Cluster clusters[MAX_CLUSTERS],
                   Cluster top_clusters[TOP_N]) {
 #pragma HLS ARRAY_PARTITION variable=top_clusters complete dim=1
     // Simple selection sort for top N clusters
-    INIT_TOP: for (int i = 0; i < TOP_N; i++) {
-#pragma HLS UNROLL
-        top_clusters[i].et = 0;
-        top_clusters[i].isolation_et = 0;
-        top_clusters[i].eta = 0;
-        top_clusters[i].phi = 0;
-        top_clusters[i].window_size = 0;
-        top_clusters[i].iso_outer_size = 0;
-        top_clusters[i].valid = false;
-    }
+    clear_top_clusters(top_clusters);
 
     FIND_CLUSTER: for (int i = 0; i < MAX_CLUSTERS; ++i) {
 #pragma HLS PIPELINE II=1
-	if (i >= num_clusters) {
-		continue;
-	}
-        if (!clusters[i].valid) { 
-		continue;
-	}
+	if (i >= num_clusters) continue;
+    if (!clusters[i].valid) continue;
 
-        Cluster candidate = clusters[i];
-
-        insert_cluster_into_top_n(clusters[i], top_clusters);
+    insert_cluster_into_top_n(clusters[i], top_clusters);
     }
 }
 
@@ -173,33 +158,11 @@ void build_trigger_objects(const Cluster top_clusters[TOP_N],
 #pragma HLS ARRAY_PARTITION variable=top_clusters complete dim=1
     for (int i = 0; i < TOP_N; ++i) {
 #pragma HLS UNROLL
-        trigger_objects[i].et = 0;
-        trigger_objects[i].isolation_et = 0;
-        trigger_objects[i].eta = 0;
-        trigger_objects[i].phi = 0;
-        trigger_objects[i].window_size = 0;
-        trigger_objects[i].type = TRIG_NONE;
-        trigger_objects[i].valid = false;
+        init_trigger_object(trigger_objects[i]);
 
-        if (!top_clusters[i].valid) {
-            continue;
-        }
+        if (!top_clusters[i].valid) continue;
 
-        trigger_objects[i].et = top_clusters[i].et;
-        trigger_objects[i].isolation_et = top_clusters[i].isolation_et;
-        trigger_objects[i].eta = top_clusters[i].eta;
-        trigger_objects[i].phi = top_clusters[i].phi;
-        trigger_objects[i].window_size = top_clusters[i].window_size;
-
-
-        // Classification logic based on window size.
-        if (top_clusters[i].window_size == 3) {
-            trigger_objects[i].type = TRIG_EM;
-        } else {
-            trigger_objects[i].type = TRIG_JET;
-        }
-
-	trigger_objects[i].valid = true;
+        make_trigger_object_from_cluster(top_clusters[i], trigger_objects[i]);
     }
 }
 
@@ -301,6 +264,43 @@ void calo_trigger_em_jet_stream_ref(const tower_et_t towers[NETA][NPHI],
 
 }
 
+void calo_trigger_tower_stream_ref(
+    hls::stream<tower_et_t> &tower_in,
+    tower_et_t em_seed_threshold,
+    cluster_et_t em_cluster_threshold,
+    tower_et_t jet_seed_threshold,
+    cluster_et_t jet_cluster_threshold,
+    TriggerObject em_objects[TOP_N],
+    TriggerObject jet_objects[TOP_N],
+    ht_t *ht,
+    int *num_em_clusters,
+    int *num_jet_clusters)
+{
+#pragma HLS INTERFACE axis port=tower_in
+
+#pragma HLS INTERFACE s_axilite port=em_seed_threshold bundle=CTRL
+#pragma HLS INTERFACE s_axilite port=em_cluster_threshold bundle=CTRL
+#pragma HLS INTERFACE s_axilite port=jet_seed_threshold bundle=CTRL
+#pragma HLS INTERFACE s_axilite port=jet_cluster_threshold bundle=CTRL
+#pragma HLS INTERFACE s_axilite port=ht bundle=CTRL
+#pragma HLS INTERFACE s_axilite port=num_em_clusters bundle=CTRL
+#pragma HLS INTERFACE s_axilite port=num_jet_clusters bundle=CTRL
+#pragma HLS INTERFACE s_axilite port=return bundle=CTRL
+
+#pragma HLS ARRAY_PARTITION variable=em_objects complete dim=1
+#pragma HLS ARRAY_PARTITION variable=jet_objects complete dim=1
+
+    cluster_sort_build_tower_stream(tower_in,
+                                    em_seed_threshold,
+                                    em_cluster_threshold,
+                                    jet_seed_threshold,
+                                    jet_cluster_threshold,
+                                    em_objects,
+                                    jet_objects,
+                                    ht,
+                                    num_em_clusters,
+                                    num_jet_clusters);
+}
 
 void produce_cluster_stream_3x3_iso5(const tower_et_t towers[NETA][NPHI],
                             tower_et_t seed_threshold,
@@ -330,14 +330,7 @@ void produce_em_cluster_stream(const tower_et_t towers[NETA][NPHI],
 #pragma HLS PIPELINE II=1
 
             Cluster candidate;
-
-            candidate.et = 0;
-            candidate.isolation_et = 0;
-            candidate.eta = eta;
-            candidate.phi = phi;
-            candidate.window_size = EM_CLUSTER_W;
-            candidate.iso_outer_size = EM_ISO_W;
-            candidate.valid = false;
+            init_cluster(candidate, eta, phi, EM_CLUSTER_W, EM_ISO_W);
 
             tower_et_t seed_et = towers[eta][phi];
 
@@ -351,12 +344,8 @@ void produce_em_cluster_stream(const tower_et_t towers[NETA][NPHI],
                 cluster_et_t iso5_et  = sum5_et - core3_et;
                 cluster_et_t ring7_et = sum7_et - core3_et;
 
-                if (core3_et >= cluster_threshold &&
-                    is_em_like(core3_et, iso5_et, ring7_et)) {
-
-                    candidate.et = core3_et;
-                    candidate.isolation_et = iso5_et;
-                    candidate.valid = true;
+                if (core3_et >= cluster_threshold && is_em_like(core3_et, iso5_et, ring7_et)) {
+                    set_valid_cluster(candidate, core3_et, iso5_et, eta, phi, EM_CLUSTER_W, EM_ISO_W);
                 }
             }
 
@@ -377,14 +366,7 @@ void produce_jet_cluster_stream(const tower_et_t towers[NETA][NPHI],
 #pragma HLS PIPELINE II=1
 
             Cluster candidate;
-
-            candidate.et = 0;
-            candidate.isolation_et = 0;
-            candidate.eta = eta;
-            candidate.phi = phi;
-            candidate.window_size = JET_CLUSTER_W;
-            candidate.iso_outer_size = JET_ISO_W;
-            candidate.valid = false;
+            init_cluster(candidate, eta, phi, JET_CLUSTER_W, JET_ISO_W);
 
             tower_et_t seed_et = towers[eta][phi];
 
@@ -397,14 +379,7 @@ void produce_jet_cluster_stream(const tower_et_t towers[NETA][NPHI],
 
                 if (sum7_et >= cluster_threshold &&
                     is_jet_like(core3_et, sum7_et)) {
-
-                    candidate.et = sum7_et;
-
-                    // For jets, this field stores wide-ring energy.
-                    // It measures broadness, not EM-style isolation.
-                    candidate.isolation_et = ring7_et;
-
-                    candidate.valid = true;
+                    set_valid_cluster(candidate, sum7_et, ring7_et, eta, phi, JET_CLUSTER_W, JET_ISO_W);
                 }
             }
 
@@ -481,4 +456,131 @@ void cluster_sort_build_em_jet_stream(const tower_et_t towers[NETA][NPHI],
 
 
 
+}
+
+
+
+void produce_em_jet_cluster_stream_from_towers(
+    hls::stream<tower_et_t> &tower_in,
+    tower_et_t em_seed_threshold,
+    cluster_et_t em_cluster_threshold,
+    tower_et_t jet_seed_threshold,
+    cluster_et_t jet_cluster_threshold,
+    hls::stream<Cluster> &em_cluster_stream,
+    hls::stream<Cluster> &jet_cluster_stream,
+    ht_t *ht)
+{
+    tower_et_t linebuf[TOWER_STREAM_WIN][NPHI];
+#pragma HLS ARRAY_PARTITION variable=linebuf complete dim=1
+
+    tower_et_t window[TOWER_STREAM_WIN][TOWER_STREAM_WIN];
+#pragma HLS ARRAY_PARTITION variable=window complete dim=0
+
+    ht_t local_ht = 0;
+
+    for (int eta = 0; eta < NETA; eta++) {
+
+        int write_row = eta % TOWER_STREAM_WIN;
+
+        // Read one full eta row from the input stream.
+        for (int phi = 0; phi < NPHI; phi++) {
+#pragma HLS PIPELINE II=1
+
+            tower_et_t incoming = tower_in.read();
+            local_ht += (ht_t)incoming;
+            linebuf[write_row][phi] = incoming;
+        }
+
+        // Once seven rows are available, generate candidates for the
+        // center row eta - 3.
+        if (eta >= TOWER_STREAM_WIN - 1) {
+
+            int center_eta = eta - TOWER_STREAM_RADIUS;
+
+            for (int center_phi = 0; center_phi < NPHI; center_phi++) {
+#pragma HLS PIPELINE II=1
+
+                // Build the local 7x7 window using the circular row buffer
+                // and periodic phi wraparound.
+                for (int d_eta = -TOWER_STREAM_RADIUS;
+                     d_eta <= TOWER_STREAM_RADIUS;
+                     d_eta++) {
+#pragma HLS UNROLL
+
+                    for (int d_phi = -TOWER_STREAM_RADIUS;
+                                        d_phi <= TOWER_STREAM_RADIUS;
+                                        d_phi++) {
+#pragma HLS UNROLL
+
+                        int src_eta = center_eta + d_eta;
+                        int src_row = src_eta % TOWER_STREAM_WIN;
+                        int src_phi = wrap_phi(center_phi + d_phi);
+
+                        window[d_eta + TOWER_STREAM_RADIUS]
+                              [d_phi + TOWER_STREAM_RADIUS] =
+                            linebuf[src_row][src_phi];
+                    }
+                }
+
+                Cluster em_candidate = make_em_candidate_from_window(window,center_eta,center_phi,em_seed_threshold, em_cluster_threshold);
+
+                Cluster jet_candidate = make_jet_candidate_from_window(window,center_eta,center_phi,jet_seed_threshold, jet_cluster_threshold);
+
+                em_cluster_stream.write(em_candidate);
+                jet_cluster_stream.write(jet_candidate);
+            }
+        }
+    }
+
+    *ht = local_ht;
+}
+
+void cluster_sort_build_tower_stream(
+    hls::stream<tower_et_t> &tower_in,
+    tower_et_t em_seed_threshold,
+    cluster_et_t em_cluster_threshold,
+    tower_et_t jet_seed_threshold,
+    cluster_et_t jet_cluster_threshold,
+    TriggerObject em_objects[TOP_N],
+    TriggerObject jet_objects[TOP_N],
+    ht_t *ht,
+    int *num_em_clusters,
+    int *num_jet_clusters)
+{
+#pragma HLS DATAFLOW
+
+    hls::stream<Cluster> em_cluster_stream;
+    hls::stream<Cluster> jet_cluster_stream;
+
+#pragma HLS STREAM variable=em_cluster_stream depth=64
+#pragma HLS STREAM variable=jet_cluster_stream depth=64
+
+    Cluster em_top_clusters[TOP_N];
+    Cluster jet_top_clusters[TOP_N];
+
+#pragma HLS ARRAY_PARTITION variable=em_top_clusters complete dim=1
+#pragma HLS ARRAY_PARTITION variable=jet_top_clusters complete dim=1
+
+    produce_em_jet_cluster_stream_from_towers(tower_in,
+                                              em_seed_threshold,
+                                              em_cluster_threshold,
+                                              jet_seed_threshold,
+                                              jet_cluster_threshold,
+                                              em_cluster_stream,
+                                              jet_cluster_stream,
+                                              ht);
+
+    select_top_n_from_stream_fixed<TOWER_STREAM_SCAN_CELLS>(em_cluster_stream,
+                                                            em_top_clusters,
+                                                            num_em_clusters);
+
+    select_top_n_from_stream_fixed<TOWER_STREAM_SCAN_CELLS>(jet_cluster_stream,
+                                                            jet_top_clusters,
+                                                            num_jet_clusters);
+
+    build_trigger_objects(em_top_clusters,
+                          em_objects);
+
+    build_trigger_objects(jet_top_clusters,
+                          jet_objects);
 }
